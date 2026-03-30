@@ -429,7 +429,7 @@ async function renderSnapshotBar() {
   const el = document.getElementById('snapshot-bar');
   if (!el) return;
   try {
-    const res = await fetch('./data/snapshots/index.json', { cache: 'no-store' });
+    const res = await fetch(`./data/snapshots/index.json?t=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error();
     const snapshots = await res.json();
     if (!snapshots.length) { el.style.display = 'none'; return; }
