@@ -167,7 +167,7 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | IT webhook ticket | Pending | IT | May become irrelevant if Snowflake path works. |
 | Gary API key + endpoint docs | Awaiting reply | Gary Kirwan | Messaged via Slack/email 2026-03-30. Required for Project 10. |
 | Amplitude p-tagging issue | Dev fix needed | Engineering | Cue/WP tag format incompatibility. Blocks Amplitude adapter. Forward-path: scope event names at dev standup. |
-| Susannah: top 15 persona texts | Pending receipt | Susannah | Requested 2026-03-25. |
+| Persona drafts | Pending | Sara Vallone | Susannah persona texts not forthcoming; Sara to draft 6-7 new personas (Apple News, Smart News, MSN). |
 | Tarrow: MSN full-year 2025 re-export | Pending | Tarrow | Unlocks T1 Finding 5. |
 | Tarrow: SmartNews 2026 category columns | Pending | Tarrow | Unlocks T1 Finding 3 for 2026. |
 | Content diff tool (PGS-82) | In progress (UX sprint) | Marcelo Freitas (front-end) · Jim Robinson (backend script) · Susannah Locke (PM) · Efren Castillo (design) | Backend similarity scoring working (PyTorch, local tests pass). Architecture decided 2026-03-30: worst-pair score = cluster risk score; expose failing pair to user. UX sprint: Susannah + Efren own checkbox placement; Marcelo owns score display + variant controls + recalculation. Pierce = stakeholder; Sarah Price to test full flow later. |

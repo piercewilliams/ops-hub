@@ -52,7 +52,7 @@ Evaluated Gary Kirwan's toolkit against internal alternatives. Determined Gary's
 Clarified and documented the full cluster data model (3-tier: Cluster → Subject → Article). Established proactive assignment at CSA Research Draft stage as the correct entry point. Documented alignment meeting blocker and held the line against building before stakeholder agreement — preventing throwaway work.
 
 **2026-03-25 — Persona governance initiative**
-Initiated high-performing persona name consolidation with Sara Vallone. Requested top 15 persona texts from Susannah to build the controlled set. Identified TH/TH B2C variants as needing resolution with Sara and Sarah Price.
+Initiated high-performing persona name consolidation with Sara Vallone. Requested top 15 persona texts from Susannah to build the controlled set. Identified TH/TH B2C variants as needing resolution with Sara and Sarah Price. *(Update 2026-03-30: Susannah persona texts not forthcoming — path forward is Sara Vallone drafting 6-7 new personas including Apple News, Smart News, MSN versions.)*
 
 ---
 

@@ -37,7 +37,7 @@ For session history: see [sessions/](sessions/)
 | 2 | Dashboard Instrumentation | 4 | In progress | Sigma/Marfeel creds; Amplitude blocked (p-tagging) |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | Tarrow MSN/SmartNews re-exports pending |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
-| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Awaiting persona texts from Susannah |
+| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Awaiting Sara Vallone persona drafts |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
 | 6 | Content Cluster / Tagging Taxonomy | 3 | Blocked | Alignment meeting not scheduled |
 | 7 | Vallone Tracker / CMS Automation | 4 | Blocked | Needs P6 alignment + Snowflake access |
