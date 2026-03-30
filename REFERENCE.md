@@ -108,6 +108,7 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | CSA Content Standards | https://csa-content-standards.netlify.app |
 | T1 Headlines site | `/Users/pierce/Documents/GitHub/data-t1headlines/docs/index.html` |
 | Alignment meeting agenda | https://docs.google.com/document/d/1MtVlBJeh_k9X7dnrpRmEQ9jefrbdWwY2/edit |
+| PRD: Content Graph & Operations Layer V3 Breakout | Rajiv's team doc — describes Content Graph (asset lineage/versioning/performance) and Operations Layer (air traffic control dashboard). Input source for P9 PRD draft. Does NOT document the CSA ideal end state — that's the missing piece Pierce must add. |
 | Chris cluster performance sheet | https://docs.google.com/spreadsheets/d/1VGMbJUV2u9QjUpk0QxMdHeNf9sTumEeR/edit |
 | Sara Vallone tracker sheet | https://docs.google.com/spreadsheets/d/14_0eK46g3IEj7L_yp9FIdWwvnuYI5f-vAuP7DDhSPg8/edit |
 
