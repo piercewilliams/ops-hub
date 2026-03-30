@@ -103,6 +103,7 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 |----------|----------|
 | Dashboard (this repo) | `index.html` — open in browser |
 | CSA Dashboard | https://piercewilliams.github.io/csa-dashboard/ |
+| CSA Staging | https://staging.trendhunteragents.ai/csa |
 | CSA Content Standards | https://csa-content-standards.netlify.app |
 | T1 Headlines site | `/Users/pierce/Documents/GitHub/data-t1headlines/docs/index.html` |
 | Alignment meeting agenda | https://docs.google.com/document/d/1MtVlBJeh_k9X7dnrpRmEQ9jefrbdWwY2/edit |
@@ -130,7 +131,7 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | Patrick Al Khouri | Engineer; owns target audience/personas feature | Met at standup 2026-03-30 |
 | Victor Suarez | Engineer/analytics; Amplitude tasks complete, starting PGS-104 (Keywords Input Field) | Met at standup 2026-03-30 |
 | Ana Laura Volkman | Product; owns onboarding docs for CSA | Met at standup 2026-03-30 |
-| Amanda Hamilton | Content leadership (McClatchy side); new to team | Met at standup 2026-03-30 |
+| Amanda Hamilton | Content leadership (McClatchy side); adds new members to CSA project in BitBucket | Met at standup 2026-03-30 |
 | Gary Kirwan | Gary Tools developer | gary@kirwandigital.com |
 | Jim Robinson | Engineering; built cosine similarity diff tool; internal SEO tool; has novelty concern about Gary | — |
 | Stephanie Zandecki | Internal SEO; reviewing Gary's toolkit | — |
@@ -154,7 +155,7 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 
 | Item | Status | Owner | Notes |
 |------|--------|-------|-------|
-| Snowflake/Sigma security group | Pending | IT + Chad | Ticket submitted 2026-03-26. Also need SEO data warehouse permissions (Rocky Rhodes). |
+| IT access request (all platforms) | Awaiting response | IT (help@mcclatchy.com) | Sent 2026-03-30: Snowflake/Sigma, Amplitude, BitBucket, SemRush, Marfeel. Original Snowflake ticket 2026-03-26. Also requested SEO data warehouse permissions (Rocky Rhodes). |
 | IT webhook ticket | Pending | IT | May become irrelevant if Snowflake path works. |
 | Gary API key + endpoint docs | Awaiting reply | Gary Kirwan | Messaged via Slack/email 2026-03-30. Required for Project 10. |
 | Amplitude p-tagging issue | Dev fix needed | Engineering | Cue/WP tag format incompatibility. Blocks Amplitude adapter. Forward-path: scope event names at dev standup. |

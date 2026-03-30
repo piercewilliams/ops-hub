@@ -50,11 +50,15 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next
 
-1. [ ] **Request GitHub/product access from Rajiv Pant directly** (met at standup 2026-03-30 — unlocks P8)
-2. [ ] **Write desired target audiences for National team and test in CSA** (standup action item; coordinate with Oliver Felix on PGS-97)
-3. [ ] **Get Amplitude API access** — confirm provisioning path with IT or Chad (which group to join)
-4. [ ] Enable Google Sheets API key (P2 — unblocked, do first)
+1. [ ] **Await IT response** on access request sent 2026-03-30 to help@mcclatchy.com (Snowflake/Sigma, Amplitude, BitBucket, SemRush, Marfeel)
+2. [ ] **Enable Google Sheets API key** (P2 — unblocked, no OAuth needed, do now)
+3. [ ] **Write desired target audiences for National team and test in CSA** (standup action item; coordinate with Oliver Felix on PGS-97)
+4. [ ] **Once BitBucket account created by IT**, ping Amanda Hamilton to be added to CSA project (unlocks P8)
 5. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah (PGS-40 is ON HOLD in Jira pending this)
+
+## Pending Notifications
+
+- **CSA staging test (PGS-95):** Susannah will notify when Google Discover Explainer Content Format is ready to test on https://staging.trendhunteragents.ai/csa — had loading issues 2026-03-30. Pierce + Sara Vallone asked to test and give feedback.
 
 ## Items Not Yet in Any Repo
 
