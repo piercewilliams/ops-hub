@@ -7,6 +7,8 @@ import { renderDiagram, drawArrows } from './diagram.js';
 // Active projects — swapped to snapshot data when browsing version history
 let _activeProjects = PROJECTS;
 let _activeSnapshotId = null;
+let _activeSnapshotRaw = null;   // raw projects.js text, used for restore download
+let _activeSnapshotLabel = null;
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────
 
@@ -282,6 +284,9 @@ async function viewSnapshot(snapshotFile, snapId) {
 
     _activeProjects = data.projects;
     _activeSnapshotId = snapId;
+    _activeSnapshotRaw = data.raw || null;
+    _activeSnapshotLabel = new Date(data.timestamp).toLocaleString(undefined,
+      { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
 
     document.querySelectorAll('.snap-btn').forEach(b =>
       b.classList.toggle('active', b.dataset.snapId === snapId));
@@ -315,7 +320,7 @@ function showSnapshotBanner(timestamp) {
   banner.innerHTML = `
     <span>Viewing sync from <strong>${label}</strong></span>
     <span class="snap-banner-actions">
-      <button class="snap-banner-btn" data-snap-restore data-snap-label="${label}">Restore this version</button>
+      <button class="snap-banner-btn" data-snap-restore>Overwrite current with this version</button>
       <button class="snap-banner-btn snap-banner-exit" data-snap-exit>← Back to live</button>
     </span>
   `;
@@ -327,24 +332,62 @@ function hideSnapshotBanner() {
   if (banner) banner.style.display = 'none';
 }
 
-function showRestoreInstructions(label) {
+function showRestoreModal() {
   let modal = document.getElementById('snap-restore-modal');
   if (!modal) {
     modal = document.createElement('div');
     modal.id = 'snap-restore-modal';
     document.body.appendChild(modal);
   }
-  const instruction = `Restore ops-hub to the ${label} sync version`;
   modal.innerHTML = `
     <div class="srm-inner">
-      <div class="srm-title">Restore this version</div>
-      <div class="srm-body">Tell Claude Code:</div>
-      <div class="srm-code">${instruction}</div>
-      <button class="srm-copy" data-copy="${instruction}">Copy</button>
-      <button class="srm-dismiss" data-srm-close>Done</button>
+      <div class="srm-title">Restore this version?</div>
+      <div class="srm-body">This will overwrite the current <code>data/projects.js</code> with the <strong>${_activeSnapshotLabel}</strong> sync version. Enter passkey to download and replace.</div>
+      <input id="srm-passkey" class="srm-input" type="password" placeholder="Passkey" maxlength="10" autocomplete="off">
+      <div class="srm-error" id="srm-error"></div>
+      <div class="srm-btns">
+        <button class="srm-confirm" data-srm-confirm>Download & Restore</button>
+        <button class="srm-dismiss" data-srm-close>Cancel</button>
+      </div>
     </div>
   `;
   modal.classList.add('visible');
+  setTimeout(() => modal.querySelector('#srm-passkey')?.focus(), 50);
+}
+
+function attemptRestore() {
+  const input = document.getElementById('srm-passkey');
+  const errEl = document.getElementById('srm-error');
+  if (!input) return;
+  if (input.value !== '8812') {
+    errEl.textContent = 'Incorrect passkey.';
+    input.value = '';
+    input.classList.add('srm-shake');
+    setTimeout(() => input.classList.remove('srm-shake'), 400);
+    return;
+  }
+  // Passkey correct — download the file
+  if (_activeSnapshotRaw) {
+    const blob = new Blob([_activeSnapshotRaw], { type: 'text/javascript' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'projects.js';
+    a.click();
+    URL.revokeObjectURL(url);
+    const modal = document.getElementById('snap-restore-modal');
+    if (modal) {
+      modal.querySelector('.srm-inner').innerHTML = `
+        <div class="srm-title srm-success">Downloaded</div>
+        <div class="srm-body">Replace <code>data/projects.js</code> in your ops-hub folder with this file, then push via GitHub Desktop to apply.</div>
+        <div class="srm-btns"><button class="srm-dismiss" data-srm-close>Done</button></div>
+      `;
+    }
+  } else {
+    // No raw content in snapshot (older format) — fall back to instructions
+    const errEl2 = document.getElementById('srm-error');
+    if (errEl2) errEl2.textContent = 'Raw file not in this snapshot. Re-run a sync to generate a restorable version.';
+  }
 }
 
 // ── Sync Status ───────────────────────────────────────────────────────────────
@@ -447,19 +490,10 @@ document.addEventListener('click', (e) => {
   const snapBtn = e.target.closest('.snap-btn');
   if (snapBtn) { viewSnapshot(snapBtn.dataset.snapFile, snapBtn.dataset.snapId); return; }
   if (e.target.closest('[data-snap-exit]')) { exitSnapshotMode(); return; }
-  if (e.target.closest('[data-snap-restore]')) {
-    showRestoreInstructions(e.target.closest('[data-snap-restore]').dataset.snapLabel); return;
-  }
+  if (e.target.closest('[data-snap-restore]')) { showRestoreModal(); return; }
+  if (e.target.closest('[data-srm-confirm]')) { attemptRestore(); return; }
   if (e.target.closest('[data-srm-close]')) {
     document.getElementById('snap-restore-modal')?.classList.remove('visible'); return;
-  }
-  const copyBtn = e.target.closest('[data-copy]');
-  if (copyBtn) {
-    navigator.clipboard.writeText(copyBtn.dataset.copy).catch(() => {});
-    const orig = copyBtn.textContent;
-    copyBtn.textContent = 'Copied!';
-    setTimeout(() => { copyBtn.textContent = orig; }, 2000);
-    return;
   }
 
   const tag = e.target.closest('.csa-tag');
@@ -482,9 +516,16 @@ document.addEventListener('click', (e) => {
   if (el.dataset.action === 'refresh-sync')  fetchSyncStatus();
 });
 
-// Close sidebar on Escape
+// Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeSidebar();
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('snap-restore-modal');
+    if (modal?.classList.contains('visible')) { modal.classList.remove('visible'); return; }
+    closeSidebar();
+  }
+  if (e.key === 'Enter' && document.activeElement?.id === 'srm-passkey') {
+    attemptRestore();
+  }
 });
 
 // Redraw arrows on scroll and resize (uses _activeProjects so it works in snapshot mode)
