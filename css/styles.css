@@ -648,7 +648,7 @@ html, body {
    8b. PROGRESS BAR + PANEL
    ============================================================ */
 
-#progress-section { padding: 0 28px 4px; }
+#progress-section { padding: 14px 28px 18px; }
 
 #progress-bar {
   display: flex;
