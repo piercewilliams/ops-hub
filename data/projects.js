@@ -259,14 +259,12 @@ export const PROJECTS = {
     name: 'Article Format + Persona + Keyword Governance',
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
     description: 'Compile high-performing persona names; send controlled set to Susannah to pin in National accounts. Consolidate TH/TH B2C variants with Sara and Sarah Price. Finalize list before testing begins. CSA now stores metadata on article configurations (formats, personas, keywords) as of 2026-03-30 — features are in code review. Pairwise testing approach confirmed: ~3 formats × 3 personas = ~9 tests. Start with Discover and Trend Hunterland (6 personas: 3 each).',
-    status_detail: 'In progress. Sara Vallone to draft 6-7 new personas including Apple News, Smart News, MSN versions. Current Smart News and Apple personas are ineffective. New personas to be submitted to "Andy" (Apple News, MSN) for review.',
+    status_detail: 'In progress. Susannah persona texts not forthcoming — path forward is Sara Vallone drafting 6-7 new personas (Apple News, Smart News, MSN versions). Current Smart News and Apple personas are ineffective. New personas to be submitted to "Andy" for review.',
     blockers: [
-      'Awaiting top 15 persona texts from Susannah (requested 2026-03-25)',
       'Sara Vallone has not yet drafted new personas (Apple News, Smart News, MSN)',
       'Full governance structure needs cluster context from Project 6',
     ],
     nextActions: [
-      'Receive persona texts from Susannah',
       'Sara Vallone: draft 6-7 new personas (Apple News, Smart News, MSN versions)',
       'Submit new Apple News + MSN personas to Andy for review',
       'Allison and Lauren to own specific personas (financial services/wellness; DIY/gardening)',
