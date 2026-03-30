@@ -104,6 +104,7 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | Dashboard (this repo) | `index.html` — open in browser |
 | CSA Dashboard | https://piercewilliams.github.io/csa-dashboard/ |
 | CSA Staging | https://staging.trendhunteragents.ai/csa |
+| Sigma TH-CSA Dashboard | Workbook ID: `NkXYNE5ANMr9eMcXI11uP` — Story count, avg/median PVs, market breakdown |
 | CSA Content Standards | https://csa-content-standards.netlify.app |
 | T1 Headlines site | `/Users/pierce/Documents/GitHub/data-t1headlines/docs/index.html` |
 | Alignment meeting agenda | https://docs.google.com/document/d/1MtVlBJeh_k9X7dnrpRmEQ9jefrbdWwY2/edit |

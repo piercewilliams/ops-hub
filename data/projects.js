@@ -35,7 +35,7 @@ export const PROJECTS = {
     owner: 'Pierce',
     description: 'API access and onboarding for all platforms the team uses. Determines architecture for Projects 2 and 7. Gary API key unlocks Project 10.',
     systems: [
-      { name: 'Snowflake / Sigma', status: 'pending', note: 'Access granted 2026-03-30 (role: growth_and_strategy_role, warehouse: growth_and_strategy_role_wh). Login issues currently being remedied by IT. Sigma access still pending.' },
+      { name: 'Snowflake / Sigma', status: 'pending', note: 'Snowflake access granted 2026-03-30 (role: growth_and_strategy_role, warehouse: growth_and_strategy_role_wh) — login issue being remedied. Sigma viewer access also granted 2026-03-30. API credentials (OAuth2 for dashboard adapter) still needed from Chad/IT.' },
       { name: 'CUE', status: 'done', note: 'Access in hand.' },
       { name: 'WordPress', status: 'done', note: 'Full access as of 2026-03-28.' },
       { name: 'Google Sheets API', status: 'pending', note: 'No OAuth — read-only key only. Lowest barrier. Do first.' },
