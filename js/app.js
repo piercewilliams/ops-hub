@@ -1,0 +1,125 @@
+// app.js — entry point: wires up diagram, sidebar, and event handling
+
+import { PROJECTS } from '../data/projects.js';
+import { renderDiagram, drawArrows } from './diagram.js';
+
+// ── Sidebar ───────────────────────────────────────────────────────────────────
+
+function openSidebar(project) {
+  const sidebar = document.getElementById('sidebar');
+  const content = document.getElementById('sidebar-content');
+
+  content.innerHTML = buildSidebarHTML(project);
+  sidebar.classList.add('open');
+
+  // Highlight the active card
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  const card = document.querySelector(`.card[data-id="${project.id}"]`);
+  if (card) card.classList.add('active');
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+}
+
+const STATUS_LABELS = {
+  'in-progress': 'In progress',
+  'blocked':     'Blocked',
+  'not-started': 'Not started',
+  'hold':        'Hold',
+  'done':        'Done',
+};
+
+const TIER_NAMES = { 0: 'Hold', 1: 'Tier 1 — Foundation', 2: 'Tier 2 — Understanding',
+  3: 'Tier 3 — Strategy & Schema', 4: 'Tier 4 — Build', 5: 'Tier 5 — Optimize & Extend' };
+
+function buildSidebarHTML(p) {
+  const blockerHTML = p.blockers?.length
+    ? `<div class="sb-section"><div class="sb-section-title sb-blockers-title">⚠ Blockers</div><ul class="sb-list sb-list-blockers">${p.blockers.map(b => `<li>${b}</li>`).join('')}</ul></div>`
+    : '';
+
+  const actionsHTML = p.nextActions?.length
+    ? `<div class="sb-section"><div class="sb-section-title">Next Actions</div><ul class="sb-list sb-list-actions">${p.nextActions.map(a => `<li>${a}</li>`).join('')}</ul></div>`
+    : '';
+
+  const depsHTML = p.dependsOn?.length
+    ? `<div class="sb-section"><div class="sb-section-title">Depends On</div><div class="sb-deps">${p.dependsOn.map(id => {
+        const dep = PROJECTS[id];
+        return dep ? `<span class="sb-dep-tag">#${dep.num} ${dep.name}</span>` : '';
+      }).join('')}</div></div>`
+    : '';
+
+  const unlocksHTML = (() => {
+    const unlocks = Object.values(PROJECTS).filter(proj => proj.dependsOn?.includes(p.id));
+    return unlocks.length
+      ? `<div class="sb-section"><div class="sb-section-title">Unlocks</div><div class="sb-deps">${unlocks.map(u => `<span class="sb-dep-tag sb-dep-unlocks">#${u.num} ${u.name}</span>`).join('')}</div></div>`
+      : '';
+  })();
+
+  const systemsHTML = p.systems?.length
+    ? `<div class="sb-section"><div class="sb-section-title">Systems</div><table class="sb-systems-table">${p.systems.map(s => `<tr><td class="sys-name">${s.name}</td><td><span class="sys-status sys-${s.status}">${s.status}</span></td><td class="sys-note">${s.note}</td></tr>`).join('')}</table></div>`
+    : '';
+
+  const adaptersHTML = p.adapters?.length
+    ? `<div class="sb-section"><div class="sb-section-title">Adapters</div><table class="sb-systems-table">${p.adapters.map(a => `<tr><td class="sys-name">${a.name}</td><td><span class="sys-status sys-${a.status.replace('-creds','').replace('-creds','')}">${a.status}</span></td><td class="sys-note">${a.note}</td></tr>`).join('')}</table></div>`
+    : '';
+
+  const agendaHTML = p.alignmentAgendaItems?.length
+    ? `<div class="sb-section"><div class="sb-section-title">Alignment Meeting Agenda</div><ul class="sb-list">${p.alignmentAgendaItems.map(i => `<li>${i}</li>`).join('')}</ul></div>`
+    : '';
+
+  const contactsHTML = p.contacts?.length
+    ? `<div class="sb-section"><div class="sb-section-title">Key Contacts</div><ul class="sb-list">${p.contacts.map(c => `<li><strong>${c.name}</strong>${c.email ? ` &lt;${c.email}&gt;` : ''} — ${c.role}</li>`).join('')}</ul></div>`
+    : '';
+
+  const linksHTML = p.links?.length
+    ? `<div class="sb-section"><div class="sb-section-title">Links</div><ul class="sb-list sb-list-links">${p.links.map(l => `<li><a href="${l.url}" target="_blank" rel="noopener">${l.label}</a></li>`).join('')}</ul></div>`
+    : '';
+
+  return `
+    <div class="sb-header">
+      <div class="sb-num">#${p.num}</div>
+      <h2 class="sb-title">${p.name}</h2>
+      <div class="sb-meta">
+        <span class="status-badge status-${p.status}">${STATUS_LABELS[p.status] ?? p.status}</span>
+        <span class="sb-tier">${TIER_NAMES[p.tier] ?? ''}</span>
+      </div>
+      <div class="sb-owner">👤 ${p.owner}</div>
+    </div>
+    <div class="sb-description">${p.description}</div>
+    ${p.status_detail ? `<div class="sb-status-detail">ℹ ${p.status_detail}</div>` : ''}
+    ${blockerHTML}
+    ${actionsHTML}
+    ${depsHTML}
+    ${unlocksHTML}
+    ${systemsHTML}
+    ${adaptersHTML}
+    ${agendaHTML}
+    ${contactsHTML}
+    ${linksHTML}
+  `;
+}
+
+// ── Event delegation ──────────────────────────────────────────────────────────
+
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('[data-action]');
+  if (!el) return;
+  if (el.dataset.action === 'close-sidebar') closeSidebar();
+});
+
+// Close sidebar on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeSidebar();
+});
+
+// Redraw arrows on scroll and resize
+window.addEventListener('scroll', () => drawArrows(PROJECTS), { passive: true });
+window.addEventListener('resize', () => drawArrows(PROJECTS), { passive: true });
+
+// ── Boot ──────────────────────────────────────────────────────────────────────
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderDiagram(PROJECTS, openSidebar);
+});

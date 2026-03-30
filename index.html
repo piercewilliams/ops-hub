@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ops Hub — Project Dependency Map</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ── SVG ARROW OVERLAY ──────────────────────────────────────────────────── -->
+<svg id="arrows-svg" aria-hidden="true"></svg>
+
+<!-- ── MAIN PANE ──────────────────────────────────────────────────────────── -->
+<div id="diagram-pane">
+  <div id="header">
+    <h1>Ops Hub — Project Registry & Dependency Map</h1>
+    <p>Click any card for full details &nbsp;·&nbsp; Arrows = dependency direction (upstream → downstream) &nbsp;·&nbsp; Press Esc to close sidebar</p>
+    <div id="legend-row">
+      <div id="legend">
+        <div class="legend-title">Status</div>
+        <div class="legend-item"><span class="legend-swatch status-in-progress"></span> In progress</div>
+        <div class="legend-item"><span class="legend-swatch status-blocked"></span> Blocked</div>
+        <div class="legend-item"><span class="legend-swatch status-not-started"></span> Not started</div>
+        <div class="legend-item"><span class="legend-swatch status-hold"></span> Hold</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tiers-container"></div>
+</div>
+
+<!-- ── SIDEBAR ────────────────────────────────────────────────────────────── -->
+<div id="sidebar">
+  <button id="sidebar-close" data-action="close-sidebar">✕</button>
+  <div id="sidebar-inner">
+    <div id="sidebar-content">
+      <p class="sidebar-placeholder">Select a project to view details</p>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
