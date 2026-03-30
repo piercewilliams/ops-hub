@@ -8,9 +8,9 @@ Stable facts for this project. Updated in place when facts change.
 
 | Item | Value |
 |------|-------|
-| Trigger name | Ops Hub Hourly Sync |
+| Trigger name | Ops Hub Sync — 3x Daily (Mon–Fri) |
 | Trigger ID | `trig_017C1TqSqQ135B7djoGEVaGb` |
-| Schedule | Every hour, 8:00 AM–11:00 PM Dallas time (CDT=UTC-5 in summer, CST=UTC-6 in winter) |
+| Schedule | 8:00 AM, 12:00 PM, 5:00 PM Dallas time, Mon–Fri (CDT=UTC-5 in summer, CST=UTC-6 in winter) |
 | Manage / view logs | https://claude.ai/code/scheduled/trig_017C1TqSqQ135B7djoGEVaGb |
 | What it does | Reads CONTEXT.md from all 5 subsidiary repos → updates data/projects.js + CONTEXT.md in ops-hub → commits and pushes |
 
