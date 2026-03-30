@@ -49,10 +49,11 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next
 
-1. [ ] Prep meeting agenda for Chris (2026-03-30): dependency chain framing
-2. [ ] Enable Google Sheets API key (P2 — unblocked, do now)
-3. [ ] Reply to Susannah re: cluster entry point (P6 — schedule alignment meeting)
+1. [ ] Push all commits to GitHub via GitHub Desktop (session complete, ready to push)
+2. [ ] Enable Google Sheets API key (P2 — unblocked, no blockers)
+3. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah
 4. [ ] Attend dev standup — scope Amplitude event names with Patrick/Dar (P2 forward-path)
+5. [ ] Verify first sync runs at 8am Dallas — confirm sync pill goes green and snapshot bar populates
 
 ## Items Not Yet in Any Repo
 
