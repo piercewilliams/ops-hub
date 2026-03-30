@@ -155,15 +155,9 @@ function renderProgressSection() {
 
   el.innerHTML = `
     <div id="progress-bar">
-      <button class="prog-btn" data-prog="next">
-        Up next <span class="prog-count">${_progressData.next.length}</span>
-      </button>
-      <button class="prog-btn" data-prog="recent">
-        Recently done <span class="prog-count">${_progressData.recent.length}</span>
-      </button>
-      <button class="prog-btn" data-prog="projects">
-        Completed projects <span class="prog-count">${_progressData.projects.length}</span>
-      </button>
+      <button class="prog-btn" data-prog="next">Up next</button>
+      <button class="prog-btn" data-prog="recent">Recently done</button>
+      <button class="prog-btn" data-prog="projects">Completed projects</button>
     </div>
   `;
 

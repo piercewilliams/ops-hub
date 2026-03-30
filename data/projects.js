@@ -6,7 +6,11 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
-  // { date: '2026-03-29', task: 'Example: enabled Google Sheets API key', project: '#1 Platform Access' },
+  { date: '2026-03-29', task: 'Ops-hub automated sync deployed — 3x daily, push auth via PAT, live sync status pill on dashboard', project: 'ops-hub' },
+  { date: '2026-03-28', task: 'WordPress full access confirmed', project: '#1 Platform Access & Training' },
+  { date: '2026-03-28', task: 'csa-dashboard v3.28.26 shipped with 18-check diagnostic tool (csa.diagnose())', project: '#2 Dashboard Instrumentation' },
+  { date: '2026-03-28', task: 'data-t1headlines Phase 2 complete — 9 headline performance findings live across Apple News, SmartNews, MSN', project: '#3 T1 Headlines' },
+  { date: '2026-03-25', task: 'Dev standup access, Jira board access, and Apple News performance data sheet obtained', project: '#1 Platform Access & Training' },
 ];
 
 
