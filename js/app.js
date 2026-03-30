@@ -104,8 +104,9 @@ function buildSidebarHTML(p) {
 // ── Sync Status ───────────────────────────────────────────────────────────────
 
 const SYNC_STATUS_URL = 'https://api.github.com/repos/piercewilliams/ops-hub/contents/sync-status.json';
-const STALE_WARN_MS   = 75  * 60 * 1000; // 75 min — slightly over hourly cadence
-const STALE_CRIT_MS   = 150 * 60 * 1000; // 150 min — missed 2 full cycles
+// Schedule: 8am, 12pm, 5pm Dallas CDT (Mon–Fri). Max daytime gap = 5h; overnight = 15h.
+const STALE_WARN_MS = 5.5 * 60 * 60 * 1000;  // 5.5h — just over one sync interval
+const STALE_CRIT_MS = 16  * 60 * 60 * 1000;  // 16h — covers overnight, flags missed daytime runs
 
 async function fetchSyncStatus() {
   const el = document.getElementById('sync-status');
@@ -115,10 +116,11 @@ async function fetchSyncStatus() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     const json = JSON.parse(atob(data.content));
-    const syncTime = new Date(json.last_sync_utc);
-    const elapsed  = Date.now() - syncTime.getTime();
-    const mins     = Math.floor(elapsed / 60000);
-    const hours    = (elapsed / 3600000).toFixed(1);
+    const syncTime   = new Date(json.last_sync_utc);
+    const elapsed    = Date.now() - syncTime.getTime();
+    const mins       = Math.floor(elapsed / 60000);
+    const hours      = (elapsed / 3600000).toFixed(1);
+    const isWeekend  = [0, 6].includes(new Date().getDay());
 
     let cls, label;
     if (json.status === 'push_failed') {
@@ -127,9 +129,9 @@ async function fetchSyncStatus() {
     } else if (elapsed < STALE_WARN_MS) {
       cls   = 'sync-ok';
       label = `Synced ${mins}m ago`;
-    } else if (elapsed < STALE_CRIT_MS) {
+    } else if (isWeekend || elapsed < STALE_CRIT_MS) {
       cls   = 'sync-warn';
-      label = `Sync delayed — ${hours}h ago`;
+      label = isWeekend ? `Weekend — last sync ${hours}h ago` : `Sync due — last seen ${hours}h ago`;
     } else {
       cls   = 'sync-err';
       label = `Sync offline — last seen ${hours}h ago`;
@@ -140,7 +142,7 @@ async function fetchSyncStatus() {
     el.title = `Last sync: ${syncTime.toLocaleString()} · Status: ${json.status} · Changes: ${json.changes}`;
   } catch {
     el.className = 'sync-pill sync-warn';
-    el.querySelector('.sync-label').textContent = 'Sync file not found yet — first run pending';
+    el.querySelector('.sync-label').textContent = 'Pending — first sync not yet run';
     el.title = 'sync-status.json not yet written. Check claude.ai/code/scheduled for run status.';
   }
 }
