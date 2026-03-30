@@ -2,7 +2,7 @@
 
 **Phase:** Build / Active
 **Last session:** 2026-03-30
-**Status:** Dashboard fully deployed; all features live; integrity pass complete
+**Status:** Dashboard fully deployed; snapshot versioning added to all 3 subsidiary sites; ready to push
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -27,7 +27,7 @@ For session history: see [sessions/](sessions/)
 - Sync status pill with stale thresholds (warn: 5.5h, crit: 16h)
 - Mutual-close behavior: sidebar and progress panel can't both be open
 - Quality gate script at `scripts/check.sh`
-- **Snapshot bars on csa-dashboard, csa-content-standards, data-t1headlines** (weekly auto-snapshot trigger, passkey `8812`)
+- Snapshot version bars on csa-dashboard, csa-content-standards, data-t1headlines — weekly auto-snapshot (Mon 8am), passkey `8812`, max 5 per site; trigger `trig_01Qze9PVrNErCEYa1fMXxF2U`
 
 ## Project Status Snapshot
 
@@ -50,8 +50,8 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next
 
-1. [ ] Push all commits to GitHub via GitHub Desktop — 4 repos have local changes: ops-hub (REFERENCE.md, CONTEXT.md), csa-dashboard, csa-content-standards, data-t1headlines
-2. [ ] Verify weekly snapshot trigger fires Monday 8am Dallas — confirm snapshot bars populate on all 3 sites
+1. [ ] **Push all 4 repos via GitHub Desktop** — ops-hub, csa-dashboard, csa-content-standards, data-t1headlines all have local changes
+2. [ ] **Monday 8am** — verify snapshot trigger fires and pills appear on all 3 sites; if not by 8:15, check claude.ai/code/scheduled → "Weekly Snapshots - All Sites"
 3. [ ] Enable Google Sheets API key (P2 — unblocked, no blockers)
 4. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah
 5. [ ] Attend dev standup — scope Amplitude event names with Patrick/Dar (P2 forward-path)
