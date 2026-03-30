@@ -127,7 +127,7 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | Daury Caba | Engineer; owns content generation/XML payload work | Met at standup 2026-03-30 |
 | Emil Penalo | Engineer; completed WordPress data linking; working on PGS-106 | Met at standup 2026-03-30 |
 | Oliver Felix | Engineer; owns feedback loop (proof of concept ready), PGS-97 (Fetch Target Audience Definitions) | Met at standup 2026-03-30 |
-| Patrick Al Khouri | Engineer; owns target audience/personas feature; key contact for Amplitude p-tagging fix | Met at standup 2026-03-30 |
+| Patrick Al Khouri | Engineer; owns target audience/personas feature | Met at standup 2026-03-30 |
 | Victor Suarez | Engineer/analytics; Amplitude tasks complete, starting PGS-104 (Keywords Input Field) | Met at standup 2026-03-30 |
 | Ana Laura Volkman | Product; owns onboarding docs for CSA | Met at standup 2026-03-30 |
 | Amanda Hamilton | Content leadership (McClatchy side); new to team | Met at standup 2026-03-30 |
@@ -156,7 +156,7 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 |------|--------|-------|-------|
 | Snowflake/Sigma security group | Pending | IT + Chad | Ticket submitted 2026-03-26. Also need SEO data warehouse permissions (Rocky Rhodes). |
 | IT webhook ticket | Pending | IT | May become irrelevant if Snowflake path works. |
-| Gary API key + endpoint docs | Pending | Gary Kirwan | Required for Project 10. |
+| Gary API key + endpoint docs | Awaiting reply | Gary Kirwan | Messaged via Slack/email 2026-03-30. Required for Project 10. |
 | Amplitude p-tagging issue | Dev fix needed | Engineering | Cue/WP tag format incompatibility. Blocks Amplitude adapter. Forward-path: scope event names at dev standup. |
 | Susannah: top 15 persona texts | Pending receipt | Susannah | Requested 2026-03-25. |
 | Tarrow: MSN full-year 2025 re-export | Pending | Tarrow | Unlocks T1 Finding 5. |

@@ -52,7 +52,7 @@ For session history: see [sessions/](sessions/)
 
 1. [ ] **Request GitHub/product access from Rajiv Pant directly** (met at standup 2026-03-30 — unlocks P8)
 2. [ ] **Write desired target audiences for National team and test in CSA** (standup action item; coordinate with Oliver Felix on PGS-97)
-3. [ ] **Follow up with Patrick Al Khouri on Amplitude p-tagging fix timeline** (P2 forward-path)
+3. [ ] **Get Amplitude API access** — confirm provisioning path with IT or Chad (which group to join)
 4. [ ] Enable Google Sheets API key (P2 — unblocked, do first)
 5. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah (PGS-40 is ON HOLD in Jira pending this)
 
