@@ -6,11 +6,11 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-03-30', task: 'Attended CSA dev standup — met Rajiv Pant, Marcelo Freitas, Oliver Felix, Patrick Al Khouri, Victor Suarez, Daury Caba, Emil Penalo + team; now have direct contacts for Amplitude p-tagging fix and GitHub access', project: '#1 Platform Access & Training' },
+  { date: '2026-03-30', task: 'Attended PGS-82 UX design sprint — cluster risk approach decided (worst-pair score); Susannah + Efren own checkbox placement, Marcelo owns score display + variant controls', project: 'Content Diff Tool (PGS-82)' },
   { date: '2026-03-29', task: 'Ops-hub automated sync deployed — 3x daily, push auth via PAT, live sync status pill on dashboard', project: 'ops-hub' },
   { date: '2026-03-28', task: 'WordPress full access confirmed', project: '#1 Platform Access & Training' },
   { date: '2026-03-28', task: 'csa-dashboard v3.28.26 shipped with 18-check diagnostic tool (csa.diagnose())', project: '#2 Dashboard Instrumentation' },
-  { date: '2026-03-28', task: 'data-t1headlines Phase 2 complete — 9 headline performance findings live across Apple News, SmartNews, MSN', project: '#3 T1 Headlines' },
-  { date: '2026-03-25', task: 'Dev standup access, Jira board access, and Apple News performance data sheet obtained', project: '#1 Platform Access & Training' },
 ];
 
 
@@ -53,9 +53,9 @@ export const PROJECTS = {
       'Enable Google Sheets API, get read-only key (do now — no OAuth)',
       'Follow up on Snowflake/Sigma security group ticket with IT + Chad',
       'Contact Marfeel account manager for API key; ask about Apple filter removal',
-      'Attend dev standup — scope Amplitude event names with Patrick/Dar (forward-path for dashboard)',
+      'Follow up with Patrick Al Khouri on Amplitude p-tagging fix (met at standup 2026-03-30)',
       'Chase Gary Kirwan for API docs + key delivery',
-      'Get GitHub access from Rajiv (unlocks Project 8)',
+      'Request GitHub/product access from Rajiv Pant directly (met at standup 2026-03-30)',
       'Schedule MAIA training',
     ],
     dependsOn: [],
@@ -72,9 +72,10 @@ export const PROJECTS = {
       'Needs GitHub/product access from Rajiv (subset of Project 1)',
     ],
     nextActions: [
-      'Get GitHub access from Rajiv',
+      'Request GitHub/product access from Rajiv Pant directly (met at standup 2026-03-30)',
       'Map all CSA transformations end-to-end',
       'Document Mode 1 and Mode 2 behavior (coordinate with P13)',
+      'Note: PGS-94 (Establish National team as a Configuration in CSA) is in code review — review once access is in hand',
     ],
     dependsOn: ['p1-access'],
   },
@@ -86,6 +87,8 @@ export const PROJECTS = {
     description: 'Understand Mode 1 (Publication Ready) and Mode 2 (Intermediate/Expanded) in the System Prompts doc under Persona-Optimized Variant. Mode 2 is the known root cause of word count bloat. Feeds PRD revisions and the Susannah alignment meeting agenda.',
     blockers: [],
     nextActions: [
+      'Write desired target audiences for National team and test in CSA (action item from standup 2026-03-30)',
+      'Coordinate with Oliver Felix on PGS-97 (Fetch Target Audience Definitions — IN PROGRESS) — eng side is building the infrastructure as Pierce writes the audiences',
       'Get system prompts doc access',
       'Study Mode 1 vs Mode 2 behavior and downstream implications',
       'Add findings to Susannah alignment meeting agenda (see agenda doc)',
@@ -158,6 +161,7 @@ export const PROJECTS = {
       'Alignment meeting not yet scheduled (Pierce + Chris Palo + Sara Vallone + Susannah)',
       'No Cluster ID field exists in CUE or WordPress yet (Susannah investigating Q field options with Kathryn Sheplavy)',
       'Snowflake/Sigma access determines architecture (webhook vs. Snowflake→Sheet)',
+      'PGS-40 (Define Tagging Taxonomy for CSA Output Tracking) is ON HOLD in Jira — confirms eng side is blocked pending alignment meeting',
     ],
     nextActions: [
       'Schedule alignment meeting: Pierce + Chris + Sara + Susannah',
@@ -218,12 +222,12 @@ export const PROJECTS = {
     blockers: [
       'Sigma OAuth2 credentials (needs Snowflake/Sigma access from P1)',
       'Marfeel API key (needs outreach from P1)',
-      'Amplitude blocked by rq-p-tagging-issue (dev fix required)',
+      'Amplitude blocked by CMS p-tagging code issue (CUE/WP tag format mismatch). Victor Suarez\'s Amplitude analytics tasks are complete on the eng side (PGS-80 in code review); remaining blocker is the CMS p-tagging fix itself.',
       'Need to define "CSA uptime and production stats" with Chris (cadence, format, audience)',
     ],
     nextActions: [
       'Enable Google Sheets API + get read-only key → activate Sheets adapter NOW',
-      'Attend dev standup — scope Amplitude event names with Patrick/Dar',
+      'Follow up with Patrick Al Khouri on Amplitude p-tagging fix timeline (met at standup 2026-03-30)',
       'Schedule definition meeting with Chris: what is "CSA uptime and production stats"?',
       'Get Sigma credentials once access lands → activate Sigma adapter',
       'Get Marfeel API key → activate Marfeel adapter',
@@ -267,6 +271,7 @@ export const PROJECTS = {
       'Consolidate TH/TH B2C variants with Sara Vallone and Sarah Price',
       'Finalize persona list and send to Susannah to pin in National accounts',
       'Build testing schedule (after controlled set is in use — see Project 5)',
+      'Note: CSA eng is actively building National team formats/audiences — PGS-95 (Google Discover Explainer format), PGS-96 (Discover Browser saved audience), PGS-104 (keywords input field on Research Draft) all in progress or code review as of 2026-03-30.',
     ],
     dependsOn: ['p6-taxonomy'],
   },

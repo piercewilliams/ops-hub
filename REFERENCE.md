@@ -121,7 +121,16 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | Chris Tarrow | Distribution/platforms; maintains T1 headline performance sheet (monthly) | — |
 | Chad Bruton | Data/analytics; owns Snowflake + Sigma; key architecture guide for tracker | — |
 | Kathryn Sheplavy (Kat) | Data/CSA; investigating Q field options in CUE for cluster tagging | — |
-| Rajiv | Product/engineering; has GitHub access to CSA codebase | — |
+| Rajiv Pant | Lead PM/engineer for CSA dev team (Maktachi); has GitHub access to CSA codebase | Met at standup 2026-03-30 |
+| Saner Keles | PM on CSA dev team | Met at standup 2026-03-30 |
+| Marcelo Freitas | Front-end engineer; owns PGS-82 similarity score UI (PyTorch backend working, UX sprint underway) | Met at standup 2026-03-30 |
+| Daury Caba | Engineer; owns content generation/XML payload work | Met at standup 2026-03-30 |
+| Emil Penalo | Engineer; completed WordPress data linking; working on PGS-106 | Met at standup 2026-03-30 |
+| Oliver Felix | Engineer; owns feedback loop (proof of concept ready), PGS-97 (Fetch Target Audience Definitions) | Met at standup 2026-03-30 |
+| Patrick Al Khouri | Engineer; owns target audience/personas feature; key contact for Amplitude p-tagging fix | Met at standup 2026-03-30 |
+| Victor Suarez | Engineer/analytics; Amplitude tasks complete, starting PGS-104 (Keywords Input Field) | Met at standup 2026-03-30 |
+| Ana Laura Volkman | Product; owns onboarding docs for CSA | Met at standup 2026-03-30 |
+| Amanda Hamilton | Content leadership (McClatchy side); new to team | Met at standup 2026-03-30 |
 | Gary Kirwan | Gary Tools developer | gary@kirwandigital.com |
 | Jim Robinson | Engineering; built cosine similarity diff tool; internal SEO tool; has novelty concern about Gary | — |
 | Stephanie Zandecki | Internal SEO; reviewing Gary's toolkit | — |
@@ -152,7 +161,11 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | Susannah: top 15 persona texts | Pending receipt | Susannah | Requested 2026-03-25. |
 | Tarrow: MSN full-year 2025 re-export | Pending | Tarrow | Unlocks T1 Finding 5. |
 | Tarrow: SmartNews 2026 category columns | Pending | Tarrow | Unlocks T1 Finding 3 for 2026. |
-| Content diff tool (PGS-82) | In progress (dev) | Jim Robinson | Cosine similarity approach confirmed feasible; engineer told to proceed. Phase 1 = automate measurement. Pierce's role = TBD. |
+| Content diff tool (PGS-82) | In progress (UX sprint) | Marcelo Freitas (front-end) · Jim Robinson (backend script) · Susannah Locke (PM) · Efren Castillo (design) | Backend similarity scoring working (PyTorch, local tests pass). Architecture decided 2026-03-30: worst-pair score = cluster risk score; expose failing pair to user. UX sprint: Susannah + Efren own checkbox placement; Marcelo owns score display + variant controls + recalculation. Pierce = stakeholder; Sarah Price to test full flow later. |
+| PGS-40: Tagging Taxonomy | ON HOLD | Eng team | Jira confirms eng side blocked — aligns with P6 alignment meeting not yet scheduled. |
+| PGS-80: Analytics Tracking | Code review | Victor Suarez / CSA eng | CSA team's internal Amplitude user-event tracking. Related to but distinct from our P2 Amplitude adapter blocker (which is about CMS p-tagging). |
+| PGS-97: Fetch Target Audience Definitions | In progress | Oliver Felix | Eng side of Pierce's action item to write target audiences. Coordinate timing. |
+| PGS-104: Keywords Input Field | In progress | Victor Suarez | Adds keyword input + enforcement to Research Draft step. Feeds P4 keyword governance work. |
 
 ## Dashboard Architecture (ops-hub)
 

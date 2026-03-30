@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-03-30
-**Status:** Dashboard fully deployed; snapshot versioning added to all 3 subsidiary sites; ready to push
+**Last session:** 2026-03-30 (standup + PGS-82 UX meeting)
+**Status:** Dashboard live; direct contacts established with CSA dev team; PGS-82 UX sprint underway
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -50,18 +50,18 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next
 
-1. [ ] **Push all 4 repos via GitHub Desktop** — ops-hub, csa-dashboard, csa-content-standards, data-t1headlines all have local changes
-2. [ ] **Monday 8am** — verify snapshot trigger fires and pills appear on all 3 sites; if not by 8:15, check claude.ai/code/scheduled → "Weekly Snapshots - All Sites"
-3. [ ] Enable Google Sheets API key (P2 — unblocked, no blockers)
-4. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah
-5. [ ] Attend dev standup — scope Amplitude event names with Patrick/Dar (P2 forward-path)
+1. [ ] **Request GitHub/product access from Rajiv Pant directly** (met at standup 2026-03-30 — unlocks P8)
+2. [ ] **Write desired target audiences for National team and test in CSA** (standup action item; coordinate with Oliver Felix on PGS-97)
+3. [ ] **Follow up with Patrick Al Khouri on Amplitude p-tagging fix timeline** (P2 forward-path)
+4. [ ] Enable Google Sheets API key (P2 — unblocked, do first)
+5. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah (PGS-40 is ON HOLD in Jira pending this)
 
 ## Items Not Yet in Any Repo
 
 - Digest Chris's cluster performance sheet (feeds P6 alignment meeting)
 - Study content graph doc (feeds P6 + P9)
 - Apple News monitoring cadence setup (rq-apple-news-monitoring — separate ops deliverable)
-- Content diff tool (Susannah's #1 priority; Jim Robinson built cosine similarity checker; Pierce's role TBD)
+- Content diff tool (PGS-82): UX sprint underway as of 2026-03-30. Marcelo (front-end) + Susannah/Efren (design). Pierce = stakeholder. Not yet a tracked ops-hub project.
 - Headline tool + title options (rq-headline-tool, rq-title-options — clarify ownership with Chris)
 
 ---
