@@ -134,6 +134,12 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | Ana Laura Volkman | Product; owns onboarding docs for CSA | Met at standup 2026-03-30 |
 | Amanda Hamilton | Content leadership (McClatchy side); adds new members to CSA project in BitBucket | Met at standup 2026-03-30 |
 | Gary Kirwan | Gary Tools developer | gary@kirwandigital.com |
+| Eric Nelson | Approved United Robots inbound initiative 2026-03-30; greenlit using CSA to capture UR revenue share | — |
+| Julia Torelli | CSA translation contact | — |
+| Andy | Reviews Smart News, Apple News, MSN personas before they go live | — |
+| Britney | Uses the update document (executive accountability) | — |
+| Dedra | Sigma access/dashboards contact (Sarah Price's contact) | — |
+| Melissa Angle | Owns period calendar; McClatchy uses 4-4-5 financial periods (Period 4 started 2026-03-30) | — |
 | Jim Robinson | Engineering; built cosine similarity diff tool; internal SEO tool; has novelty concern about Gary | — |
 | Stephanie Zandecki | Internal SEO; reviewing Gary's toolkit | — |
 | Patrick / Dar | Engineering (dev standup contacts for Amplitude event names) | — |

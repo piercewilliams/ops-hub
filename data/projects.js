@@ -6,6 +6,7 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-03-30', task: 'United Robots inbound approved by Eric Nelson — P12 moved from HOLD to active. Goal: use CSA to capture 50% revenue share currently going to United Robots via automated alert stories.', project: '#12 United Robots Inbound Pipeline' },
   { date: '2026-03-30', task: 'BitBucket access in hand — IT created account, Amanda Hamilton added to CSA project same day. P8 (CSA Mapping) unblocked.', project: '#1 Platform Access & Training' },
   { date: '2026-03-30', task: 'Snowflake access granted (role: growth_and_strategy_role, warehouse: growth_and_strategy_role_wh). Login issue being remedied by IT.', project: '#1 Platform Access & Training' },
   { date: '2026-03-30', task: 'Attended CSA dev standup — met Rajiv Pant, Marcelo Freitas, Oliver Felix, Patrick Al Khouri, Victor Suarez, Daury Caba, Emil Penalo + team; now have direct contacts for Amplitude p-tagging fix and GitHub access', project: '#1 Platform Access & Training' },
@@ -135,6 +136,7 @@ export const PROJECTS = {
     nextActions: [
       'Complete Projects 8 and 13 first',
       'Review Gary tools findings',
+      'Map United Robots alerts pipeline in PRD (new scope from Content & Programming meeting 2026-03-30)',
       'Study PRD fresh (post-mapping) and annotate gaps/inaccuracies',
       'Revise and document for product team',
     ],
@@ -256,14 +258,19 @@ export const PROJECTS = {
     id: 'p4-governance', num: '4', tier: 4, type: 'project', status: 'in-progress',
     name: 'Article Format + Persona + Keyword Governance',
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
-    description: 'Compile high-performing persona names; send controlled set to Susannah to pin in National accounts. Consolidate TH/TH B2C variants with Sara and Sarah Price. Finalize list before testing begins. Longer-term: build testing schedule once controlled set is in use and cluster tags exist for measurement.',
-    status_detail: 'In progress as of 2026-03-25: Pierce requested top 15 persona texts from Susannah. Awaiting receipt.',
+    description: 'Compile high-performing persona names; send controlled set to Susannah to pin in National accounts. Consolidate TH/TH B2C variants with Sara and Sarah Price. Finalize list before testing begins. CSA now stores metadata on article configurations (formats, personas, keywords) as of 2026-03-30 — features are in code review. Pairwise testing approach confirmed: ~3 formats × 3 personas = ~9 tests. Start with Discover and Trend Hunterland (6 personas: 3 each).',
+    status_detail: 'In progress. Sara Vallone to draft 6-7 new personas including Apple News, Smart News, MSN versions. Current Smart News and Apple personas are ineffective. New personas to be submitted to "Andy" (Apple News, MSN) for review.',
     blockers: [
       'Awaiting top 15 persona texts from Susannah (requested 2026-03-25)',
+      'Sara Vallone has not yet drafted new personas (Apple News, Smart News, MSN)',
       'Full governance structure needs cluster context from Project 6',
     ],
     nextActions: [
       'Receive persona texts from Susannah',
+      'Sara Vallone: draft 6-7 new personas (Apple News, Smart News, MSN versions)',
+      'Submit new Apple News + MSN personas to Andy for review',
+      'Allison and Lauren to own specific personas (financial services/wellness; DIY/gardening)',
+      'Pierce: update CSA content standards doc once Sara drafts personas; codify into system',
       'Consolidate TH/TH B2C variants with Sara Vallone and Sarah Price',
       'Finalize persona list and send to Susannah to pin in National accounts',
       'Build testing schedule (after controlled set is in use — see Project 5)',
@@ -294,14 +301,15 @@ export const PROJECTS = {
     id: 'p5-testing', num: '5', tier: 5, type: 'project', status: 'not-started',
     name: 'Personas & Formats Testing / Optimization',
     owner: 'Pierce',
-    description: 'Run controlled experiments to identify top-performing personas and formats once governance (P4) standardizes the controlled set and cluster tags (P7) enable proper measurement by cluster. Cannot run valid experiments without both.',
+    description: 'Run controlled experiments to identify top-performing personas and formats once governance (P4) standardizes the controlled set and cluster tags (P7) enable proper measurement by cluster. Testing approach confirmed: pairwise, keep small (~3 formats × 3 personas = ~9 tests), avoid contamination. Start with Discover and Trend Hunterland (6 personas: 3 each). Cannot run valid experiments without both P4 and P7.',
     blockers: [
       'Project 4 (governance) must finalize controlled set first',
       'Project 7 (Vallone Tracker) must activate cluster tags to enable measurement',
     ],
     nextActions: [
       'Complete Projects 4 and 7 first',
-      'Design testing schedule with Sarah Price',
+      'Design pairwise testing schedule with Sarah Price (3 formats × 3 personas = ~9 tests)',
+      'Start with Discover and Trend Hunterland, 3 personas each',
       'Define what "winning" means per format/persona before running experiments',
     ],
     dependsOn: ['p4-governance', 'p7-tracker'],
@@ -326,22 +334,31 @@ export const PROJECTS = {
   // ── HOLD ──────────────────────────────────────────────────────────────────
 
   'p12-unitedrobots': {
-    id: 'p12-unitedrobots', num: '12', tier: 0, type: 'project', status: 'hold',
-    name: 'CSA Subs / United Robots Evaluation',
-    owner: 'Pierce',
-    description: 'Evaluate United Robots as a potential CSA alternative or supplement for certain content types. Kathy\'s examples on file. HOLD until Chris + Eric independently clarify business feasibility. Their track may change what you\'re evaluating against.',
+    id: 'p12-unitedrobots', num: '12', tier: 4, type: 'project', status: 'in-progress',
+    name: 'United Robots Inbound Pipeline',
+    owner: 'Pierce · Sara Vallone · Sarah Price',
+    description: 'Use CSA to capture the 50% revenue share currently going to United Robots. Eric Nelson gave green light 2026-03-30 to bring this work inbound. Scope: scrape public alert feeds (weather, Amber Alerts, Silver Alerts, DOT closures), generate small factual stories with disclaimer, human-in-the-loop monitoring required. Sara Vallone\'s team can wrap additional content around successful alert topics. Sarah Price to review performance of existing automated stories for baseline.',
     blockers: [
-      'HOLD — Waiting on Chris + Eric to clarify business feasibility of United Robots',
+      'Working group not yet defined — need to identify who owns monitoring + editorial review',
+      'Alert scraping scope not finalized (which feeds, which markets)',
     ],
     nextActions: [
-      'No action until Chris + Eric surface their decision',
-      'Kathy\'s examples on file when evaluation resumes',
+      'Map United Robots alerts pipeline in PRD — add as P9 input',
+      'Discuss alert scraping approach + scope with Sara Vallone',
+      'Sarah Price: review performance of existing United Robots automated stories (baseline)',
+      'Define human-in-the-loop monitoring system and working group',
+      'Identify which alert types to start with (weather, Amber, Silver, DOT)',
     ],
-    dependsOn: [],
+    dependsOn: ['p1-access'],
+    contacts: [
+      { name: 'Eric Nelson', role: 'Approved inbound initiative 2026-03-30' },
+      { name: 'Sara Vallone', role: 'Content wrapping + pipeline coordination' },
+      { name: 'Sarah Price', role: 'Reviewing performance of existing automated stories' },
+    ],
     links: [
       { label: 'Sac Bee example 1', url: 'https://www.sacbee.com/news/article315177773.html' },
       { label: 'Kansas City example', url: 'https://www.kansascity.com/news/article315178360.html' },
-      { label: 'Sac Bee example 2', url: 'https://www.sacbee.com/news/article315180449.html' },
+      { label: 'Sac Bee example 2', url: 'https://www.sacbee.com/news/article315180459.html' },
     ],
   },
 

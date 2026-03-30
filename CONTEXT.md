@@ -45,7 +45,7 @@ For session history: see [sessions/](sessions/)
 | 9 | PRD Revisions | 3 | Not started | Needs P8 + P13 complete |
 | 10 | Gary Tools Integration | 2 | Blocked | Gary API key not delivered |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
-| 12 | CSA Subs / United Robots Evaluation | HOLD | Hold | Chris + Eric must assess feasibility |
+| 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
 | 13 | System Prompts / Mode 1 & Mode 2 | 2 | Not started | (unblocked) |
 
 ## What's Next
@@ -55,6 +55,10 @@ For session history: see [sessions/](sessions/)
 3. [ ] **Enable Google Sheets API key** (P2 — unblocked, no OAuth needed, do now)
 4. [ ] **Write desired target audiences for National team and test in CSA** (standup action item; coordinate with Oliver Felix on PGS-97)
 5. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah (PGS-40 is ON HOLD in Jira pending this)
+6. [ ] **Map United Robots alerts pipeline in PRD** — discuss scope with Sara Vallone (P12 now active per Eric Nelson 2026-03-30)
+7. [ ] **Discuss CSA translation** with Julia Torelli
+8. [ ] **Provide CSA metrics** to Chris (macro level — features added/tested monthly)
+9. [ ] **Update CSA content standards doc** after Sara Vallone drafts new personas (Apple News, Smart News, MSN)
 
 ## Pending Notifications
 
