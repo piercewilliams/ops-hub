@@ -9,6 +9,7 @@ let _activeProjects = PROJECTS;
 let _activeSnapshotId = null;
 let _activeSnapshotRaw = null;   // raw projects.js text, used for restore download
 let _activeSnapshotLabel = null;
+let _snapshotIndex = [];         // full index array, kept for restore pruning
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────
 
@@ -267,6 +268,7 @@ async function renderSnapshotBar() {
     const snapshots = await res.json();
     if (!snapshots.length) { el.style.display = 'none'; return; }
 
+    _snapshotIndex = snapshots;
     el.innerHTML = `
       <span id="snapshot-bar-label">Map versions</span>
       ${snapshots.map(s => `<button class="snap-btn" data-snap-id="${s.id}" data-snap-file="${s.filename}" title="${new Date(s.timestamp).toLocaleString()}">${s.label}</button>`).join('')}
@@ -368,23 +370,36 @@ function attemptRestore() {
   }
   // Passkey correct — download the file
   if (_activeSnapshotRaw) {
-    const blob = new Blob([_activeSnapshotRaw], { type: 'text/javascript' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'projects.js';
-    a.click();
-    URL.revokeObjectURL(url);
+    // 1. Download projects.js
+    const dlFile = (content, filename, mime) => {
+      const blob = new Blob([content], { type: mime });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = filename; a.click();
+      URL.revokeObjectURL(url);
+    };
+    dlFile(_activeSnapshotRaw, 'projects.js', 'text/javascript');
+
+    // 2. Prune index — keep only the restored snapshot and anything older (drop newer entries)
+    const restoredPos = _snapshotIndex.findIndex(s => s.id === _activeSnapshotId);
+    const prunedIndex = restoredPos >= 0 ? _snapshotIndex.slice(restoredPos) : _snapshotIndex;
+    dlFile(JSON.stringify(prunedIndex, null, 2), 'index.json', 'application/json');
+
     const modal = document.getElementById('snap-restore-modal');
     if (modal) {
+      const newer = restoredPos > 0 ? restoredPos : 0;
       modal.querySelector('.srm-inner').innerHTML = `
-        <div class="srm-title srm-success">Downloaded</div>
-        <div class="srm-body">Replace <code>data/projects.js</code> in your ops-hub folder with this file, then push via GitHub Desktop to apply.</div>
+        <div class="srm-title srm-success">2 files downloaded</div>
+        <div class="srm-body">
+          Place both files in your ops-hub repo:<br><br>
+          · <code>projects.js</code> → <code>data/projects.js</code><br>
+          · <code>index.json</code> → <code>data/snapshots/index.json</code><br><br>
+          ${newer > 0 ? `This removes ${newer} newer version${newer > 1 ? 's' : ''} from history. ` : ''}Push via GitHub Desktop to apply.
+        </div>
         <div class="srm-btns"><button class="srm-dismiss" data-srm-close>Done</button></div>
       `;
     }
   } else {
-    // No raw content in snapshot (older format) — fall back to instructions
     const errEl2 = document.getElementById('srm-error');
     if (errEl2) errEl2.textContent = 'Raw file not in this snapshot. Re-run a sync to generate a restorable version.';
   }
