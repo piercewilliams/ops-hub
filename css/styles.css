@@ -611,16 +611,16 @@ html, body {
 }
 .csa-tag:hover { background: var(--surface3); color: var(--text); border-color: var(--border-bright); }
 
-.csa-tag-pain   { border-color: rgba(var(--amber-rgb), 0.3); color: rgba(var(--amber-rgb), 0.85); }
-.csa-tag-pain:hover { background: rgba(var(--amber-rgb), 0.1); border-color: rgba(var(--amber-rgb), 0.55); color: var(--amber); }
+.csa-tag-pain   { border-color: rgba(var(--red-rgb),   0.3); color: rgba(var(--red-rgb),   0.85); }
+.csa-tag-pain:hover { background: rgba(var(--red-rgb),   0.1); border-color: rgba(var(--red-rgb),   0.55); color: var(--red); }
 
-.csa-tag-req    { border-color: rgba(var(--blue-rgb), 0.3); color: rgba(var(--blue-rgb), 0.85); }
-.csa-tag-req:hover { background: rgba(var(--blue-rgb), 0.1); border-color: rgba(var(--blue-rgb), 0.55); color: var(--blue); }
+.csa-tag-req    { border-color: rgba(var(--amber-rgb), 0.3); color: rgba(var(--amber-rgb), 0.85); }
+.csa-tag-req:hover { background: rgba(var(--amber-rgb), 0.1); border-color: rgba(var(--amber-rgb), 0.55); color: var(--amber); }
 
-.csa-tag-metric { border-color: rgba(var(--purple-rgb), 0.3); color: rgba(var(--purple-rgb), 0.85); }
-.csa-tag-metric:hover { background: rgba(var(--purple-rgb), 0.1); border-color: rgba(var(--purple-rgb), 0.55); color: var(--purple); }
+.csa-tag-metric { border-color: rgba(var(--blue-rgb),  0.3); color: rgba(var(--blue-rgb),  0.85); }
+.csa-tag-metric:hover { background: rgba(var(--blue-rgb),  0.1); border-color: rgba(var(--blue-rgb),  0.55); color: var(--blue); }
 
-.csa-fulfilled { opacity: 0.45; text-decoration: line-through; }
+.csa-fulfilled { opacity: 0.3; color: var(--text-dim); border-color: var(--border); text-decoration: line-through; }
 
 /* Popover */
 #csa-popover {
