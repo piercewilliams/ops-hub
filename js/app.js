@@ -4,6 +4,10 @@ import { PROJECTS, COMPLETED_TASKS } from '../data/projects.js';
 import { CSA_LINKS } from '../data/csa-links.js';
 import { renderDiagram, drawArrows } from './diagram.js';
 
+// Active projects — swapped to snapshot data when browsing version history
+let _activeProjects = PROJECTS;
+let _activeSnapshotId = null;
+
 // ── Sidebar ───────────────────────────────────────────────────────────────────
 
 function openSidebar(project) {
@@ -46,13 +50,13 @@ function buildSidebarHTML(p) {
 
   const depsHTML = p.dependsOn?.length
     ? `<div class="sb-section"><div class="sb-section-title">Depends On</div><div class="sb-deps">${p.dependsOn.map(id => {
-        const dep = PROJECTS[id];
+        const dep = _activeProjects[id];
         return dep ? `<span class="sb-dep-tag">#${dep.num} ${dep.name}</span>` : '';
       }).join('')}</div></div>`
     : '';
 
   const unlocksHTML = (() => {
-    const unlocks = Object.values(PROJECTS).filter(proj => proj.dependsOn?.includes(p.id));
+    const unlocks = Object.values(_activeProjects).filter(proj => proj.dependsOn?.includes(p.id));
     return unlocks.length
       ? `<div class="sb-section"><div class="sb-section-title">Unlocks</div><div class="sb-deps">${unlocks.map(u => `<span class="sb-dep-tag sb-dep-unlocks">#${u.num} ${u.name}</span>`).join('')}</div></div>`
       : '';
@@ -159,6 +163,7 @@ function renderProgressSection() {
       <button class="prog-btn" data-prog="recent">Recently done</button>
       <button class="prog-btn" data-prog="projects">Completed projects</button>
     </div>
+    <div id="snapshot-bar"></div>
   `;
 
   // Inject panel into body once
@@ -245,6 +250,99 @@ function closeProgressPanel() {
   if (panel) panel.classList.remove('open');
   document.querySelectorAll('.prog-btn').forEach(b => b.classList.remove('active'));
   _activeProgressPanel = null;
+}
+
+// ── Snapshot Version History ──────────────────────────────────────────────────
+
+async function renderSnapshotBar() {
+  const el = document.getElementById('snapshot-bar');
+  if (!el) return;
+  try {
+    const res = await fetch('./data/snapshots/index.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error();
+    const snapshots = await res.json();
+    if (!snapshots.length) { el.style.display = 'none'; return; }
+
+    el.innerHTML = `
+      <span id="snapshot-bar-label">Map versions</span>
+      ${snapshots.map(s => `<button class="snap-btn" data-snap-id="${s.id}" data-snap-file="${s.filename}" title="${new Date(s.timestamp).toLocaleString()}">${s.label}</button>`).join('')}
+    `;
+  } catch {
+    el.style.display = 'none';
+  }
+}
+
+async function viewSnapshot(snapshotFile, snapId) {
+  try {
+    const res = await fetch(`./data/snapshots/${snapshotFile}`, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    _activeProjects = data.projects;
+    _activeSnapshotId = snapId;
+
+    document.querySelectorAll('.snap-btn').forEach(b =>
+      b.classList.toggle('active', b.dataset.snapId === snapId));
+
+    closeSidebar();
+    renderDiagram(_activeProjects, openSidebar);
+    showSnapshotBanner(data.timestamp);
+  } catch (err) {
+    console.error('Failed to load snapshot:', err);
+  }
+}
+
+function exitSnapshotMode() {
+  _activeProjects = PROJECTS;
+  _activeSnapshotId = null;
+  document.querySelectorAll('.snap-btn').forEach(b => b.classList.remove('active'));
+  closeSidebar();
+  renderDiagram(PROJECTS, openSidebar);
+  hideSnapshotBanner();
+}
+
+function showSnapshotBanner(timestamp) {
+  let banner = document.getElementById('snapshot-banner');
+  if (!banner) {
+    banner = document.createElement('div');
+    banner.id = 'snapshot-banner';
+    document.getElementById('header').appendChild(banner);
+  }
+  const label = new Date(timestamp).toLocaleString(undefined,
+    { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+  banner.innerHTML = `
+    <span>Viewing sync from <strong>${label}</strong></span>
+    <span class="snap-banner-actions">
+      <button class="snap-banner-btn" data-snap-restore data-snap-label="${label}">Restore this version</button>
+      <button class="snap-banner-btn snap-banner-exit" data-snap-exit>← Back to live</button>
+    </span>
+  `;
+  banner.style.display = 'flex';
+}
+
+function hideSnapshotBanner() {
+  const banner = document.getElementById('snapshot-banner');
+  if (banner) banner.style.display = 'none';
+}
+
+function showRestoreInstructions(label) {
+  let modal = document.getElementById('snap-restore-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'snap-restore-modal';
+    document.body.appendChild(modal);
+  }
+  const instruction = `Restore ops-hub to the ${label} sync version`;
+  modal.innerHTML = `
+    <div class="srm-inner">
+      <div class="srm-title">Restore this version</div>
+      <div class="srm-body">Tell Claude Code:</div>
+      <div class="srm-code">${instruction}</div>
+      <button class="srm-copy" data-copy="${instruction}">Copy</button>
+      <button class="srm-dismiss" data-srm-close>Done</button>
+    </div>
+  `;
+  modal.classList.add('visible');
 }
 
 // ── Sync Status ───────────────────────────────────────────────────────────────
@@ -343,6 +441,25 @@ document.addEventListener('click', (e) => {
   if (progBtn) { openProgressPanel(progBtn.dataset.prog); return; }
   if (e.target.closest('[data-prog-close]')) { closeProgressPanel(); return; }
 
+  // Snapshot version history
+  const snapBtn = e.target.closest('.snap-btn');
+  if (snapBtn) { viewSnapshot(snapBtn.dataset.snapFile, snapBtn.dataset.snapId); return; }
+  if (e.target.closest('[data-snap-exit]')) { exitSnapshotMode(); return; }
+  if (e.target.closest('[data-snap-restore]')) {
+    showRestoreInstructions(e.target.closest('[data-snap-restore]').dataset.snapLabel); return;
+  }
+  if (e.target.closest('[data-srm-close]')) {
+    document.getElementById('snap-restore-modal')?.classList.remove('visible'); return;
+  }
+  const copyBtn = e.target.closest('[data-copy]');
+  if (copyBtn) {
+    navigator.clipboard.writeText(copyBtn.dataset.copy).catch(() => {});
+    const orig = copyBtn.textContent;
+    copyBtn.textContent = 'Copied!';
+    setTimeout(() => { copyBtn.textContent = orig; }, 2000);
+    return;
+  }
+
   const tag = e.target.closest('.csa-tag');
   if (tag) {
     e.stopPropagation();
@@ -368,14 +485,15 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeSidebar();
 });
 
-// Redraw arrows on scroll and resize
-window.addEventListener('scroll', () => drawArrows(PROJECTS), { passive: true });
-window.addEventListener('resize', () => drawArrows(PROJECTS), { passive: true });
+// Redraw arrows on scroll and resize (uses _activeProjects so it works in snapshot mode)
+window.addEventListener('scroll', () => drawArrows(_activeProjects), { passive: true });
+window.addEventListener('resize', () => drawArrows(_activeProjects), { passive: true });
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
   renderProgressSection();
+  renderSnapshotBar();
   renderDiagram(PROJECTS, openSidebar);
   fetchSyncStatus();
 });
