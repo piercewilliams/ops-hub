@@ -1,6 +1,7 @@
 // app.js — entry point: wires up diagram, sidebar, and event handling
 
 import { PROJECTS, COMPLETED_TASKS } from '../data/projects.js';
+import { CSA_LINKS } from '../data/csa-links.js';
 import { renderDiagram, drawArrows } from './diagram.js';
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────
@@ -77,6 +78,28 @@ function buildSidebarHTML(p) {
     ? `<div class="sb-section"><div class="sb-section-title">Links</div><ul class="sb-list sb-list-links">${p.links.map(l => `<li><a href="${l.url}" target="_blank" rel="noopener">${l.label}</a></li>`).join('')}</ul></div>`
     : '';
 
+  const csaData = CSA_LINKS[p.id];
+  const csaHTML = (() => {
+    if (!csaData) return '';
+    const rows = [];
+    if (csaData.pain?.length) {
+      rows.push(`<div class="csa-row"><span class="csa-row-label">Pain</span><span class="csa-tags">${
+        csaData.pain.map(e => `<button class="csa-tag csa-tag-pain" data-csa='${JSON.stringify(e)}' title="${e.label}">${e.id}</button>`).join('')
+      }</span></div>`);
+    }
+    if (csaData.requests?.length) {
+      rows.push(`<div class="csa-row"><span class="csa-row-label">Requests</span><span class="csa-tags">${
+        csaData.requests.map(e => `<button class="csa-tag csa-tag-req${e.fulfilled ? ' csa-fulfilled' : ''}" data-csa='${JSON.stringify(e)}' title="${e.label}">${e.id}</button>`).join('')
+      }</span></div>`);
+    }
+    if (csaData.metrics?.length) {
+      rows.push(`<div class="csa-row"><span class="csa-row-label">Metrics</span><span class="csa-tags">${
+        csaData.metrics.map(e => `<button class="csa-tag csa-tag-metric" data-csa='${JSON.stringify(e)}' title="${e.label}">${e.id}</button>`).join('')
+      }</span></div>`);
+    }
+    return rows.length ? `<div class="sb-section"><div class="sb-section-title">CSA Dashboard</div>${rows.join('')}</div>` : '';
+  })();
+
   return `
     <div class="sb-header">
       <div class="sb-num">#${p.num}</div>
@@ -98,6 +121,7 @@ function buildSidebarHTML(p) {
     ${agendaHTML}
     ${contactsHTML}
     ${linksHTML}
+    ${csaHTML}
   `;
 }
 
@@ -213,7 +237,60 @@ setInterval(fetchSyncStatus, 5 * 60 * 1000);
 
 // ── Event delegation ──────────────────────────────────────────────────────────
 
+// ── CSA Tag Popover ───────────────────────────────────────────────────────────
+
+function getOrCreatePopover() {
+  let el = document.getElementById('csa-popover');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'csa-popover';
+    el.setAttribute('role', 'tooltip');
+    document.body.appendChild(el);
+  }
+  return el;
+}
+
+function showPopover(tag, data) {
+  const pop = getOrCreatePopover();
+  const statusLine = data.fulfilled != null
+    ? `<div class="pop-status ${data.fulfilled ? 'pop-fulfilled' : ''}">${data.fulfilled ? 'Fulfilled' : 'Open'}</div>`
+    : (data.group ? `<div class="pop-group">${data.group}</div>` : '');
+  pop.innerHTML = `
+    <div class="pop-id">${data.id}</div>
+    <div class="pop-label">${data.label}</div>
+    ${statusLine}
+    <div class="pop-text">${data.text || ''}</div>
+  `;
+  pop.classList.add('visible');
+
+  const rect = tag.getBoundingClientRect();
+  const pw = pop.offsetWidth || 300;
+  let left = rect.left + window.scrollX;
+  if (left + pw > window.innerWidth - 12) left = window.innerWidth - pw - 12;
+  pop.style.left = `${Math.max(8, left)}px`;
+  pop.style.top  = `${rect.bottom + window.scrollY + 6}px`;
+}
+
+function hidePopover() {
+  const pop = document.getElementById('csa-popover');
+  if (pop) pop.classList.remove('visible');
+}
+
 document.addEventListener('click', (e) => {
+  const tag = e.target.closest('.csa-tag');
+  if (tag) {
+    e.stopPropagation();
+    const pop = document.getElementById('csa-popover');
+    if (pop?.classList.contains('visible') && pop._lastTag === tag) {
+      hidePopover();
+      pop._lastTag = null;
+    } else {
+      try { showPopover(tag, JSON.parse(tag.dataset.csa)); } catch {}
+      if (pop) pop._lastTag = tag;
+    }
+    return;
+  }
+  hidePopover();
   const el = e.target.closest('[data-action]');
   if (!el) return;
   if (el.dataset.action === 'close-sidebar') closeSidebar();
