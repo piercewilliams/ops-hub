@@ -6,6 +6,8 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-03-30', task: 'BitBucket access in hand — IT created account, Amanda Hamilton added to CSA project same day. P8 (CSA Mapping) unblocked.', project: '#1 Platform Access & Training' },
+  { date: '2026-03-30', task: 'Snowflake access granted (role: growth_and_strategy_role, warehouse: growth_and_strategy_role_wh). Login issue being remedied by IT.', project: '#1 Platform Access & Training' },
   { date: '2026-03-30', task: 'Attended CSA dev standup — met Rajiv Pant, Marcelo Freitas, Oliver Felix, Patrick Al Khouri, Victor Suarez, Daury Caba, Emil Penalo + team; now have direct contacts for Amplitude p-tagging fix and GitHub access', project: '#1 Platform Access & Training' },
   { date: '2026-03-30', task: 'Attended PGS-82 UX design sprint — cluster risk approach decided (worst-pair score); Susannah + Efren own checkbox placement, Marcelo owns score display + variant controls', project: 'Content Diff Tool (PGS-82)' },
   { date: '2026-03-29', task: 'Ops-hub automated sync deployed — 3x daily, push auth via PAT, live sync status pill on dashboard', project: 'ops-hub' },
@@ -33,7 +35,7 @@ export const PROJECTS = {
     owner: 'Pierce',
     description: 'API access and onboarding for all platforms the team uses. Determines architecture for Projects 2 and 7. Gary API key unlocks Project 10.',
     systems: [
-      { name: 'Snowflake / Sigma', status: 'pending', note: 'Follow-up IT request sent 2026-03-30 (original ticket 2026-03-26). Also requested SEO data warehouse permissions (Rocky Rhodes). Awaiting IT response.' },
+      { name: 'Snowflake / Sigma', status: 'pending', note: 'Access granted 2026-03-30 (role: growth_and_strategy_role, warehouse: growth_and_strategy_role_wh). Login issues currently being remedied by IT. Sigma access still pending.' },
       { name: 'CUE', status: 'done', note: 'Access in hand.' },
       { name: 'WordPress', status: 'done', note: 'Full access as of 2026-03-28.' },
       { name: 'Google Sheets API', status: 'pending', note: 'No OAuth — read-only key only. Lowest barrier. Do first.' },
@@ -42,16 +44,17 @@ export const PROJECTS = {
       { name: 'Gary API', status: 'pending', note: 'Gary Kirwan to deliver API endpoint docs + McClatchy API key. Blocks Project 10.' },
       { name: 'SemRush', status: 'pending', note: 'IT request sent 2026-03-30 — awaiting access via McClatchy license.' },
       { name: 'MAIA', status: 'done', note: 'Access in hand.' },
-      { name: 'BitBucket', status: 'pending', note: 'IT request sent 2026-03-30 — awaiting account creation. Once IT creates account, Amanda Hamilton adds to CSA project.' },
+      { name: 'BitBucket', status: 'done', note: 'Account created by IT. Added to CSA project by Amanda Hamilton 2026-03-30.' },
     ],
     blockers: [
-      'IT access request sent 2026-03-30 — awaiting response on Snowflake/Sigma, Amplitude, BitBucket, SemRush, Marfeel',
+      'Snowflake login issues being remedied by IT; Sigma access still pending',
+      'Amplitude, SemRush, Marfeel access still pending IT response',
       'Gary API key not yet delivered by Gary Kirwan',
     ],
     nextActions: [
       'Enable Google Sheets API, get read-only key (do now — no OAuth, unblocked)',
-      'Await IT response on access request sent 2026-03-30 (help@mcclatchy.com)',
-      'Once BitBucket account created by IT, ping Amanda Hamilton to be added to CSA project',
+      'Resolve Snowflake login issue with IT, then get Chad walkthrough of growth_and_strategy_role data',
+      'Ping Amanda Hamilton to be added to CSA project in BitBucket',
       'Gary Kirwan messaged 2026-03-30 — awaiting reply on API docs + key delivery',
     ],
     dependsOn: [],
@@ -60,16 +63,13 @@ export const PROJECTS = {
   // ── TIER 2 ────────────────────────────────────────────────────────────────
 
   'p8-mapping': {
-    id: 'p8-mapping', num: '8', tier: 2, type: 'project', status: 'not-started',
+    id: 'p8-mapping', num: '8', tier: 2, type: 'project', status: 'in-progress',
     name: 'Rajiv CSA Mapping',
     owner: 'Pierce',
     description: 'Use GitHub access from Rajiv to map all CSA transformations in granular detail — every step, every reasoning chain, in order. Prerequisite for PRD revisions. Can run in parallel with Project 13.',
-    blockers: [
-      'Needs GitHub/product access from Rajiv (subset of Project 1)',
-    ],
+    blockers: [],
     nextActions: [
-      'BitBucket: IT creates account (include in help@ email) → Amanda Hamilton adds to CSA project',
-      'Once IT creates BitBucket account, ping Amanda Hamilton to be added to CSA project',
+      'BitBucket access in hand as of 2026-03-30 — begin CSA codebase mapping',
       'Map all CSA transformations end-to-end',
       'Document Mode 1 and Mode 2 behavior (coordinate with P13)',
       'Note: PGS-94 (Establish National team as a Configuration in CSA) is in code review — review once access is in hand',

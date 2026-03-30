@@ -108,7 +108,7 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | T1 Headlines site | `/Users/pierce/Documents/GitHub/data-t1headlines/docs/index.html` |
 | Alignment meeting agenda | https://docs.google.com/document/d/1MtVlBJeh_k9X7dnrpRmEQ9jefrbdWwY2/edit |
 | Chris cluster performance sheet | https://docs.google.com/spreadsheets/d/1VGMbJUV2u9QjUpk0QxMdHeNf9sTumEeR/edit |
-| Sara Vallone tracker sheet | (get URL from Sara) |
+| Sara Vallone tracker sheet | https://docs.google.com/spreadsheets/d/14_0eK46g3IEj7L_yp9FIdWwvnuYI5f-vAuP7DDhSPg8/edit |
 
 ## Team Roster
 
@@ -155,7 +155,8 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 
 | Item | Status | Owner | Notes |
 |------|--------|-------|-------|
-| IT access request (all platforms) | Awaiting response | IT (help@mcclatchy.com) | Sent 2026-03-30: Snowflake/Sigma, Amplitude, BitBucket, SemRush, Marfeel. Original Snowflake ticket 2026-03-26. Also requested SEO data warehouse permissions (Rocky Rhodes). |
+| Snowflake login issue | In progress | IT | Access granted (role: growth_and_strategy_role, wh: growth_and_strategy_role_wh). Login issue being remedied. Sigma still pending. |
+| Amplitude / SemRush / Marfeel access | Awaiting response | IT (help@mcclatchy.com) | Sent 2026-03-30. |
 | IT webhook ticket | Pending | IT | May become irrelevant if Snowflake path works. |
 | Gary API key + endpoint docs | Awaiting reply | Gary Kirwan | Messaged via Slack/email 2026-03-30. Required for Project 10. |
 | Amplitude p-tagging issue | Dev fix needed | Engineering | Cue/WP tag format incompatibility. Blocks Amplitude adapter. Forward-path: scope event names at dev standup. |

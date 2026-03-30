@@ -41,7 +41,7 @@ For session history: see [sessions/](sessions/)
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
 | 6 | Content Cluster / Tagging Taxonomy | 3 | Blocked | Alignment meeting not scheduled |
 | 7 | Vallone Tracker / CMS Automation | 4 | Blocked | Needs P6 alignment + Snowflake access |
-| 8 | Rajiv CSA Mapping | 2 | Not started | Needs GitHub access from Rajiv |
+| 8 | Rajiv CSA Mapping | 2 | In progress | BitBucket access in hand 2026-03-30 |
 | 9 | PRD Revisions | 3 | Not started | Needs P8 + P13 complete |
 | 10 | Gary Tools Integration | 2 | Blocked | Gary API key not delivered |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
@@ -50,10 +50,10 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next
 
-1. [ ] **Await IT response** on access request sent 2026-03-30 to help@mcclatchy.com (Snowflake/Sigma, Amplitude, BitBucket, SemRush, Marfeel)
-2. [ ] **Enable Google Sheets API key** (P2 — unblocked, no OAuth needed, do now)
-3. [ ] **Write desired target audiences for National team and test in CSA** (standup action item; coordinate with Oliver Felix on PGS-97)
-4. [ ] **Once BitBucket account created by IT**, ping Amanda Hamilton to be added to CSA project (unlocks P8)
+1. [ ] **Resolve Snowflake login** with IT (access granted, role: growth_and_strategy_role — login issue being fixed)
+2. [ ] **Begin CSA codebase mapping in BitBucket** (P8 — access in hand as of 2026-03-30)
+3. [ ] **Enable Google Sheets API key** (P2 — unblocked, no OAuth needed, do now)
+4. [ ] **Write desired target audiences for National team and test in CSA** (standup action item; coordinate with Oliver Felix on PGS-97)
 5. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah (PGS-40 is ON HOLD in Jira pending this)
 
 ## Pending Notifications
