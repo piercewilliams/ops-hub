@@ -293,6 +293,10 @@ function getNextTasks(limit = 5) {
  * Renders the progress bar buttons and snapshot bar into #progress-section.
  * Also injects the #progress-panel into <body> once if not present.
  * Populates _progressData for use when panels are opened.
+ *
+ * NOTE: Called exactly once, on DOMContentLoaded. #snapshot-bar is injected
+ * via innerHTML here; if this were called a second time it would reset bar
+ * state (including el.style.display set by renderSnapshotBar). Don't call again.
  */
 function renderProgressSection() {
   const el = document.getElementById('progress-section');
@@ -560,6 +564,14 @@ function attemptRestore() {
   const errEl = document.getElementById('srm-error');
   if (!input) return;
 
+  // Guard: snapshot index must be loaded before restore is attempted.
+  // _snapshotIndex is populated by renderSnapshotBar() which is async; if it
+  // hasn't resolved yet (e.g. slow network), we can't compute the pruned index.
+  if (_snapshotIndex.length === 0) {
+    if (errEl) errEl.textContent = 'Snapshot index not loaded — refresh and try again.';
+    return;
+  }
+
   // Passkey gate — compare against PASSKEY constant
   if (input.value !== PASSKEY) {
     if (errEl) errEl.textContent = 'Incorrect passkey.';
@@ -676,7 +688,10 @@ async function fetchSyncStatus() {
   }
 }
 
-// Auto-refresh sync status every SYNC_INTERVAL_MS
+// Auto-refresh sync status every SYNC_INTERVAL_MS.
+// Intentionally at module top level (not inside DOMContentLoaded) — this is fine
+// because the module only loads once per page lifecycle. There is no unmount cycle
+// in this static SPA, so there is no interval leak risk.
 setInterval(fetchSyncStatus, SYNC_INTERVAL_MS);
 
 // ── CSA Tag Popover ───────────────────────────────────────────────────────────
@@ -794,7 +809,9 @@ document.addEventListener('keydown', (e) => {
     closeSidebar();
   }
   // Enter while passkey field is focused triggers restore attempt
-  if (e.key === 'Enter' && document.activeElement?.id === 'srm-passkey') {
+  // Guard: only fire if the restore modal is actually open (visible class present)
+  if (e.key === 'Enter' && document.activeElement?.id === 'srm-passkey' &&
+      document.getElementById('snap-restore-modal')?.classList.contains('visible')) {
     attemptRestore();
   }
 });
