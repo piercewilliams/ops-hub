@@ -316,7 +316,6 @@ function renderProgressSection() {
       <button class="prog-btn" data-prog="recent">Recently done</button>
       <button class="prog-btn" data-prog="projects">Completed projects</button>
     </div>
-    <div id="snapshot-bar"></div>
   `;
 
   // Inject the progress panel into <body> once; reused across open/close cycles

@@ -32,7 +32,7 @@ Ops Hub is a zero-build-step GitHub Pages dashboard that tracks ~13 active proje
 - **`data/snapshots/index.json`** must always have ≤5 entries. The sync agent prunes to 5.
 - **All CSS variables** must be defined in `:root` before use. Run `bash scripts/check.sh` to verify.
 - **`sanitize()`** must be applied to all data interpolated into innerHTML. It is defined at the top of `app.js` and handles null/undefined safely.
-- **`renderProgressSection()`** is called exactly once on DOMContentLoaded. Calling it again resets `#snapshot-bar` state (including the `display:none` set by `renderSnapshotBar`).
+- **`renderProgressSection()`** is called exactly once on DOMContentLoaded. It only injects `#progress-bar` buttons. `#snapshot-bar` lives in `index.html` at the bottom of `#diagram-pane` and is populated separately by `renderSnapshotBar()`.
 - **`setInterval(fetchSyncStatus, SYNC_INTERVAL_MS)`** is set at module top level intentionally — there is no unmount cycle in this static SPA, so no leak risk.
 - **`#csa-popover`** is `position: absolute` on `<body>`. The `showPopover` function correctly adds `window.scrollX/Y` offsets for positioning.
 - **Double `requestAnimationFrame`** in `renderDiagram` is required. One rAF is not enough — the second pass is needed to let the browser finish layout before `getBoundingClientRect` is accurate.

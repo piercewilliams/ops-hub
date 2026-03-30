@@ -795,12 +795,17 @@ html, body {
    8c. SNAPSHOT VERSION HISTORY
    ============================================================ */
 
+#snapshot-section {
+  padding: 16px 28px 24px;
+  border-top: 1px solid var(--border);
+  margin-top: 32px;
+}
+
 #snapshot-bar {
   display: flex;
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
-  margin-top: 8px;
 }
 
 #snapshot-bar-label {
