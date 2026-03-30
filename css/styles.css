@@ -57,7 +57,7 @@ html, body {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0;
+  z-index: 0; /* TODO: consider --z-arrows variable */
 }
 
 /* ============================================================
@@ -67,8 +67,8 @@ html, body {
 #header {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: rgba(15, 17, 23, 0.92);
+  z-index: 50; /* TODO: consider --z-header variable */
+  background: rgba(15, 17, 23, 0.92); /* TODO: magic opacity 0.92 — could be --header-bg-opacity */
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   padding: 14px 24px 12px;
@@ -139,7 +139,7 @@ html, body {
   flex-direction: column;
   gap: 0;
   position: relative;
-  z-index: 1;
+  z-index: 1; /* TODO: consider --z-diagram variable */
 }
 
 /* ── Tier row ───────────────────────────────────────────────── */
@@ -155,7 +155,7 @@ html, body {
 .tier-row:last-child { border-bottom: none; }
 
 .tier-hold {
-  opacity: 0.65;
+  opacity: 0.65; /* TODO: magic opacity — could be --opacity-hold */
 }
 
 /* ── Tier label ─────────────────────────────────────────────── */
@@ -210,7 +210,7 @@ html, body {
    ============================================================ */
 
 .card {
-  width: 190px;
+  width: 190px; /* TODO: magic width — could be --card-w */
   min-height: 96px;
   background: var(--surface);
   border: 1px solid var(--border-mid);
@@ -228,7 +228,7 @@ html, body {
 .card:hover {
   border-color: var(--border-bright);
   background: var(--surface2);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.35); /* TODO: magic shadow opacity */
 }
 
 .card.active {
@@ -237,7 +237,8 @@ html, body {
   box-shadow: 0 0 0 2px rgba(var(--blue-rgb), 0.15);
 }
 
-/* Status border-left accent */
+/* ── Status border-left accent ──────────────────────────────── */
+
 .card.status-in-progress { border-left: 3px solid rgba(var(--green-rgb), 0.7); }
 .card.status-blocked      { border-left: 3px solid rgba(var(--red-rgb),   0.7); }
 .card.status-not-started  { border-left: 3px solid var(--border-mid); }
@@ -321,7 +322,8 @@ html, body {
   border-color: rgba(var(--blue-rgb), 0.25);
 }
 
-/* Legend swatches */
+/* ── Legend swatches ────────────────────────────────────────── */
+
 .status-in-progress  { background: rgba(var(--green-rgb),           0.20); border-color: rgba(var(--green-rgb),           0.45); }
 .status-blocked      { background: rgba(var(--red-rgb),             0.20); border-color: rgba(var(--red-rgb),             0.45); }
 .status-not-started  { background: rgba(var(--text-secondary-rgb),  0.12); border-color: rgba(var(--text-secondary-rgb),  0.30); }
@@ -339,7 +341,7 @@ html, body {
   height: 100%;
   background: var(--surface);
   border-left: 1px solid var(--border-mid);
-  z-index: 100;
+  z-index: 100; /* TODO: consider --z-sidebar variable */
   transform: translateX(100%);
   transition: transform 0.22s ease;
   overflow: hidden;
@@ -349,7 +351,7 @@ html, body {
 
 #sidebar.open {
   transform: translateX(0);
-  box-shadow: -8px 0 32px rgba(0,0,0,0.4);
+  box-shadow: -8px 0 32px rgba(0,0,0,0.4); /* TODO: magic shadow opacity */
 }
 
 #sidebar-inner {
@@ -375,7 +377,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 101;
+  z-index: 101; /* TODO: consider --z-sidebar-close variable */
   transition: color 0.12s, border-color 0.12s;
 }
 #sidebar-close:hover {
@@ -527,7 +529,8 @@ html, body {
   background: rgba(var(--green-rgb), 0.08);
 }
 
-/* Systems / adapters table */
+/* ── Systems / adapters table ───────────────────────────────── */
+
 .sb-systems-table {
   width: 100%;
   border-collapse: collapse;
@@ -589,7 +592,7 @@ html, body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--text-dim);
+  color: var(--text-muted); /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
   min-width: 52px;
   padding-top: 3px;
   flex-shrink: 0;
@@ -604,12 +607,12 @@ html, body {
   border-radius: 4px;
   border: 1px solid var(--border-mid);
   background: var(--surface2);
-  color: var(--text-dim);
+  color: var(--text-muted); /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
   cursor: pointer;
   transition: background 0.12s, color 0.12s, border-color 0.12s;
   white-space: nowrap;
 }
-.csa-tag:hover { background: var(--surface3); color: var(--text); border-color: var(--border-bright); }
+.csa-tag:hover { background: var(--surface3); color: var(--text-primary); border-color: var(--border-bright); } /* was var(--text) — undefined; fixed to var(--text-primary) */
 
 .csa-tag-pain   { border-color: rgba(var(--red-rgb),   0.3); color: rgba(var(--red-rgb),   0.85); }
 .csa-tag-pain:hover { background: rgba(var(--red-rgb),   0.1); border-color: rgba(var(--red-rgb),   0.55); color: var(--red); }
@@ -620,29 +623,30 @@ html, body {
 .csa-tag-metric { border-color: rgba(var(--blue-rgb),  0.3); color: rgba(var(--blue-rgb),  0.85); }
 .csa-tag-metric:hover { background: rgba(var(--blue-rgb),  0.1); border-color: rgba(var(--blue-rgb),  0.55); color: var(--blue); }
 
-.csa-fulfilled { opacity: 0.3; color: var(--text-dim); border-color: var(--border); text-decoration: line-through; }
+.csa-fulfilled { opacity: 0.3; color: var(--text-muted); border-color: var(--border); text-decoration: line-through; } /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
 
-/* Popover */
+/* ── CSA Tag Popover ────────────────────────────────────────── */
+
 #csa-popover {
   position: absolute;
-  z-index: 1000;
+  z-index: 1000; /* TODO: consider --z-popover variable */
   width: 300px;
   background: var(--surface2);
   border: 1px solid var(--border-bright);
   border-radius: 8px;
   padding: 12px 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5); /* TODO: magic shadow opacity */
   display: none;
   pointer-events: auto;
 }
 #csa-popover.visible { display: block; }
 
-.pop-id    { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10px; color: var(--text-dim); margin-bottom: 4px; }
-.pop-label { font-size: 12.5px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.35; }
-.pop-group { font-size: 10.5px; color: var(--text-dim); margin-bottom: 6px; }
+.pop-id    { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10px; color: var(--text-muted); margin-bottom: 4px; } /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
+.pop-label { font-size: 12.5px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; line-height: 1.35; } /* was var(--text) — undefined; fixed to var(--text-primary) */
+.pop-group { font-size: 10.5px; color: var(--text-muted); margin-bottom: 6px; } /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
 .pop-status { font-size: 10.5px; font-weight: 600; color: rgba(var(--amber-rgb), 0.9); margin-bottom: 6px; }
 .pop-fulfilled { color: rgba(var(--green-rgb), 0.85); }
-.pop-text  { font-size: 11.5px; color: var(--text-dim); line-height: 1.5; max-height: 160px; overflow-y: auto; }
+.pop-text  { font-size: 11.5px; color: var(--text-muted); line-height: 1.5; max-height: 160px; overflow-y: auto; } /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
 
 /* ============================================================
    8b. PROGRESS BAR + PANEL
@@ -664,13 +668,13 @@ html, body {
   border-radius: 20px;
   border: 1px solid var(--border-mid);
   background: var(--surface);
-  color: var(--text-dim);
+  color: var(--text-muted); /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
   font-size: 12px;
   cursor: pointer;
   transition: background 0.12s, border-color 0.12s, color 0.12s;
 }
-.prog-btn:hover { background: var(--surface2); border-color: var(--border-bright); color: var(--text); }
-.prog-btn.active { background: var(--surface2); border-color: var(--border-bright); color: var(--text); }
+.prog-btn:hover { background: var(--surface2); border-color: var(--border-bright); color: var(--text-primary); } /* was var(--text) — undefined; fixed to var(--text-primary) */
+.prog-btn.active { background: var(--surface2); border-color: var(--border-bright); color: var(--text-primary); } /* was var(--text) — undefined; fixed to var(--text-primary) */
 
 .prog-count {
   font-size: 10.5px;
@@ -678,11 +682,12 @@ html, body {
   background: var(--surface3);
   border-radius: 10px;
   padding: 1px 6px;
-  color: var(--text-dim);
+  color: var(--text-muted); /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
 }
-.prog-btn.active .prog-count { color: var(--text); }
+.prog-btn.active .prog-count { color: var(--text-primary); } /* was var(--text) — undefined; fixed to var(--text-primary) */
 
-/* Progress panel — slides in from right */
+/* ── Progress panel — slides in from right ──────────────────── */
+
 #progress-panel {
   position: fixed;
   top: 0;
@@ -691,10 +696,10 @@ html, body {
   height: 100vh;
   background: var(--surface);
   border-left: 1px solid var(--border-mid);
-  box-shadow: -4px 0 24px rgba(0,0,0,0.4);
+  box-shadow: -4px 0 24px rgba(0,0,0,0.4); /* TODO: magic shadow opacity */
   display: flex;
   flex-direction: column;
-  z-index: 200;
+  z-index: 200; /* TODO: consider --z-progress-panel variable */
   transform: translateX(100%);
   transition: transform 0.2s ease;
 }
@@ -712,25 +717,27 @@ html, body {
 #progress-panel-title {
   font-size: 13px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--text-primary); /* was var(--text) — undefined; fixed to var(--text-primary) */
 }
 
 #progress-panel-close {
   background: none;
   border: none;
-  color: var(--text-dim);
+  color: var(--text-muted); /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
   font-size: 14px;
   cursor: pointer;
   padding: 2px 6px;
   border-radius: 4px;
 }
-#progress-panel-close:hover { color: var(--text); background: var(--surface2); }
+#progress-panel-close:hover { color: var(--text-primary); background: var(--surface2); } /* was var(--text) — undefined; fixed to var(--text-primary) */
 
 #progress-panel-body {
   flex: 1;
   overflow-y: auto;
   padding: 12px 0;
 }
+
+/* ── Progress panel items ───────────────────────────────────── */
 
 .pp-item {
   display: flex;
@@ -744,14 +751,14 @@ html, body {
 .pp-num {
   font-size: 11px;
   font-weight: 700;
-  color: var(--text-dim);
+  color: var(--text-muted); /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
   min-width: 16px;
   padding-top: 2px;
 }
 
 .pp-date {
   font-size: 11px;
-  color: var(--text-dim);
+  color: var(--text-muted); /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
   white-space: nowrap;
   min-width: 82px;
   padding-top: 2px;
@@ -761,14 +768,14 @@ html, body {
 
 .pp-task {
   font-size: 12.5px;
-  color: var(--text);
+  color: var(--text-primary); /* was var(--text) — undefined; fixed to var(--text-primary) */
   line-height: 1.4;
   margin-bottom: 3px;
 }
 
 .pp-meta {
   font-size: 11px;
-  color: var(--text-dim);
+  color: var(--text-muted); /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
   display: flex;
   align-items: center;
   gap: 6px;
@@ -780,7 +787,7 @@ html, body {
 .pp-empty {
   padding: 24px 20px;
   font-size: 12px;
-  color: var(--text-dim);
+  color: var(--text-muted); /* was var(--text-dim) — undefined; fixed to var(--text-muted) */
   line-height: 1.6;
 }
 
@@ -829,7 +836,8 @@ html, body {
   color: var(--purple);
 }
 
-/* Snapshot mode banner — appended inside #header when active */
+/* ── Snapshot mode banner — appended inside #header when active ── */
+
 #snapshot-banner {
   display: none;
   align-items: center;
@@ -868,15 +876,16 @@ html, body {
 }
 .snap-banner-exit:hover { background: var(--surface3); color: var(--text-primary); }
 
-/* Restore instructions modal */
+/* ── Restore instructions modal ─────────────────────────────── */
+
 #snap-restore-modal {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 500;
+  z-index: 500; /* TODO: consider --z-modal variable */
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0,0,0,0.55); /* TODO: magic backdrop opacity */
   backdrop-filter: blur(4px);
 }
 #snap-restore-modal.visible { display: flex; }
@@ -887,7 +896,7 @@ html, body {
   border-radius: 10px;
   padding: 22px 24px;
   width: 400px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.55); /* TODO: magic shadow opacity */
 }
 
 .srm-title {
@@ -923,7 +932,7 @@ html, body {
   padding: 8px 12px;
   color: var(--text-primary);
   font-size: 15px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.15em; /* TODO: magic letter-spacing for passkey dots */
   margin-bottom: 6px;
   outline: none;
   transition: border-color 0.15s;
@@ -995,7 +1004,7 @@ html, body {
 }
 
 .sync-dot {
-  width: 7px; height: 7px;
+  width: 7px; height: 7px; /* TODO: magic size — could be --sync-dot-size */
   border-radius: 50%;
   flex-shrink: 0;
   background: var(--text-muted);

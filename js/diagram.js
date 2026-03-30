@@ -1,7 +1,25 @@
-// diagram.js — renders tier rows, project cards, and SVG dependency arrows
+/**
+ * diagram.js — renders the tier rows, project cards, and SVG dependency arrows.
+ *
+ * Purpose:
+ *   Owns all DOM construction for the main diagram pane. Receives a projects map
+ *   and a click handler from app.js; produces card elements in tier rows and
+ *   draws bezier-curve SVG arrows between dependent cards.
+ *
+ * Key exports:
+ *   renderDiagram(projects, onCardClick) — full re-render of #tiers-container
+ *   drawArrows(projects)                 — re-draw SVG arrows only (called on scroll/resize)
+ *
+ * Static dependency note:
+ *   TIERS is imported from data/projects.js. It defines the ordered tier list
+ *   used to group and label project cards. If a new tier is added to projects.js,
+ *   it will appear automatically here without code changes.
+ */
 
+// NOTE: TIERS is a static dependency — tier order and labels come from projects.js
 import { TIERS } from '../data/projects.js';
 
+/** Human-readable labels for project status values — used in card status badges. */
 const STATUS_LABELS = {
   'in-progress':  'In progress',
   'blocked':      'Blocked',
@@ -10,11 +28,18 @@ const STATUS_LABELS = {
   'done':         'Done',
 };
 
+/**
+ * Fully re-renders the #tiers-container with tier rows and project cards,
+ * then schedules SVG arrow drawing after two animation frames (to allow layout).
+ *
+ * @param {Object}   projects    - Map of project id → project object (PROJECTS or snapshot data).
+ * @param {Function} onCardClick - Callback invoked with the project object when a card is clicked.
+ */
 export function renderDiagram(projects, onCardClick) {
   const container = document.getElementById('tiers-container');
   container.innerHTML = '';
 
-  // Render each tier row
+  // Render each tier row in tier order
   for (const tier of TIERS) {
     const tierProjects = Object.values(projects).filter(p => p.tier === tier.id);
     if (!tierProjects.length) continue;
@@ -23,7 +48,7 @@ export function renderDiagram(projects, onCardClick) {
     row.className = `tier-row${tier.id === 0 ? ' tier-hold' : ''}`;
     row.dataset.tier = tier.id;
 
-    // Tier label
+    // Tier label column (badge, name, description)
     const label = document.createElement('div');
     label.className = 'tier-label';
     label.innerHTML = `
@@ -33,11 +58,10 @@ export function renderDiagram(projects, onCardClick) {
     `;
     row.appendChild(label);
 
-    // Cards container
+    // Cards grid — sorted by project num (numeric, handles decimals like '3.5')
     const cards = document.createElement('div');
     cards.className = 'tier-cards';
 
-    // Sort by project num (numeric, handle '3.5')
     const sorted = [...tierProjects].sort((a, b) => parseFloat(a.num) - parseFloat(b.num));
 
     for (const project of sorted) {
@@ -49,17 +73,25 @@ export function renderDiagram(projects, onCardClick) {
     container.appendChild(row);
   }
 
-  // Draw arrows after layout is complete
+  // Two rAF passes: first lets the browser calculate layout, second reads positions
   requestAnimationFrame(() => requestAnimationFrame(() => drawArrows(projects)));
 }
 
+/**
+ * Creates and returns a single project card element.
+ * Attaches a click listener that invokes onCardClick with the project object.
+ *
+ * @param {Object}   project     - Project data object.
+ * @param {Function} onCardClick - Click handler.
+ * @returns {HTMLElement}
+ */
 function renderCard(project, onCardClick) {
   const card = document.createElement('div');
   card.className = `card status-${project.status}`;
   card.dataset.id = project.id;
 
   const blockerCount = project.blockers?.length ?? 0;
-  const hasBlockers = blockerCount > 0;
+  const hasBlockers  = blockerCount > 0;
 
   card.innerHTML = `
     <div class="card-header">
@@ -76,11 +108,23 @@ function renderCard(project, onCardClick) {
   return card;
 }
 
+/**
+ * Clears and redraws all SVG dependency arrows in #arrows-svg.
+ * Called after renderDiagram completes (via rAF) and on scroll/resize.
+ *
+ * Arrow style:
+ *   - Cubic bezier from the bottom-center of the upstream card to the
+ *     top-center of the downstream card.
+ *   - Blocked dependencies use a red stroke; others use a muted grey.
+ *   - Coordinates are viewport-relative (SVG is fixed, so no scroll offset needed).
+ *
+ * @param {Object} projects - Map of project id → project object.
+ */
 export function drawArrows(projects) {
   const svg = document.getElementById('arrows-svg');
   if (!svg) return;
 
-  // Clear and re-add defs
+  // Reset SVG contents; re-define arrowhead markers
   svg.innerHTML = `
     <defs>
       <marker id="arrowhead" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
@@ -106,15 +150,16 @@ export function drawArrows(projects) {
 
       const isBlocked = project.status === 'blocked';
 
-      // Viewport-relative coordinates (SVG is fixed)
-      const fromX = fromRect.left + fromRect.width / 2;
+      // Viewport-relative coordinates — SVG is position:fixed so no scroll offset needed
+      const fromX = fromRect.left + fromRect.width  / 2;
       const fromY = fromRect.bottom;
-      const toX   = toRect.left + toRect.width / 2;
+      const toX   = toRect.left  + toRect.width   / 2;
       const toY   = toRect.top;
 
-      const dy = toY - fromY;
+      // Cubic bezier control points: curve bows gently between the two cards
+      const dy   = toY - fromY;
       const cp1Y = fromY + dy * 0.4;
-      const cp2Y = toY  - dy * 0.4;
+      const cp2Y = toY   - dy * 0.4;
 
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.setAttribute('d', `M ${fromX} ${fromY} C ${fromX} ${cp1Y}, ${toX} ${cp2Y}, ${toX} ${toY}`);

@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ── Meta ──────────────────────────────────────────────────────────────── -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ops Hub — Project Dependency Map</title>
+  <meta name="description" content="Ops Hub — visual project registry and dependency map for Pierce's active work at McClatchy. Tracks ~13 projects across 5 repos with automated sync.">
+  <meta name="theme-color" content="#0f1117">
+  <title>Ops Hub — Project Registry &amp; Dependency Map</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<!-- ── SVG ARROW OVERLAY ──────────────────────────────────────────────────── -->
+<!-- ── SVG ARROW OVERLAY (fixed, pointer-events: none) ───────────────────── -->
 <svg id="arrows-svg" aria-hidden="true"></svg>
 
 <!-- ── MAIN PANE ──────────────────────────────────────────────────────────── -->
 <div id="diagram-pane">
+
+  <!-- ── HEADER: title, sync pill, legend, progress bar, snapshot bar ─────── -->
   <div id="header">
-    <h1>Ops Hub — Project Registry & Dependency Map</h1>
+    <h1>Ops Hub — Project Registry &amp; Dependency Map</h1>
     <p>Click any card for full details &nbsp;·&nbsp; Arrows = dependency direction (upstream → downstream) &nbsp;·&nbsp; Press Esc to close sidebar</p>
+
+    <!-- Sync status pill — populated by fetchSyncStatus() in app.js -->
     <div id="sync-bar">
       <div id="sync-status" class="sync-pill sync-loading">
         <span class="sync-dot"></span>
@@ -23,6 +30,8 @@
         <button class="sync-refresh" data-action="refresh-sync" title="Refresh sync status">↻</button>
       </div>
     </div>
+
+    <!-- Status legend -->
     <div id="legend-row">
       <div id="legend">
         <div class="legend-title">Status</div>
@@ -32,13 +41,19 @@
         <div class="legend-item"><span class="legend-swatch status-hold"></span> Hold</div>
       </div>
     </div>
+
+    <!-- Progress bar + snapshot bar — injected by renderProgressSection() in app.js -->
     <div id="progress-section"></div>
   </div>
+  <!-- ── END HEADER ────────────────────────────────────────────────────────── -->
 
+  <!-- ── TIER ROWS — populated by renderDiagram() in diagram.js ───────────── -->
   <div id="tiers-container"></div>
-</div>
 
-<!-- ── SIDEBAR ────────────────────────────────────────────────────────────── -->
+</div>
+<!-- ── END MAIN PANE ─────────────────────────────────────────────────────── -->
+
+<!-- ── SIDEBAR — slides in from right on card click ──────────────────────── -->
 <div id="sidebar">
   <button id="sidebar-close" data-action="close-sidebar">✕</button>
   <div id="sidebar-inner">
@@ -47,7 +62,10 @@
     </div>
   </div>
 </div>
+<!-- ── END SIDEBAR ───────────────────────────────────────────────────────── -->
 
+<!-- ── APP ENTRY POINT ───────────────────────────────────────────────────── -->
 <script type="module" src="js/app.js"></script>
+
 </body>
 </html>
