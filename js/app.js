@@ -125,7 +125,10 @@ function buildSidebarHTML(p) {
   `;
 }
 
-// ── Progress Section ──────────────────────────────────────────────────────────
+// ── Progress Panel ────────────────────────────────────────────────────────────
+
+let _progressData = { next: [], recent: [], projects: [] };
+let _activeProgressPanel = null;
 
 function getNextTasks(limit = 5) {
   const statusRank = { 'in-progress': 0, 'not-started': 1, 'blocked': 2 };
@@ -143,47 +146,111 @@ function renderProgressSection() {
   const el = document.getElementById('progress-section');
   if (!el) return;
 
-  const nextTasks = getNextTasks(5);
-  const recentTasks = (COMPLETED_TASKS || []).slice(0, 5);
-  const completedProjects = Object.values(PROJECTS)
+  _progressData.next     = getNextTasks(5);
+  _progressData.recent   = (COMPLETED_TASKS || []).slice(0, 5);
+  _progressData.projects = Object.values(PROJECTS)
     .filter(p => p.status === 'done')
     .sort((a, b) => (b.completedDate || '').localeCompare(a.completedDate || ''))
     .slice(0, 5);
 
-  const empty = (cols) =>
-    `<tr><td colspan="${cols}" class="pt-empty">Nothing here yet</td></tr>`;
-
   el.innerHTML = `
-    <div class="progress-tables">
-      <div class="progress-col">
-        <div class="progress-col-title">Recently completed tasks</div>
-        <table class="progress-table">
-          <thead><tr><th>Date</th><th>Task</th><th>Project</th></tr></thead>
-          <tbody>${recentTasks.length ? recentTasks.map(t =>
-            `<tr><td class="pt-date">${t.date}</td><td class="pt-task">${t.task}</td><td class="pt-proj">${t.project}</td></tr>`
-          ).join('') : empty(3)}</tbody>
-        </table>
-      </div>
-      <div class="progress-col">
-        <div class="progress-col-title">Up next — by priority</div>
-        <table class="progress-table">
-          <thead><tr><th>Task</th><th>Project</th></tr></thead>
-          <tbody>${nextTasks.length ? nextTasks.map(t =>
-            `<tr><td class="pt-task">${t.task}</td><td class="pt-proj">#${t.project.num} ${t.project.name}</td></tr>`
-          ).join('') : empty(2)}</tbody>
-        </table>
-      </div>
-      <div class="progress-col">
-        <div class="progress-col-title">Completed projects</div>
-        <table class="progress-table">
-          <thead><tr><th>Date</th><th>Project</th></tr></thead>
-          <tbody>${completedProjects.length ? completedProjects.map(p =>
-            `<tr><td class="pt-date">${p.completedDate || '—'}</td><td class="pt-task">#${p.num} ${p.name}</td></tr>`
-          ).join('') : empty(2)}</tbody>
-        </table>
-      </div>
+    <div id="progress-bar">
+      <button class="prog-btn" data-prog="next">
+        Up next <span class="prog-count">${_progressData.next.length}</span>
+      </button>
+      <button class="prog-btn" data-prog="recent">
+        Recently done <span class="prog-count">${_progressData.recent.length}</span>
+      </button>
+      <button class="prog-btn" data-prog="projects">
+        Completed projects <span class="prog-count">${_progressData.projects.length}</span>
+      </button>
     </div>
   `;
+
+  // Inject panel into body once
+  if (!document.getElementById('progress-panel')) {
+    const panel = document.createElement('div');
+    panel.id = 'progress-panel';
+    panel.innerHTML = `
+      <div id="progress-panel-header">
+        <span id="progress-panel-title"></span>
+        <button id="progress-panel-close" data-prog-close>✕</button>
+      </div>
+      <div id="progress-panel-body"></div>
+    `;
+    document.body.appendChild(panel);
+  }
+}
+
+function openProgressPanel(type) {
+  const panel = document.getElementById('progress-panel');
+  const title = document.getElementById('progress-panel-title');
+  const body  = document.getElementById('progress-panel-body');
+  if (!panel) return;
+
+  // Toggle off if same panel clicked again
+  if (_activeProgressPanel === type && panel.classList.contains('open')) {
+    closeProgressPanel(); return;
+  }
+  _activeProgressPanel = type;
+
+  // Update active button state
+  document.querySelectorAll('.prog-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.prog === type));
+
+  const TITLES = { next: 'Up Next', recent: 'Recently Done', projects: 'Completed Projects' };
+  title.textContent = TITLES[type] ?? '';
+
+  if (type === 'next') {
+    const items = _progressData.next;
+    body.innerHTML = items.length
+      ? items.map((t, i) => `
+          <div class="pp-item">
+            <div class="pp-num">${i + 1}</div>
+            <div class="pp-body">
+              <div class="pp-task">${t.task}</div>
+              <div class="pp-meta">#${t.project.num} ${t.project.name}
+                <span class="status-badge status-${t.project.status} pp-badge">${STATUS_LABELS[t.project.status] ?? t.project.status}</span>
+              </div>
+            </div>
+          </div>`).join('')
+      : '<div class="pp-empty">No next actions defined yet.</div>';
+
+  } else if (type === 'recent') {
+    const items = _progressData.recent;
+    body.innerHTML = items.length
+      ? items.map(t => `
+          <div class="pp-item">
+            <div class="pp-date">${t.date}</div>
+            <div class="pp-body">
+              <div class="pp-task">${t.task}</div>
+              <div class="pp-meta">${t.project}</div>
+            </div>
+          </div>`).join('')
+      : '<div class="pp-empty">No completed tasks logged yet.<br>Tasks are added here when you tell Claude something is done.</div>';
+
+  } else if (type === 'projects') {
+    const items = _progressData.projects;
+    body.innerHTML = items.length
+      ? items.map(p => `
+          <div class="pp-item">
+            <div class="pp-date">${p.completedDate || '—'}</div>
+            <div class="pp-body">
+              <div class="pp-task">#${p.num} ${p.name}</div>
+              <div class="pp-meta">${TIER_NAMES[p.tier] ?? ''}</div>
+            </div>
+          </div>`).join('')
+      : '<div class="pp-empty">No completed projects yet.</div>';
+  }
+
+  panel.classList.add('open');
+}
+
+function closeProgressPanel() {
+  const panel = document.getElementById('progress-panel');
+  if (panel) panel.classList.remove('open');
+  document.querySelectorAll('.prog-btn').forEach(b => b.classList.remove('active'));
+  _activeProgressPanel = null;
 }
 
 // ── Sync Status ───────────────────────────────────────────────────────────────
@@ -277,6 +344,11 @@ function hidePopover() {
 }
 
 document.addEventListener('click', (e) => {
+  // Progress panel buttons
+  const progBtn = e.target.closest('.prog-btn');
+  if (progBtn) { openProgressPanel(progBtn.dataset.prog); return; }
+  if (e.target.closest('[data-prog-close]')) { closeProgressPanel(); return; }
+
   const tag = e.target.closest('.csa-tag');
   if (tag) {
     e.stopPropagation();
