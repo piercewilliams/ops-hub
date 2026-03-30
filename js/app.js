@@ -14,6 +14,7 @@ function openSidebar(project) {
   const sidebar = document.getElementById('sidebar');
   const content = document.getElementById('sidebar-content');
 
+  closeProgressPanel();  // only one panel open at a time
   content.innerHTML = buildSidebarHTML(project);
   sidebar.classList.add('open');
 
@@ -191,6 +192,7 @@ function openProgressPanel(type) {
   if (_activeProgressPanel === type && panel.classList.contains('open')) {
     closeProgressPanel(); return;
   }
+  closeSidebar();  // only one panel open at a time
   _activeProgressPanel = type;
 
   // Update active button state
