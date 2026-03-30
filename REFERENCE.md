@@ -4,6 +4,75 @@ Stable facts for this project. Updated in place when facts change.
 
 ---
 
+## Automated Sync
+
+| Item | Value |
+|------|-------|
+| Trigger name | Ops Hub Hourly Sync |
+| Trigger ID | `trig_017C1TqSqQ135B7djoGEVaGb` |
+| Schedule | Every hour, 8:00 AM–11:00 PM Dallas time (CDT=UTC-5 in summer, CST=UTC-6 in winter) |
+| Manage / view logs | https://claude.ai/code/scheduled/trig_017C1TqSqQ135B7djoGEVaGb |
+| What it does | Reads CONTEXT.md from all 5 subsidiary repos → updates data/projects.js + CONTEXT.md in ops-hub → commits and pushes |
+
+**DST note:** Cron runs in UTC. Dallas is CDT (UTC-5) Mar–Nov and CST (UTC-6) Nov–Mar. When clocks change, the sync will shift by 1 hour. To fix: tell Claude "update the ops-hub sync schedule for winter time" and it will adjust the cron expression.
+
+### How to tell if sync is working
+
+The dashboard at piercewilliams.github.io/ops-hub shows a live status pill (top of page):
+- **Green "Synced Xm ago"** — working normally
+- **Yellow "Sync delayed"** — missed 1 cycle, may self-correct
+- **Red "Sync offline"** — missed 2+ cycles, needs attention
+- **Red "Sync auth error — push failed"** — agent ran but couldn't write to GitHub
+
+The simplest backup check: **github.com/piercewilliams/ops-hub/commits** — look for "Auto-sync" commits. If none in the last 2 hours during waking hours, something is wrong.
+
+### Troubleshooting guide
+
+**Symptom: Red pill on dashboard / no Auto-sync commits for 2+ hours**
+
+1. Go to **claude.ai/code/scheduled** and find "Ops Hub Hourly Sync"
+2. Click into it and check the last run — did it error? What did it say?
+3. If it says "push failed" or auth error → see "Push auth broke" below
+4. If there are no recent runs at all → the trigger may be paused; click Enable
+
+**Symptom: Sync auth error / push_failed in status**
+
+The remote agent can't push to GitHub. This happens if GitHub auth expires or repo permissions change. Fix:
+1. Open a new Claude Code session in this repo (`/Users/pierce/Documents/GitHub/ops-hub`)
+2. Tell Claude: "The ops-hub sync agent is getting push_failed errors. Help me re-authorize it or set up a GitHub token so the remote agent can push."
+3. Claude will walk you through generating a deploy key or token and updating the trigger
+
+**Symptom: Sync is running but dashboard cards show stale statuses**
+
+The agent is conservative by design — it only updates a status if CONTEXT.md explicitly says so. If subsidiary repos haven't been updated recently, the statuses in ops-hub won't change either. Fix:
+- Open the relevant subsidiary repo with Claude and update its CONTEXT.md to reflect current state
+- The next sync will pick it up
+
+**Symptom: sync-status.json doesn't exist / pill says "Sync file not found"**
+
+This means the trigger has never successfully completed a push. Wait for the next scheduled run, or:
+1. Go to **claude.ai/code/scheduled/trig_017C1TqSqQ135B7djoGEVaGb**
+2. Click "Run now"
+3. Watch whether it completes and whether a new commit appears on github.com/piercewilliams/ops-hub/commits
+
+**Symptom: Trigger missing entirely from claude.ai/code/scheduled**
+
+Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in ops-hub/REFERENCE.md." Claude will read this file and rebuild it.
+
+**To pause the sync** (e.g., you're on vacation and don't want noise):
+- Go to claude.ai/code/scheduled → find the trigger → disable it
+- Or tell Claude: "Pause the ops-hub sync trigger"
+
+**To resume:**
+- Re-enable at claude.ai/code/scheduled
+- Or tell Claude: "Re-enable the ops-hub sync trigger"
+
+**To adjust the schedule:**
+- Tell Claude: "Change the ops-hub sync to run every 2 hours" (or whatever)
+- Claude will update the cron expression via the RemoteTrigger tool
+
+---
+
 ## Quick Reference
 
 | Resource | Location |

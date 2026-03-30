@@ -16,6 +16,13 @@
   <div id="header">
     <h1>Ops Hub — Project Registry & Dependency Map</h1>
     <p>Click any card for full details &nbsp;·&nbsp; Arrows = dependency direction (upstream → downstream) &nbsp;·&nbsp; Press Esc to close sidebar</p>
+    <div id="sync-bar">
+      <div id="sync-status" class="sync-pill sync-loading">
+        <span class="sync-dot"></span>
+        <span class="sync-label">Checking sync…</span>
+        <button class="sync-refresh" data-action="refresh-sync" title="Refresh sync status">↻</button>
+      </div>
+    </div>
     <div id="legend-row">
       <div id="legend">
         <div class="legend-title">Status</div>
