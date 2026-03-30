@@ -27,6 +27,7 @@ For session history: see [sessions/](sessions/)
 - Sync status pill with stale thresholds (warn: 5.5h, crit: 16h)
 - Mutual-close behavior: sidebar and progress panel can't both be open
 - Quality gate script at `scripts/check.sh`
+- **Snapshot bars on csa-dashboard, csa-content-standards, data-t1headlines** (weekly auto-snapshot trigger, passkey `8812`)
 
 ## Project Status Snapshot
 
@@ -49,11 +50,11 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next
 
-1. [ ] Push all commits to GitHub via GitHub Desktop (session complete, ready to push)
-2. [ ] Enable Google Sheets API key (P2 — unblocked, no blockers)
-3. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah
-4. [ ] Attend dev standup — scope Amplitude event names with Patrick/Dar (P2 forward-path)
-5. [ ] Verify first sync runs at 8am Dallas — confirm sync pill goes green and snapshot bar populates
+1. [ ] Push all commits to GitHub via GitHub Desktop — 4 repos have local changes: ops-hub (REFERENCE.md, CONTEXT.md), csa-dashboard, csa-content-standards, data-t1headlines
+2. [ ] Verify weekly snapshot trigger fires Monday 8am Dallas — confirm snapshot bars populate on all 3 sites
+3. [ ] Enable Google Sheets API key (P2 — unblocked, no blockers)
+4. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah
+5. [ ] Attend dev standup — scope Amplitude event names with Patrick/Dar (P2 forward-path)
 
 ## Items Not Yet in Any Repo
 

@@ -73,6 +73,30 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 
 ---
 
+## Weekly Snapshot Trigger (All Sites)
+
+| Item | Value |
+|------|-------|
+| Trigger name | Weekly Snapshots - All Sites (Mon 8am) |
+| Trigger ID | `trig_01Qze9PVrNErCEYa1fMXxF2U` |
+| Schedule | Monday 8:00 AM Dallas CDT (`0 13 * * 1` UTC) |
+| Manage / view logs | https://claude.ai/code/scheduled/trig_01Qze9PVrNErCEYa1fMXxF2U |
+| What it does | Snapshots data-t1headlines, csa-content-standards, and csa-dashboard sequentially; max 5 per site |
+
+**Sites covered:**
+- `data-t1headlines` — copies `docs/index.html` → `docs/snapshots/snap-NNN.html` (strips snapshot bar script tag)
+- `csa-content-standards` — bundles all `docs/*.md` + `api/reference.json` → `data/snapshots/snap-NNN.json`
+- `csa-dashboard` — bundles `nodes.js`, `pain.js`, `requests.js`, `metrics.js` → `data/snapshots/snap-NNN.json`
+
+**Passkey:** `8812` (same as ops-hub restore). Never touches live source files.
+
+**Troubleshooting:**
+- If snapshot bar shows no versions: check trigger ran at claude.ai/code/scheduled; if index.json is still `[]`, trigger may have errored — check logs
+- If trigger errors on one site, it continues to the next (failure isolation)
+- To re-create: tell Claude "Re-create the weekly snapshot trigger. Details in ops-hub/REFERENCE.md."
+
+---
+
 ## Quick Reference
 
 | Resource | Location |
