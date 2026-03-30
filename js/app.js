@@ -1,6 +1,6 @@
 // app.js — entry point: wires up diagram, sidebar, and event handling
 
-import { PROJECTS } from '../data/projects.js';
+import { PROJECTS, COMPLETED_TASKS } from '../data/projects.js';
 import { renderDiagram, drawArrows } from './diagram.js';
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────
@@ -101,6 +101,67 @@ function buildSidebarHTML(p) {
   `;
 }
 
+// ── Progress Section ──────────────────────────────────────────────────────────
+
+function getNextTasks(limit = 5) {
+  const statusRank = { 'in-progress': 0, 'not-started': 1, 'blocked': 2 };
+  return Object.values(PROJECTS)
+    .filter(p => p.nextActions?.length && p.status !== 'done' && p.status !== 'hold')
+    .sort((a, b) => {
+      const sr = (statusRank[a.status] ?? 3) - (statusRank[b.status] ?? 3);
+      return sr !== 0 ? sr : a.tier - b.tier;
+    })
+    .slice(0, limit)
+    .map(p => ({ task: p.nextActions[0], project: p }));
+}
+
+function renderProgressSection() {
+  const el = document.getElementById('progress-section');
+  if (!el) return;
+
+  const nextTasks = getNextTasks(5);
+  const recentTasks = (COMPLETED_TASKS || []).slice(0, 5);
+  const completedProjects = Object.values(PROJECTS)
+    .filter(p => p.status === 'done')
+    .sort((a, b) => (b.completedDate || '').localeCompare(a.completedDate || ''))
+    .slice(0, 5);
+
+  const empty = (cols) =>
+    `<tr><td colspan="${cols}" class="pt-empty">Nothing here yet</td></tr>`;
+
+  el.innerHTML = `
+    <div class="progress-tables">
+      <div class="progress-col">
+        <div class="progress-col-title">Recently completed tasks</div>
+        <table class="progress-table">
+          <thead><tr><th>Date</th><th>Task</th><th>Project</th></tr></thead>
+          <tbody>${recentTasks.length ? recentTasks.map(t =>
+            `<tr><td class="pt-date">${t.date}</td><td class="pt-task">${t.task}</td><td class="pt-proj">${t.project}</td></tr>`
+          ).join('') : empty(3)}</tbody>
+        </table>
+      </div>
+      <div class="progress-col">
+        <div class="progress-col-title">Up next — by priority</div>
+        <table class="progress-table">
+          <thead><tr><th>Task</th><th>Project</th></tr></thead>
+          <tbody>${nextTasks.length ? nextTasks.map(t =>
+            `<tr><td class="pt-task">${t.task}</td><td class="pt-proj">#${t.project.num} ${t.project.name}</td></tr>`
+          ).join('') : empty(2)}</tbody>
+        </table>
+      </div>
+      <div class="progress-col">
+        <div class="progress-col-title">Completed projects</div>
+        <table class="progress-table">
+          <thead><tr><th>Date</th><th>Project</th></tr></thead>
+          <tbody>${completedProjects.length ? completedProjects.map(p =>
+            `<tr><td class="pt-date">${p.completedDate || '—'}</td><td class="pt-task">#${p.num} ${p.name}</td></tr>`
+          ).join('') : empty(2)}</tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
 // ── Sync Status ───────────────────────────────────────────────────────────────
 
 const SYNC_STATUS_URL = 'https://api.github.com/repos/piercewilliams/ops-hub/contents/sync-status.json';
@@ -171,6 +232,7 @@ window.addEventListener('resize', () => drawArrows(PROJECTS), { passive: true })
 // ── Boot ──────────────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
+  renderProgressSection();
   renderDiagram(PROJECTS, openSidebar);
   fetchSyncStatus();
 });

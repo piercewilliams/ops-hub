@@ -1,6 +1,15 @@
 // Project registry — all active projects, tasks, and holds
 // Dependency arrows flow: upstream (dependsOn) → this project (downstream)
 
+// ── Recently completed tasks ───────────────────────────────────────────────
+// Add entries here (or let the sync agent add them) when individual tasks wrap up.
+// Most recent first. Only last 5 are shown on the dashboard.
+// Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
+export const COMPLETED_TASKS = [
+  // { date: '2026-03-29', task: 'Example: enabled Google Sheets API key', project: '#1 Platform Access' },
+];
+
+
 export const TIERS = [
   { id: 1, name: 'Foundation',       desc: 'Unblocks everything downstream' },
   { id: 2, name: 'Understanding',    desc: 'Parallel investigative work — feeds strategy & PRD' },
