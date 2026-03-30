@@ -52,10 +52,9 @@ export const PROJECTS = {
       'Gary API key not yet delivered by Gary Kirwan',
     ],
     nextActions: [
-      'Enable Google Sheets API, get read-only key (do now — no OAuth, unblocked)',
       'Resolve Snowflake login issue with IT, then get Chad walkthrough of growth_and_strategy_role data',
-      'Ping Amanda Hamilton to be added to CSA project in BitBucket',
       'Gary Kirwan messaged 2026-03-30 — awaiting reply on API docs + key delivery',
+      'Await IT response on Amplitude, SemRush, Marfeel access (requested 2026-03-30)',
     ],
     dependsOn: [],
   },
