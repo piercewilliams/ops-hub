@@ -40,9 +40,9 @@ For session history: see [sessions/](sessions/)
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Awaiting Sara Vallone persona drafts |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
 | 6 | Content Cluster / Tagging Taxonomy | 3 | Blocked | Alignment meeting not scheduled |
-| 7 | Vallone Tracker / CMS Automation | 4 | Blocked | Needs P6 alignment + Snowflake access |
+| 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris 2026-03-30 — CMS architecture will make it obsolete |
 | 8 | Rajiv CSA Mapping | 2 | In progress | BitBucket access in hand 2026-03-30 |
-| 9 | PRD Revisions | 3 | Not started | Needs P8 + P13 complete |
+| 9 | PRD Revisions | 3 | **IN PROGRESS — #1 PRIORITY** | Draft due 2026-04-03 |
 | 10 | Gary Tools Integration | 2 | Blocked | Gary API key not delivered |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
@@ -50,15 +50,25 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next
 
-1. [ ] **Resolve Snowflake login** with IT (access granted, role: growth_and_strategy_role — login issue being fixed)
-2. [ ] **Begin CSA codebase mapping in BitBucket** (P8 — access in hand as of 2026-03-30)
-3. [ ] **Enable Google Sheets API key** (P2 — unblocked, no OAuth needed, do now)
-4. [ ] **Write desired target audiences for National team and test in CSA** (standup action item; coordinate with Oliver Felix on PGS-97)
-5. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah (PGS-40 is ON HOLD in Jira pending this)
-6. [ ] **Map United Robots alerts pipeline in PRD** — discuss scope with Sara Vallone (P12 now active per Eric Nelson 2026-03-30)
+**#1 — BLOCK CALENDAR TIME NOW:**
+1. [ ] **Draft PRD long-term vision / "control room" model** — due 2026-04-03 (end of week). Chris's explicit ask. Do not wait for P8 or P13. Scrap whatever doesn't fit the current direction.
+
+**Access / foundation (parallel):**
+2. [ ] **Resolve Snowflake login** with IT (access granted, role: growth_and_strategy_role)
+3. [ ] **Enable Google Sheets API key** (P2 — unblocked, no OAuth needed)
+4. [ ] **Get Gary API access** → set up demo with Gary directly (explore non-SEO elements too)
+
+**Actions from meetings this week:**
+5. [ ] **Write desired target audiences for National team and test in CSA** (coordinate with Oliver Felix / PGS-97)
+6. [ ] **Map United Robots alerts pipeline** — discuss scope with Sara Vallone (feeds PRD)
 7. [ ] **Discuss CSA translation** with Julia Torelli
-8. [ ] **Provide CSA metrics** to Chris (macro level — features added/tested monthly)
-9. [ ] **Update CSA content standards doc** after Sara Vallone drafts new personas (Apple News, Smart News, MSN)
+8. [ ] **Provide CSA metrics to Chris** (macro level — features added/tested monthly)
+9. [ ] **Update CSA content standards doc** after Sara Vallone drafts new personas
+10. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah
+
+**Deprioritized (Chris's guidance):**
+- Sara Vallone tracker (P7) — CMS architecture will make it obsolete; let it fall on the wayside
+- CSA codebase mapping in BitBucket (P8) — not urgent; Pierce has sufficient working understanding
 
 ## Pending Notifications
 

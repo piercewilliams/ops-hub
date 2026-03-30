@@ -66,11 +66,11 @@ export const PROJECTS = {
     id: 'p8-mapping', num: '8', tier: 2, type: 'project', status: 'in-progress',
     name: 'Rajiv CSA Mapping',
     owner: 'Pierce',
-    description: 'Use GitHub access from Rajiv to map all CSA transformations in granular detail — every step, every reasoning chain, in order. Prerequisite for PRD revisions. Can run in parallel with Project 13.',
+    description: 'Use BitBucket access to map CSA transformations. Note: per 2026-03-30 Chris meeting, Pierce assessed this as not urgent — he already has a sufficient working understanding of the CSA for PRD drafting purposes. This is a "nice to have" depth exercise, not a blocker. No longer a prerequisite for P9 PRD.',
     blockers: [],
     nextActions: [
-      'BitBucket access in hand as of 2026-03-30 — begin CSA codebase mapping',
-      'Map all CSA transformations end-to-end',
+      'Lower priority — do not block PRD work on this',
+      'Map CSA transformations opportunistically as BitBucket access allows',
       'Document Mode 1 and Mode 2 behavior (coordinate with P13)',
       'Note: PGS-94 (Establish National team as a Configuration in CSA) is in code review — review once access is in hand',
     ],
@@ -107,11 +107,13 @@ export const PROJECTS = {
       '5 open questions unresolved: McClatchy content indexed in Convex? Brand guide stored? brand_id scope (company vs. per-publication)? Cost model? Two-tier brand guideline handling?',
     ],
     nextActions: [
-      'Gary Kirwan messaged 2026-03-30 via Slack/email — awaiting reply on API docs + key delivery',
-      'Susannah reviewing API docs + Jim Robinson\'s materials — follow up on status',
-      'Schedule scoping meeting with Chris Palo to prioritize modules',
+      'Gary Kirwan messaged 2026-03-30 — get API access first, then set up a demo/deep dive with Gary directly',
+      'Chris: "If you need to dive in with Gary, feel free to reach out — he\'ll make time and show you how it works"',
+      'Explore NON-SEO elements of Gary\'s toolkit — Chris emphasized it\'s not just SEO (e.g. author personal element; Sara Vallone is interested in this)',
+      'Do not wait for SEO team review on non-SEO modules — only the SEO-related ones have politics',
       'Once key received: health → scrape → meta → structure → brand-readiness → citations → poll',
       'Discuss two-tier brand guideline approach with Chris (national vs. per-publication)',
+      'Add non-SEO Gary elements to PRD scope',
     ],
     dependsOn: ['p1-access'],
     contacts: [
@@ -124,23 +126,22 @@ export const PROJECTS = {
   // ── TIER 3 ────────────────────────────────────────────────────────────────
 
   'p9-prd': {
-    id: 'p9-prd', num: '9', tier: 3, type: 'project', status: 'not-started',
+    id: 'p9-prd', num: '9', tier: 3, type: 'project', status: 'in-progress',
     name: 'PRD Revisions',
     owner: 'Pierce',
-    description: 'Study and revise the PRD for the product team. Chris\'s ask: "Map them out now that we\'re two weeks in and more players are at the table (SEO folks). Documentation needs to be squared away." Needs CSA mapping and system prompt understanding as inputs. Gary findings also inform scope.',
-    blockers: [
-      'Project 8 (CSA Mapping) should complete first',
-      'Project 13 (System Prompts) should complete first',
-      'Gary tools exploration (Project 10) findings should inform PRD scope',
-    ],
+    description: 'CURRENT #1 PRIORITY (Chris Palo, 2026-03-30). Draft the long-term vision and ideal end state for the CSA pipeline. Chris is not precious about the existing PRD — scrap what doesn\'t fit. The ideal state = "control room" model: inbound trend signals drive content creation, drafts get greenlit/revised/sent back, United Robots-style automated content flows like a ticker, distribution performance feeds back into the system. The dev team currently lacks a clear understanding of this end state and is building half-steps toward an undefined goal. Draft due end of week (2026-04-03). Block calendar time now.',
+    status_detail: 'Draft due 2026-04-03. Do not wait for P8 or P13 to complete — draft based on current understanding. Strategy must precede task definition.',
+    blockers: [],
     nextActions: [
-      'Complete Projects 8 and 13 first',
-      'Review Gary tools findings',
-      'Map United Robots alerts pipeline in PRD (new scope from Content & Programming meeting 2026-03-30)',
-      'Study PRD fresh (post-mapping) and annotate gaps/inaccuracies',
-      'Revise and document for product team',
+      'Block calendar time immediately — target end-of-week draft (2026-04-03)',
+      'Draft ideal end state: "control room" model — trend signals → content generation → review/greenlight → distribution → performance feedback loop',
+      'Include United Robots alerts pipeline as a content stream (auto-flow tier)',
+      'Include distribution performance feedback loop (the dev team is missing the workstream that happens after CSA)',
+      'Include OKRs: uptime, assets produced, reporting functions the dev team needs to support',
+      'Align with Chris, Sarah Price (Sarah\'s view of ideal state is likely different — synthesize all three)',
+      'Map United Robots alerts pipeline as a content stream in PRD',
     ],
-    dependsOn: ['p8-mapping', 'p13-sysprompts', 'p10-gary'],
+    dependsOn: [],
   },
 
   'p6-taxonomy': {
@@ -179,23 +180,19 @@ export const PROJECTS = {
   // ── TIER 4 ────────────────────────────────────────────────────────────────
 
   'p7-tracker': {
-    id: 'p7-tracker', num: '7', tier: 4, type: 'project', status: 'blocked',
+    id: 'p7-tracker', num: '7', tier: 4, type: 'project', status: 'hold',
     name: 'Vallone Tracker / CMS Automation',
     owner: 'Pierce (dev) · Sara Vallone (stakeholder)',
-    description: 'Automate Sara Vallone\'s content governance Google Sheet. Currently: ~20-25 min manual entry per cluster. Scope: CUE + WordPress → Google Sheet. Eventually add pageview data via Snowflake/Sigma. No database — Google Sheet stays the hub.',
+    description: 'Automate Sara Vallone\'s content governance Google Sheet. DEPRIORITIZED per Chris Palo 2026-03-30: "It\'s a monster. Let it fall on the wayside for now. Focus on the CSA." Long-term, CMS architecture (CSA sitting above both CMSs with a data layer) will make this tracker obsolete anyway. Do not build until PRD defines the right architecture.',
     blockers: [
+      'DEPRIORITIZED by Chris — not a current focus',
       'Alignment meeting (Project 6) must happen first — schema must be agreed before building',
       'No Cluster ID field in CUE or WordPress yet',
-      'Snowflake/Sigma access pending — determines architecture (webhook vs. Snowflake→Sheet)',
+      'CMS architecture (long-term) may replace the need for this entirely',
     ],
     nextActions: [
-      'Complete Project 6 alignment meeting first',
-      'Once Snowflake access lands: explore CUE data completeness in Snowflake (may skip webhook entirely)',
-      'Get Chad\'s Sigma walkthrough — confirm CUE fields and pageview-to-URL linkage',
-      'Note: Chad says Sigma can do all of this once cluster tags exist',
-      'Confirm which CUE publications to scope (Sara\'s team only)',
-      'Confirm author allowlist (names as they appear in CUE)',
-      'WordPress → Google Sheet integration (access in hand, lower priority)',
+      'No action until PRD (P9) defines long-term CMS architecture',
+      'Revisit only after P6 alignment meeting and P9 PRD draft complete',
     ],
     dependsOn: ['p6-taxonomy', 'p1-access'],
     contacts: [

@@ -141,6 +141,8 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | Dedra | Sigma access/dashboards contact (Sarah Price's contact) | — |
 | Melissa Angle | Owns period calendar; McClatchy uses 4-4-5 financial periods (Period 4 started 2026-03-30) | — |
 | Jim Robinson | Engineering; built cosine similarity diff tool; internal SEO tool; has novelty concern about Gary | — |
+| Jason Smith | External; building similar AI pipeline tools; Chris mentioned as parallel case — also struggling to communicate ideal end state to dev team | — |
+| Kathy | Chris's direct report; owns syndication partnership review + United Robots evaluation | Separate from Kat Sheplavy |
 | Stephanie Zandecki | Internal SEO; reviewing Gary's toolkit | — |
 | Patrick / Dar | Engineering (dev standup contacts for Amplitude event names) | — |
 | Regina | WordPress contact — needed for WordPress integration | — |
@@ -175,6 +177,25 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | PGS-80: Analytics Tracking | Code review | Victor Suarez / CSA eng | CSA team's internal Amplitude user-event tracking. Related to but distinct from our P2 Amplitude adapter blocker (which is about CMS p-tagging). |
 | PGS-97: Fetch Target Audience Definitions | In progress | Oliver Felix | Eng side of Pierce's action item to write target audiences. Coordinate timing. |
 | PGS-104: Keywords Input Field | In progress | Victor Suarez | Adds keyword input + enforcement to Research Draft step. Feeds P4 keyword governance work. |
+
+## Strategic Guidance from Chris (2026-03-30)
+
+**Pierce's role:** Pipeline, quality control, operations. Content analysis = Sarah Price's job.
+
+**Prioritization framework:** Economic impact × (inverse of) complexity. Easy wins with good economic return go first. Hard + low impact = back burner.
+
+**Auto-greenlight rule:** Anything that can apply to the news/L&S division as well gets greenlit automatically across the org. Keep this in mind when scoping.
+
+**The "control room" model (ideal end state for CSA pipeline):**
+Trend signals in → content generation → drafts greenlit / revised / sent back → United Robots-style auto-content flows like a ticker → distribution → performance data feeds back into the system. The dev team currently lacks a clear picture of this end state and is building half-steps toward an undefined goal. Pierce's job is to document and hold them to this vision.
+
+**On the dev team:** They think at button-placement level, not pipeline level. They're missing the entire workstream that happens after the CSA (distribution + performance feedback loop). Pierce should hold them to 3-6 month pipeline thinking.
+
+**On SEO team:** Now has a seat at the table but should not put locks on content format decisions. Data and intelligence drive formats — not Google announcements. Gary's tools are not fully an SEO play; don't let SEO team gate the non-SEO modules.
+
+**On Sara Vallone tracker (P7):** Deprioritized explicitly. CMS architecture (CSA sitting above both CMSs with a data layer) will eventually make it obsolete. Let it fall on the wayside.
+
+**On CSA mapping (P8):** Not urgent. Pierce already has sufficient working understanding to draft the PRD.
 
 ## Dashboard Architecture (ops-hub)
 
