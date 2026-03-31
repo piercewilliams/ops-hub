@@ -35,7 +35,7 @@ For session history: see [sessions/](sessions/)
 |---|---------|------|--------|-------------|
 | 1 | Platform Access & Training | 1 | In progress | Snowflake/Sigma ticket pending; Gary API pending |
 | 2 | Dashboard Instrumentation | 4 | In progress | Sigma/Marfeel creds; Amplitude blocked (p-tagging) |
-| 3 | T1 Headlines Analysis (Price) | 4 | In progress | Tarrow MSN/SmartNews re-exports pending |
+| 3 | T1 Headlines Analysis (Price) | 4 | In progress | Pending Sarah Price review — analysis complete, handing off |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Awaiting Sara Vallone persona drafts |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |

@@ -171,8 +171,8 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | Gary API key + endpoint docs | Awaiting reply | Gary Kirwan | Messaged via Slack/email 2026-03-30. Required for Project 10. |
 | Amplitude p-tagging issue | Dev fix needed | Engineering | Cue/WP tag format incompatibility. Blocks Amplitude adapter. Forward-path: scope event names at dev standup. |
 | Persona drafts | Pending | Sara Vallone | Susannah persona texts not forthcoming; Sara to draft 6-7 new personas (Apple News, Smart News, MSN). |
-| Tarrow: MSN full-year 2025 re-export | Pending | Tarrow | Unlocks T1 Finding 5. |
-| Tarrow: SmartNews 2026 category columns | Pending | Tarrow | Unlocks T1 Finding 3 for 2026. |
+| Tarrow: MSN full-year 2025 re-export | Done | Tarrow | Re-exported and re-analyzed as of 2026-03-31. Handed to Sarah Price for review. |
+| Tarrow: SmartNews 2026 category columns | Done | Tarrow | Re-exported and re-analyzed as of 2026-03-31. Handed to Sarah Price for review. |
 | Content diff tool (PGS-82) | In progress (UX sprint) | Marcelo Freitas (front-end) · Jim Robinson (backend script) · Susannah Locke (PM) · Efren Castillo (design) | Backend similarity scoring working (PyTorch, local tests pass). Architecture decided 2026-03-30: worst-pair score = cluster risk score; expose failing pair to user. UX sprint: Susannah + Efren own checkbox placement; Marcelo owns score display + variant controls + recalculation. Pierce = stakeholder; Sarah Price to test full flow later. |
 | PGS-40: Tagging Taxonomy | ON HOLD | Eng team | Jira confirms eng side blocked — aligns with P6 alignment meeting not yet scheduled. |
 | PGS-80: Analytics Tracking | Code review | Victor Suarez / CSA eng | CSA team's internal Amplitude user-event tracking. Related to but distinct from our P2 Amplitude adapter blocker (which is about CMS p-tagging). |
