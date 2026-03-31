@@ -155,10 +155,10 @@ export const PROJECTS = {
       'PGS-40 (Define Tagging Taxonomy for CSA Output Tracking) is ON HOLD in Jira — confirms eng side is blocked pending alignment meeting',
     ],
     nextActions: [
-      'Schedule alignment meeting: Pierce + Chris + Sara + Susannah (do not start building before this)',
+      'Reply to Susannah: confirm CSA Research Draft is the right entry point; hold on building until alignment meeting (open-text field risks data inconsistency before schema is agreed)',
+      'Schedule alignment meeting: Pierce + Chris + Sara + Susannah',
       'Digest Chris\'s cluster performance sheet before meeting',
       'Study content graph doc (informs meeting)',
-      'Confirm agenda with Susannah — doc linked below',
     ],
     dependsOn: ['p1-access'],
     links: [
@@ -173,7 +173,7 @@ export const PROJECTS = {
     id: 'p2-dashboard', num: '2', tier: 4, type: 'project', status: 'in-progress',
     name: 'Dashboard Instrumentation',
     owner: 'Pierce',
-    description: 'Activate live data ingestion layer in csa-dashboard. Four adapters built in ingest.js, awaiting credentials. Google Sheets is unblocked and first. Amplitude blocked by p-tagging issue — do not activate. Define "CSA uptime/production stats" with Chris.',
+    description: 'Activate live data ingestion layer in csa-dashboard. Manual metrics bridge live via manual-metrics.js + seedMetrics(). Three live adapters (Sigma, Marfeel, Amplitude) still awaiting credentials. Amplitude blocked by p-tagging issue — do not activate. Define "CSA uptime/production stats" with Chris.',
     adapters: [
       { name: 'Google Sheets (manual)', status: 'done', note: 'Manual metrics bridge live via data/manual-metrics.js + seedMetrics() — no API key needed. Edit that file to update numbers.' },
       { name: 'Sigma', status: 'pending-creds', note: 'Provides Stories/week, batting average. Needs OAuth2 credentials.' },

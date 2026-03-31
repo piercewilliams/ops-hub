@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-03-30 (standup + PGS-82 UX meeting)
-**Status:** Dashboard live; direct contacts established with CSA dev team; PGS-82 UX sprint underway
+**Last session:** 2026-03-31 (T1 headlines wrap + projects.js sync)
+**Status:** Dashboard live; P3 analysis complete and in handoff; PRD is the week's only real deliverable
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -13,7 +13,6 @@ For session history: see [sessions/](sessions/)
 
 - Live at `https://piercewilliams.github.io/ops-hub`
 - 13 active projects across 5 dependency tiers + 1 hold
-- Meeting with Chris (boss) 2026-03-30 to prioritize
 - Everything gates on two chains: **Access** (P1) and **Cluster taxonomy** (P6)
 - Sync: 3x daily Mon–Fri (8am/12pm/5pm Dallas CDT), automated via scheduled trigger
 
@@ -33,15 +32,15 @@ For session history: see [sessions/](sessions/)
 
 | # | Project | Tier | Status | Key Blocker |
 |---|---------|------|--------|-------------|
-| 1 | Platform Access & Training | 1 | In progress | Snowflake/Sigma ticket pending; Gary API pending |
+| 1 | Platform Access & Training | 1 | In progress | Snowflake login pending IT; Gary API pending |
 | 2 | Dashboard Instrumentation | 4 | In progress | Sigma/Marfeel creds; Amplitude blocked (p-tagging) |
-| 3 | T1 Headlines Analysis (Price) | 4 | In progress | Pending Sarah Price review — analysis complete, handing off |
+| 3 | T1 Headlines Analysis (Price) | 4 | In progress | Pending Sarah Price review — analysis complete, handed off |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Awaiting Sara Vallone persona drafts |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
 | 6 | Content Cluster / Tagging Taxonomy | 3 | Blocked | Alignment meeting not scheduled |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris 2026-03-30 — CMS architecture will make it obsolete |
-| 8 | Rajiv CSA Mapping | 2 | In progress | BitBucket access in hand 2026-03-30 |
+| 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking PRD |
 | 9 | PRD Revisions | 3 | **IN PROGRESS — #1 PRIORITY** | Draft due 2026-04-03 |
 | 10 | Gary Tools Integration | 2 | Blocked | Gary API key not delivered |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
@@ -50,39 +49,46 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next
 
-**#1 — BLOCK CALENDAR TIME NOW:**
-1. [ ] **Draft PRD long-term vision / "control room" model** — due 2026-04-03 (end of week). Chris's explicit ask. Do not wait for P8 or P13. Scrap whatever doesn't fit the current direction.
+**#1 — THIS WEEK:**
+1. [ ] **Draft PRD "control room" vision** — due 2026-04-03. Chris's explicit ask. Unblocked. Everything else waits.
 
-**Access / foundation (parallel):**
-2. [ ] **Resolve Snowflake login** with IT (access granted, role: growth_and_strategy_role)
-3. [ ] **Enable Google Sheets API key** (P2 — unblocked, no OAuth needed)
-4. [ ] **Get Gary API access** → set up demo with Gary directly (explore non-SEO elements too)
+**Waiting on others (no action needed):**
+- IT: Snowflake login fix, Amplitude/Sigma/Marfeel provisioning
+- Gary Kirwan: API key + endpoint docs
+- Sara Vallone: persona drafts (6-7 new personas)
+- Sarah Price: T1 Headlines review feedback
+- Susannah: CSA staging notification (PGS-95 loading issues)
 
-**Actions from meetings this week:**
-5. [ ] **Write desired target audiences for National team and test in CSA** (coordinate with Oliver Felix / PGS-97)
-6. [ ] **Map United Robots alerts pipeline** — discuss scope with Sara Vallone (feeds PRD)
-7. [ ] **Discuss CSA translation** with Julia Torelli
-8. [ ] **Provide CSA metrics to Chris** (macro level — features added/tested monthly)
-9. [ ] **Update CSA content standards doc** after Sara Vallone drafts new personas
-10. [ ] Schedule P6 cluster alignment meeting with Chris + Sara + Susannah
+**Quick unblocked items (do when PRD needs a break — in this order):**
+2. [ ] **Send CSA metrics to Chris** — he asked for macro-level monthly stats; data already in hand (3,465 batting avg, 138 CSA runs/week from Sigma). 15 minutes. Direct boss ask.
+3. [ ] **Write target audience definitions for National team** — Oliver Felix is building PGS-97 *right now*; don't make eng wait on you. Test in CSA once written.
+4. [ ] **Reply to Susannah** — confirm CSA Research Draft is the right entry point for cluster tagging; hold on building until alignment meeting. Quick email.
+5. [ ] **Schedule P6 cluster alignment meeting** (Chris + Sara + Susannah) — calendar invite unblocks entire cluster chain.
+6. [ ] Map United Robots alerts pipeline scope with Sara Vallone (can feed PRD revision; not needed for first draft)
+7. [ ] Discuss CSA translation with Julia Torelli (no deadline, no chain dependency — defer to end of week)
 
 **Deprioritized (Chris's guidance):**
-- Sara Vallone tracker (P7) — CMS architecture will make it obsolete; let it fall on the wayside
-- CSA codebase mapping in BitBucket (P8) — not urgent; Pierce has sufficient working understanding
+- Sara Vallone tracker (P7) — CMS architecture will make it obsolete
+- CSA codebase mapping in BitBucket (P8) — not urgent
 
 ## Pending Notifications
 
-- **CSA staging test (PGS-95):** Susannah will notify when Google Discover Explainer Content Format is ready to test on https://staging.trendhunteragents.ai/csa — had loading issues 2026-03-30. Pierce + Sara Vallone asked to test and give feedback.
+- **CSA staging test (PGS-95):** Susannah will notify when Google Discover Explainer Content Format is ready to test on https://staging.trendhunteragents.ai/csa — had loading issues 2026-03-30. Pierce + Sara Vallone to test and give feedback.
 
 ## Items Not Yet in Any Repo
 
 - Digest Chris's cluster performance sheet (feeds P6 alignment meeting)
 - Study content graph doc (feeds P6 + P9)
 - Apple News monitoring cadence setup (rq-apple-news-monitoring — separate ops deliverable)
-- Content diff tool (PGS-82): UX sprint underway as of 2026-03-30. Marcelo (front-end) + Susannah/Efren (design). Pierce = stakeholder. Not yet a tracked ops-hub project.
+- Content diff tool (PGS-82): UX sprint underway. Marcelo (front-end) + Susannah/Efren (design). Pierce = stakeholder. Not yet a tracked ops-hub project.
 - Headline tool + title options (rq-headline-tool, rq-title-options — clarify ownership with Chris)
+
+## Session Log: 2026-03-31
+
+- T1 Headlines (P3): Tarrow data fully wired (MSN full-year 2025 + SmartNews 2026 categories). Findings culled from 10 → 5, renumbered 1–5. Analysis complete; handed to Sarah Price for review.
+- data/projects.js: Full sync across all 5 repos. Corrected Google Sheets API items (replaced by manual-metrics.js + seedMetrics() in csa-dashboard — no API key needed). Updated P3 blockers and next actions. All cards put in strict priority order. COMPLETED_TASKS updated with today's work.
 
 ---
 
 *Tiered Context Architecture. Budget: ≤150 lines.*
-*Lines used: ~85*
+*Lines used: ~95*
