@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-03-31 (PRD draft + sync fix + T1 headlines tool updates)
+**Last session:** 2026-03-31 (automated sync 22:24 UTC)
 **Status:** Dashboard live; P3 analysis complete and in handoff; PRD-pipeline.md v0.3 drafted and ready for Chris review
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -32,7 +32,7 @@ For session history: see [sessions/](sessions/)
 
 | # | Project | Tier | Status | Key Blocker |
 |---|---------|------|--------|-------------|
-| 1 | Platform Access & Training | 1 | In progress | Snowflake login pending IT; Gary API pending |
+| 1 | Platform Access & Training | 1 | In progress | Snowflake login resolved; Chad Bruton walkthrough pending. Gary API pending |
 | 2 | Dashboard Instrumentation | 4 | In progress | Sigma/Marfeel creds; Amplitude blocked (p-tagging) |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | Next iteration delivered to Sarah Price 2026-03-31 — awaiting feedback |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
@@ -54,7 +54,7 @@ For session history: see [sessions/](sessions/)
 2. [ ] **Get Sara Vallone's feedback on CSA Vision section** — the "what it means for writers and editors" subsection is a placeholder pending her input.
 
 **Waiting on others (no action needed):**
-- IT: Snowflake login fix, Amplitude/Sigma/Marfeel provisioning
+- IT: Amplitude/Sigma/Marfeel provisioning
 - Gary Kirwan: API key + endpoint docs
 - Sara Vallone: persona drafts (6-7 new personas)
 - Sarah Price: T1 Headlines review feedback
