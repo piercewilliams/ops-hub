@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-03-31 (T1 headlines wrap + projects.js sync + action item audit; automated sync 17:16 UTC)
-**Status:** Dashboard live; P3 analysis complete and in handoff; PRD is the week's only real deliverable
+**Last session:** 2026-03-31 (PRD draft + sync fix + T1 headlines tool updates)
+**Status:** Dashboard live; P3 analysis complete and in handoff; PRD-pipeline.md v0.3 drafted and ready for Chris review
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -34,7 +34,7 @@ For session history: see [sessions/](sessions/)
 |---|---------|------|--------|-------------|
 | 1 | Platform Access & Training | 1 | In progress | Snowflake login pending IT; Gary API pending |
 | 2 | Dashboard Instrumentation | 4 | In progress | Sigma/Marfeel creds; Amplitude blocked (p-tagging) |
-| 3 | T1 Headlines Analysis (Price) | 4 | In progress | Pending Sarah Price review — analysis complete, handed off |
+| 3 | T1 Headlines Analysis (Price) | 4 | In progress | Next iteration delivered to Sarah Price 2026-03-31 — awaiting feedback |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Awaiting Sara Vallone persona drafts |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
@@ -50,7 +50,8 @@ For session history: see [sessions/](sessions/)
 ## What's Next
 
 **#1 — THIS WEEK:**
-1. [ ] **Draft PRD "control room" vision** — due 2026-04-03. Chris's explicit ask. Unblocked. Everything else waits.
+1. [x] **Draft PRD "control room" vision** — PRD-pipeline.md v0.3 complete. Due 2026-04-03.
+2. [ ] **Get Sara Vallone's feedback on CSA Vision section** — the "what it means for writers and editors" subsection is a placeholder pending her input.
 
 **Waiting on others (no action needed):**
 - IT: Snowflake login fix, Amplitude/Sigma/Marfeel provisioning
@@ -82,8 +83,17 @@ For session history: see [sessions/](sessions/)
 - Content diff tool (PGS-82): UX sprint underway. Marcelo (front-end) + Susannah/Efren (design). Pierce = stakeholder. Not yet a tracked ops-hub project.
 - Headline tool + title options (rq-headline-tool, rq-title-options — clarify ownership with Chris)
 
-## Session Log: 2026-03-31
+## Session Log: 2026-03-31 (continued, second session)
 
+- Ops hub sync gap diagnosed and fixed: trigger was running but failing silently since 2026-03-30 noon CDT. Token valid; likely transient push conflict from simultaneous manual commits. Manual trigger run via RemoteTrigger resolved it. Next scheduled run will confirm recovery.
+- PRD-pipeline.md created at ops-hub root. v0.1 drafted from full repo synthesis (all 6 repos). v0.2 revised: removed all Current State sections, made What's Needed strategic, introduced multi-pipeline architecture framing. v0.3 fully updated from 2026-03-31 PRD scoping meeting (Pierce + Chris + Sara): four pipelines confirmed (T1 United Robots/Automated, T2 App-Based/Platform, T3 API/Canonical, T4 Discover), CSA Vision section added, article format templates + publish to Cue identified as two most urgent foundational elements, author mana constraint documented for T3, T2 CMS bypass architecture documented. "Publish to queue" corrected to "Publish to Cue" throughout.
+- csa-dashboard/data/requests.js: 3 status updates (rq-audience-definitions-export, rq-keyword-compliance, rq-diff-tracking).
+- data-t1headlines/generate_site.py: EXCLUDE_POLITICS, EXCLUDE_MSN flags added; --data-2026-full flag added for when Tarrow sends full Apple News 2026 export; per-publication breakdown (34 brands) added to playbook.
+
+## Session Log: 2026-03-31 (continued)
+
+- T1 Headlines (P3): Next iteration delivered to Sarah Price. Tool updated for her feedback: politics excluded (EXCLUDE_POLITICS=True), MSN excluded (unreliable — EXCLUDE_MSN=True, re-enable when Tarrow fixes export), per-publication breakdown added to playbook (34 brands), --data-2026-full flag added for when Tarrow sends full Apple News 2026 export. Run: python3 generate_site.py --data-2026-full "filename.xlsx".
+- Standup sync: Updated REFERENCE.md with dev team status from 2026-03-31 standup. PGS-82 PR on hold pending checkbox design from Susannah/Efren (today). PGS-97 active (Oliver has prod data, extracting personas). PGS-104 feature flag PR under review; Victor available. New team members: Guilherme Gomes Caires, Rodrigo Cavalcanti, Jonathan Gonzalvo. Standup split + 2 Jira boards coming as team expands.
 - T1 Headlines (P3): Tarrow data fully wired (MSN full-year 2025 + SmartNews 2026 categories). Findings culled from 10 → 5, renumbered 1–5. Analysis complete; handed to Sarah Price for review.
 - data/projects.js: Full sync across all 5 repos. Corrected Google Sheets API items (replaced by manual-metrics.js + seedMetrics() — no API key needed). Updated P3, P2, P6 cards. All nextActions in strict priority order. COMPLETED_TASKS updated.
 - Action item audit against Chris's guidance: reordered tomorrow's list (CSA metrics to Chris moved to #2 — direct boss ask, data in hand; target audiences #3 — Oliver Felix waiting on PGS-97; Susannah reply added as #4; P6 meeting invite #5). Added missing data-cmstracker item: reply to Susannah re cluster entry point.
