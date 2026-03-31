@@ -51,13 +51,13 @@ McClatchy's content pipeline operates as a closed, instrumented loop across four
 
 - **Closed loop.** Performance data from distributed content directly informs what gets generated next. No manual handoffs break the loop.
 
-- **Modular quality gates.** Each pipeline element — citations, brand voice, internal links, SEO metadata, cluster assignment, persona match, format compliance — has a discrete, verifiable quality gate surfaced as a green check or red flag. Editors act on the report; they do not re-run the modules manually.
+- **Modular quality gates.** Each pipeline element — citations, keywords, brand/author voice, internal links, SEO metadata, cluster assignment, persona match, format compliance — has a discrete, verifiable quality gate surfaced as a green check or red flag. Editors act on the report; they do not re-run the modules manually.
 
-- **CPA-driven.** Cost Per Asset is the primary pipeline metric. Right now CPA is dominated by human labor costs; as volume scales, compute and storage costs will become the larger factor. Every pipeline improvement should reduce CPA or improve quality and distribution at the same cost.
+- **CPA-driven.** Cost Per Asset is the main pipeline metric. Right now CPA is dominated by human labor costs; as volume scales, compute and storage costs will become the larger factor. Every pipeline improvement should reduce CPA or improve quality and distribution at the same cost.
 
-- **Four parallel pipelines.** The system runs four distinct content pipelines simultaneously, each with its own automation level, editorial profile, channel targets, and CPA characteristics. Scaling the system means scaling all four, not optimizing one. Foundational elements — article format templates, author profiles, publish to Cue/CMS — are required by all four and are therefore the highest-leverage investments.
+- **Four parallel pipelines.** The system runs four distinct content pipelines simultaneously, each with its own automation level, editorial profile, channel targets, and CPA characteristics. Scaling the system means scaling all four, not optimizing one. Foundational elements — article format templates, author profiles, publish to CMS — are required by all four and are therefore the highest-leverage investments.
 
-- **Automation spectrum.** The four pipelines range from fully automated (United Robots-style, bottom) to most editorially intensive (Discover, top). Human involvement scales with editorial complexity; the highest-volume content requires no per-piece human action. All four run simultaneously; content is routed to the appropriate pipeline at brief creation.
+- **Automation spectrum.** The four pipelines range from fully automated (United Robots-style, bottom) to most editorially intensive (Discover, top). Human involvement scales with editorial complexity; the highest-volume content requires very limited, targeted per-piece human action. All four run simultaneously; content is routed to the appropriate pipeline at brief creation.
 
 - **Test, learn, apply.** The national/L&E team is the fast test-and-learn environment. Everything we build and validate here is designed to apply to the news department and broader McClatchy groups. Build for us, apply to them.
 
@@ -65,7 +65,7 @@ McClatchy's content pipeline operates as a closed, instrumented loop across four
 
 ## The Four Pipelines
 
-The pipeline is not a single workflow — it is four parallel workflows running simultaneously, differentiated by content type, automation level, editorial involvement, and channel target. All four require the same foundational infrastructure (article format templates, author profiles, publish to Cue/CMS) to function.
+The pipeline is not a single workflow — it is four parallel workflows running simultaneously, differentiated by content type, automation level, editorial involvement, and channel target. All four require the same foundational infrastructure (article format templates, keywords, author profiles, publish to CMS) to function.
 
 ### T1 — United Robots / Automated
 
