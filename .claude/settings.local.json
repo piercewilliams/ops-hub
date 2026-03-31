@@ -18,7 +18,9 @@
       "Bash(git remote:*)",
       "Bash(gh auth:*)",
       "Bash(git config:*)",
-      "Bash(node --check /Users/pierce/Documents/GitHub/ops-hub/data/projects.js)"
+      "Bash(node --check /Users/pierce/Documents/GitHub/ops-hub/data/projects.js)",
+      "Bash(git rebase:*)",
+      "Bash(git stash:*)"
     ]
   }
 }
