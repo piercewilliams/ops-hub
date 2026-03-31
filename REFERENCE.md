@@ -125,6 +125,9 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | Chad Bruton | Data/analytics; owns Snowflake + Sigma; key architecture guide for tracker | — |
 | Kathryn Sheplavy (Kat) | Data/CSA; investigating Q field options in CUE for cluster tagging | — |
 | Rajiv Pant | Lead PM/engineer for CSA dev team (Maktachi); has GitHub access to CSA codebase | Met at standup 2026-03-30 |
+| Guilherme Gomes Caires | New engineer on CSA dev team | Met at standup 2026-03-31; has system access but needs Bitbucket workspace + Jira board access (Amanda to trigger) |
+| Rodrigo Cavalcanti | Engineer on CSA dev team | Met at standup 2026-03-31 |
+| Jonathan Gonzalvo | Engineer on CSA dev team | Met at standup 2026-03-31 |
 | Saner Keles | PM on CSA dev team | Met at standup 2026-03-30 |
 | Marcelo Freitas | Front-end engineer; owns PGS-82 similarity score UI (PyTorch backend working, UX sprint underway) | Met at standup 2026-03-30 |
 | Daury Caba | Engineer; owns content generation/XML payload work | Met at standup 2026-03-30 |
@@ -173,11 +176,11 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | Persona drafts | Pending | Sara Vallone | Susannah persona texts not forthcoming; Sara to draft 6-7 new personas (Apple News, Smart News, MSN). |
 | Tarrow: MSN full-year 2025 re-export | Done | Tarrow | Re-exported and re-analyzed as of 2026-03-31. Handed to Sarah Price for review. |
 | Tarrow: SmartNews 2026 category columns | Done | Tarrow | Re-exported and re-analyzed as of 2026-03-31. Handed to Sarah Price for review. |
-| Content diff tool (PGS-82) | In progress (UX sprint) | Marcelo Freitas (front-end) · Jim Robinson (backend script) · Susannah Locke (PM) · Efren Castillo (design) | Backend similarity scoring working (PyTorch, local tests pass). Architecture decided 2026-03-30: worst-pair score = cluster risk score; expose failing pair to user. UX sprint: Susannah + Efren own checkbox placement; Marcelo owns score display + variant controls + recalculation. Pierce = stakeholder; Sarah Price to test full flow later. |
+| Content diff tool (PGS-82) | PR on hold | Marcelo Freitas (front-end) · Jim Robinson (backend script) · Susannah Locke (PM) · Efren Castillo (design) | Backend complete; frontend started; PR pushed but held. Waiting on Susannah + Efren to deliver final checkbox design (canonical article inclusion in research draft flow) to Marcelo today (2026-03-31). Marcelo meeting with Jason 2026-04-01. Pierce = stakeholder; Sarah Price to test full flow later. |
 | PGS-40: Tagging Taxonomy | ON HOLD | Eng team | Jira confirms eng side blocked — aligns with P6 alignment meeting not yet scheduled. |
 | PGS-80: Analytics Tracking | Code review | Victor Suarez / CSA eng | CSA team's internal Amplitude user-event tracking. Related to but distinct from our P2 Amplitude adapter blocker (which is about CMS p-tagging). |
-| PGS-97: Fetch Target Audience Definitions | In progress | Oliver Felix | Eng side of Pierce's action item to write target audiences. Coordinate timing. |
-| PGS-104: Keywords Input Field | In progress | Victor Suarez | Adds keyword input + enforcement to Research Draft step. Feeds P4 keyword governance work. |
+| PGS-97: Fetch Target Audience Definitions | In progress | Oliver Felix | Oliver has production data from Emanuel; extracting suggested personas for orgs on Susannah's list. Also meeting with Daury Caba to clarify feedback loop requirements (Q). Pierce must still write target audience definitions — Oliver is building the fetch, not the definitions. |
+| PGS-104: Keywords Input Field | PR under review | Victor Suarez | Feature flag complete; PR sent and under review as of 2026-03-31. Victor available for new assignment. Feeds P4 keyword governance work. |
 
 ## Strategic Guidance from Chris (2026-03-30)
 
@@ -197,6 +200,12 @@ Trend signals in → content generation → drafts greenlit / revised / sent bac
 **On Sara Vallone tracker (P7):** Deprioritized explicitly. CMS architecture (CSA sitting above both CMSs with a data layer) will eventually make it obsolete. Let it fall on the wayside.
 
 **On CSA mapping (P8):** Not urgent. Pierce already has sufficient working understanding to draft the PRD.
+
+## Dev Team Org Changes (2026-03-31)
+
+- **Standup split incoming:** As upstatement work (3 new agents, Marcelo + Jason) expands, Rajiv Pant plans to split into 2 separate standups + 2 Jira boards. Team maintaining cross-training via same Slack channel for now.
+- **Upstatement repo sync:** Rajiv to mirror upstatement consumer repo onto Flatiron and MLache Bitbucket repositories.
+- **Claude config update:** Rajiv set CSA Claude to 'max effort' mode + increased allowed tokens to improve content quality/rules adherence.
 
 ## Dashboard Architecture (ops-hub)
 
