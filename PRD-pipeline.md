@@ -33,11 +33,11 @@
 
 This document maps the ideal end state of McClatchy's AI-assisted content pipeline — from the moment a performance signal identifies a content opportunity, through generation, enrichment, editorial, publishing, and distribution, and back to the performance data that informs the next cycle.
 
-Its purpose is to give the development team a clear, complete picture of the system they are building toward, so that individual features can be evaluated as steps toward a defined goal rather than isolated improvements. For every half-measure or scoped decision the product team brings forward, this document is the goalpost: does it move us closer to the six-month vision?
+Its purpose is to give the development team a clear, complete picture of the system they are building toward, so that individual features can be evaluated as steps toward a defined goal rather than isolated improvements. For every incremental step or scoped decision the product team brings forward, this document is the goalpost: does it move us closer to the six-month vision?
 
 This document also includes a vision for what the CSA itself ultimately looks like and does — a section that has been absent from prior PRD iterations and is needed to give the dev team a complete picture of the tool at the center of the pipeline.
 
-**This is a pipeline map, not a prioritization document.** Priorities will be determined collaboratively with Chris and Sara based on economic impact and complexity.
+**This is a pipeline map, not a prioritization document.** Priorities will be determined collaboratively based on economic impact and complexity.
 
 ---
 

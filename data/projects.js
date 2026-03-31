@@ -6,11 +6,11 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-03-31', task: 'T1 site reworked incorporating Sarah Price feedback; full backlog data from Tarrow wired in; weekly Monday drop cadence established. Running new analysis.', project: '#3 T1 Headlines Analysis' },
+  { date: '2026-03-31', task: 'CSA uptime and production stats defined — Pierce has data in hand; can populate dashboard metrics now.', project: '#2 Dashboard Instrumentation' },
+  { date: '2026-03-31', task: 'Snowflake login issue resolved by IT. Next step: Chad Bruton walkthrough of growth_and_strategy_role data.', project: '#1 Platform Access & Training' },
   { date: '2026-03-31', task: 'T1 Headlines culled to 5 curated findings (renumbered 1–5) — removed 6 weak/predictable findings. Analysis complete; ready for Sarah Price handoff.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-03-31', task: 'MSN full-year 2025 + SmartNews 2026 category columns fully wired into analysis pipeline. Both Tarrow data items now complete.', project: '#3 T1 Headlines Analysis' },
-  { date: '2026-03-30', task: 'United Robots inbound approved by Eric Nelson — P12 moved from HOLD to active. Goal: use CSA to capture 50% revenue share currently going to United Robots via automated alert stories.', project: '#12 United Robots Inbound Pipeline' },
-  { date: '2026-03-30', task: 'BitBucket access in hand — IT created account, Amanda Hamilton added to CSA project same day. P8 (CSA Mapping) unblocked.', project: '#1 Platform Access & Training' },
-  { date: '2026-03-30', task: 'Attended CSA dev standup — met Rajiv Pant, Marcelo Freitas, Oliver Felix, Patrick Al Khouri, Victor Suarez, Daury Caba, Emil Penalo + team; now have direct contacts for Amplitude p-tagging fix and GitHub access', project: '#1 Platform Access & Training' },
 ];
 
 
@@ -33,7 +33,7 @@ export const PROJECTS = {
     owner: 'Pierce',
     description: 'API access and onboarding for all platforms the team uses. Determines architecture for Projects 2 and 7. Gary API key unlocks Project 10.',
     systems: [
-      { name: 'Snowflake / Sigma', status: 'pending', note: 'Snowflake access granted 2026-03-30 (role: growth_and_strategy_role, warehouse: growth_and_strategy_role_wh) — login issue being remedied. Sigma viewer access also granted 2026-03-30. API credentials (OAuth2 for dashboard adapter) still needed from Chad/IT.' },
+      { name: 'Snowflake / Sigma', status: 'pending', note: 'Snowflake login resolved by IT. Next: schedule Chad Bruton walkthrough of growth_and_strategy_role data. Sigma viewer access granted 2026-03-30. API credentials (OAuth2 for dashboard adapter) still needed from Chad/IT.' },
       { name: 'CUE', status: 'done', note: 'Access in hand.' },
       { name: 'WordPress', status: 'done', note: 'Full access as of 2026-03-28.' },
       { name: 'Google Sheets API', status: 'done', note: 'Manual metrics bridge in place via data/manual-metrics.js + seedMetrics() in csa-dashboard — no API key needed for current use.' },
@@ -45,12 +45,12 @@ export const PROJECTS = {
       { name: 'BitBucket', status: 'done', note: 'Account created by IT. Added to CSA project by Amanda Hamilton 2026-03-30.' },
     ],
     blockers: [
-      'Snowflake login issues being remedied by IT; Sigma OAuth2 credentials still pending',
+      'Sigma OAuth2 credentials still pending from Chad/IT',
       'Amplitude, SemRush, Marfeel access still pending IT response (requested 2026-03-30)',
       'Gary API key not yet delivered by Gary Kirwan',
     ],
     nextActions: [
-      'Resolve Snowflake login issue with IT, then get Chad walkthrough of growth_and_strategy_role data',
+      'Schedule Chad Bruton walkthrough of growth_and_strategy_role Snowflake data (login resolved)',
       'Await IT response on Amplitude, SemRush, Marfeel access',
       'Gary Kirwan messaged 2026-03-30 — awaiting reply on API docs + key delivery',
     ],
@@ -126,7 +126,6 @@ export const PROJECTS = {
     description: '#1 PRIORITY (Chris Palo, 2026-03-30). Revise the current PRD ("Content Graph & Operations Layer V3 Breakout") into a complete, coherent document. Three-part task: (1) cull what\'s stale, (2) write the missing CSA core section — what the CSA is, what it should ultimately do, how input signals govern generation, ideal output, feedback loop, (3) integrate — show how Content Graph and Operations Layer connect to the CSA. The dev team lacks a clear picture of the CSA\'s ideal end state. Draft due end of week (2026-04-03).',
     blockers: [],
     nextActions: [
-      'BLOCK CALENDAR TIME — draft due Friday 2026-04-03. This is the week\'s primary deliverable.',
       'Draft CSA core section: input signals, personas/formats/keywords governing generation, output standards, ideal end state, feedback loop, "control room" model',
       'Incorporate United Robots alerts pipeline as part of the auto-content tier',
       'Cull PRD of what\'s stale or out of scope — Chris: not precious, strike what doesn\'t fit',
@@ -173,7 +172,7 @@ export const PROJECTS = {
     id: 'p2-dashboard', num: '2', tier: 4, type: 'project', status: 'in-progress',
     name: 'Dashboard Instrumentation',
     owner: 'Pierce',
-    description: 'Activate live data ingestion layer in csa-dashboard. Manual metrics bridge live via manual-metrics.js + seedMetrics(). Three live adapters (Sigma, Marfeel, Amplitude) still awaiting credentials. Amplitude blocked by p-tagging issue — do not activate. Define "CSA uptime/production stats" with Chris.',
+    description: 'Activate live data ingestion layer in csa-dashboard. Manual metrics bridge live via manual-metrics.js + seedMetrics(). Three live adapters (Sigma, Marfeel, Amplitude) still awaiting credentials. Amplitude blocked by p-tagging issue — do not activate. CSA uptime/production stats defined — data in hand, ready to populate.',
     adapters: [
       { name: 'Google Sheets (manual)', status: 'done', note: 'Manual metrics bridge live via data/manual-metrics.js + seedMetrics() — no API key needed. Edit that file to update numbers.' },
       { name: 'Sigma', status: 'pending-creds', note: 'Provides Stories/week, batting average. Needs OAuth2 credentials.' },
@@ -186,7 +185,7 @@ export const PROJECTS = {
       'Amplitude access pending provisioning + p-tagging fix (CUE/WP tag format mismatch) by eng team',
     ],
     nextActions: [
-      'Schedule definition meeting with Chris: what is "CSA uptime and production stats"?',
+      'Populate CSA uptime/production stats into manual-metrics.js — data in hand',
       'Get Sigma credentials once access lands → activate Sigma adapter',
       'Get Marfeel API key → activate Marfeel adapter',
     ],
@@ -197,12 +196,13 @@ export const PROJECTS = {
     id: 'p3-headlines', num: '3', tier: 4, type: 'project', status: 'in-progress',
     name: 'T1 Headlines Analysis (Price)',
     owner: 'Pierce · Sarah Price',
-    description: '5 curated findings (renumbered 1–5 as of 2026-03-31) on Apple News, SmartNews, MSN, and Yahoo headline performance. Culled from 10 — removed null results and platform-health findings that weren\'t actionable headline insights. All Tarrow data in and wired. Monthly cadence pipeline ready. O&O/Amplitude layer (Chris Palo request) is a separate sub-workstream requiring Amplitude access.',
+    description: '5 curated findings (renumbered 1–5 as of 2026-03-31) on Apple News, SmartNews, MSN, and Yahoo headline performance. Site shared with Sarah Price; her feedback incorporated; site reworked to align more closely with her asks. Full backlog of data from Tarrow now wired in. Weekly Monday data drops from Tarrow established as ongoing cadence. Running new analysis now. O&O/Amplitude layer (Chris Palo request) is a separate sub-workstream requiring Amplitude access.',
     blockers: [
       'O&O/Amplitude layer blocked by Amplitude access (P1) — treat as separate workstream, do not block core work',
     ],
     nextActions: [
-      'Share live site with Sarah Price — get her feedback and alignment',
+      'Run new analysis with reworked site + Tarrow backlog data — review output',
+      'Share updated findings with Sarah Price for next feedback loop',
       'Share "What to know" Featured rate findings (Finding 1) → editorial leads',
       'Share SmartNews entertainment over-index findings → distribution team',
       'O&O layer: once Amplitude access lands, layer in pageview data per design doc',
