@@ -6,7 +6,7 @@ export const CSA_LINKS = {
   'p1-access': {
     requests: [
       { id:'rq-dev-session',    label:'Dev standup access',                    fulfilled:true,  text:'Dev standup access — fulfilled Mar 25. Pierce invited to attend standups as a guest anytime.' },
-      { id:'rq-repo-access',    label:'Repo access (GitHub / Bitbucket)',       fulfilled:true,  text:'Repo access (BitBucket) — IT created account 2026-03-30; Amanda Hamilton added Pierce to CSA project same day.' },
+      { id:'rq-repo-access',    label:'Repo access (BitBucket)',                fulfilled:true,  text:'Repo access (BitBucket) — IT created account 2026-03-30; Amanda Hamilton added Pierce to CSA project same day.' },
       { id:'rq-backlog-access', label:'Backlog / ticket tracking access (Jira)',fulfilled:true,  text:'Backlog / ticket tracking access (Jira) — fulfilled Mar 25. Pierce added to Growth Crew board; additional boards TBD.' },
       { id:'rq-semrush-api',    label:'Semrush API access',                     fulfilled:false, text:'Semrush API access for keyword intelligence. Three use cases scoped by Chris Palo: (1) Directional content categories. (2) Post-publish keyword performance checking. (3) HVC keyword refresh over time. Pending: scoping discussion with Chris Palo and Sarah Price before committing to API volume or use case.' },
       { id:'rq-claude-access',  label:'Claude access/licenses for content team',fulfilled:false, text:'Claude access/licenses for content team — team needs Claude access to run CSA differentiation testing independently. Chris committed to advocating for licenses if business need is demonstrated.' },
@@ -156,7 +156,7 @@ export const CSA_LINKS = {
 
   'p8-mapping': {
     requests: [
-      { id:'rq-repo-access', label:'Repo access (GitHub / Bitbucket)', fulfilled:true,  text:'Repo access (BitBucket) — IT created account 2026-03-30; Amanda Hamilton added Pierce to CSA project same day.' },
+      { id:'rq-repo-access', label:'Repo access (BitBucket)', fulfilled:true, text:'Repo access (BitBucket) — IT created account 2026-03-30; Amanda Hamilton added Pierce to CSA project same day.' },
     ],
     pain: [
       { id:'p-platform-trans', label:'Unclear platform template inputs', priority:false, text:'Unclear what goes into platform templates (SmartNews, Newsbreak, MSN, etc.) — content was created upstream from the distribution decision point.' },
@@ -191,6 +191,20 @@ export const CSA_LINKS = {
       { id:'p-formats', label:'Fixed format types/templates', priority:false, text:'CSA format types and templates are fixed — current templates don\'t reflect desired formats, new templates cannot yet be ingested.' },
     ],
     metrics: [],
+  },
+
+  'p12-unitedrobots': {
+    requests: [
+      { id:'rq-content-learning-loop', label:'CSA content learning loop',             fulfilled:false, text:'CSA content learning loop — formalize a system for Pierce and Sarah Price to document, track, and share what the team is testing and learning. Chris directive: "The narrative is being driven outside of us currently. We should be driving and documenting what we are testing and learning."' },
+      { id:'rq-cluster-tracking',      label:'Automated cluster performance tracking',fulfilled:false, text:'Automated cluster performance tracking — writers manually enter published URLs post-publish and query Marfeel or Amplitude per URL individually. At 10–12 clusters/day this is unsustainable. Goal: harvest published URLs automatically and query performance data for a cluster-level view (parent + all variants).' },
+    ],
+    pain: [
+      { id:'p-ai-disclosure', label:'Mandatory AI disclosure tag causing accusations', priority:false, text:'Mandatory AI disclosure tag is causing external plagiarism accusations and reputational risk — Vogue has made accusations against McClatchy.' },
+    ],
+    metrics: [
+      { id:'m-batting-avg', label:'Page views per story (batting average)', group:'Output performance' },
+      { id:'m-csa-runs',    label:'CSA runs per week',                      group:'Pipeline throughput' },
+    ],
   },
 
   'p13-sysprompts': {
