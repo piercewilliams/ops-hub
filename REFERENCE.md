@@ -136,7 +136,7 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | Amanda Hamilton | Content leadership (McClatchy side); adds new members to CSA project in BitBucket | Met at standup 2026-03-30 |
 | Gary Kirwan | Gary Tools developer | gary@kirwandigital.com |
 | Eric Nelson | Approved United Robots inbound initiative 2026-03-30; greenlit using CSA to capture UR revenue share | — |
-| Julia Torelli | CSA translation contact | — |
+| Julia Tortoriello | CSA translation contact | — |
 | Andy | Reviews Smart News, Apple News, MSN personas before they go live | — |
 | Britney | Uses the update document (executive accountability) | — |
 | Dedra | Sigma access/dashboards contact (Sarah Price's contact) | — |

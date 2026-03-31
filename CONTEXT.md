@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-03-31 (T1 headlines wrap + projects.js sync)
+**Last session:** 2026-03-31 (T1 headlines wrap + projects.js sync + action item audit)
 **Status:** Dashboard live; P3 analysis complete and in handoff; PRD is the week's only real deliverable
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -65,7 +65,6 @@ For session history: see [sessions/](sessions/)
 4. [ ] **Reply to Susannah** — confirm CSA Research Draft is the right entry point for cluster tagging; hold on building until alignment meeting. Quick email.
 5. [ ] **Schedule P6 cluster alignment meeting** (Chris + Sara + Susannah) — calendar invite unblocks entire cluster chain.
 6. [ ] Map United Robots alerts pipeline scope with Sara Vallone (can feed PRD revision; not needed for first draft)
-7. [ ] Discuss CSA translation with Julia Torelli (no deadline, no chain dependency — defer to end of week)
 
 **Deprioritized (Chris's guidance):**
 - Sara Vallone tracker (P7) — CMS architecture will make it obsolete
@@ -86,7 +85,9 @@ For session history: see [sessions/](sessions/)
 ## Session Log: 2026-03-31
 
 - T1 Headlines (P3): Tarrow data fully wired (MSN full-year 2025 + SmartNews 2026 categories). Findings culled from 10 → 5, renumbered 1–5. Analysis complete; handed to Sarah Price for review.
-- data/projects.js: Full sync across all 5 repos. Corrected Google Sheets API items (replaced by manual-metrics.js + seedMetrics() in csa-dashboard — no API key needed). Updated P3 blockers and next actions. All cards put in strict priority order. COMPLETED_TASKS updated with today's work.
+- data/projects.js: Full sync across all 5 repos. Corrected Google Sheets API items (replaced by manual-metrics.js + seedMetrics() — no API key needed). Updated P3, P2, P6 cards. All nextActions in strict priority order. COMPLETED_TASKS updated.
+- Action item audit against Chris's guidance: reordered tomorrow's list (CSA metrics to Chris moved to #2 — direct boss ask, data in hand; target audiences #3 — Oliver Felix waiting on PGS-97; Susannah reply added as #4; P6 meeting invite #5). Added missing data-cmstracker item: reply to Susannah re cluster entry point.
+- Removed Julia Tortoriello as action item — she's a contact (oversees CSA Spanish translation), not a task. Corrected name spelling throughout.
 
 ---
 
