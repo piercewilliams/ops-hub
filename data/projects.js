@@ -6,12 +6,12 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-01', task: 'P6 cluster alignment meeting complete. Cluster tagging strategy settled. Variant linking and full schema enablement now in product/dev team\'s hands.', project: '#6 Content Cluster / Tagging Taxonomy' },
+  { date: '2026-04-01', task: 'T1 analysis complete: 8 findings live (incl. ANP bottom-performer analysis), 4-tile playbook, weekly ANP cadence from Tarrow established. Sarah Price request fulfilled.', project: '#3 T1 Headlines Analysis' },
+  { date: '2026-04-01', task: '3 target audience personas consolidated from CSA data and passed to Sara Vallone to refine and/or pair with additional ones for codification in CSA.', project: '#4 Article Format + Persona + Keyword Governance' },
+  { date: '2026-04-01', task: 'Gary Tools: Chris Palo provided operational integration requirements (error tracking, corrections, override reporting). Pierce tested claims validator on Home Buyers Guide. Integration direction confirmed.', project: '#10 Gary Tools Integration' },
   { date: '2026-03-31', task: 'Canonical ID = Cluster ID confirmed by Chris, Sara Vallone, and Susannah. CSA articles are siblings (not parent/child). Variant linking dev request logged.', project: '#6 Content Cluster / Tagging Taxonomy' },
   { date: '2026-03-31', task: 'PGS-95 Google Discover Explainer format confirmed LIVE. AI disclaimer removal decided: manual Q step, not automatic (PGS-114 logged). Editable notes field confirmed functional.', project: '#4 Article Format + Persona + Keyword Governance' },
-  { date: '2026-03-31', task: 'T1 site reworked incorporating Sarah Price feedback; full backlog data from Tarrow wired in; weekly Monday drop cadence established. Running new analysis.', project: '#3 T1 Headlines Analysis' },
-  { date: '2026-03-31', task: 'CSA uptime and production stats defined — Pierce has data in hand; can populate dashboard metrics now.', project: '#2 Dashboard Instrumentation' },
-  { date: '2026-03-31', task: 'Snowflake login issue resolved by IT. Next step: Chad Bruton walkthrough of growth_and_strategy_role data.', project: '#1 Platform Access & Training' },
-  { date: '2026-03-31', task: 'T1 Headlines culled to 5 curated findings (renumbered 1–5) — removed 6 weak/predictable findings. Analysis complete; ready for Sarah Price handoff.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-03-31', task: 'MSN full-year 2025 + SmartNews 2026 category columns fully wired into analysis pipeline. Both Tarrow data items now complete.', project: '#3 T1 Headlines Analysis' },
 ];
 
@@ -93,21 +93,21 @@ export const PROJECTS = {
   },
 
   'p10-gary': {
-    id: 'p10-gary', num: '10', tier: 2, type: 'project', status: 'blocked',
+    id: 'p10-gary', num: '10', tier: 2, type: 'project', status: 'in-progress',
     name: 'Gary Tools Integration',
     owner: 'Pierce (lead) · Susannah Locke (integration lead) · Chris Palo (stakeholder)',
-    description: 'Explore Gary\'s API toolkit (citation validation, internal linking, meta optimization, brand-fit audit). McClatchy has an API key. Integration point: post-CSA generation, before editor\'s desk. Chris wants "almost all, maybe all" modules. Gary is further along than any internal tool.',
+    description: 'ACTIVE EVALUATION. Gary shared claims validation reports (US Weekly, Women\'s World health) demonstrating factual accuracy checking against trustworthy sources. Chris Palo responded "Love to see how we can integrate this" and provided operational requirements (2026-04-01). Pierce tested on Home Buyers Guide with Mecklenburg County tax nuances — real-world validation. Primary use case: claims validation / factual accuracy post-CSA, before editor\'s desk. NOT primarily an SEO play.',
     blockers: [
-      'Gary API endpoint docs + API key not yet delivered (Gary Kirwan)',
-      '5 open questions unresolved: McClatchy content indexed in Convex? Brand guide stored? brand_id scope (company vs. per-publication)? Cost model? Two-tier brand guideline handling?',
+      'Gary API endpoint docs + confirmed key delivery still pending',
+      '5 open questions: McClatchy content indexed in Convex? Brand guide stored? brand_id scope? Cost model? Two-tier brand guideline handling?',
     ],
     nextActions: [
-      'Awaiting Gary Kirwan reply (messaged 2026-03-30) — group committed 2026-03-31 to formal evaluation with definitive yes/no decision. Author portion flagged as most useful; underlying code is MIT open source. Get API access first.',
-      'Explore NON-SEO elements of Gary\'s toolkit — Chris emphasized it\'s not just SEO; Sara Vallone interested in author personal element',
+      'Confirm API key receipt and endpoint docs from Gary Kirwan',
+      'Build integration spec per Chris\'s operational requirements: editor correction + override, error rate tracking by article/author/content type, correction tracking, override reporting (Pierce + Vallone + Chris initially; shrinks to Vallone once confident)',
+      'Define source trustworthiness management process — who approves/removes sources over time',
+      'Run first-test sequence: health → scrape → meta → structure → brand-readiness → citations → poll',
+      'Add claims validation to PRD scope — document as post-CSA quality gate',
       'Do not wait for SEO team review on non-SEO modules',
-      'Once key received: health → scrape → meta → structure → brand-readiness → citations → poll',
-      'Discuss two-tier brand guideline approach with Chris (national vs. per-publication)',
-      'Add non-SEO Gary elements to PRD scope',
     ],
     dependsOn: ['p1-access'],
     contacts: [
@@ -136,27 +136,21 @@ export const PROJECTS = {
   },
 
   'p6-taxonomy': {
-    id: 'p6-taxonomy', num: '6', tier: 3, type: 'project', status: 'blocked',
+    id: 'p6-taxonomy', num: '6', tier: 3, type: 'project', status: 'in-progress',
     name: 'Content Cluster / Tagging Taxonomy',
     owner: 'Pierce · Susannah Locke · Chris Palo · Sara Vallone',
-    description: 'Define cluster tagging schema. KEY AGREEMENT (2026-03-31): Canonical ID = Cluster ID — acts as session ID connecting sibling article variants. CSA articles are SIBLINGS (not parent/child — the Sara Vallone tracker used parent/child as a Google Sheets workaround). Variant linking dev request logged with Susannah. Alignment meeting still required for remaining schema questions (manual vs. auto fields, naming conventions).',
+    description: 'Cluster tagging strategy SETTLED as of 2026-04-01 alignment meeting. Canonical ID = Cluster ID (session ID linking sibling variants). CSA articles are SIBLINGS. Full schema enablement and variant linking dev work now in the product/dev team\'s hands. PGS-40 remains ON HOLD in Jira pending dev queue. Pierce\'s role: stakeholder/monitor until dev delivers.',
     alignmentAgendaItems: [
-      'Manual vs. auto fields: in this holistic view, do all want all manual fields at once, or fast-track Cluster ID only?',
-      'Optional open cluster field on Research Draft page (Susannah\'s proposal)',
-      'Call Target Audience "Persona" in schema?',
       '(RESOLVED 2026-03-31) Canonical ID = Cluster ID confirmed; articles are siblings not parent/child; variant linking dev request logged.',
+      '(RESOLVED 2026-04-01) Full cluster tagging strategy settled in alignment meeting.',
     ],
     blockers: [
-      'Alignment meeting not yet scheduled (Pierce + Chris Palo + Sara Vallone + Susannah)',
-      'No Cluster ID field exists in CUE or WordPress yet (Susannah investigating Q field options with Kathryn Sheplavy)',
-      'Snowflake/Sigma access determines architecture (webhook vs. Snowflake→Sheet)',
-      'PGS-40 (Define Tagging Taxonomy for CSA Output Tracking) is ON HOLD in Jira — confirms eng side is blocked pending alignment meeting',
+      'Dev work (variant linking, Cluster ID field in CUE/WP) now in product/dev team queue — no Pierce action needed',
+      'PGS-40 ON HOLD in Jira — eng side building out from settled strategy',
     ],
     nextActions: [
-      'Schedule alignment meeting: Pierce + Chris + Sara + Susannah (remaining schema questions)',
-      'Susannah logging variant linking dev request (link CSA siblings via canonical article ID + article ID — next dev priority after current eng queue)',
-      'Digest Chris\'s cluster performance sheet before meeting',
-      'Study content graph doc (informs meeting)',
+      'Monitor dev progress on variant linking and Cluster ID field implementation',
+      'No Pierce action items — strategy decided, dev team owns execution',
     ],
     dependsOn: ['p1-access'],
     links: [
@@ -195,15 +189,15 @@ export const PROJECTS = {
     id: 'p3-headlines', num: '3', tier: 4, type: 'project', status: 'in-progress',
     name: 'T1 Headlines Analysis (Price)',
     owner: 'Pierce · Sarah Price',
-    description: '5 curated findings (renumbered 1–5 as of 2026-03-31) on Apple News, SmartNews, MSN, and Yahoo headline performance. Site shared with Sarah Price; her feedback incorporated; site reworked to align more closely with her asks. Full backlog of data from Tarrow now wired in. Weekly Monday data drops from Tarrow established as ongoing cadence. Running new analysis now. O&O/Amplitude layer (Chris Palo request) is a separate sub-workstream requiring Amplitude access.',
+    description: 'Analysis complete as of 2026-04-01: 8 findings live, 4-tile playbook, full ANP data pipeline (420K rows, weekly drops from Tarrow). Three structural failure patterns identified for Apple News. Findings: Featured Targeting, Push Notifications, Platform Topic Inversion, Views vs. Engagement, Formula Trends, Featuring Reaches Non-Subscribers, Topic Predicts Featuring, ANP Bottom-Performer Analysis. Now in ongoing monitoring cadence (monthly Tarrow + weekly ANP). O&O/Amplitude layer is a separate sub-workstream requiring Amplitude access.',
     blockers: [
       'O&O/Amplitude layer blocked by Amplitude access (P1) — treat as separate workstream, do not block core work',
     ],
     nextActions: [
-      'Run new analysis with reworked site + Tarrow backlog data — review output',
-      'Share updated findings with Sarah Price for next feedback loop',
+      'Share site with Sarah Price (she has seen Slack preview; needs direct link)',
       'Share "What to know" Featured rate findings (Finding 1) → editorial leads',
-      'Share SmartNews entertainment over-index findings → distribution team',
+      'Add Mann-Whitney significance tests to sports/biz/pol subtopic tables (3 standing rigor warnings)',
+      'ANP March drop — Tarrow adding to Drive folder; drop into anp_data/ when it arrives',
       'O&O layer: once Amplitude access lands, layer in pageview data per design doc',
     ],
     dependsOn: ['p1-access'],
@@ -214,16 +208,15 @@ export const PROJECTS = {
     name: 'Article Format + Persona + Keyword Governance',
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
     description: 'Compile high-performing persona names; send controlled set to Susannah to pin in National accounts. Consolidate TH/TH B2C variants with Sara and Sarah Price. Finalize list before testing begins. CSA now stores metadata on article configurations (formats, personas, keywords) as of 2026-03-30 — features in code review. Pairwise testing approach confirmed: ~3 formats × 3 personas = ~9 tests. Start with Discover and Trend Hunterland (6 personas: 3 each).',
-    status_detail: 'In progress. Sara Vallone committed to 1-2 personas for testing by 2026-04-01. Full set of 6-7 new personas (Apple News, Smart News, MSN) still to be drafted. Format/persona LAYERING tooling requested from Susannah (logged 2026-03-31) — until tooling arrives, combine persona + format in single items submitted together.',
+    status_detail: 'In progress. 3 personas consolidated from CSA data and passed to Sara Vallone (2026-04-01) to refine and/or pair with additional ones — final set will be codified in CSA for National team. Format/persona LAYERING tooling requested from Susannah (logged 2026-03-31) — until tooling arrives, combine persona + format in single items.',
     blockers: [
-      'Sara Vallone has not yet drafted new personas (Apple News, Smart News, MSN)',
-      'Full governance structure needs cluster context from P6',
+      'Sara Vallone refining 3 consolidated personas + drafting any additional needed (Apple News, Smart News, MSN)',
+      'Awaiting Sara\'s final persona set before codifying in CSA',
     ],
     nextActions: [
-      'Update CSA content standards doc once Sara Vallone drafts new personas — codify into system',
-      'Sara Vallone: draft 6-7 new personas (Apple News, Smart News, MSN versions)',
-      'Submit new Apple News + MSN personas to Andy for review',
-      'Google Discover Explainer Content Format (PGS-95) is LIVE — test with Sara Vallone and provide feedback',
+      'Await Sara Vallone\'s refined/final persona set',
+      'Codify final personas into CSA for National team — update csa-content-standards accordingly',
+      'Submit new Apple News + MSN personas to Andy for review before use',
       'Consolidate TH/TH B2C variants with Sara Vallone and Sarah Price',
       'Finalize persona list and send to Susannah to pin in National accounts',
     ],

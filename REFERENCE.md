@@ -193,24 +193,25 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 | CSA articles are siblings (not parent/child) | **Confirmed** | Parent/child structure in the Sara Vallone tracker sheet was a Google Sheets workaround. Articles from the same research draft are siblings. |
 | Variant linking dev request | To be submitted | Susannah logging request to link CSA siblings via canonical article ID + article ID. Next dev priority after current eng queue. |
 
-### Jira Board — EOD 2026-03-31
+### Jira Board — Updated 2026-04-01
 
 | Ticket | Status | Owner | Notes |
 |--------|--------|-------|-------|
-| PGS-114: Remove AI Disclaimer from Discovery Format | Backlog | Susannah Locke | Decision 2026-03-31 (Sara Vallone + Chris Palo): automatic AI disclaimer should be removed; replace with manual step in Q process by writers. |
+| PGS-115: Google Discover Explainer Visible to All Users (not national team only) | **In progress** | Daury Caba | NEW 2026-04-01. Bug — should be national team only. Fix in progress. |
+| PGS-114: Remove AI Disclaimer from Discovery Format | Backlog | Susannah Locke | Decision 2026-03-31: AI disclaimer should be manual Q step, not automatic. |
 | PGS-111: SEO Metadata Fields at Step 3 | Selected for dev | CSA eng | SEO metadata fields not displayed at step 3 for Content Format Variants. |
-| PGS-104: Keywords Input Field | Code review | Victor Suarez | Add keywords input + downstream enforcement to Research Draft Step. PR under review. Feeds P4 keyword governance. |
+| PGS-104: Keywords Input Field | Code review | Victor Suarez | Add keywords input + downstream enforcement to Research Draft Step. Feeds P4 keyword governance. |
 | PGS-102: Meta field TEO best practices | Selected for dev | CSA eng | Add meta field TEO best practices for meta title, description, keywords. |
-| PGS-98: Additional Context / Editorial Notes impact | Ready for deploy | CSA eng | Investigate missing impact of additional context and editorial notes on output. |
-| PGS-97: Fetch Target Audience Definitions | Product review | Oliver Felix | Unexpected export to Jira without human review — Susannah to notify Pierce when Oliver's review complete. Pierce must still write target audience definitions. |
+| PGS-98: Additional Context / Editorial Notes impact | **In QA** | CSA eng | Investigating missing impact of additional context and editorial notes on output. |
+| PGS-97: Fetch Target Audience Definitions | Product review | Oliver Felix | Oliver finished persona report for Susannah 2026-04-01. Susannah to notify Pierce when human review complete. Pierce must write target audience definitions. |
 | PGS-96: The Discover Browser target audience | Code review | CSA eng | Add "The Discover Browser" as saved target audience for all National team users. |
-| PGS-95: Google Discover Explainer format | **Live** | CSA eng | Confirmed LIVE 2026-03-31. AI disclaimer still at top — removal queued (PGS-114). |
+| PGS-95: Google Discover Explainer format | **In QA** | CSA eng | Live as of 2026-03-31; scoping bug (PGS-115) being fixed — restrict to national team only. AI disclaimer removal queued (PGS-114). |
 | PGS-94: National team as CSA Configuration | Done | CSA eng | Complete. |
 | PGS-93: Import from URL(s) to Research Draft | Code review | CSA eng | Add "Create Research Draft" option to import from URL(s) flow. |
-| PGS-87: Target Audience Label in Google Doc Export | Ready for deploy | CSA eng | Target audience label missing from Google Doc export for platform variants. |
-| PGS-82: Duplicate Content Assessment spike | Code review | Marcelo / Jim Robinson / Susannah / Efren | Checkbox config resolved 2026-03-31 (no checkboxes needed at URL import stage per Susannah). PR proceeds. Pierce = stakeholder; Sarah Price to test full flow. |
-| PGS-80: Analytics Tracking for User Events | Code review | Victor Suarez / CSA eng | CSA team's internal Amplitude user-event tracking. Distinct from P2 Amplitude adapter (CMS p-tagging issue). |
-| PGS-40: Define Tagging Taxonomy | On hold | Eng team | Eng blocked pending P6 alignment meeting. Canonical ID = Cluster ID confirmed 2026-03-31; variant linking is next priority. |
+| PGS-87: Target Audience Label in Google Doc Export | **In QA** | CSA eng | Target audience label missing from Google Doc export for platform variants. |
+| PGS-82: Duplicate Content Assessment spike | Code review | Marcelo / Susannah | Scoring system SHIPPED 2026-04-01. PR submitted. Deactivated by default — requires DB update to activate. Scoped to national team only (news team must not see it). Pierce = stakeholder; Sarah Price to test. |
+| PGS-80: Analytics Tracking for User Events | Code review | Victor Suarez | CSA team's internal Amplitude user-event tracking. Amplitude code deployed; key retrieved from PR — upload to staging/prod pending. |
+| PGS-40: Define Tagging Taxonomy | On hold | Eng team | P6 strategy settled 2026-04-01. Eng side builds from settled strategy; variant linking is next dev priority. |
 
 ## Strategic Guidance from Chris (2026-03-30)
 
