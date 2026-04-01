@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-01 (completed 2026-03-31 cross-repo sync — all 5 repos, csa-dashboard data files, pain.js)
-**Status:** Dashboard live; PRD-pipeline.md v0.3 ready for Chris review (due 2026-04-03); T1 site reworked, Tarrow backlog wired; PGS-95 live; canonical ID = cluster ID confirmed
+**Last session:** 2026-04-01 (automated sync — T1 headlines Finding 8 + ANP data integration; csa-links.js stale entries updated)
+**Status:** Dashboard live; PRD-pipeline.md v0.3 ready for Chris review (due 2026-04-03); T1 site 8 findings live (ANP data integrated); PGS-95 live; canonical ID = cluster ID confirmed
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -34,7 +34,7 @@ For session history: see [sessions/](sessions/)
 |---|---------|------|--------|-------------|
 | 1 | Platform Access & Training | 1 | In progress | Snowflake login resolved — Chad walkthrough pending; Gary API pending |
 | 2 | Dashboard Instrumentation | 4 | In progress | CSA uptime/production stats defined — data in hand, populate manual-metrics.js next |
-| 3 | T1 Headlines Analysis (Price) | 4 | In progress | Site reworked per Sarah Price feedback; Tarrow backlog wired; weekly Monday drops established; running new analysis |
+| 3 | T1 Headlines Analysis (Price) | 4 | In progress | 8 findings live (2026-04-01); ANP data integrated; playbook 4 tiles; direct link not yet shared with Sarah Price |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Sara Vallone delivering 1-2 personas by 2026-04-01; format/persona layering tooling requested (Susannah logged) |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
