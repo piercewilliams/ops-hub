@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-03-31 (status audit + projects.js Up Next cleanup)
-**Status:** Dashboard live; PRD-pipeline.md v0.3 ready for Chris review; T1 site reworked and ready to run with Tarrow backlog
+**Last session:** 2026-03-31 (T1 analysis, PRD v0.3, status audit, merge conflict resolved)
+**Status:** Dashboard live; PRD-pipeline.md v0.3 ready for Chris review (due 2026-04-03); T1 site reworked, Tarrow backlog wired, ready to run analysis
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -86,28 +86,7 @@ For session history: see [sessions/](sessions/)
 - Content diff tool (PGS-82): UX sprint underway. Marcelo (front-end) + Susannah/Efren (design). Pierce = stakeholder. Not yet a tracked ops-hub project.
 - Headline tool + title options (rq-headline-tool, rq-title-options — clarify ownership with Chris)
 
-## Session Log: 2026-03-31 (continued, third session)
-
-- Status audit of Up Next tasks: Snowflake login resolved (Chad walkthrough still pending); PRD underway; calendar blocked; CSA uptime/production stats defined (data in hand); T1 site shared with Sarah Price, feedback received, site reworked, Tarrow backlog wired, weekly Monday drops established, ready to run analysis.
-- data/projects.js: Updated COMPLETED_TASKS (3 new entries); P1 Snowflake status updated; P2 description + nextAction updated (populate manual-metrics.js next); P3 description + nextActions updated (run analysis #1); P9 "block calendar time" nextAction removed (done).
-
-## Session Log: 2026-03-31 (continued, second session)
-
-- Ops hub sync gap diagnosed and fixed: trigger was running but failing silently since 2026-03-30 noon CDT. Token valid; likely transient push conflict from simultaneous manual commits. Manual trigger run via RemoteTrigger resolved it. Next scheduled run will confirm recovery.
-- PRD-pipeline.md created at ops-hub root. v0.1 drafted from full repo synthesis (all 6 repos). v0.2 revised: removed all Current State sections, made What's Needed strategic, introduced multi-pipeline architecture framing. v0.3 fully updated from 2026-03-31 PRD scoping meeting (Pierce + Chris + Sara): four pipelines confirmed (T1 United Robots/Automated, T2 App-Based/Platform, T3 API/Canonical, T4 Discover), CSA Vision section added, article format templates + publish to Cue identified as two most urgent foundational elements, author mana constraint documented for T3, T2 CMS bypass architecture documented. "Publish to queue" corrected to "Publish to Cue" throughout.
-- csa-dashboard/data/requests.js: 3 status updates (rq-audience-definitions-export, rq-keyword-compliance, rq-diff-tracking).
-- data-t1headlines/generate_site.py: EXCLUDE_POLITICS, EXCLUDE_MSN flags added; --data-2026-full flag added for when Tarrow sends full Apple News 2026 export; per-publication breakdown (34 brands) added to playbook.
-
-## Session Log: 2026-03-31 (continued)
-
-- T1 Headlines (P3): Next iteration delivered to Sarah Price. Tool updated for her feedback: politics excluded (EXCLUDE_POLITICS=True), MSN excluded (unreliable — EXCLUDE_MSN=True, re-enable when Tarrow fixes export), per-publication breakdown added to playbook (34 brands), --data-2026-full flag added for when Tarrow sends full Apple News 2026 export. Run: python3 generate_site.py --data-2026-full "filename.xlsx".
-- Standup sync: Updated REFERENCE.md with dev team status from 2026-03-31 standup. PGS-82 PR on hold pending checkbox design from Susannah/Efren (today). PGS-97 active (Oliver has prod data, extracting personas). PGS-104 feature flag PR under review; Victor available. New team members: Guilherme Gomes Caires, Rodrigo Cavalcanti, Jonathan Gonzalvo. Standup split + 2 Jira boards coming as team expands.
-- T1 Headlines (P3): Tarrow data fully wired (MSN full-year 2025 + SmartNews 2026 categories). Findings culled from 10 → 5, renumbered 1–5. Analysis complete; handed to Sarah Price for review.
-- data/projects.js: Full sync across all 5 repos. Corrected Google Sheets API items (replaced by manual-metrics.js + seedMetrics() — no API key needed). Updated P3, P2, P6 cards. All nextActions in strict priority order. COMPLETED_TASKS updated.
-- Action item audit against Chris's guidance: reordered tomorrow's list (CSA metrics to Chris moved to #2 — direct boss ask, data in hand; target audiences #3 — Oliver Felix waiting on PGS-97; Susannah reply added as #4; P6 meeting invite #5). Added missing data-cmstracker item: reply to Susannah re cluster entry point.
-- Removed Julia Tortoriello as action item — she's a contact (oversees CSA Spanish translation), not a task. Corrected name spelling throughout.
-
 ---
 
 *Tiered Context Architecture. Budget: ≤150 lines.*
-*Lines used: ~95*
+*Lines used: ~80*
