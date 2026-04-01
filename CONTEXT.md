@@ -51,7 +51,7 @@ For session history: see [sessions/](sessions/)
 
 **#1 — THIS WEEK:**
 1. [ ] **Finish PRD** — due 2026-04-03 to Chris. V0.3 in progress. Get Sara Vallone's feedback on CSA Vision section.
-2. [ ] **Share T1 site with Sarah Price** — she's seen Slack preview; needs direct link.
+2. [x] ~~**Share T1 site with Sarah Price**~~ — done. Sarah confirmed she has the link (Slack, 2026-04-01 11:59 AM).
 3. [ ] **Await Sara Vallone's refined personas** — then codify into CSA + update csa-content-standards.
 
 **Waiting on others (no action needed):**
