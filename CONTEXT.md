@@ -71,7 +71,7 @@ For session history: see [sessions/](sessions/)
 6. [ ] **Schedule P6 dev check-in** — monitor variant linking progress with Susannah.
 
 **Deprioritized (Chris's guidance):**
-- Sara Vallone tracker (P7) — CMS architecture will make it obsolete
+- Sara Vallone tracker (P7) — on hold, but has concrete re-entry conditions: Cluster ID in CUE+WP, Send-to-CUE, Send-to-WP, and PGS-80 analytics. When those land the tracker builds itself. Bring revised scope to Chris at that point.
 - CSA codebase mapping in BitBucket (P8) — not urgent
 - Populate manual-metrics.js — delaying; CSA about to start logging stats automatically
 

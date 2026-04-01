@@ -257,15 +257,14 @@ export const PROJECTS = {
     id: 'p7-tracker', num: '7', tier: 4, type: 'project', status: 'hold',
     name: 'Vallone Tracker / CMS Automation',
     owner: 'Pierce (dev) · Sara Vallone (stakeholder)',
-    description: 'Automate Sara Vallone\'s content governance Google Sheet. DEPRIORITIZED per Chris Palo 2026-03-30: "It\'s a monster. Let it fall on the wayside for now. Focus on the CSA." Long-term, CMS architecture (CSA sitting above both CMSs with a data layer) will make this tracker obsolete anyway.',
+    description: 'Automate Sara Vallone\'s content governance Google Sheet — who published what, under which persona/format/cluster, and how it performed. Deprioritized by Chris Palo 2026-03-30. HOWEVER: the four Jira prerequisites below are actively being built. When they land, the tracker becomes low-effort to realize and would be auto-populated rather than manual. The same infra that enables CMS push/pull and cluster tagging essentially builds the tracker\'s data layer for free.',
     blockers: [
-      'DEPRIORITIZED by Chris — not a current focus',
-      'P6 alignment meeting must happen first — schema must be agreed before building',
-      'CMS architecture (long-term) may replace the need for this entirely',
+      'HOLD pending four Jira prerequisites: (1) Cluster ID field in CUE + WP (P6 dev / PGS-40), (2) Send-to-CUE functional (rq-send-to-cue), (3) Send-to-WP functional (rq-send-to-wp), (4) PGS-80 analytics live (draft-to-publish ratio + export event tracking)',
+      'Chris deprioritized 2026-03-30 — revisit once prerequisites land and bring to Chris with updated scope',
     ],
     nextActions: [
-      'No action until P9 PRD defines long-term CMS architecture',
-      'Revisit only after P6 alignment meeting and P9 PRD draft complete',
+      'Monitor Jira for: PGS-40 (tagging taxonomy), Send-to-CUE, Send-to-WP, PGS-80 analytics',
+      'When all four prerequisites are fulfilled: scope tracker build and bring revised proposal to Chris — the manual work will be dramatically reduced by the infra already in place',
     ],
     dependsOn: ['p6-taxonomy', 'p1-access'],
     contacts: [
