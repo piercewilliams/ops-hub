@@ -82,7 +82,7 @@ export const PROJECTS = {
     description: 'Understand Mode 1 (Publication Ready) and Mode 2 (Intermediate/Expanded) in the System Prompts doc under Persona-Optimized Variant. Mode 2 is the known root cause of word count bloat. NOTE (2026-03-31): Mode 1/2 mapping questions NOT directed at Pierce\'s team — Susannah will ask Rajiv which teams are on which mode and report back.',
     blockers: [],
     nextActions: [
-      'Write desired target audiences for National team and test in CSA — coordinate with Oliver Felix on PGS-97 (eng side building infrastructure in parallel)',
+      'Write target audience definitions for National team — PGS-97 is resolved/fulfilled; engineering infra is built and waiting. Pierce just needs to write the definitions.',
       'Await Susannah\'s report on Mode 1 vs Mode 2 team mapping (she\'s asking Rajiv)',
       'Coordinate with P8 (CSA mapping) — complementary investigations',
     ],

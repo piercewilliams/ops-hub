@@ -64,10 +64,11 @@ For session history: see [sessions/](sessions/)
 
 **Quick unblocked items (do when PRD needs a break):**
 1. [ ] **Send CSA metrics to Chris** — macro-level monthly stats (3,465 batting avg, 138 CSA runs/week). Direct boss ask.
-2. [ ] **Write target audience definitions for National team** — Oliver Felix building PGS-97; don't make eng wait.
-3. [ ] **Reply to Susannah** — confirm CSA Research Draft as cluster tagging entry point.
-4. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
-5. [ ] **Schedule P6 dev check-in** — monitor variant linking progress with Susannah.
+2. [ ] **Write target audience definitions for National team** — PGS-97 is marked RESOLVED/FULFILLED. Engineering infra is built. Pierce just needs to write the definitions and get them in. Do not wait for Susannah's notification.
+3. [ ] **Check The Discover Browser persona (PGS-96)** — may need structural editing before Susannah can use it as a Target Audience. Verify CSA Content Standards version is in proper shape.
+4. [ ] **Reply to Susannah** — confirm CSA Research Draft as cluster tagging entry point.
+5. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
+6. [ ] **Schedule P6 dev check-in** — monitor variant linking progress with Susannah.
 
 **Deprioritized (Chris's guidance):**
 - Sara Vallone tracker (P7) — CMS architecture will make it obsolete
