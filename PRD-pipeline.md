@@ -69,7 +69,7 @@ The pipeline is not a single workflow — it is four parallel workflows running 
 
 ### T1 — United Robots / Automated
 
-**What it is:** Fully automated inbound and outbound content. The United Robots pipeline brings in automated wire-style content; this tier is also where outbound content that requires no per-piece human judgment lives. Content flows like a ticker.
+**What it is:** Fully automated inbound and outbound content. The United Robots pipeline brings in automated wire-style content; this tier is also where outbound content that requires little or no per-piece human judgment lives. Content flows like a ticker.
 
 **Human role:** None per piece. Humans define the rules, templates, and thresholds; the system executes. Exception handling routes to an operator queue, not an inbox.
 

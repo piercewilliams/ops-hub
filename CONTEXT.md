@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-03-31 (PRD draft + sync fix + T1 headlines tool updates)
-**Status:** Dashboard live; P3 analysis complete and in handoff; PRD-pipeline.md v0.3 drafted and ready for Chris review
+**Last session:** 2026-03-31 (status audit + projects.js Up Next cleanup)
+**Status:** Dashboard live; PRD-pipeline.md v0.3 ready for Chris review; T1 site reworked and ready to run with Tarrow backlog
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -32,9 +32,9 @@ For session history: see [sessions/](sessions/)
 
 | # | Project | Tier | Status | Key Blocker |
 |---|---------|------|--------|-------------|
-| 1 | Platform Access & Training | 1 | In progress | Snowflake login pending IT; Gary API pending |
-| 2 | Dashboard Instrumentation | 4 | In progress | Sigma/Marfeel creds; Amplitude blocked (p-tagging) |
-| 3 | T1 Headlines Analysis (Price) | 4 | In progress | Next iteration delivered to Sarah Price 2026-03-31 — awaiting feedback |
+| 1 | Platform Access & Training | 1 | In progress | Snowflake login resolved — Chad walkthrough pending; Gary API pending |
+| 2 | Dashboard Instrumentation | 4 | In progress | CSA uptime/production stats defined — data in hand, populate manual-metrics.js next |
+| 3 | T1 Headlines Analysis (Price) | 4 | In progress | Site reworked per Sarah Price feedback; Tarrow backlog wired; weekly Monday drops established; running new analysis |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Awaiting Sara Vallone persona drafts |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
@@ -51,21 +51,24 @@ For session history: see [sessions/](sessions/)
 
 **#1 — THIS WEEK:**
 1. [x] **Draft PRD "control room" vision** — PRD-pipeline.md v0.3 complete. Due 2026-04-03.
-2. [ ] **Get Sara Vallone's feedback on CSA Vision section** — the "what it means for writers and editors" subsection is a placeholder pending her input.
+2. [x] **Block calendar time for PRD** — done.
+3. [ ] **Get Sara Vallone's feedback on CSA Vision section** — placeholder pending her input.
+4. [ ] **Run T1 analysis** — site reworked, Tarrow backlog wired; run generate_site.py and review output.
 
 **Waiting on others (no action needed):**
-- IT: Snowflake login fix, Amplitude/Sigma/Marfeel provisioning
+- IT: Amplitude/Sigma/Marfeel provisioning (Snowflake login resolved)
 - Gary Kirwan: API key + endpoint docs
 - Sara Vallone: persona drafts (6-7 new personas)
-- Sarah Price: T1 Headlines review feedback
 - Susannah: CSA staging notification (PGS-95 loading issues)
+- Tarrow: weekly Monday data drops (cadence established)
 
 **Quick unblocked items (do when PRD needs a break — in this order):**
-2. [ ] **Send CSA metrics to Chris** — he asked for macro-level monthly stats; data already in hand (3,465 batting avg, 138 CSA runs/week from Sigma). 15 minutes. Direct boss ask.
-3. [ ] **Write target audience definitions for National team** — Oliver Felix is building PGS-97 *right now*; don't make eng wait on you. Test in CSA once written.
-4. [ ] **Reply to Susannah** — confirm CSA Research Draft is the right entry point for cluster tagging; hold on building until alignment meeting. Quick email.
-5. [ ] **Schedule P6 cluster alignment meeting** (Chris + Sara + Susannah) — calendar invite unblocks entire cluster chain.
-6. [ ] Map United Robots alerts pipeline scope with Sara Vallone (can feed PRD revision; not needed for first draft)
+1. [ ] **Populate CSA uptime/production stats** into manual-metrics.js — data in hand. 15 min.
+2. [ ] **Send CSA metrics to Chris** — macro-level monthly stats (3,465 batting avg, 138 CSA runs/week). Direct boss ask.
+3. [ ] **Write target audience definitions for National team** — Oliver Felix building PGS-97 now; don't make eng wait.
+4. [ ] **Reply to Susannah** — confirm CSA Research Draft as cluster tagging entry point; hold on building.
+5. [ ] **Schedule P6 cluster alignment meeting** (Chris + Sara + Susannah) — unblocks entire cluster chain.
+6. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
 
 **Deprioritized (Chris's guidance):**
 - Sara Vallone tracker (P7) — CMS architecture will make it obsolete
@@ -82,6 +85,11 @@ For session history: see [sessions/](sessions/)
 - Apple News monitoring cadence setup (rq-apple-news-monitoring — separate ops deliverable)
 - Content diff tool (PGS-82): UX sprint underway. Marcelo (front-end) + Susannah/Efren (design). Pierce = stakeholder. Not yet a tracked ops-hub project.
 - Headline tool + title options (rq-headline-tool, rq-title-options — clarify ownership with Chris)
+
+## Session Log: 2026-03-31 (continued, third session)
+
+- Status audit of Up Next tasks: Snowflake login resolved (Chad walkthrough still pending); PRD underway; calendar blocked; CSA uptime/production stats defined (data in hand); T1 site shared with Sarah Price, feedback received, site reworked, Tarrow backlog wired, weekly Monday drops established, ready to run analysis.
+- data/projects.js: Updated COMPLETED_TASKS (3 new entries); P1 Snowflake status updated; P2 description + nextAction updated (populate manual-metrics.js next); P3 description + nextActions updated (run analysis #1); P9 "block calendar time" nextAction removed (done).
 
 ## Session Log: 2026-03-31 (continued, second session)
 
