@@ -166,21 +166,51 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 
 ## Key Open Tickets / Pending Items
 
+### Platform & Access
+
 | Item | Status | Owner | Notes |
 |------|--------|-------|-------|
 | Snowflake login issue | In progress | IT | Access granted (role: growth_and_strategy_role, wh: growth_and_strategy_role_wh). Login issue being remedied. Sigma still pending. |
-| Amplitude / SemRush / Marfeel access | Awaiting response | IT (help@mcclatchy.com) | Sent 2026-03-30. |
+| Amplitude / SemRush / Marfeel access | Awaiting follow-up | IT (help@mcclatchy.com) | IT responded 2026-03-31 claiming access was granted — but Marfeel, Amplitude, and SemRush are still inaccessible (no special boards, accounts, or APIs working). Pierce replied; waiting for IT follow-up. |
 | IT webhook ticket | Pending | IT | May become irrelevant if Snowflake path works. |
-| Gary API key + endpoint docs | Awaiting reply | Gary Kirwan | Messaged via Slack/email 2026-03-30. Required for Project 10. |
-| Amplitude p-tagging issue | Dev fix needed | Engineering | Cue/WP tag format incompatibility. Blocks Amplitude adapter. Forward-path: scope event names at dev standup. |
-| Persona drafts | Pending | Sara Vallone | Susannah persona texts not forthcoming; Sara to draft 6-7 new personas (Apple News, Smart News, MSN). |
-| Tarrow: MSN full-year 2025 re-export | Done | Tarrow | Re-exported and re-analyzed as of 2026-03-31. Handed to Sarah Price for review. |
-| Tarrow: SmartNews 2026 category columns | Done | Tarrow | Re-exported and re-analyzed as of 2026-03-31. Handed to Sarah Price for review. |
-| Content diff tool (PGS-82) | PR on hold | Marcelo Freitas (front-end) · Jim Robinson (backend script) · Susannah Locke (PM) · Efren Castillo (design) | Backend complete; frontend started; PR pushed but held. Waiting on Susannah + Efren to deliver final checkbox design (canonical article inclusion in research draft flow) to Marcelo today (2026-03-31). Marcelo meeting with Jason 2026-04-01. Pierce = stakeholder; Sarah Price to test full flow later. |
-| PGS-40: Tagging Taxonomy | ON HOLD | Eng team | Jira confirms eng side blocked — aligns with P6 alignment meeting not yet scheduled. |
-| PGS-80: Analytics Tracking | Code review | Victor Suarez / CSA eng | CSA team's internal Amplitude user-event tracking. Related to but distinct from our P2 Amplitude adapter blocker (which is about CMS p-tagging). |
-| PGS-97: Fetch Target Audience Definitions | In progress | Oliver Felix | Oliver has production data from Emanuel; extracting suggested personas for orgs on Susannah's list. Also meeting with Daury Caba to clarify feedback loop requirements (Q). Pierce must still write target audience definitions — Oliver is building the fetch, not the definitions. |
-| PGS-104: Keywords Input Field | PR under review | Victor Suarez | Feature flag complete; PR sent and under review as of 2026-03-31. Victor available for new assignment. Feeds P4 keyword governance work. |
+| Gary API key + endpoint docs | Awaiting reply | Gary Kirwan | Messaged 2026-03-30. Required for P10. Group committed 2026-03-31 to formal evaluation and definitive yes/no on integration. |
+| Amplitude p-tagging issue | Dev fix needed | Engineering | Cue/WP tag format incompatibility. Blocks Amplitude adapter. |
+
+### Content & Personas
+
+| Item | Status | Owner | Notes |
+|------|--------|-------|-------|
+| Persona drafts | In progress | Sara Vallone | Sara committed to 1-2 personas for testing by 2026-04-01. Full set of 6-7 new personas (Apple News, Smart News, MSN) still to be drafted. |
+| Format/persona layering tooling | Dev request logged | Susannah Locke | Decision 2026-03-31: build tooling to layer content formats on top of target audiences independently (mix-and-match, column A + column B). Sara Vallone prefers format-first workflow. Currently they are combined in a single persona item. |
+| Tarrow: MSN full-year 2025 re-export | Done | Tarrow | Re-exported and re-analyzed 2026-03-31. Handed to Sarah Price. |
+| Tarrow: SmartNews 2026 category columns | Done | Tarrow | Re-exported and re-analyzed 2026-03-31. Handed to Sarah Price. |
+
+### Cluster Taxonomy Decisions — 2026-03-31
+
+| Decision | Status | Notes |
+|----------|--------|-------|
+| Canonical ID = Cluster ID | **Confirmed** | Serves as session ID connecting sibling article variants. Chris Palo, Sara Vallone, Susannah Locke all agreed. |
+| CSA articles are siblings (not parent/child) | **Confirmed** | Parent/child structure in the Sara Vallone tracker sheet was a Google Sheets workaround. Articles from the same research draft are siblings. |
+| Variant linking dev request | To be submitted | Susannah logging request to link CSA siblings via canonical article ID + article ID. Next dev priority after current eng queue. |
+
+### Jira Board — EOD 2026-03-31
+
+| Ticket | Status | Owner | Notes |
+|--------|--------|-------|-------|
+| PGS-114: Remove AI Disclaimer from Discovery Format | Backlog | Susannah Locke | Decision 2026-03-31 (Sara Vallone + Chris Palo): automatic AI disclaimer should be removed; replace with manual step in Q process by writers. |
+| PGS-111: SEO Metadata Fields at Step 3 | Selected for dev | CSA eng | SEO metadata fields not displayed at step 3 for Content Format Variants. |
+| PGS-104: Keywords Input Field | Code review | Victor Suarez | Add keywords input + downstream enforcement to Research Draft Step. PR under review. Feeds P4 keyword governance. |
+| PGS-102: Meta field TEO best practices | Selected for dev | CSA eng | Add meta field TEO best practices for meta title, description, keywords. |
+| PGS-98: Additional Context / Editorial Notes impact | Ready for deploy | CSA eng | Investigate missing impact of additional context and editorial notes on output. |
+| PGS-97: Fetch Target Audience Definitions | Product review | Oliver Felix | Unexpected export to Jira without human review — Susannah to notify Pierce when Oliver's review complete. Pierce must still write target audience definitions. |
+| PGS-96: The Discover Browser target audience | Code review | CSA eng | Add "The Discover Browser" as saved target audience for all National team users. |
+| PGS-95: Google Discover Explainer format | **Live** | CSA eng | Confirmed LIVE 2026-03-31. AI disclaimer still at top — removal queued (PGS-114). |
+| PGS-94: National team as CSA Configuration | Done | CSA eng | Complete. |
+| PGS-93: Import from URL(s) to Research Draft | Code review | CSA eng | Add "Create Research Draft" option to import from URL(s) flow. |
+| PGS-87: Target Audience Label in Google Doc Export | Ready for deploy | CSA eng | Target audience label missing from Google Doc export for platform variants. |
+| PGS-82: Duplicate Content Assessment spike | Code review | Marcelo / Jim Robinson / Susannah / Efren | Checkbox config resolved 2026-03-31 (no checkboxes needed at URL import stage per Susannah). PR proceeds. Pierce = stakeholder; Sarah Price to test full flow. |
+| PGS-80: Analytics Tracking for User Events | Code review | Victor Suarez / CSA eng | CSA team's internal Amplitude user-event tracking. Distinct from P2 Amplitude adapter (CMS p-tagging issue). |
+| PGS-40: Define Tagging Taxonomy | On hold | Eng team | Eng blocked pending P6 alignment meeting. Canonical ID = Cluster ID confirmed 2026-03-31; variant linking is next priority. |
 
 ## Strategic Guidance from Chris (2026-03-30)
 

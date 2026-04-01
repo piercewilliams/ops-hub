@@ -21,7 +21,8 @@
       "Bash(node --check /Users/pierce/Documents/GitHub/ops-hub/data/projects.js)",
       "Bash(git rebase:*)",
       "Bash(git stash:*)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Read(//Users/pierce/Documents/**)"
     ]
   }
 }

@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-03-31 (T1 analysis, PRD v0.3, status audit, merge conflict resolved)
-**Status:** Dashboard live; PRD-pipeline.md v0.3 ready for Chris review (due 2026-04-03); T1 site reworked, Tarrow backlog wired, ready to run analysis
+**Last session:** 2026-03-31 (T1 analysis, PRD v0.3, status audit; CSA Weekly Update + Jira EOD)
+**Status:** Dashboard live; PRD-pipeline.md v0.3 ready for Chris review (due 2026-04-03); T1 site reworked, Tarrow backlog wired; PGS-95 live; canonical ID = cluster ID confirmed
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -36,16 +36,16 @@ For session history: see [sessions/](sessions/)
 | 2 | Dashboard Instrumentation | 4 | In progress | CSA uptime/production stats defined — data in hand, populate manual-metrics.js next |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | Site reworked per Sarah Price feedback; Tarrow backlog wired; weekly Monday drops established; running new analysis |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
-| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Awaiting Sara Vallone persona drafts |
+| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Sara Vallone delivering 1-2 personas by 2026-04-01; format/persona layering tooling requested (Susannah logged) |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
-| 6 | Content Cluster / Tagging Taxonomy | 3 | Blocked | Alignment meeting not scheduled |
+| 6 | Content Cluster / Tagging Taxonomy | 3 | Blocked | Alignment meeting still not scheduled; canonical ID = cluster ID confirmed; variant linking dev request logged |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris 2026-03-30 — CMS architecture will make it obsolete |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking PRD |
 | 9 | PRD Revisions | 3 | **IN PROGRESS — #1 PRIORITY** | Draft due 2026-04-03 |
-| 10 | Gary Tools Integration | 2 | Blocked | Gary API key not delivered |
+| 10 | Gary Tools Integration | 2 | Blocked | Gary API key not delivered; group committed to formal evaluation |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
-| 13 | System Prompts / Mode 1 & Mode 2 | 2 | Not started | (unblocked) |
+| 13 | System Prompts / Mode 1 & Mode 2 | 2 | Not started | Mode 1/2 mapping not Pierce's team's issue — Susannah clarifying with Rajiv |
 
 ## What's Next
 
@@ -59,7 +59,7 @@ For session history: see [sessions/](sessions/)
 - IT: Amplitude/Sigma/Marfeel provisioning (Snowflake login resolved)
 - Gary Kirwan: API key + endpoint docs
 - Sara Vallone: persona drafts (6-7 new personas)
-- Susannah: CSA staging notification (PGS-95 loading issues)
+- Susannah: notify when Oliver completes human review of PGS-97 persona scrape results
 - Tarrow: weekly Monday data drops (cadence established)
 
 **Quick unblocked items (do when PRD needs a break — in this order):**
@@ -76,7 +76,7 @@ For session history: see [sessions/](sessions/)
 
 ## Pending Notifications
 
-- **CSA staging test (PGS-95):** Susannah will notify when Google Discover Explainer Content Format is ready to test on https://staging.trendhunteragents.ai/csa — had loading issues 2026-03-30. Pierce + Sara Vallone to test and give feedback.
+- **PGS-97 persona results:** Susannah will notify when Oliver Felix completes human review of scraped persona data (unexpected Jira export without review). Sara Vallone committed to 1-2 personas for testing by 2026-04-01.
 
 ## Items Not Yet in Any Repo
 
