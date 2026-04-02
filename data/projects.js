@@ -7,6 +7,7 @@
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
   { date: '2026-04-03', task: 'CSA core section drafted for PRD: input signals, personas/formats/keywords governing generation, output standards, ideal end state, feedback loop, "control room" model.', project: '#9 PRD Revisions' },
+  { date: '2026-04-03', task: 'Mode 1 vs Mode 2 fully understood and documented. Mode determined by workflow entry point (URL import = Mode 1 Publication Ready; Research Draft = Mode 2 expanded). National team not treated differently. No further investigation needed.', project: '#13 System Prompts / Mode 1 & Mode 2' },
   { date: '2026-04-01', task: 'P6 cluster alignment meeting complete. Cluster tagging strategy settled. Variant linking and full schema enablement now in product/dev team\'s hands.', project: '#6 Content Cluster / Tagging Taxonomy' },
   { date: '2026-04-01', task: 'T1 analysis complete: 8 findings live (incl. ANP bottom-performer analysis), 4-tile playbook, weekly ANP cadence from Tarrow established. Sarah Price request fulfilled.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-02', task: '5 personas codified in csa-content-standards (v1.3.6) and forwarded to Susannah Locke to pin for all National CSA accounts: Discover Browser, Curious Optimizer, Wonder-Driven Science Enthusiast, Curious Explorer, Watercooler Insider. Sara Vallone confirmed. Apple News + Smart News personas pending — Sara drafting, Andy to review before use.', project: '#4 Article Format + Persona + Keyword Governance' },
@@ -75,19 +76,6 @@ export const PROJECTS = {
       'Document CSA transformation behavior — Mode 1 (URL import) vs Mode 2 (Research Draft) now understood; no further P13 coordination needed',
     ],
     dependsOn: ['p1-access'],
-  },
-
-  'p13-sysprompts': {
-    id: 'p13-sysprompts', num: '13', tier: 2, type: 'project', status: 'done',
-    name: 'System Prompts / Mode 1 & Mode 2',
-    owner: 'Pierce',
-    description: 'RESOLVED 2026-04-03. Mode is determined by the workflow used, not by team configuration. Mode 1 (Publication Ready) = Import from published URL flow — matches source article length, reorganizes/reframes without expanding. Mode 2 = Research Draft flow — expands length, adds journalistic depth, contextual background, reader service framing. National team is not treated differently. This explains why users prefer Search/DemoTopics over URL flow even when selecting the same source URLs: different entry points trigger different modes.',
-    blockers: [],
-    nextActions: [],
-    dependsOn: [],
-    links: [
-      { label: 'Alignment meeting agenda', url: 'https://docs.google.com/document/d/1MtVlBJeh_k9X7dnrpRmEQ9jefrbdWwY2/edit' },
-    ],
   },
 
   'p10-gary': {

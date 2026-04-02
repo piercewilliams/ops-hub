@@ -9,9 +9,10 @@ Stable facts for this project. Updated in place when facts change.
 | Item | Value |
 |------|-------|
 | Trigger name | Ops Hub Sync — 3x Daily (Mon–Fri) |
-| Trigger ID | `trig_017C1TqSqQ135B7djoGEVaGb` |
+| Trigger ID | `trig_01TB6nKBUGWXhRqspWoqYNi5` |
+| Account | Pierce's work Claude account (recreated 2026-04-03; original on personal account was deleted) |
 | Schedule | 8:00 AM, 12:00 PM, 5:00 PM Dallas time, Mon–Fri (CDT=UTC-5 in summer, CST=UTC-6 in winter) |
-| Manage / view logs | https://claude.ai/code/scheduled/trig_017C1TqSqQ135B7djoGEVaGb |
+| Manage / view logs | https://claude.ai/code/scheduled/trig_01TB6nKBUGWXhRqspWoqYNi5 |
 | What it does | Reads CONTEXT.md from all 5 subsidiary repos → updates data/projects.js + CONTEXT.md in ops-hub → commits and pushes |
 
 **DST note:** Cron runs in UTC. Dallas is CDT (UTC-5) Mar–Nov and CST (UTC-6) Nov–Mar. When clocks change, the sync will shift by 1 hour. To fix: tell Claude "update the ops-hub sync schedule for winter time" and it will adjust the cron expression.
@@ -51,7 +52,7 @@ The agent is conservative by design — it only updates a status if CONTEXT.md e
 **Symptom: sync-status.json doesn't exist / pill says "Sync file not found"**
 
 This means the trigger has never successfully completed a push. Wait for the next scheduled run, or:
-1. Go to **claude.ai/code/scheduled/trig_017C1TqSqQ135B7djoGEVaGb**
+1. Go to **claude.ai/code/scheduled/trig_01TB6nKBUGWXhRqspWoqYNi5**
 2. Click "Run now"
 3. Watch whether it completes and whether a new commit appears on github.com/piercewilliams/ops-hub/commits
 

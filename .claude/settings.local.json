@@ -25,7 +25,8 @@
       "Read(//Users/pierce/Documents/**)",
       "Bash(pandoc --version)",
       "Bash(brew install:*)",
-      "Bash(pandoc:*)"
+      "Bash(pandoc:*)",
+      "Skill(schedule)"
     ]
   }
 }
