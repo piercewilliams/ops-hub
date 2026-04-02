@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-02 (PRD V0.3 morning review complete; dash normalization, Module 7 added; exported to Google Docs; 5 personas normalized)
-**Status:** Dashboard live; PRD V0.3 edits complete — Google Doc is now authoritative (out of sync with PRD-pipeline.md); due Chris 2026-04-03; personas normalized and ready for codification review
+**Last session:** 2026-04-02 (personas codified + forwarded; standup/Jira sync; SVP executive brief delivered)
+**Status:** PRD due Chris 2026-04-03; personas live in CSA; executive brief delivered to SVP Marketing
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -56,37 +56,16 @@ For session history: see [sessions/](sessions/)
 - Gary Kirwan: API key + endpoint docs (P10)
 - Sara Vallone: Apple News + Smart News personas (drafting; Andy to review before sending)
 - IT: Amplitude/Sigma/Marfeel provisioning (still inaccessible despite IT's claim)
-- Susannah: notify when Oliver completes human review of PGS-97 persona scrape results
 - Tarrow: ANP March drop (adding to Drive folder)
 - Dev team: variant linking + Cluster ID field implementation (P6 dev work)
 
 **Quick unblocked items (do when PRD is delivered):**
 1. [ ] **Send CSA metrics to Chris** — macro-level monthly stats (3,465 batting avg, 138 CSA runs/week). Direct boss ask.
-2. [ ] **Write target audience definitions for National team** — PGS-97 is marked RESOLVED/FULFILLED. Engineering infra is built. Pierce just needs to write the definitions and get them in.
+2. [ ] **Write canonical definitions for Science-Curious Retiree + Science-Curious Casual Reader** — PGS-97 done; Trend Hunter variants are all one hardcoded persona. These two science personas are AI-suggested with no canonical definitions — Pierce must write them before they can be saved as shared target audiences.
 3. [ ] **Check The Discover Browser persona (PGS-96)** — may need structural editing before Susannah can use it as a Target Audience.
 4. [ ] **Reply to Susannah** — confirm CSA Research Draft as cluster tagging entry point.
 5. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
 6. [ ] **Schedule P6 dev check-in** — monitor variant linking progress with Susannah.
-
-## PRD V0.3 — Session Notes (2026-04-02)
-
-**Previous session (last night):** Full PRD revision — structure, Gary Tools placement, Operations Layer 8 panels, Content Graph, terminology, Cue fixes. See sessions/ for full log.
-
-**This session (morning):**
-- **Dash normalization** — rhetorical em-dashes converted to `——` (double) throughout to distinguish from compound-adjective hyphens (`editorial-intensive`, `Publish-to-Cue`, etc.). Section-title separators (`T1—United Robots`) kept as single `—`.
-- **Module 7 added** — Variant Differentiation added to Quality Enrichment & Verification: internal hard gate, never surfaced to editor, re-generates within session parameters (brief + Step 1 configs) until threshold met.
-- **Google Doc export** — converted via Pandoc to .docx; uploaded to Google Drive; TOC working. Google Doc is now the live version. PRD-pipeline.md is out of sync and should not be re-exported from markdown.
-
-## Personas — Session Notes (2026-04-02)
-
-5 personas codified in csa-content-standards (v1.3.6) and forwarded to Susannah to pin for all National CSA accounts:
-- §4.1 The Discover Browser (Google Discover)
-- §4.2 The Curious Optimizer (Trend Hunter / B2C)
-- §4.3 The Wonder-Driven Science Enthusiast (Science / Discovery Features)
-- §4.4 The Curious Explorer (Discovery / Science / Nature) — new from Sara Vallone
-- §4.5 The Watercooler Insider (Entertainment / Trending) — new from Sara Vallone
-
-Sara Vallone confirmed (Slack 10:32 AM) bundling her 2 new personas with existing 3 for Susannah to pin. She is also drafting Apple News + Smart News specific personas — Andy to review before use.
 
 ## Gary Tools — Summary of What It Is
 
@@ -95,4 +74,4 @@ Gary Kirwan is providing an external claims validation tool that plugs into the 
 ---
 
 *Tiered Context Architecture. Budget: ≤150 lines.*
-*Lines used: ~140*
+*Lines used: ~105*
