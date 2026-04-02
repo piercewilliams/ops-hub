@@ -93,7 +93,7 @@ export const PROJECTS = {
   },
 
   'p10-gary': {
-    id: 'p10-gary', num: '10', tier: 2, type: 'project', status: 'in-progress',
+    id: 'p10-gary', num: '10', tier: 2, type: 'project', status: 'blocked',
     name: 'Gary Tools Integration',
     owner: 'Pierce (lead) · Susannah Locke (integration lead) · Chris Palo (stakeholder)',
     description: 'ACTIVE EVALUATION. Gary shared claims validation reports (US Weekly, Women\'s World health) demonstrating factual accuracy checking against trustworthy sources. Chris Palo responded "Love to see how we can integrate this" and provided operational requirements (2026-04-01). Pierce tested on Home Buyers Guide with Mecklenburg County tax nuances — real-world validation. Primary use case: claims validation / factual accuracy post-CSA, before editor\'s desk. NOT primarily an SEO play.',
@@ -144,13 +144,10 @@ export const PROJECTS = {
       '(RESOLVED 2026-03-31) Canonical ID = Cluster ID confirmed; articles are siblings not parent/child; variant linking dev request logged.',
       '(RESOLVED 2026-04-01) Full cluster tagging strategy settled in alignment meeting.',
     ],
-    blockers: [
-      'Dev work (variant linking, Cluster ID field in CUE/WP) now in product/dev team queue — no Pierce action needed',
-      'PGS-40 ON HOLD in Jira — eng side building out from settled strategy',
-    ],
+    blockers: [],
     nextActions: [
-      'Monitor dev progress on variant linking and Cluster ID field implementation',
-      'No Pierce action items — strategy decided, dev team owns execution',
+      'Monitor dev progress on variant linking and Cluster ID field implementation (PGS-40)',
+      'No Pierce action items — strategy decided 2026-04-01, dev team owns execution',
     ],
     dependsOn: ['p1-access'],
     links: [
