@@ -22,7 +22,10 @@
       "Bash(git rebase:*)",
       "Bash(git stash:*)",
       "Bash(git fetch:*)",
-      "Read(//Users/pierce/Documents/**)"
+      "Read(//Users/pierce/Documents/**)",
+      "Bash(pandoc --version)",
+      "Bash(brew install:*)",
+      "Bash(pandoc:*)"
     ]
   }
 }

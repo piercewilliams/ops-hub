@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-02 (PRD V0.3 full revision; ready for Pierce morning review)
-**Status:** Dashboard live; PRD V0.3 complete pending Pierce's bracket review; P6 strategy settled; P10 Gary blocked on API key; T1 analysis complete (8 findings); 3 personas passed to Sara
+**Last session:** 2026-04-02 (PRD V0.3 morning review complete; dash normalization, Module 7 added; exported to Google Docs; 5 personas normalized)
+**Status:** Dashboard live; PRD V0.3 edits complete — Google Doc is now authoritative (out of sync with PRD-pipeline.md); due Chris 2026-04-03; personas normalized and ready for codification review
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -36,7 +36,7 @@ For session history: see [sessions/](sessions/)
 | 2 | Dashboard Instrumentation | 4 | In progress | Credentials pending; manual-metrics.js population delayed (CSA about to auto-log stats) |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | **8 findings complete.** Ongoing cadence (monthly Tarrow + weekly ANP). Share site with Sarah Price. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
-| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | 3 personas passed to Sara Vallone to refine; awaiting final set for CSA codification |
+| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | 5 personas normalized (personas-normalized.md on Desktop); 3 derived fields need review; P3/P4 overlap worth resolving before CSA codification |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
 | 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | Strategy settled 2026-04-01; variant linking + schema now in dev team's hands |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris — CMS architecture will make it obsolete |
@@ -50,8 +50,8 @@ For session history: see [sessions/](sessions/)
 ## What's Next
 
 **#1 — THIS WEEK:**
-1. [ ] **Morning review of PRD** — Pierce reads PRD-pipeline.md, adds bracket comments [like this], passes back for corrections. Then deliver to Chris by 2026-04-03.
-2. [ ] **Await Sara Vallone's refined personas** — then codify into CSA + update csa-content-standards.
+1. [ ] **Deliver PRD to Chris** — Google Doc is the live version (PRD-pipeline.md is out of sync; do not re-export from markdown). Due 2026-04-03.
+2. [ ] **Review personas-normalized.md** — check 3 derived fields (Core Drive for P1/P3, Voice/Quick Takeaways for P5); resolve P3/P4 overlap (Wonder-Driven Science Enthusiast vs. Curious Explorer are near-duplicates); then codify into CSA + update csa-content-standards.
 
 **Waiting on others (no action needed):**
 - Gary Kirwan: API key + endpoint docs (P10)
@@ -69,21 +69,21 @@ For session history: see [sessions/](sessions/)
 5. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
 6. [ ] **Schedule P6 dev check-in** — monitor variant linking progress with Susannah.
 
-## PRD V0.3 — What Was Done This Session (2026-04-02)
+## PRD V0.3 — Session Notes (2026-04-02)
 
-Full revision of `PRD-pipeline.md`. Key changes made:
+**Previous session (last night):** Full PRD revision — structure, Gary Tools placement, Operations Layer 8 panels, Content Graph, terminology, Cue fixes. See sessions/ for full log.
 
-- **"Cue" fix** — replaced all erroneous "Queue" CMS references with "Cue" across all repos
-- **Structure** — stripped phases/roadmap; rebuilt as pure spec: Overview → Ideal End State → Four Pipelines → CSA Vision → System Requirements → Operations Layer → Open Questions
-- **System Requirements** — 8 capability areas: Request Intake & Triage (new), Signal & Brief Creation, Content Generation, Quality Enrichment & Verification, Editorial Review & Approval, CMS Delivery & Channel Distribution, Performance Tracking, Content Graph
-- **Gary Tools** — properly placed in Quality Enrichment & Verification with Pierce's role spelled out (owns source trustworthiness list, receives override reports, requirements owner)
-- **Operations Layer** — 8 panels: Pipeline State View, Gate Status, Distribution View, CPA Tracker, Topic Coverage Map, Author Profile Performance, Strategic Pipeline Elements, Signal Feed
-- **Content Graph** — restored as full section; correctly scoped as deferred but position stated
-- **Terminology** — "cluster" = sibling variant group; "subject category" = topic taxonomy; consistent throughout
-- **Style** — no spaced em dashes, no AI tells, no contractions where not appropriate, Publish-to-Cue hyphenated consistently
-- **Alignment** — cross-checked against PRD scoping meeting transcript (2026-03-31) and V2/V3 prior PRD documents
+**This session (morning):**
+- **Dash normalization** — rhetorical em-dashes converted to `——` (double) throughout to distinguish from compound-adjective hyphens (`editorial-intensive`, `Publish-to-Cue`, etc.). Section-title separators (`T1—United Robots`) kept as single `—`.
+- **Module 7 added** — Variant Differentiation added to Quality Enrichment & Verification: internal hard gate, never surfaced to editor, re-generates within session parameters (brief + Step 1 configs) until threshold met.
+- **Google Doc export** — converted via Pandoc to .docx; uploaded to Google Drive; TOC working. Google Doc is now the live version. PRD-pipeline.md is out of sync and should not be re-exported from markdown.
 
-**Next step:** Pierce reviews in the morning, passes bracket comments, corrections made, delivered to Chris.
+## Personas — Session Notes (2026-04-02)
+
+5 personas normalized to consistent structure in `personas-normalized.md` (Desktop):
+- Consistent sections across all: Name, Adapt for, Audience Profile, Core Drive, Structural Framework, Focus Areas, Content Focus, Voice, Quick Takeaways
+- **3 derived fields** (marked `[derived]`): Core Drive for P1 (Curious Optimizer) and P3 (Wonder-Driven Science Enthusiast); Voice + Quick Takeaways for P5 (Watercooler Insider)
+- **Overlap flag**: P3 (Wonder-Driven Science Enthusiast) and P4 (Curious Explorer) are near-duplicates — same topic area, different format depth. Resolve before CSA codification.
 
 ## Gary Tools — Summary of What It Is
 
