@@ -41,7 +41,7 @@ For session history: see [sessions/](sessions/)
 | 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | Strategy settled 2026-04-01; variant linking + schema now in dev team's hands |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris — CMS architecture will make it obsolete |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking PRD |
-| 9 | PRD Revisions | 3 | **READY FOR REVIEW** | Pierce reviews morning of 2026-04-03; bracket comments → final corrections → deliver to Chris |
+| 9 | PRD Revisions | 3 | **READY FOR REVIEW** | CSA core section drafted. Remaining: cull stale content, reframe Content Graph/Ops Layer sections, align with Chris + Sarah Price, deliver |
 | 10 | Gary Tools Integration | 2 | **Blocked** | API key + endpoint docs not yet delivered by Gary Kirwan; Chris requirements defined |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |

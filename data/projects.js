@@ -6,6 +6,7 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-03', task: 'CSA core section drafted for PRD: input signals, personas/formats/keywords governing generation, output standards, ideal end state, feedback loop, "control room" model.', project: '#9 PRD Revisions' },
   { date: '2026-04-01', task: 'P6 cluster alignment meeting complete. Cluster tagging strategy settled. Variant linking and full schema enablement now in product/dev team\'s hands.', project: '#6 Content Cluster / Tagging Taxonomy' },
   { date: '2026-04-01', task: 'T1 analysis complete: 8 findings live (incl. ANP bottom-performer analysis), 4-tile playbook, weekly ANP cadence from Tarrow established. Sarah Price request fulfilled.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-02', task: '5 personas codified in csa-content-standards (v1.3.6) and forwarded to Susannah Locke to pin for all National CSA accounts: Discover Browser, Curious Optimizer, Wonder-Driven Science Enthusiast, Curious Explorer, Watercooler Insider. Sara Vallone confirmed. Apple News + Smart News personas pending — Sara drafting, Andy to review before use.', project: '#4 Article Format + Persona + Keyword Governance' },
@@ -124,7 +125,6 @@ export const PROJECTS = {
     description: '#1 PRIORITY (Chris Palo, 2026-03-30). Revise the current PRD ("Content Graph & Operations Layer V3 Breakout") into a complete, coherent document. Three-part task: (1) cull what\'s stale, (2) write the missing CSA core section — what the CSA is, what it should ultimately do, how input signals govern generation, ideal output, feedback loop, (3) integrate — show how Content Graph and Operations Layer connect to the CSA. The dev team lacks a clear picture of the CSA\'s ideal end state. Draft due end of week (2026-04-03).',
     blockers: [],
     nextActions: [
-      'Draft CSA core section: input signals, personas/formats/keywords governing generation, output standards, ideal end state, feedback loop, "control room" model',
       'Incorporate United Robots alerts pipeline as part of the auto-content tier',
       'Cull PRD of what\'s stale or out of scope — Chris: not precious, strike what doesn\'t fit',
       'Reframe Content Graph and Operations Layer sections to show how they serve the CSA',
