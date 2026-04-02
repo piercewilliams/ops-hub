@@ -36,7 +36,7 @@ For session history: see [sessions/](sessions/)
 | 2 | Dashboard Instrumentation | 4 | In progress | Credentials pending; manual-metrics.js population delayed (CSA about to auto-log stats) |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | **8 findings complete.** Ongoing cadence (monthly Tarrow + weekly ANP). Share site with Sarah Price. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
-| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | 5 personas normalized (personas-normalized.md on Desktop); 3 derived fields need review; P3/P4 overlap worth resolving before CSA codification |
+| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | 5 personas live in csa-content-standards + forwarded to Susannah to pin; Apple News + Smart News personas pending Andy review |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
 | 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | Strategy settled 2026-04-01; variant linking + schema now in dev team's hands |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris — CMS architecture will make it obsolete |
@@ -51,11 +51,10 @@ For session history: see [sessions/](sessions/)
 
 **#1 — THIS WEEK:**
 1. [ ] **Deliver PRD to Chris** — Google Doc is the live version (PRD-pipeline.md is out of sync; do not re-export from markdown). Due 2026-04-03.
-2. [ ] **Review personas-normalized.md** — check 3 derived fields (Core Drive for P1/P3, Voice/Quick Takeaways for P5); resolve P3/P4 overlap (Wonder-Driven Science Enthusiast vs. Curious Explorer are near-duplicates); then codify into CSA + update csa-content-standards.
 
 **Waiting on others (no action needed):**
 - Gary Kirwan: API key + endpoint docs (P10)
-- Sara Vallone: refined/final persona set (received 3 consolidated from Pierce)
+- Sara Vallone: Apple News + Smart News personas (drafting; Andy to review before sending)
 - IT: Amplitude/Sigma/Marfeel provisioning (still inaccessible despite IT's claim)
 - Susannah: notify when Oliver completes human review of PGS-97 persona scrape results
 - Tarrow: ANP March drop (adding to Drive folder)
@@ -80,10 +79,14 @@ For session history: see [sessions/](sessions/)
 
 ## Personas — Session Notes (2026-04-02)
 
-5 personas normalized to consistent structure in `personas-normalized.md` (Desktop):
-- Consistent sections across all: Name, Adapt for, Audience Profile, Core Drive, Structural Framework, Focus Areas, Content Focus, Voice, Quick Takeaways
-- **3 derived fields** (marked `[derived]`): Core Drive for P1 (Curious Optimizer) and P3 (Wonder-Driven Science Enthusiast); Voice + Quick Takeaways for P5 (Watercooler Insider)
-- **Overlap flag**: P3 (Wonder-Driven Science Enthusiast) and P4 (Curious Explorer) are near-duplicates — same topic area, different format depth. Resolve before CSA codification.
+5 personas codified in csa-content-standards (v1.3.6) and forwarded to Susannah to pin for all National CSA accounts:
+- §4.1 The Discover Browser (Google Discover)
+- §4.2 The Curious Optimizer (Trend Hunter / B2C)
+- §4.3 The Wonder-Driven Science Enthusiast (Science / Discovery Features)
+- §4.4 The Curious Explorer (Discovery / Science / Nature) — new from Sara Vallone
+- §4.5 The Watercooler Insider (Entertainment / Trending) — new from Sara Vallone
+
+Sara Vallone confirmed (Slack 10:32 AM) bundling her 2 new personas with existing 3 for Susannah to pin. She is also drafting Apple News + Smart News specific personas — Andy to review before use.
 
 ## Gary Tools — Summary of What It Is
 
