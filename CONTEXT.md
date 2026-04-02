@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-02 (personas codified + forwarded; standup/Jira sync; SVP executive brief delivered)
-**Status:** PRD due Chris 2026-04-03; personas live in CSA; executive brief delivered to SVP Marketing
+**Last session:** 2026-04-03 (Mode 1/2 resolved + documented; P13 closed; CSA core section done; sync trigger recreated)
+**Status:** PRD nearly ready — CSA core section complete, cull/reframe/deliver remaining
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -12,9 +12,9 @@ For session history: see [sessions/](sessions/)
 ## Current State
 
 - Live at `https://piercewilliams.github.io/ops-hub`
-- 13 active projects across 5 dependency tiers + 1 hold
+- 12 active projects across 5 dependency tiers + 1 hold (P13 closed)
 - Everything gates on two chains: **Access** (P1) and **PRD** (P9)
-- Sync: 3x daily Mon–Fri (8am/12pm/5pm Dallas CDT), automated via scheduled trigger
+- Sync: 3x daily Mon–Fri (8am/12pm/5pm Dallas CDT), trigger `trig_01TB6nKBUGWXhRqspWoqYNi5` on work account (recreated 2026-04-03; old trigger on personal account was deleted)
 
 ## Features Live
 
@@ -49,8 +49,8 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next
 
-**#1 — THIS WEEK:**
-1. [ ] **Deliver PRD to Chris** — Google Doc is the live version (PRD-pipeline.md is out of sync; do not re-export from markdown). Due 2026-04-03.
+**#1 — IMMEDIATE:**
+1. [ ] **Deliver PRD to Chris** — CSA core section done. Remaining: cull stale content, reframe Content Graph/Ops Layer sections to show how they serve the CSA, align with Chris + Sarah Price, deliver. Google Doc is the live version (PRD-pipeline.md is out of sync; do not re-export from markdown).
 
 **Waiting on others (no action needed):**
 - Gary Kirwan: API key + endpoint docs (P10)
@@ -74,4 +74,4 @@ Gary Kirwan is providing an external claims validation tool that plugs into the 
 ---
 
 *Tiered Context Architecture. Budget: ≤150 lines.*
-*Lines used: ~105*
+*Lines used: ~107*
