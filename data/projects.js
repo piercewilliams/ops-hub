@@ -71,22 +71,18 @@ export const PROJECTS = {
     nextActions: [
       'Lower priority — do not block PRD work on this',
       'Map CSA transformations opportunistically as BitBucket access allows',
-      'Document Mode 1 and Mode 2 behavior (coordinate with P13)',
+      'Document CSA transformation behavior — Mode 1 (URL import) vs Mode 2 (Research Draft) now understood; no further P13 coordination needed',
     ],
     dependsOn: ['p1-access'],
   },
 
   'p13-sysprompts': {
-    id: 'p13-sysprompts', num: '13', tier: 2, type: 'project', status: 'not-started',
+    id: 'p13-sysprompts', num: '13', tier: 2, type: 'project', status: 'done',
     name: 'System Prompts / Mode 1 & Mode 2',
     owner: 'Pierce',
-    description: 'Understand Mode 1 (Publication Ready) and Mode 2 (Intermediate/Expanded) in the System Prompts doc under Persona-Optimized Variant. Mode 2 is the known root cause of word count bloat. NOTE (2026-03-31): Mode 1/2 mapping questions NOT directed at Pierce\'s team — Susannah will ask Rajiv which teams are on which mode and report back.',
+    description: 'RESOLVED 2026-04-03. Mode is determined by the workflow used, not by team configuration. Mode 1 (Publication Ready) = Import from published URL flow — matches source article length, reorganizes/reframes without expanding. Mode 2 = Research Draft flow — expands length, adds journalistic depth, contextual background, reader service framing. National team is not treated differently. This explains why users prefer Search/DemoTopics over URL flow even when selecting the same source URLs: different entry points trigger different modes.',
     blockers: [],
-    nextActions: [
-      'Write target audience definitions for National team — PGS-97 is resolved/fulfilled; engineering infra is built and waiting. Pierce just needs to write the definitions.',
-      'Await Susannah\'s report on Mode 1 vs Mode 2 team mapping (she\'s asking Rajiv)',
-      'Coordinate with P8 (CSA mapping) — complementary investigations',
-    ],
+    nextActions: [],
     dependsOn: [],
     links: [
       { label: 'Alignment meeting agenda', url: 'https://docs.google.com/document/d/1MtVlBJeh_k9X7dnrpRmEQ9jefrbdWwY2/edit' },

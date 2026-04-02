@@ -39,7 +39,7 @@ End-to-end headline performance analysis across Apple News, SmartNews, and MSN.
 **Key signals:** "What to know" 62% Featured rate; Possessive named-entity 1.94× CTR lift; Exclusive 2.49× CTR lift; SmartNews Entertainment over-index; Sports #1 Apple News at 2.13×.
 
 **2026-03-26 — CSA architecture documentation**
-Documented Mode 1 (Publication Ready) vs. Mode 2 (Intermediate/Expanded) system prompt behavior. Identified Mode 2 as confirmed root cause of word count bloat. Documented "you can't turn a napkin into three dresses" source quality principle. Confirmed Step 5 halt is deliberate operational decision, not a bug.
+Documented Mode 1 (Publication Ready) vs. Mode 2 (Intermediate/Expanded) system prompt behavior. Identified Mode 2 as confirmed root cause of word count bloat. Documented "you can't turn a napkin into three dresses" source quality principle. Confirmed Step 5 halt is deliberate operational decision, not a bug. Clarified 2026-04-03: Mode is determined by workflow entry point (URL import = Mode 1; Research Draft = Mode 2), not team configuration. National team not treated differently. Explains user preference for Search/DemoTopics over URL flow.
 
 **2026-03-26 — Gary Tools integration assessment**
 Evaluated Gary Kirwan's toolkit against internal alternatives. Determined Gary's toolkit is further along than any internal tool. Identified 5 critical open questions for scoping. Designed recommended first-test sequence (health → scrape → meta → structure → brand-readiness → citations → poll). Documented two-tier brand guideline architecture question for Chris.

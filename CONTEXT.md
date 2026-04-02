@@ -45,7 +45,7 @@ For session history: see [sessions/](sessions/)
 | 10 | Gary Tools Integration | 2 | **Blocked** | API key + endpoint docs not yet delivered by Gary Kirwan; Chris requirements defined |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
-| 13 | System Prompts / Mode 1 & Mode 2 | 2 | Not started | Susannah clarifying Mode 1/2 mapping with Rajiv |
+| 13 | System Prompts / Mode 1 & Mode 2 | 2 | Done | Resolved 2026-04-03: Mode is determined by workflow, not team. URL import = Mode 1 (Publication Ready, match-length). Research Draft = Mode 2 (expanded). National team not treated differently. |
 
 ## What's Next
 
