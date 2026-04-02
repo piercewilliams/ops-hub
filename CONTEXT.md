@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-01 (standup + Gary email thread + alignment meeting outcomes; full context sync)
-**Status:** Dashboard live; PRD in progress (due 2026-04-03); P6 strategy settled; P10 Gary now active evaluation; T1 analysis complete (8 findings); 3 personas passed to Sara
+**Last session:** 2026-04-01 (standup + Gary email thread + alignment meeting outcomes; full context sync; evening Jira updates; Gary Tools correction)
+**Status:** Dashboard live; PRD in progress (due 2026-04-03); P6 strategy settled; P10 Gary blocked on API key; T1 analysis complete (8 findings); 3 personas passed to Sara
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -42,7 +42,7 @@ For session history: see [sessions/](sessions/)
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris — CMS architecture will make it obsolete |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking PRD |
 | 9 | PRD Revisions | 3 | **IN PROGRESS — #1 PRIORITY** | Draft due 2026-04-03 |
-| 10 | Gary Tools Integration | 2 | **In progress** | Chris blessed integration; operational requirements defined; API key pending from Gary |
+| 10 | Gary Tools Integration | 2 | **Blocked** | API key + endpoint docs not yet delivered by Gary Kirwan; Chris requirements defined |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
 | 13 | System Prompts / Mode 1 & Mode 2 | 2 | Not started | Susannah clarifying Mode 1/2 mapping with Rajiv |
