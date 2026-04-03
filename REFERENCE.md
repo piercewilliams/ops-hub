@@ -4,73 +4,34 @@ Stable facts for this project. Updated in place when facts change.
 
 ---
 
-## Automated Sync
+## How Sync Works
 
-| Item | Value |
-|------|-------|
-| Trigger name | Ops Hub Sync — 3x Daily (Mon–Fri) |
-| Trigger ID | `trig_01TB6nKBUGWXhRqspWoqYNi5` |
-| Account | Pierce's work Claude account (recreated 2026-04-03; original on personal account was deleted) |
-| Schedule | 8:00 AM, 12:00 PM, 5:00 PM Dallas time, Mon–Fri (CDT=UTC-5 in summer, CST=UTC-6 in winter) |
-| Manage / view logs | https://claude.ai/code/scheduled/trig_01TB6nKBUGWXhRqspWoqYNi5 |
-| What it does | Reads CONTEXT.md from all 5 subsidiary repos → updates data/projects.js + CONTEXT.md in ops-hub → commits and pushes |
+No automated agent. The dashboard stays current through normal Claude sessions:
 
-**DST note:** Cron runs in UTC. Dallas is CDT (UTC-5) Mar–Nov and CST (UTC-6) Nov–Mar. When clocks change, the sync will shift by 1 hour. To fix: tell Claude "update the ops-hub sync schedule for winter time" and it will adjust the cron expression.
+1. Open a session in this repo (or any subsidiary repo)
+2. Update `data/projects.js` with current project statuses
+3. Commit and push with normal git credentials
+4. The sync pill reads the last commit time for `data/projects.js` via the **public GitHub API** — no token, nothing to expire
 
-### How to tell if sync is working
+**The sync pill (↻ button):**
+- **Green "Updated Xm/Xh ago"** — committed recently, all good
+- **Yellow "Updated Xd ago"** — more than 3 days since last update, worth checking in
+- **Red "Updated Xd ago — may be stale"** — more than 7 days, data may be outdated
+- **"Status unavailable"** — can't reach GitHub API (check your connection)
 
-The dashboard at piercewilliams.github.io/ops-hub shows a live status pill (top of page):
-- **Green "Synced Xm ago"** — working normally
-- **Yellow "Sync delayed"** — missed 1 cycle, may self-correct
-- **Red "Sync offline"** — missed 2+ cycles, needs attention
-- **Red "Sync auth error — push failed"** — agent ran but couldn't write to GitHub
+Click ↻ to re-fetch. No further action needed.
 
-The simplest backup check: **github.com/piercewilliams/ops-hub/commits** — look for "Auto-sync" commits. If none in the last 2 hours during waking hours, something is wrong.
+### If the pill shows stale data
 
-### Troubleshooting guide
+The data in `data/projects.js` just hasn't been updated recently. Fix:
+1. Open a Claude session in this repo
+2. Tell Claude what has changed across your projects
+3. Claude updates `data/projects.js`
+4. Commit and push — pill updates within seconds
 
-**Symptom: Red pill on dashboard / no Auto-sync commits for 2+ hours**
+### Decommissioned trigger (for reference)
 
-1. Go to **claude.ai/code/scheduled** and find "Ops Hub Hourly Sync"
-2. Click into it and check the last run — did it error? What did it say?
-3. If it says "push failed" or auth error → see "Push auth broke" below
-4. If there are no recent runs at all → the trigger may be paused; click Enable
-
-**Symptom: Sync auth error / push_failed in status**
-
-The remote agent can't push to GitHub. This happens if GitHub auth expires or repo permissions change. Fix:
-1. Open a new Claude Code session in this repo (`/Users/pierce/Documents/GitHub/ops-hub`)
-2. Tell Claude: "The ops-hub sync agent is getting push_failed errors. Help me re-authorize it or set up a GitHub token so the remote agent can push."
-3. Claude will walk you through generating a deploy key or token and updating the trigger
-
-**Symptom: Sync is running but dashboard cards show stale statuses**
-
-The agent is conservative by design — it only updates a status if CONTEXT.md explicitly says so. If subsidiary repos haven't been updated recently, the statuses in ops-hub won't change either. Fix:
-- Open the relevant subsidiary repo with Claude and update its CONTEXT.md to reflect current state
-- The next sync will pick it up
-
-**Symptom: sync-status.json doesn't exist / pill says "Sync file not found"**
-
-This means the trigger has never successfully completed a push. Wait for the next scheduled run, or:
-1. Go to **claude.ai/code/scheduled/trig_01TB6nKBUGWXhRqspWoqYNi5**
-2. Click "Run now"
-3. Watch whether it completes and whether a new commit appears on github.com/piercewilliams/ops-hub/commits
-
-**Symptom: Trigger missing entirely from claude.ai/code/scheduled**
-
-Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in ops-hub/REFERENCE.md." Claude will read this file and rebuild it.
-
-**To pause the sync** (e.g., you're on vacation and don't want noise):
-- Go to claude.ai/code/scheduled → find the trigger → disable it
-- Or tell Claude: "Pause the ops-hub sync trigger"
-
-**To resume:**
-- Re-enable at claude.ai/code/scheduled
-- Or tell Claude: "Re-enable the ops-hub sync trigger"
-
-**To adjust the schedule:**
-- Tell Claude: "Change the ops-hub sync to run every 2 hours" (or whatever)
-- Claude will update the cron expression via the RemoteTrigger tool
+The old automated sync trigger (`trig_01TB6nKBUGWXhRqspWoqYNi5`) is disabled as of 2026-04-03. It used a GitHub PAT that required periodic regeneration. Do not re-enable it.
 
 ---
 

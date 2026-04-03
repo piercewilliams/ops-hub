@@ -26,16 +26,12 @@ import { renderDiagram, drawArrows } from './diagram.js';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
-/** GitHub API URL for the sync-status.json file in this repo. */
-const SYNC_STATUS_URL = 'https://api.github.com/repos/piercewilliams/ops-hub/contents/sync-status.json';
+/** GitHub public API — last commit to data/projects.js (no auth required). */
+const SYNC_STATUS_URL = 'https://api.github.com/repos/piercewilliams/ops-hub/commits?path=data%2Fprojects.js&per_page=1';
 
-/**
- * Stale thresholds for the sync-status pill.
- * Sync schedule: 8am, 12pm, 5pm Dallas CDT (Mon–Fri).
- * Max daytime gap = 5h; overnight gap = 15h.
- */
-const STALE_WARN_MS     = 5.5 * 60 * 60 * 1000; // 5.5h — just over one sync interval
-const STALE_CRIT_MS     = 16  * 60 * 60 * 1000; // 16h — covers overnight, flags missed daytime runs
+/** Stale thresholds for the updated-at pill. */
+const STALE_WARN_MS     = 3 * 24 * 60 * 60 * 1000; // 3 days — worth a nudge
+const STALE_CRIT_MS     = 7 * 24 * 60 * 60 * 1000; // 7 days — clearly stale
 
 /** Auto-refresh interval for the sync-status pill. */
 const SYNC_INTERVAL_MS  = 5 * 60 * 1000; // 5 minutes
@@ -624,16 +620,11 @@ function attemptRestore() {
 // ── Sync Status ───────────────────────────────────────────────────────────────
 
 /**
- * Fetches sync-status.json from GitHub API and updates the sync-status pill.
+ * Fetches the last commit to data/projects.js from the public GitHub API
+ * and updates the pill with how long ago it was updated.
  *
- * Status determination:
- *   - push_failed → red error state
- *   - elapsed < STALE_WARN_MS → green (synced recently)
- *   - weekend OR elapsed < STALE_CRIT_MS → yellow warning
- *   - otherwise → red (sync offline)
- *
- * Handles corrupted/missing content gracefully — atob + JSON.parse errors
- * are caught separately from network errors.
+ * No auth token required — works on any public repo.
+ * Green: updated within 3 days. Yellow: 3–7 days. Red: older than 7 days.
  */
 async function fetchSyncStatus() {
   const el = document.getElementById('sync-status');
@@ -641,49 +632,36 @@ async function fetchSyncStatus() {
   try {
     const res = await fetch(SYNC_STATUS_URL, { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
+    const commits = await res.json();
+    if (!Array.isArray(commits) || commits.length === 0) throw new Error('No commits found');
 
-    // data.content is base64-encoded — decode separately so corrupted content
-    // falls into the specific catch without hiding other errors
-    let json;
-    try {
-      json = JSON.parse(atob(data.content));
-    } catch {
-      throw new Error('sync-status.json content is corrupted or unreadable');
-    }
-
-    const syncTime  = new Date(json.last_sync_utc);
-    const elapsed   = Date.now() - syncTime.getTime();
-    const mins      = Math.floor(elapsed / 60000);
-    const hours     = (elapsed / 3600000).toFixed(1);
-    const isWeekend = [0, 6].includes(new Date().getDay()); // 0=Sun, 6=Sat
+    const updated = new Date(commits[0].commit.committer.date);
+    const elapsed = Date.now() - updated.getTime();
+    const mins    = Math.floor(elapsed / 60000);
+    const hours   = Math.floor(elapsed / 3600000);
+    const days    = Math.floor(elapsed / 86400000);
 
     let cls, label;
-    if (json.status === 'push_failed') {
-      cls   = 'sync-err';
-      label = `Sync auth error — push failed ${mins}m ago`;
-    } else if (elapsed < STALE_WARN_MS) {
+    if (elapsed < STALE_WARN_MS) {
       cls   = 'sync-ok';
-      label = `Synced ${mins}m ago`;
-    } else if (isWeekend || elapsed < STALE_CRIT_MS) {
-      // Weekend: normal — sync doesn't run. Weekday within crit window: delayed but recoverable.
+      label = mins < 60 ? `Updated ${mins}m ago` : `Updated ${hours}h ago`;
+    } else if (elapsed < STALE_CRIT_MS) {
       cls   = 'sync-warn';
-      label = isWeekend ? `Weekend — last sync ${hours}h ago` : `Sync due — last seen ${hours}h ago`;
+      label = `Updated ${days}d ago`;
     } else {
-      // Beyond the critical threshold on a weekday — sync is likely broken
       cls   = 'sync-err';
-      label = `Sync offline — last seen ${hours}h ago`;
+      label = `Updated ${days}d ago — may be stale`;
     }
 
     el.className = `sync-pill ${cls}`;
     const labelEl = el.querySelector('.sync-label');
     if (labelEl) labelEl.textContent = label;
-    el.title = `Last sync: ${syncTime.toLocaleString()} · Status: ${json.status} · Changes: ${json.changes}`;
+    el.title = `projects.js last committed: ${updated.toLocaleString()} · ${sanitize(commits[0].commit.message)}`;
   } catch {
     el.className = 'sync-pill sync-warn';
     const labelEl = el.querySelector('.sync-label');
-    if (labelEl) labelEl.textContent = 'Pending — first sync not yet run';
-    el.title = 'sync-status.json not yet written. Check claude.ai/code/scheduled for run status.';
+    if (labelEl) labelEl.textContent = 'Status unavailable';
+    el.title = 'Could not reach GitHub API — check your connection.';
   }
 }
 
