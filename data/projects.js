@@ -6,6 +6,9 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-03', task: 'PRD V0.3 delivered to Chris Palo. Includes full four-pipeline model (T1 automated, T2 app-based, T3 canonical/repackaging, T4 Discover), CSA ideal end state, system requirements for all pipeline stages, Content Graph (deferred per Chris), and Operations Layer. Sara Vallone input still needed for writer/editor experience section.', project: '#9 PRD Revisions' },
+  { date: '2026-04-03', task: 'Content standards routing annotations added to §1 of General Guidelines: AGENT-AUDIENCE tags (general-style, headline, seo, human-only). General style doc sent to Susannah Locke to upload as CSA admin. H1 enforcement (PGS-135) pending Susannah prompt-level fix.', project: '#4 Article Format + Persona + Keyword Governance' },
+  { date: '2026-04-03', task: '2 additional personas received from Sara Vallone. All 5 personas sent to Susannah Locke to pin for all National accounts (Discover Browser already saved; PGS-133 tickets 4 additional). Apple News + Smart News personas still pending Sara → Andy review.', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-03', task: 'CSA core section drafted for PRD: input signals, personas/formats/keywords governing generation, output standards, ideal end state, feedback loop, "control room" model.', project: '#9 PRD Revisions' },
   { date: '2026-04-03', task: 'Mode 1 vs Mode 2 fully understood and documented. Mode determined by workflow entry point (URL import = Mode 1 Publication Ready; Research Draft = Mode 2 expanded). National team not treated differently. No further investigation needed.', project: '#13 System Prompts / Mode 1 & Mode 2' },
   { date: '2026-04-01', task: 'P6 cluster alignment meeting complete. Cluster tagging strategy settled. Variant linking and full schema enablement now in product/dev team\'s hands.', project: '#6 Content Cluster / Tagging Taxonomy' },
@@ -45,7 +48,7 @@ export const PROJECTS = {
       { name: 'Amplitude', status: 'pending', note: 'IT claimed access granted 2026-03-31 — still inaccessible. Pierce replied; awaiting IT follow-up. CSA eng team has a separate p-tagging bug (CUE/WP tag format mismatch) — their fix, not a Pierce action item.' },
       { name: 'Marfeel', status: 'pending', note: 'IT claimed access granted 2026-03-31 — still inaccessible (no account, dashboard, or API). Pierce replied; awaiting IT follow-up. Also ask: why was Apple filter removed from main interface (Mar 2026)? Sarah Price\'s custom dashboard is now the only accurate Apple view.' },
       { name: 'Gary API', status: 'pending', note: 'Gary Kirwan to deliver API endpoint docs + McClatchy API key. Blocks Project 10.' },
-      { name: 'SemRush', status: 'pending', note: 'IT claimed access granted 2026-03-31 — still inaccessible. Pierce replied; awaiting IT follow-up.' },
+      { name: 'SemRush', status: 'pending', note: 'IT claimed access granted 2026-03-31 — still inaccessible. Pierce escalated directly to SEMrush team 2026-04-03; awaiting reply.' },
       { name: 'MAIA', status: 'done', note: 'Access in hand.' },
       { name: 'BitBucket', status: 'done', note: 'Account created by IT. Added to CSA project by Amanda Hamilton 2026-03-30.' },
     ],
@@ -57,7 +60,7 @@ export const PROJECTS = {
     nextActions: [
       'Schedule Chad Bruton walkthrough of growth_and_strategy_role Snowflake data (login resolved)',
       'Awaiting IT follow-up — IT claimed access granted (2026-03-31) but Amplitude, SemRush, Marfeel still inaccessible. Pierce replied.',
-      'Gary Kirwan messaged 2026-03-30 — awaiting reply on API docs + key delivery',
+      'Gary Kirwan: follow-up sent 2026-04-03 (second ask) — still no API key or endpoint docs',
     ],
     dependsOn: [],
   },
@@ -93,7 +96,7 @@ export const PROJECTS = {
       'Define source trustworthiness management process — who approves/removes sources over time',
       'Run first-test sequence: health → scrape → meta → structure → brand-readiness → citations → poll',
       'Stress-test claims validator on Home Buyers Guide (Mecklenburg County fiscal year / tax nuances — complex local accuracy case)',
-      'Add claims validation to PRD scope — document as post-CSA quality gate',
+      'Claims validation documented in PRD V0.3 Quality Enrichment section — no further PRD action needed',
       'Do not wait for SEO team review on non-SEO modules',
     ],
     dependsOn: ['p1-access'],
@@ -107,16 +110,14 @@ export const PROJECTS = {
   // ── TIER 3 ────────────────────────────────────────────────────────────────
 
   'p9-prd': {
-    id: 'p9-prd', num: '9', tier: 3, type: 'project', status: 'in-progress',
+    id: 'p9-prd', num: '9', tier: 3, type: 'project', status: 'complete',
     name: 'PRD Revisions',
     owner: 'Pierce',
-    description: '#1 PRIORITY (Chris Palo, 2026-03-30). Revise the current PRD ("Content Graph & Operations Layer V3 Breakout") into a complete, coherent document. Three-part task: (1) cull what\'s stale, (2) write the missing CSA core section — what the CSA is, what it should ultimately do, how input signals govern generation, ideal output, feedback loop, (3) integrate — show how Content Graph and Operations Layer connect to the CSA. The dev team lacks a clear picture of the CSA\'s ideal end state. Draft due end of week (2026-04-03).',
+    description: 'COMPLETE. PRD V0.3 delivered to Chris Palo 2026-04-03. Full four-pipeline model (T1 automated, T2 app-based, T3 canonical/repackaging, T4 Discover), CSA ideal end state, system requirements for all pipeline stages, Content Graph (deferred per Chris), Operations Layer. One open item: Sara Vallone input needed for writer/editor experience section. Waiting on Chris + Sara feedback.',
     blockers: [],
     nextActions: [
-      'Incorporate United Robots alerts pipeline as part of the auto-content tier',
-      'Cull PRD of what\'s stale or out of scope — Chris: not precious, strike what doesn\'t fit',
-      'Reframe Content Graph and Operations Layer sections to show how they serve the CSA',
-      'Align draft with Chris and Sarah Price before sending to dev team',
+      'Await Chris + Sara Vallone feedback on V0.3',
+      'Get Sara Vallone input for "What it means for writers and editors" section (placeholder in current draft)',
     ],
     dependsOn: [],
   },
@@ -177,6 +178,7 @@ export const PROJECTS = {
       'O&O/Amplitude layer blocked by Amplitude access (P1) — treat as separate workstream, do not block core work',
     ],
     nextActions: [
+      'Meeting with Sarah Price 2026-04-04 — Apple headlines + TEO API through SEMrush + Sigma dashboard context',
       'Share site with Sarah Price (she has seen Slack preview; needs direct link)',
       'Share "What to know" Featured rate findings (Finding 1) → editorial leads',
       'Add Mann-Whitney significance tests to sports/biz/pol subtopic tables (3 standing rigor warnings)',
@@ -190,14 +192,16 @@ export const PROJECTS = {
     id: 'p4-governance', num: '4', tier: 4, type: 'project', status: 'in-progress',
     name: 'Article Format + Persona + Keyword Governance',
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
-    description: '5 personas codified in csa-content-standards (v1.3.6, 2026-04-02): Discover Browser, Curious Optimizer, Wonder-Driven Science Enthusiast, Curious Explorer, Watercooler Insider. All 5 forwarded to Susannah to pin for National accounts. Apple News + Smart News personas pending Andy review (Sara Vallone drafting). Pairwise testing approach confirmed: ~3 formats × 3 personas = ~9 tests. Start with Discover and Trend Hunterland.',
-    status_detail: 'In progress. 5 personas live in csa-content-standards and forwarded to Susannah (2026-04-02). Apple News + Smart News personas still pending — Sara Vallone drafting; Andy to review before use. Format/persona LAYERING tooling requested from Susannah (logged 2026-03-31) — until tooling arrives, combine persona + format in single items.',
+    description: '5 personas sent to Susannah Locke to pin for all National accounts (2026-04-03): Discover Browser (already saved), + 4 additional ticketed in PGS-133. Content standards routing annotations live in §1: AGENT-AUDIENCE tags (general-style, headline, seo, human-only) enable CSA to grep rule sets by type. General style doc sent to Susannah to upload as CSA admin. H1 headline enforcement (80–100 chars) ticketed PGS-135. Apple News + Smart News personas pending Andy review (Sara Vallone drafting). Pairwise testing approach confirmed: ~3 formats × 3 personas = ~9 tests.',
+    status_detail: 'In progress. All 5 National team personas sent to Susannah 2026-04-03. PGS-133 (4 additional target audiences) selected for dev. PGS-134 (Everything to Know + FAQ/Service Journalism formats) selected for dev. PGS-135 (H1 headline 80–100 char enforcement) selected for dev. Apple News + Smart News personas still pending — Sara drafting, Andy reviews before use.',
     blockers: [
       'Apple News + Smart News personas pending — Sara Vallone drafting; Andy to review before forwarding',
+      'H1 headline enforcement (PGS-135) pending Susannah prompt-level fix',
     ],
     nextActions: [
       'Await Sara Vallone\'s Apple News + Smart News personas (Andy review gates use)',
       'Once Andy-approved: codify Apple News + Smart News personas into csa-content-standards; send to Susannah to pin for National accounts',
+      'Extend AGENT-AUDIENCE routing annotations beyond §1 to full guidance doc (pending Susannah confirmation it works)',
       'Consolidate TH/TH B2C variants with Sara Vallone and Sarah Price',
     ],
     dependsOn: ['p6-taxonomy'],
@@ -213,7 +217,7 @@ export const PROJECTS = {
       'Alert scraping scope not finalized (which feeds, which markets)',
     ],
     nextActions: [
-      'Map United Robots alerts pipeline with Sara Vallone — add scope to PRD (P9 input)',
+      'Map United Robots alerts pipeline with Sara Vallone — T1 pipeline scope defined in PRD V0.3',
       'Sarah Price: review performance of existing United Robots automated stories (baseline)',
       'Define human-in-the-loop monitoring system and working group',
       'Identify which alert types to start with (weather, Amber, Silver, DOT)',
@@ -295,11 +299,10 @@ export const PROJECTS = {
     owner: 'Pierce',
     description: 'Define how to prep/scope "recipes" — the template/keyword/persona/outlet/timing framework Chris is after. What a recipe is, how it\'s structured, and how it integrates into the CSA workflow. Definition unclear until PRD and persona governance are squared away.',
     blockers: [
-      'P9 PRD must define what recipes mean in current product direction',
-      'P4 persona governance must define the controlled format/persona set',
+      'P4 persona governance must finalize the controlled format/persona set (P9 PRD complete — recipes concept defined as T3 pipeline layer)',
     ],
     nextActions: [
-      'Complete P9 and P4 first',
+      'Complete P4 first',
       'Schedule scoping meeting with Chris to define what "recipes" means operationally',
     ],
     dependsOn: ['p9-prd', 'p4-governance'],
