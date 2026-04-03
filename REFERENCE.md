@@ -74,6 +74,22 @@ Tell Claude: "Re-create the ops-hub hourly sync trigger. All the details are in 
 
 ---
 
+## Compass Weekly Progress Notes Trigger
+
+| Item | Value |
+|------|-------|
+| Trigger name | Compass Weekly Progress Notes (Fri 4pm Dallas) |
+| Trigger ID | `trig_01WwrhCC864xC67e92tReea9` |
+| Schedule | Every Friday 4:00 PM Dallas CDT (`0 21 * * 5` UTC) |
+| Manage / view logs | https://claude.ai/code/scheduled/trig_01WwrhCC864xC67e92tReea9 |
+| What it does | Reads compass-goals.md + session logs + WINS.md → drafts weekly progress entries per Compass goal → appends to compass-goals.md. If goals not yet finalized, outputs a reminder instead. Pierce reviews and commits manually. |
+
+**Setup required:** Once goals are finalized with Jeremy Gockel (by April 26, 2026), save them to `compass-goals.md` using the format defined in that file. The trigger activates automatically on next Friday run.
+
+**DST note:** Same UTC-offset shift as the sync trigger — adjust cron if needed when clocks change.
+
+---
+
 ## Weekly Snapshot Trigger (All Sites)
 
 | Item | Value |

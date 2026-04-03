@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-03 (Mode 1/2 resolved + documented; P13 closed; CSA core section done; sync trigger recreated)
-**Status:** PRD nearly ready — CSA core section complete, cull/reframe/deliver remaining
+**Last session:** 2026-04-02 (PRD delivered; personas submitted to dev team; Discover Browser + cluster tagging ticketed)
+**Status:** Most immediate actions cleared. Waiting on Chris/Sara feedback on PRD. Active queue: CSA metrics to Chris, science persona definitions, Chad Bruton + P6 check-ins.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -36,12 +36,12 @@ For session history: see [sessions/](sessions/)
 | 2 | Dashboard Instrumentation | 4 | In progress | Credentials pending; manual-metrics.js population delayed (CSA about to auto-log stats) |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | **8 findings complete.** Ongoing cadence (monthly Tarrow + weekly ANP). Share site with Sarah Price. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
-| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | 5 personas live in csa-content-standards + forwarded to Susannah to pin; Apple News + Smart News personas pending Andy review |
+| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Current personas finalized + submitted to product/dev team for all National accounts. Apple News + Smart News personas pending Sara Vallone + Andy review before handoff. |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
-| 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | Strategy settled 2026-04-01; variant linking + schema now in dev team's hands |
+| 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | Ticketed and in dev team's hands. No Pierce action pending. |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris — CMS architecture will make it obsolete |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking PRD |
-| 9 | PRD Revisions | 3 | **READY FOR REVIEW** | CSA core section drafted. Remaining: cull stale content, reframe Content Graph/Ops Layer sections, align with Chris + Sarah Price, deliver |
+| 9 | PRD Revisions | 3 | **Complete** | Delivered to Chris 2026-04-02 |
 | 10 | Gary Tools Integration | 2 | **Blocked** | API key + endpoint docs not yet delivered by Gary Kirwan; Chris requirements defined |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
@@ -50,22 +50,27 @@ For session history: see [sessions/](sessions/)
 ## What's Next
 
 **#1 — IMMEDIATE:**
-1. [ ] **Deliver PRD to Chris** — CSA core section done. Remaining: cull stale content, reframe Content Graph/Ops Layer sections to show how they serve the CSA, align with Chris + Sarah Price, deliver. Google Doc is the live version (PRD-pipeline.md is out of sync; do not re-export from markdown).
+1. [ ] **Send CSA metrics to Chris** — macro-level monthly stats (3,465 batting avg, 138 CSA runs/week). Direct boss ask.
+2. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
+3. [ ] **Schedule P6 dev check-in** — monitor variant linking progress with Susannah.
+
+**Compass (HR — performance management):**
+- [ ] **Draft goals with Jeremy Gockel** in Compass — due **April 26, 2026**
+- [ ] **Goals must total 100%**, each aligned to a division org objective (shown in Compass workflow)
+- [ ] **Save finalized goals** to `compass-goals.md` in ops-hub (feeds weekly progress trigger)
+- [ ] **Upload photo** to Compass profile
+- [ ] Manager approval must be complete by **April 30, 2026** (goals reach "Track Goals" status)
+- [ ] Mid-year check-in: **July 2026** (mandatory)
+- [ ] Final evaluation: **January 2027** (self-rate each goal 1–5; goals = 50% of rating)
 
 **Waiting on others (no action needed):**
+- Chris + Sara Vallone: PRD feedback
+- Sara Vallone + Andy: Apple News + Smart News personas (Sara drafting; Andy reviews before handoff to dev)
 - Gary Kirwan: API key + endpoint docs (P10)
-- Sara Vallone: Apple News + Smart News personas (drafting; Andy to review before sending)
 - IT: Amplitude/Sigma/Marfeel provisioning (still inaccessible despite IT's claim)
 - Tarrow: ANP March drop (adding to Drive folder)
-- Dev team: variant linking + Cluster ID field implementation (P6 dev work)
+- Dev team: variant linking + Cluster ID field (P6), Discover Browser persona inclusion (PGS-96)
 
-**Quick unblocked items (do when PRD is delivered):**
-1. [ ] **Send CSA metrics to Chris** — macro-level monthly stats (3,465 batting avg, 138 CSA runs/week). Direct boss ask.
-2. [ ] **Write canonical definitions for Science-Curious Retiree + Science-Curious Casual Reader** — PGS-97 done; Trend Hunter variants are all one hardcoded persona. These two science personas are AI-suggested with no canonical definitions — Pierce must write them before they can be saved as shared target audiences.
-3. [ ] **Check The Discover Browser persona (PGS-96)** — may need structural editing before Susannah can use it as a Target Audience.
-4. [ ] **Reply to Susannah** — confirm CSA Research Draft as cluster tagging entry point.
-5. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
-6. [ ] **Schedule P6 dev check-in** — monitor variant linking progress with Susannah.
 
 ## Gary Tools — Summary of What It Is
 
