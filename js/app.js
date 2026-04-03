@@ -644,13 +644,13 @@ async function fetchSyncStatus() {
     let cls, label;
     if (elapsed < STALE_WARN_MS) {
       cls   = 'sync-ok';
-      label = mins < 60 ? `Updated ${mins}m ago` : `Updated ${hours}h ago`;
+      label = mins < 60 ? `Last synced ${mins}m ago` : `Last synced ${hours}h ago`;
     } else if (elapsed < STALE_CRIT_MS) {
       cls   = 'sync-warn';
-      label = `Updated ${days}d ago`;
+      label = `Last synced ${days}d ago`;
     } else {
       cls   = 'sync-err';
-      label = `Updated ${days}d ago — may be stale`;
+      label = `Last synced ${days}d ago — due for a sync`;
     }
 
     el.className = `sync-pill ${cls}`;

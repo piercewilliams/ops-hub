@@ -6,44 +6,15 @@ Stable facts for this project. Updated in place when facts change.
 
 ## How Sync Works
 
-Sync runs via **GitHub Actions** — no PAT, no expiring credentials.
+Sync is **manual** — open ops-hub in a Claude Code session, update `data/projects.js` with current project status, then commit and push. No automation, no expiring credentials.
 
-| Item | Value |
-|------|-------|
-| Workflow file | `.github/workflows/sync.yml` |
-| Sync script | `scripts/sync-agent.py` (Python stdlib + Anthropic API) |
-| Schedule | 8:00 AM, 12:00 PM, 5:00 PM Dallas CDT, Mon–Fri |
-| Manual trigger | github.com/piercewilliams/ops-hub → Actions → "Ops Hub Sync" → "Run workflow" |
-| Auth for push | `GITHUB_TOKEN` (auto-provisioned by GitHub, never expires) |
-| Auth for Claude | `ANTHROPIC_API_KEY` stored as a GitHub Actions secret |
-
-**One-time setup:** Add your Anthropic API key as a secret:
-1. Go to github.com/piercewilliams/ops-hub/settings/secrets/actions
-2. Click "New repository secret"
-3. Name: `ANTHROPIC_API_KEY`, Value: your key from console.anthropic.com
-
-**The sync pill (↻ button):**
-- **Green "Updated Xm/Xh ago"** — committed within 3 days, all good
-- **Yellow "Updated Xd ago"** — more than 3 days, worth a manual sync
-- **Red "Updated Xd ago — may be stale"** — more than 7 days
+**The sync pill** reads the last commit timestamp for `data/projects.js` via the public GitHub API (no token required):
+- **Green "Last synced Xm/Xh ago"** — committed within 3 days, all good
+- **Yellow "Last synced Xd ago"** — more than 3 days, worth a sync session
+- **Red "Last synced Xd ago — due for a sync"** — more than 7 days
 - **"Status unavailable"** — can't reach GitHub API (check your connection)
 
-### Troubleshooting
-
-**Pill shows stale / no Auto-sync commit in expected window:**
-1. Go to github.com/piercewilliams/ops-hub/actions
-2. Find the last "Ops Hub Sync" run — click it and check the logs
-3. If it failed on "Run sync agent" → likely an Anthropic API key issue. Check the secret at github.com/piercewilliams/ops-hub/settings/secrets/actions
-4. If it failed on "Commit and push" → file a bug — GITHUB_TOKEN should never fail for push
-
-**To trigger an immediate sync:**
-- github.com/piercewilliams/ops-hub → Actions → "Ops Hub Sync" → "Run workflow" → "Run workflow"
-
-**DST note:** Cron runs in UTC. Dallas CDT (UTC-5) Mar–Nov, CST (UTC-6) Nov–Mar. Update the cron in `.github/workflows/sync.yml` when clocks change if exact timing matters.
-
-### Decommissioned trigger (for reference)
-
-The old Claude Code scheduled trigger (`trig_01TB6nKBUGWXhRqspWoqYNi5`) is disabled as of 2026-04-03. It used a GitHub PAT that expired repeatedly. Do not re-enable it.
+**To sync:** Open a Claude Code session in ops-hub, say "sync with all repos," and push the result.
 
 ---
 
