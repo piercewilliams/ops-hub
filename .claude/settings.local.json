@@ -26,7 +26,9 @@
       "Bash(pandoc --version)",
       "Bash(brew install:*)",
       "Bash(pandoc:*)",
-      "Skill(schedule)"
+      "Skill(schedule)",
+      "Bash(git:*)",
+      "Bash(curl:*)"
     ]
   }
 }

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 Ops Hub Sync Agent
-Reads CONTEXT.md from all subsidiary repos, then calls the Claude API to
+Reads CONTEXT.md from all subsidiary repos, then calls the Gemini API to
 update data/projects.js and data/csa-links.js in this repo.
 
 Runs inside GitHub Actions — no external dependencies beyond Python stdlib.
-Requires ANTHROPIC_API_KEY environment variable.
+Requires GEMINI_API_KEY environment variable.
 """
 
 import json
@@ -76,27 +76,24 @@ Return ONLY the two file contents between these exact markers — nothing else b
 ===END data/csa-links.js===
 """
 
-# ── Call Claude API ────────────────────────────────────────────────────────────
+# ── Call Gemini API ────────────────────────────────────────────────────────────
 
-api_key = os.environ.get('ANTHROPIC_API_KEY')
+api_key = os.environ.get('GEMINI_API_KEY')
 if not api_key:
-    print('ERROR: ANTHROPIC_API_KEY not set', file=sys.stderr)
+    print('ERROR: GEMINI_API_KEY not set', file=sys.stderr)
     sys.exit(1)
 
 payload = {
-    'model': 'claude-sonnet-4-6',
-    'max_tokens': 16000,
-    'messages': [{'role': 'user', 'content': prompt}]
+    'contents': [{'parts': [{'text': prompt}]}],
+    'generationConfig': {'maxOutputTokens': 16000},
 }
 
+url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}'
+
 req = urllib.request.Request(
-    'https://api.anthropic.com/v1/messages',
+    url,
     data=json.dumps(payload).encode('utf-8'),
-    headers={
-        'x-api-key': api_key,
-        'anthropic-version': '2023-06-01',
-        'content-type': 'application/json',
-    }
+    headers={'content-type': 'application/json'},
 )
 
 try:
@@ -104,13 +101,13 @@ try:
         result = json.loads(response.read().decode('utf-8'))
 except urllib.error.HTTPError as e:
     body = e.read().decode('utf-8')
-    print(f'ERROR: Anthropic API returned {e.code}: {body}', file=sys.stderr)
+    print(f'ERROR: Gemini API returned {e.code}: {body}', file=sys.stderr)
     sys.exit(1)
 except Exception as e:
     print(f'ERROR: {e}', file=sys.stderr)
     sys.exit(1)
 
-content = result['content'][0]['text']
+content = result['candidates'][0]['content']['parts'][0]['text']
 
 # ── Parse response ─────────────────────────────────────────────────────────────
 
