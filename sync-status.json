@@ -1,1 +1,1 @@
-{"last_sync_utc": "2026-04-01T22:10:36Z", "status": "success", "changes": "none detected since 13:00 UTC human session", "repos_checked": ["csa-dashboard","csa-content-standards","data-t1headlines","data-cmstracker","gary-tools"]}
+{"last_sync_utc": "2026-04-03T22:00:00Z", "status": "success", "changes": "P3 updated: 13 findings, 5-tile playbook (was 8/4); rq-audience-definitions-export fulfilled:true in csa-links; p13-sysprompts removed from csa-links", "repos_checked": ["csa-dashboard","csa-content-standards","data-t1headlines","data-cmstracker","gary-tools"]}

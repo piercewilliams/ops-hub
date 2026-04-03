@@ -14,6 +14,7 @@ export const COMPLETED_TASKS = [
   { date: '2026-04-01', task: 'P6 cluster alignment meeting complete. Cluster tagging strategy settled. Variant linking and full schema enablement now in product/dev team\'s hands.', project: '#6 Content Cluster / Tagging Taxonomy' },
   { date: '2026-04-01', task: 'T1 analysis complete: 8 findings live (incl. ANP bottom-performer analysis), 4-tile playbook, weekly ANP cadence from Tarrow established. Sarah Price request fulfilled.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-02', task: '5 personas codified in csa-content-standards (v1.3.6) and forwarded to Susannah Locke to pin for all National CSA accounts: Discover Browser, Curious Optimizer, Wonder-Driven Science Enthusiast, Curious Explorer, Watercooler Insider. Sara Vallone confirmed. Apple News + Smart News personas pending — Sara drafting, Andy to review before use.', project: '#4 Article Format + Persona + Keyword Governance' },
+  { date: '2026-04-02', task: '5 new T1 headline findings added via exhaustive cross-platform analysis (8→13 total): MSN Formula Divergence, Formula × Topic Interaction, SmartNews Cross-Platform Formula Trap, Notification Outcome Language, Notification Send-Time. March Tarrow data ingested. Playbook expanded to 5 tiles (added MSN Formula tile). Sarah Price confirmed she has the site link and is reviewing.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-01', task: '3 target audience personas consolidated from CSA data and passed to Sara Vallone to refine and/or pair with additional ones for codification in CSA.', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-01', task: 'Gary Tools: Gary Kirwan shared claims validation reports (US Weekly, Women\'s World). Chris Palo confirmed integration direction and provided operational requirements (error tracking, corrections, override reporting chain). API key + endpoint docs still pending from Gary.', project: '#10 Gary Tools Integration' },
   { date: '2026-03-31', task: 'Canonical ID = Cluster ID confirmed by Chris, Sara Vallone, and Susannah. CSA articles are siblings (not parent/child). Variant linking dev request logged.', project: '#6 Content Cluster / Tagging Taxonomy' },
@@ -173,13 +174,12 @@ export const PROJECTS = {
     id: 'p3-headlines', num: '3', tier: 4, type: 'project', status: 'in-progress',
     name: 'T1 Headlines Analysis (Price)',
     owner: 'Pierce · Sarah Price',
-    description: 'Analysis complete as of 2026-04-01: 8 findings live, 4-tile playbook, full ANP data pipeline (420K rows, weekly drops from Tarrow). Three structural failure patterns identified for Apple News. Findings: Featured Targeting, Push Notifications, Platform Topic Inversion, Views vs. Engagement, Formula Trends, Featuring Reaches Non-Subscribers, Topic Predicts Featuring, ANP Bottom-Performer Analysis. Now in ongoing monitoring cadence (monthly Tarrow + weekly ANP). O&O/Amplitude layer is a separate sub-workstream requiring Amplitude access.',
+    description: 'Phase 2 active — 13 findings live, 5-tile playbook. March Tarrow data ingested 2026-04-02; exhaustive cross-platform analysis complete. Full ANP data pipeline (420K rows, weekly drops from Tarrow). Findings (original 8): Featured Targeting, Push Notifications, Platform Topic Inversion, Views vs. Engagement, Formula Trends, Featuring Reaches Non-Subscribers, Topic Predicts Featuring, ANP Bottom-Performer Analysis. Added 2026-04-02 (5 new): MSN Formula Divergence, Formula × Topic Interaction, SmartNews Cross-Platform Formula Trap, Notification Outcome Language, Notification Send-Time. Playbook: Featured Targeting, Push Notifications, Section Tagging, Local vs. National, MSN Formula. Ongoing monitoring cadence (monthly Tarrow + weekly ANP). O&O/Amplitude layer is a separate sub-workstream requiring Amplitude access.',
     blockers: [
       'O&O/Amplitude layer blocked by Amplitude access (P1) — treat as separate workstream, do not block core work',
     ],
     nextActions: [
       'Meeting with Sarah Price 2026-04-04 — Apple headlines + TEO API through SEMrush + Sigma dashboard context',
-      'Share site with Sarah Price (she has seen Slack preview; needs direct link)',
       'Share "What to know" Featured rate findings (Finding 1) → editorial leads',
       'Add Mann-Whitney significance tests to sports/biz/pol subtopic tables (3 standing rigor warnings)',
       'ANP March drop — Tarrow adding to Drive folder; drop into anp_data/ when it arrives',

@@ -34,7 +34,7 @@ For session history: see [sessions/](sessions/)
 |---|---------|------|--------|-------------|
 | 1 | Platform Access & Training | 1 | In progress | Amplitude/Marfeel/SemRush still inaccessible despite IT claiming access; Gary API key pending |
 | 2 | Dashboard Instrumentation | 4 | In progress | Credentials pending; manual-metrics.js population delayed (CSA about to auto-log stats) |
-| 3 | T1 Headlines Analysis (Price) | 4 | In progress | **8 findings complete.** Ongoing cadence (monthly Tarrow + weekly ANP). Share site with Sarah Price. |
+| 3 | T1 Headlines Analysis (Price) | 4 | In progress | **13 findings live, 5-tile playbook.** March data ingested 2026-04-02. Ongoing cadence. Site shared with Sarah Price (confirmed). |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Current personas finalized + submitted to product/dev team for all National accounts. Apple News + Smart News personas pending Sara Vallone + Andy review before handoff. |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7 |
