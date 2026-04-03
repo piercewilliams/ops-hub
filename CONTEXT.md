@@ -55,6 +55,7 @@ For session history: see [sessions/](sessions/)
 3. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
 4. [ ] **Finalize Science-Curious persona definitions** — Science-Curious Retiree + Science-Curious Casual Reader need canonical definitions before Susannah can save them as shared custom personas.
 5. [ ] **Extend AGENT-AUDIENCE routing annotations** beyond §1 to full content standards guidance (pending Susannah confirming the tagging approach works).
+6. [ ] **Gary Tools parameter session with Sara Vallone** — Slack sent 2026-04-03, awaiting her reply. Use 3 existing reports as working examples; produce parameters doc for Chris review.
 
 **Compass (HR — performance management):**
 - [ ] **Draft goals with Jeremy Gockel** in Compass — due **April 26, 2026**
@@ -77,7 +78,7 @@ For session history: see [sessions/](sessions/)
 
 ## Gary Tools — Summary of What It Is
 
-Gary Kirwan is providing an external claims validation tool that plugs into the CSA's quality layer (Module 1: Citation and fact validation). When it flags an issue, editor can correct or override. Overrides tracked by article, author, content type; report goes to Sara Vallone + Pierce + Chris (shrinks to Sara once confident). Pierce owns source trustworthiness list. Integration blocked on Gary's API key + endpoint docs.
+Gary Kirwan's tool runs factual accuracy / claims validation post-CSA, before editor's desk. Three reports run: Duggar legal, Women's World health, Charlotte Home Buyers Guide. Charlotte stress-test complete — tool caught stale FY2025 tax rate ($966.20 vs $985.40) that human editor missed. Chris directed Pierce + Sara Vallone to define editorial parameters (TRUE/FALSE/MISLEADING/INSUFFICIENT_EVIDENCE/OVERGENERALIZED). Acceptance tracking = system quality signal. Pierce sent 4 questions to Gary (confidence scoring, severity calibration, article-level vs claim-level output, reproducibility). Sara Vallone looped in via Slack for parameter definition — awaiting reply. Details: gary-tools repo.
 
 ---
 

@@ -6,6 +6,8 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-03', task: 'Gary Tools: Charlotte Home Buyers Guide stress-test complete. Tool caught stale FY2025 tax rate ($966.20 vs correct $985.40) that human editor missed. Revaluation timing and causal chain framing flagged correctly. Gary reported results to Chris.', project: '#10 Gary Tools Integration' },
+  { date: '2026-04-03', task: 'Gary Tools: Pierce inserted into email chain with 4 questions for Gary (confidence scoring methodology, severity calibration by content type, article-level vs claim-level output, reproducibility across runs). Sara Vallone looped in via Slack to define editorial parameters — awaiting her response.', project: '#10 Gary Tools Integration' },
   { date: '2026-04-03', task: 'PRD V0.3 delivered to Chris Palo. Includes full four-pipeline model (T1 automated, T2 app-based, T3 canonical/repackaging, T4 Discover), CSA ideal end state, system requirements for all pipeline stages, Content Graph (deferred per Chris), and Operations Layer. Sara Vallone input still needed for writer/editor experience section.', project: '#9 PRD Revisions' },
   { date: '2026-04-03', task: 'Content standards routing annotations added to §1 of General Guidelines: AGENT-AUDIENCE tags (general-style, headline, seo, human-only). General style doc sent to Susannah Locke to upload as CSA admin. H1 enforcement (PGS-135) pending Susannah prompt-level fix.', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-03', task: '2 additional personas received from Sara Vallone. All 5 personas sent to Susannah Locke to pin for all National accounts (Discover Browser already saved; PGS-133 tickets 4 additional). Apple News + Smart News personas still pending Sara → Andy review.', project: '#4 Article Format + Persona + Keyword Governance' },
@@ -86,18 +88,19 @@ export const PROJECTS = {
     id: 'p10-gary', num: '10', tier: 2, type: 'project', status: 'blocked',
     name: 'Gary Tools Integration',
     owner: 'Pierce (lead) · Susannah Locke (integration lead) · Chris Palo (stakeholder)',
-    description: 'ACTIVE EVALUATION. Gary shared claims validation reports (US Weekly, Women\'s World health) demonstrating factual accuracy checking against trustworthy sources. Chris Palo responded "Love to see how we can integrate this" and provided operational requirements (2026-04-01): editor correction/override UX, error rate tracking by article/author/content type, override report chain (Sara Vallone + Pierce + Chris), and source trustworthiness management. Primary use case: claims validation / factual accuracy post-CSA, before editor\'s desk. NOT primarily an SEO play. Blocked: API key + endpoint docs not yet delivered by Gary Kirwan.',
+    description: 'ACTIVE EVALUATION — PARAMETER DEFINITION IN PROGRESS. Gary has run 3 reports (Duggar legal, Women\'s World health, Charlotte Home Buyers Guide). Charlotte stress-test complete: tool caught stale FY2025 tax rate ($966.20 vs correct $985.40) that human editor missed. Chris directed Pierce + Sara Vallone to define editorial parameters (verdict types: TRUE/FALSE/MISLEADING/INSUFFICIENT_EVIDENCE/OVERGENERALIZED); Pierce to own, bring to Chris for review. Acceptance tracking = system quality signal (compare: retraction rates). Primary use case: claims validation / factual accuracy post-CSA, before editor\'s desk. NOT primarily an SEO play. Blocked: McClatchy API key status unclear (Gary may be running on his end).',
     blockers: [
-      'Gary API endpoint docs + confirmed key delivery still pending',
-      '5 open questions: McClatchy content indexed in Convex? Brand guide stored? brand_id scope? Cost model? Two-tier brand guideline handling?',
+      'McClatchy API key status unclear — Gary appears to be running tests; confirm whether our key is active',
+      '4 open questions sent to Gary 2026-04-03: confidence scoring methodology, severity calibration by content type, article-level vs claim-level output, reproducibility across runs',
+      'Sara Vallone parameter-definition session pending — Slack sent 2026-04-03, awaiting reply',
     ],
     nextActions: [
-      'Confirm API key receipt and endpoint docs from Gary Kirwan',
-      'Build integration spec per Chris\'s operational requirements: editor correction + override, error rate tracking by article/author/content type, correction tracking, override reporting (Pierce + Vallone + Chris initially; shrinks to Vallone once confident)',
-      'Define source trustworthiness management process — who approves/removes sources over time',
-      'Run first-test sequence: health → scrape → meta → structure → brand-readiness → citations → poll',
-      'Stress-test claims validator on Home Buyers Guide (Mecklenburg County fiscal year / tax nuances — complex local accuracy case)',
-      'Claims validation documented in PRD V0.3 Quality Enrichment section — no further PRD action needed',
+      'Await Gary\'s responses to 4 questions (confidence, severity calibration, article-level output, reproducibility)',
+      'Run Sara Vallone parameter-definition session — use 3 existing reports as working examples; arrive with draft threshold recommendation',
+      'Draft parameters document for Chris review once Sara session complete',
+      'Confirm McClatchy API key status with Gary',
+      'Build integration spec per Chris\'s operational requirements: editor correction + override, error rate tracking by article/author/content type, override reporting (Pierce + Vallone + Chris initially; shrinks to Vallone once confident)',
+      'Define source trustworthiness management process — Pierce owns list',
       'Do not wait for SEO team review on non-SEO modules',
     ],
     dependsOn: ['p1-access'],
