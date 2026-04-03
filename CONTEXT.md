@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-03 (PRD V0.3 sent to Chris; 5 personas to Susannah; content standards routing annotations added; sync switched to manual)
+**Last session:** 2026-04-03 (Gary Tools: materials review complete; 4 questions sent to Gary; Sara Vallone approach aligned; Charlotte stress-test done)
 **Status:** P9 complete. Waiting on Chris/Sara PRD feedback. Active queue: Sarah Price meeting 2026-04-04, CSA metrics to Chris, Chad Bruton walkthrough, science persona definitions.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -42,7 +42,7 @@ For session history: see [sessions/](sessions/)
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris — CMS architecture will make it obsolete |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking PRD |
 | 9 | PRD Revisions | 3 | **Complete** | V0.3 delivered to Chris 2026-04-03. Sara Vallone input still needed for writer/editor section. |
-| 10 | Gary Tools Integration | 2 | **Blocked** | API key + endpoint docs not yet delivered by Gary Kirwan; Chris requirements defined |
+| 10 | Gary Tools Integration | 2 | **Blocked** | Awaiting Gary's responses to 4 questions (confidence, severity, article-level output, reproducibility); Sara Vallone parameter session gated on Gary's answers |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Resolved + closed 2026-04-03. Mode = workflow entry point. Removed from dependency map. |
