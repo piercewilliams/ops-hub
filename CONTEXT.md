@@ -55,7 +55,7 @@ For session history: see [sessions/](sessions/)
 3. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
 4. [ ] **Finalize Science-Curious persona definitions** — Science-Curious Retiree + Science-Curious Casual Reader need canonical definitions before Susannah can save them as shared custom personas.
 5. [ ] **Extend AGENT-AUDIENCE routing annotations** beyond §1 to full content standards guidance (pending Susannah confirming the tagging approach works).
-6. [ ] **Gary Tools parameter session with Sara Vallone** — Slack sent 2026-04-03, awaiting her reply. Use 3 existing reports as working examples; produce parameters doc for Chris review.
+6. [ ] **Gary Tools parameter session with Sara Vallone** — Approach aligned 2026-04-03: walk reports together, Sara flags what she'd escalate vs. not, Pierce drafts ruleset for iteration. Gated on Gary answering the 4 questions first.
 
 **Compass (HR — performance management):**
 - [ ] **Draft goals with Jeremy Gockel** in Compass — due **April 26, 2026**
