@@ -14,7 +14,7 @@ For session history: see [sessions/](sessions/)
 - Live at `https://piercewilliams.github.io/ops-hub`
 - 12 active projects across 5 dependency tiers + 1 hold (P13 closed)
 - Everything gates on two chains: **Access** (P1) and **PRD** (P9)
-- Sync: manual — update `data/projects.js` in a Claude session and push. Pill reads last commit time via public GitHub API (no token needed).
+- Sync: GitHub Actions (`.github/workflows/sync.yml`), 8am/12pm/5pm CDT Mon–Fri + manual dispatch. Uses GITHUB_TOKEN (no expiry). Requires `ANTHROPIC_API_KEY` secret — add at github.com/piercewilliams/ops-hub/settings/secrets/actions.
 
 ## Features Live
 

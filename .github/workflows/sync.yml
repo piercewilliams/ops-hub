@@ -1,0 +1,38 @@
+name: Ops Hub Sync
+
+on:
+  schedule:
+    # 8am, 12pm, 5pm Dallas CDT (UTC-5) Mon–Fri
+    - cron: '0 13,17,22 * * 1-5'
+  workflow_dispatch:  # manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write   # allows GITHUB_TOKEN to commit and push
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ops-hub
+        uses: actions/checkout@v4
+
+      - name: Clone subsidiary repos
+        run: |
+          git clone --depth=1 https://github.com/piercewilliams/csa-dashboard.git
+          git clone --depth=1 https://github.com/piercewilliams/csa-content-standards.git
+          git clone --depth=1 https://github.com/piercewilliams/data-t1headlines.git
+          git clone --depth=1 https://github.com/piercewilliams/data-cmstracker.git
+          git clone --depth=1 https://github.com/piercewilliams/gary-tools.git
+
+      - name: Run sync agent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 scripts/sync-agent.py
+
+      - name: Commit and push
+        run: |
+          git config user.email "ops-hub-sync@github-actions"
+          git config user.name "Ops Hub Sync"
+          git add data/projects.js data/csa-links.js
+          git diff --staged --quiet && echo "No changes to commit" || \
+            (git commit -m "Auto-sync $(date -u +%Y-%m-%dT%H:%MZ)" && git push)

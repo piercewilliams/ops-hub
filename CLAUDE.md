@@ -50,14 +50,15 @@ Run this before every push.
 
 ## How Sync Works
 
-There is no automated sync agent. The dashboard stays current through normal Claude Code sessions:
+Sync runs via **GitHub Actions** (`.github/workflows/sync.yml`) on a schedule (8am/12pm/5pm Dallas CDT, Mon–Fri) and on manual dispatch. It uses `GITHUB_TOKEN` for push — no PAT, nothing to expire.
 
-1. Open a session in this repo (or any subsidiary repo)
-2. Update `data/projects.js` with current project statuses
-3. Commit and push — `git push` with your normal credentials
-4. The sync pill on the dashboard automatically reflects the new commit time via the public GitHub API
+The sync script is `scripts/sync-agent.py` (Python stdlib only, no pip). It reads `CONTEXT.md` from all 5 subsidiary repos, calls the Claude API (`ANTHROPIC_API_KEY` stored as a GitHub Actions secret), and writes updated `data/projects.js` and `data/csa-links.js`.
 
-The sync pill button (↻) re-fetches from the GitHub API on click. No tokens, no agents, nothing to expire.
+The sync pill reads the last commit time for `data/projects.js` via the public GitHub API. No token required.
+
+**To trigger a manual sync:** Go to github.com/piercewilliams/ops-hub → Actions → "Ops Hub Sync" → "Run workflow".
+
+**One-time setup required:** Add `ANTHROPIC_API_KEY` as a secret at github.com/piercewilliams/ops-hub/settings/secrets/actions.
 
 ## Passkey
 
