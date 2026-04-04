@@ -222,5 +222,6 @@ Trend signals in → content generation → drafts greenlit / revised / sent bac
 **Understanding chain:** P8 + P13 → P9 (PRD) → P11 (Recipes)
 **Analysis chain:** P3 (T1 Headlines) → P3.5 (Narrative Dashboard)
 **Governance chain:** P6 → P4 → P5
+**Partner content chain:** P9 (PRD) → P15 (Partner Content Optimization) — gated on Chris green-light + Kathy
 
 **Meeting framing:** Which chain to move faster on — Access or Cluster? That's the real prioritization question for Chris.
