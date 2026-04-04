@@ -57,7 +57,8 @@ For session history: see [sessions/](sessions/)
 5. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
 6. [ ] **Finalize Science-Curious persona definitions** — Science-Curious Retiree + Science-Curious Casual Reader need canonical definitions before Susannah can save them as shared custom personas.
 7. [ ] **Extend AGENT-AUDIENCE routing annotations** beyond §1 to full content standards guidance (pending Susannah confirming the tagging approach works).
-8. [ ] **Gary Tools parameter session with Sara Vallone** — Approach aligned 2026-04-03: walk reports together, Sara flags what she'd escalate vs. not, Pierce drafts ruleset for iteration. Gated on Gary answering the 4 questions first.
+8. [ ] **Draft Gary Tools ruleset** — before the Sara Vallone meeting (next week). Start from Sara's 2-tier taxonomy: "Needs Clarification" (nuanced/mostly true, needs rewording) + "Needs Correction" (factually wrong/misleading/needs sourcing). Layer in source authority tiers and escalation logic. Sara sent 15 test articles to work through together.
+9. [ ] **Gary Tools meeting with Sara Vallone** — next week. Walk 15 test articles, iterate on draft ruleset.
 
 **Compass (HR — performance management):**
 - [ ] **Draft goals with Jeremy Gockel** in Compass — due **April 26, 2026**
@@ -72,7 +73,7 @@ For session history: see [sessions/](sessions/)
 - Chris + Sara Vallone: PRD V0.3 feedback
 - Sara Vallone + Andy: Apple News + Smart News personas (Sara drafting; Andy reviews before handoff to dev)
 - Susannah Locke: pinning all 5 personas for National accounts (PGS-133); H1 enforcement fix (PGS-135); confirmation that AGENT-AUDIENCE tagging approach works
-- Gary Kirwan: API key + endpoint docs (P10) — second ask sent 2026-04-03
+- Gary Kirwan: API key + endpoint docs (P10) — second ask sent 2026-04-03; Sara Vallone also seeking access independently
 - IT / SEMrush: SEMrush access (Pierce escalated directly to SEMrush team 2026-04-03); Amplitude/Marfeel still inaccessible
 - Tarrow: ANP March drop (adding to Drive folder)
 - Dev team: variant linking + Cluster ID field (P6), PGS-133/134/135 (all selected for dev)
