@@ -73,6 +73,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | PRD: Content Graph & Operations Layer V3 Breakout | THIS IS THE CURRENT PRD. Describes Content Graph (asset lineage/versioning/performance) and Operations Layer (air traffic control dashboard). Does NOT include a section on what the CSA itself should ultimately be and do — Pierce + Claude are writing that missing section to add to this document. |
 | Chris cluster performance sheet | https://docs.google.com/spreadsheets/d/1VGMbJUV2u9QjUpk0QxMdHeNf9sTumEeR/edit |
 | Sara Vallone tracker sheet | https://docs.google.com/spreadsheets/d/14_0eK46g3IEj7L_yp9FIdWwvnuYI5f-vAuP7DDhSPg8/edit |
+| Content testing tracker (Sarah Price) | Desktop: "Testing tracker.xlsx" — 18 sheets tracking Q1 2026 content experiments (Nostalgia, Swarming, Travel/Experiences, Everyday Life). Articles tagged P/C (parent/child = sibling pairs). Swarming Test = 5 story clusters, 21 articles. Travel avg 328 PV/article vs Everyday Life 51.5. Discover Persona test sheet exists but empty. |
 
 ## Team Roster
 
