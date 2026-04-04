@@ -277,6 +277,7 @@ export const PROJECTS = {
       '3-way meeting next week (Pierce, Sarah Price, Sara Vallone) — align on: signals/trends to track, how to present, weekly vs monthly cadence, what to toggle by; Sarah Price scheduling',
       'Build SEMrush layer post-meeting — point-and-click interface on top of API for Sarah Price',
       'Start with evergreen backlinking use case: track ~25 URLs, measure improvement after adding backlinks to ~800 view/day evergreen article',
+      'Second use case: headline tweaks on underperforming articles — identify underperformers, tweak headline, track keyword/traffic improvement over time (Sarah Price 2026-04-03). Potential SEMrush layer feature; also a natural experiment type for T1 analysis site.',
     ],
     dependsOn: ['p1-access', 'p3-headlines'],
     contacts: [
