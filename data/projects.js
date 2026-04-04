@@ -6,6 +6,7 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-04', task: 'P1 Access: SEMrush + Amplitude access confirmed. Marfeel status still unclear. SEMrush 250K credits held by Sarah Price (confirmed 2026-04-03 alignment call) — to be forwarded to Pierce for API work.', project: '#1 Platform Access & Training' },
   { date: '2026-04-03', task: 'T1 Headlines: Governor system built into analysis environment — learns from Sarah Price\'s feedback over time; structured feedback request sent; Price will start providing notes next week.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-03', task: 'T1 Headlines: Evidence report generated against Sara Vallone\'s SmartNews/Apple News format guide (10 findings). Key corrections: WTK CONTRADICTED on SmartNews (p=0.046); questions worst formula on both platforms (Apple r=−0.265, SN r=−0.091, push −38% CTR); character ranges refined (SN: 70–90 ideal, Apple: 90–120); service journalism verticals claim softened. Push notifications section flagged as missing from guide entirely.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-03', task: 'T1 Headlines: Experiments page live (docs/experiments/index.html) — 8 suggestion cards auto-generated from analysis findings, Export PNG button added. Mann-Whitney tests added for sports/biz subtopic comparisons; politics rigor warning suppressed when n=0. SmartNews "Here\'s" finding downgraded to directional throughout (tile, table, callout, practical guidance). Build report fully clean: 6 ✓ checks, 3 informational engagement-outlier warnings (Tarrow source data issue).', project: '#3 T1 Headlines Analysis' },
@@ -259,6 +260,28 @@ export const PROJECTS = {
       { label: 'Sac Bee example 1', url: 'https://www.sacbee.com/news/article315177773.html' },
       { label: 'Kansas City example', url: 'https://www.kansascity.com/news/article315178360.html' },
       { label: 'Sac Bee example 2', url: 'https://www.sacbee.com/news/article315180459.html' },
+    ],
+  },
+
+  'p14-semrush': {
+    id: 'p14-semrush', num: '14', tier: 4, type: 'project', status: 'in-progress',
+    name: 'SEMrush / Keyword Signal Layer',
+    owner: 'Pierce · Sarah Price · Sara Vallone',
+    description: 'Build a keyword and trend signal tracking layer using the SEMrush API. Sarah Price holds the API key + 250K credits (confirmed 2026-04-03 alignment call; "Elan" at SEMrush set it up). Goal: point-and-click interface for Sarah Price to track keyword performance without touching the API directly. Feeds T1 Headlines analysis and content planning broadly. Two confirmed use cases: (1) track ~5 URLs for keyword performance signals; (2) evergreen backlinking strategy — track ~25 URLs, measure improvement after adding backlinks to proven evergreen article (~800 views/day). 3-way alignment meeting planned next week (Pierce, Sarah Price, Sara Vallone) to define signals, presentation format, and update cadence before building.',
+    blockers: [
+      'SEMrush API key not yet received from Sarah Price (she will forward)',
+      '3-way alignment meeting needed before building — must confirm what signals to track, presentation format, update frequency',
+    ],
+    nextActions: [
+      'Receive SEMrush API key + 250K credit info from Sarah Price',
+      '3-way meeting next week (Pierce, Sarah Price, Sara Vallone) — align on: signals/trends to track, how to present, weekly vs monthly cadence, what to toggle by; Sarah Price scheduling',
+      'Build SEMrush layer post-meeting — point-and-click interface on top of API for Sarah Price',
+      'Start with evergreen backlinking use case: track ~25 URLs, measure improvement after adding backlinks to ~800 view/day evergreen article',
+    ],
+    dependsOn: ['p1-access', 'p3-headlines'],
+    contacts: [
+      { name: 'Sarah Price', role: 'Primary user; holds SEMrush API key + 250K credits' },
+      { name: 'Sara Vallone', role: 'Stakeholder; aligning on signals to track' },
     ],
   },
 
