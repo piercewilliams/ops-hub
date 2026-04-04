@@ -32,7 +32,7 @@ For session history: see [sessions/](sessions/)
 
 | # | Project | Tier | Status | Key Blocker |
 |---|---------|------|--------|-------------|
-| 1 | Platform Access & Training | 1 | In progress | Amplitude/Marfeel/SemRush still inaccessible despite IT claiming access; Gary API key pending |
+| 1 | Platform Access & Training | 1 | In progress | SEMrush + Amplitude access confirmed 2026-04-04. Marfeel status unclear. Gary API key still pending. |
 | 2 | Dashboard Instrumentation | 4 | In progress | Credentials pending; manual-metrics.js population delayed (CSA about to auto-log stats) |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | **13 findings live, 5-tile playbook.** March data ingested 2026-04-02. Ongoing cadence. Site shared with Sarah Price (confirmed). |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 shared with Sarah Price first |
@@ -42,7 +42,7 @@ For session history: see [sessions/](sessions/)
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris — CMS architecture will make it obsolete |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking PRD |
 | 9 | PRD Revisions | 3 | **Complete** | V0.3 delivered to Chris 2026-04-03. Sara Vallone input still needed for writer/editor section. |
-| 10 | Gary Tools Integration | 2 | **Blocked** | Awaiting Gary's responses to 4 questions (confidence, severity, article-level output, reproducibility); Sara Vallone parameter session gated on Gary's answers |
+| 10 | Gary Tools Integration | 2 | **Blocked** | Gary still unresponsive (4 questions + API key). Sara Vallone engaged — proposed 2-tier taxonomy, sent 15 test articles. Draft ruleset + meeting next week. |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Resolved + closed 2026-04-03. Mode = workflow entry point. Removed from dependency map. |
@@ -50,15 +50,16 @@ For session history: see [sessions/](sessions/)
 ## What's Next
 
 **#1 — IMMEDIATE:**
-1. [ ] **Meeting with Sarah Price 2026-04-04** — Apple headlines + TEO API through SEMrush + Sigma dashboard context; collect first governor feedback.
-2. [ ] **Get final Vallone format guide + codify into csa-content-standards** — DO NOT FORGET. Current guide (received 2026-04-03 via Sarah Price) has 10 corrections needed from T1 analysis engine. Need to confirm Vallone produces a final version incorporating those findings, then codify it into csa-content-standards for CSA ingestion. Key corrections to verify are in final version: remove WTK from SmartNews recs, add questions-hurt-both-platforms rule, add push notifications section, refine character targets (SN: 70–90, Apple: 90–120).
-3. [ ] **Andy review on SmartNews Skimmer + Apple News Explorer personas** — get approval before sending to Susannah to pin.
-4. [ ] **Send CSA metrics to Chris** — macro-level monthly stats (3,465 batting avg, 138 CSA runs/week). Direct boss ask.
-5. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
-6. [ ] **Finalize Science-Curious persona definitions** — Science-Curious Retiree + Science-Curious Casual Reader need canonical definitions before Susannah can save them as shared custom personas.
-7. [ ] **Extend AGENT-AUDIENCE routing annotations** beyond §1 to full content standards guidance (pending Susannah confirming the tagging approach works).
-8. [ ] **Draft Gary Tools ruleset** — before the Sara Vallone meeting (next week). Start from Sara's 2-tier taxonomy: "Needs Clarification" (nuanced/mostly true, needs rewording) + "Needs Correction" (factually wrong/misleading/needs sourcing). Layer in source authority tiers and escalation logic. Sara sent 15 test articles to work through together.
-9. [ ] **Gary Tools meeting with Sara Vallone** — next week. Walk 15 test articles, iterate on draft ruleset.
+1. [ ] **Get SEMrush API key + 250K credits from Sarah Price** — she confirmed she'll forward it (2026-04-03a alignment call). Follow up if not received.
+2. [ ] **Meeting with Sarah Price 2026-04-04** — Apple headlines + TEO API through SEMrush + Sigma dashboard context; collect first governor feedback.
+3. [ ] **Get final Vallone format guide + codify into csa-content-standards** — DO NOT FORGET. Current guide (received 2026-04-03 via Sarah Price) has 10 corrections needed from T1 analysis engine. Need to confirm Vallone produces a final version incorporating those findings, then codify it into csa-content-standards for CSA ingestion. Key corrections to verify are in final version: remove WTK from SmartNews recs, add questions-hurt-both-platforms rule, add push notifications section, refine character targets (SN: 70–90, Apple: 90–120).
+4. [ ] **Andy review on SmartNews Skimmer + Apple News Explorer personas** — get approval before sending to Susannah to pin.
+5. [ ] **Send CSA metrics to Chris** — macro-level monthly stats (3,465 batting avg, 138 CSA runs/week). Direct boss ask.
+6. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
+7. [ ] **Finalize Science-Curious persona definitions** — Science-Curious Retiree + Science-Curious Casual Reader need canonical definitions before Susannah can save them as shared custom personas.
+8. [ ] **Extend AGENT-AUDIENCE routing annotations** beyond §1 to full content standards guidance (pending Susannah confirming the tagging approach works).
+9. [ ] **Draft Gary Tools ruleset** — before the Sara Vallone meeting (next week). Start from Sara's 2-tier taxonomy: "Needs Clarification" (nuanced/mostly true, needs rewording) + "Needs Correction" (factually wrong/misleading/needs sourcing). Layer in source authority tiers and escalation logic. Sara sent 15 test articles to work through together.
+10. [ ] **Gary Tools meeting with Sara Vallone** — next week. Walk 15 test articles, iterate on draft ruleset.
 
 **Compass (HR — performance management):**
 - [ ] **Draft goals with Jeremy Gockel** in Compass — due **April 26, 2026**
