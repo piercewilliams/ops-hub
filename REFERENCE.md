@@ -110,7 +110,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | Melissa Angle | Owns period calendar; McClatchy uses 4-4-5 financial periods (Period 4 started 2026-03-30) | — |
 | Jim Robinson | Engineering; built cosine similarity diff tool; internal SEO tool; has novelty concern about Gary | — |
 | Jason Smith | External; building similar AI pipeline tools; Chris mentioned as parallel case — also struggling to communicate ideal end state to dev team | — |
-| Kathy | Chris's direct report; owns syndication partnership review + United Robots evaluation | Separate from Kat Sheplavy |
+| Kathy | Chris's direct report; owns syndication partnership review + United Robots evaluation. Also owns partner content relationship (P15). Reuters being evaluated as potential replacement for current partner content provider — Kathy is the right contact when P15 activates. | Separate from Kat Sheplavy |
 | Stephanie Zandecki | Internal SEO; reviewing Gary's toolkit | — |
 | Patrick / Dar | Engineering (dev standup contacts for Amplitude event names) | — |
 | Regina | WordPress contact — needed for WordPress integration | — |

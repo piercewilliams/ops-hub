@@ -134,6 +134,9 @@ export const PROJECTS = {
       'Add Trend Hunter utility pieces — teams building content specifically for regular linking to build evergreen content (complements the backlinking strategy)',
       'Expand Sarah Price\'s + Sara Vallone\'s workflow detail — PRD currently slim on their processes',
       'Add claims validation as a formal PRD scope item once Gary integration is defined',
+      'Add LTV=0 framework for syndication: all syndication plays (Apple News, SmartNews, Yahoo, etc.) have LTV=0 — no subscriber conversion; value is incremental PVs (same articles also live on O&O). PRD framing should reflect this. Syndication strategy = maximizing incremental PV share across platforms that never convert.',
+      'Add swarm testing vision as a CSA product requirement: monitor a performing story → trigger a follow-up → CSA suggests next cluster topic. Chris sees this as an auto-recommendation layer on top of the cluster system. Not immediate — "down the line" — but needs to be scoped in the PRD.',
+      'Add syndication ecosystem taxonomy as analytical framework: app-based captured environments (SmartNews, Newsbreak, Apple News) vs. web-based competitive (Yahoo, O&O). Must be tracked and optimized separately — commingling these in analyses produces misleading conclusions (e.g., a headline formula that works in Apple News may not work in Yahoo/O&O because audience capture dynamics are completely different).',
     ],
     dependsOn: [],
   },
@@ -209,6 +212,7 @@ export const PROJECTS = {
       'Downgrade WTK/SmartNews site prose from "significant" to "directional" — held pending human resolution (_SN_FORMULA_DATA shows WTK at p=3.0e-6 in a different run, conflicting with p=0.046)',
       'ANP March drop — Tarrow adding to Drive folder; drop into anp_data/ when it arrives',
       'O&O layer: once Amplitude access lands, layer in pageview data per design doc',
+      'Ecosystem taxonomy audit: validate that cross-platform comparisons in current analysis only compare within ecosystem type — app-based captured (Apple News, SmartNews, Newsbreak) must not be compared directly against web-based competitive (Yahoo, O&O). Flag any existing findings that may commingle these groups and note in governor.',
     ],
     dependsOn: ['p1-access'],
   },
@@ -343,6 +347,26 @@ export const PROJECTS = {
       'Note: Discover Persona test sheet exists in Sarah Price\'s testing tracker but is empty/not started — natural starting point when P4/P7 are ready',
     ],
     dependsOn: ['p4-governance', 'p7-tracker'],
+  },
+
+  'p15-partner': {
+    id: 'p15-partner', num: '15', tier: 5, type: 'project', status: 'not-started',
+    name: 'Partner Content / Inventory Optimization',
+    owner: 'Pierce (future) · Kathy (stakeholder)',
+    description: 'One-time analysis and optimization of partner content inventory — identify which website inventory slots are filled by partner vs. owned content and optimize the mix for traffic. Chris Palo raised this workstream explicitly: a single focused pass could improve traffic ~10% in one week. Every website slot is "inventory" — owned content is the goal; partner content fills gaps but at a cost. Reuters is being evaluated as a potential replacement for the current partner content provider. NOT yet active — Chris explicitly said "not yet." Kathy owns the partner content relationship and must be involved in scoping when activated.',
+    blockers: [
+      'NOT STARTED — Chris said "not yet." No action until Chris green-lights this workstream.',
+      'Kathy must be looped in — she owns the partner content relationship.',
+    ],
+    nextActions: [
+      'Wait for Chris green-light before starting.',
+      'When activated: audit all website inventory slots, map owned vs. partner fill rates, quantify optimization opportunity (~10% traffic improvement estimate from Chris).',
+      'Check Reuters evaluation status — may replace current partner content provider before this workstream begins.',
+    ],
+    dependsOn: ['p9-prd'],
+    contacts: [
+      { name: 'Kathy', role: 'Owns partner content relationship; must be involved in scoping' },
+    ],
   },
 
   'p11-recipes': {

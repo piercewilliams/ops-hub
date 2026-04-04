@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-04 (Full sync: T1 Headlines, Gary Tools, Jira, Slack, meeting notes, testing tracker. P14 SEMrush layer added. Priority sequence fully rebuilt.)
-**Status:** P9 complete. 13 active projects. Primary gates: Gary (unresponsive), Vallone format guide final version, 3-way SEMrush meeting, Andy persona review.
+**Last session:** 2026-04-04 (Full sync: T1 Headlines, Gary Tools, Jira, Slack, meeting notes, testing tracker. P14 SEMrush layer added. Chris Palo huddle transcript processed. P15 Partner Content added. Priority sequence fully rebuilt.)
+**Status:** P9 complete. 14 active projects (+ P15 not-started). Primary gates: Gary (unresponsive), Vallone format guide final version, 3-way SEMrush meeting, Andy persona review.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -12,7 +12,7 @@ For session history: see [sessions/](sessions/)
 ## Current State
 
 - Live at `https://piercewilliams.github.io/ops-hub`
-- 13 active projects across 5 dependency tiers + 1 hold (P13 closed) — P14 SEMrush layer added 2026-04-04
+- 14 active projects across 5 dependency tiers + 1 hold (P13 closed) — P14 SEMrush added 2026-04-04, P15 Partner Content added 2026-04-04 (not-started)
 - P9 (PRD) complete — has open items (testing module, backlinking, process detail) but not blocking anything
 - SEMrush + Amplitude access confirmed 2026-04-04. Marfeel status unclear.
 - Sync: **Manual** — update `data/projects.js` in a Claude Code session, commit, and push. Pill reads last commit time via GitHub public API (green <3d, yellow 3–7d, red >7d).
@@ -48,6 +48,7 @@ For session history: see [sessions/](sessions/)
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
 | 14 | SEMrush / Keyword Signal Layer | 4 | In progress | API key + 3-way alignment meeting needed before building. Sarah Price scheduling meeting. |
+| 15 | Partner Content / Inventory Optimization | 5 | Not started | Chris raised it — "not yet." Kathy-gated. Reuters eval pending. ~10% traffic lift potential (one-time). |
 
 ## What's Next
 
@@ -67,6 +68,10 @@ For session history: see [sessions/](sessions/)
 10. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data. (Sarah Price also reaching out to Dedra 2026-04-06 to coordinate.)
 11. [ ] **Finalize Science-Curious persona definitions** — Retiree + Casual Reader need canonical definitions before Susannah saves as shared custom personas.
 12. [ ] **Extend AGENT-AUDIENCE routing annotations** beyond §1 — pending Susannah confirming it works.
+13. [ ] **Document 20-step analysis environment build process** — Chris explicitly asked for this. Write up the full environment setup (deps, ingest pipeline, generator, tests) so Chris can understand and replicate the sandbox. Will also serve as onboarding doc.
+14. [ ] **Investigate Bitbucket shared repo provisioning** — can Pierce provision a shared repo space for the team? Chris implied this is needed for collaboration on analysis code. Check access level.
+15. [ ] **T1 ecosystem taxonomy audit** — validate that cross-platform comparisons in current analysis respect ecosystem boundaries (app-based captured: Apple News, SmartNews, Newsbreak vs. web-based competitive: Yahoo, O&O). Flag any findings that commingle these groups; note in governor.
+16. [ ] **Update PRD** with LTV=0 syndication framework, swarm testing vision as product req, syndication ecosystem taxonomy as analytical framework (from Chris 2026-04-03 huddle).
 
 **Compass (HR — performance management):**
 - [ ] **Draft goals with Jeremy Gockel** in Compass — due **April 26, 2026**
@@ -93,7 +98,17 @@ For session history: see [sessions/](sessions/)
 
 Gary Kirwan's tool runs factual accuracy / claims validation post-CSA, before editor's desk. Three reports run: Duggar legal, Women's World health, Charlotte Home Buyers Guide. Charlotte stress-test complete — tool caught stale FY2025 tax rate ($966.20 vs $985.40) that human editor missed. Chris directed Pierce + Sara Vallone to define editorial parameters. Sara proposed simplified 2-tier taxonomy: **"Needs Clarification"** (nuanced/mostly true, needs rewording) + **"Needs Correction"** (factually wrong, misleading, or needs verified source). Sara also values source quality flagging (subpar blog callout). 4 technical questions still unanswered by Gary. Sara sent 15 test articles; meeting next week. Pierce to draft ruleset before meeting. Details: gary-tools repo.
 
+## Strategic Frameworks (from Chris Palo huddle 2026-04-03)
+
+**Syndication ecosystem taxonomy:** Two distinct environments. App-based captured (Apple News, SmartNews, Newsbreak) — users stay in-app, LTV=0, no subscriber conversion, pure PV increment. Web-based competitive (Yahoo, O&O) — users land on site, discovery model, standard CTR/PV dynamics. Do NOT commingle in analytics — headline/format formulas that work in one will not generalize to the other.
+
+**LTV = 0 for syndication:** Every syndication platform play is incremental PVs only — same articles also live on O&O. No subscriber conversion from syndication. The "value" of each syndication slot = PV delta. PRD must frame syndication strategy accordingly.
+
+**Cluster batting average:** Stories above avg PVs on 2+ sites. Q1 goal: 1-in-4. Current: ~1-in-3 (before CSA: 1-in-5 with fewer articles; now 1-in-3 with 5× more). "Double and triple dipping" = same story lands on multiple sites, each contributing incremental PVs.
+
+**Political data (two worlds):** Macro numbers (Justin's/Dedra's dashboards) are a separate world from Pierce's CSA statistical testing layer. Don't need to reconcile them. Pierce's work = isolated analysis environment for testing; Chris's cluster/political tracking = macro dashboard view.
+
 ---
 
 *Tiered Context Architecture. Budget: ≤150 lines.*
-*Lines used: ~85*
+*Lines used: ~110*
