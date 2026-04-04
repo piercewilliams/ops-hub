@@ -55,7 +55,6 @@ For session history: see [sessions/](sessions/)
 1. [ ] **Get SEMrush API key + 250K credits from Sarah Price** — she confirmed she'll forward it. Follow up if not received after today's meeting.
 2. [ ] **Meeting with Sarah Price 2026-04-04** — Apple headlines + SEMrush context + governor tile feedback (tiles 1–13: useful/not, which parts matter within useful tiles).
 3. [ ] **Draft Gary Tools ruleset** — before Sara Vallone meeting next week. Start from Sara's 2-tier taxonomy (Needs Clarification / Needs Correction); layer in source authority tiers + escalation logic. 15 test articles from Sara to structure around.
-4. [ ] **Send CSA metrics to Chris** — 3,465 batting avg, 138 CSA runs/week. Direct boss ask.
 
 **#2 — NEXT WEEK:**
 5. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset draft. Arrive with draft in hand.
@@ -87,7 +86,7 @@ For session history: see [sessions/](sessions/)
 - Marfeel: access status unclear — verify
 - Tarrow: ANP March drop (adding to Drive folder)
 - Sarah Price: reaching out to Dedra 2026-04-06 to schedule Chad Snowflake meeting
-- Dev team: variant linking + Cluster ID field (P6); PGS-133/134/135; PGS-80 analytics
+- Dev team: variant linking + Cluster ID field (P6); PGS-133/134/135; PGS-80 analytics (once live + Amplitude adapter active, CSA usage metrics become available to send to Chris — not a Pierce action until then)
 
 
 ## Gary Tools — Summary of What It Is
