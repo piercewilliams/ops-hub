@@ -6,6 +6,7 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-03', task: 'T1 Headlines: Experiments page live (docs/experiments/index.html) — 8 suggestion cards auto-generated from analysis findings, Export PNG button added. Mann-Whitney tests added for sports/biz subtopic comparisons; politics rigor warning suppressed when n=0. SmartNews "Here\'s" finding downgraded to directional throughout (tile, table, callout, practical guidance). Build report fully clean: 6 ✓ checks, 3 informational engagement-outlier warnings (Tarrow source data issue).', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-03', task: 'Gary Tools: Charlotte Home Buyers Guide stress-test complete. Tool caught stale FY2025 tax rate ($966.20 vs correct $985.40) that human editor missed. Revaluation timing and causal chain framing flagged correctly. Gary reported results to Chris.', project: '#10 Gary Tools Integration' },
   { date: '2026-04-03', task: 'Gary Tools: Pierce inserted into email chain with 4 questions for Gary (confidence scoring methodology, severity calibration by content type, article-level vs claim-level output, reproducibility across runs). Sara Vallone looped in via Slack to define editorial parameters — awaiting her response.', project: '#10 Gary Tools Integration' },
   { date: '2026-04-03', task: 'PRD V0.3 delivered to Chris Palo. Includes full four-pipeline model (T1 automated, T2 app-based, T3 canonical/repackaging, T4 Discover), CSA ideal end state, system requirements for all pipeline stages, Content Graph (deferred per Chris), and Operations Layer. Sara Vallone input still needed for writer/editor experience section.', project: '#9 PRD Revisions' },
@@ -177,14 +178,14 @@ export const PROJECTS = {
     id: 'p3-headlines', num: '3', tier: 4, type: 'project', status: 'in-progress',
     name: 'T1 Headlines Analysis (Price)',
     owner: 'Pierce · Sarah Price',
-    description: 'Phase 2 active — 13 findings live, 5-tile playbook. March Tarrow data ingested 2026-04-02; exhaustive cross-platform analysis complete. Full ANP data pipeline (420K rows, weekly drops from Tarrow). Findings (original 8): Featured Targeting, Push Notifications, Platform Topic Inversion, Views vs. Engagement, Formula Trends, Featuring Reaches Non-Subscribers, Topic Predicts Featuring, ANP Bottom-Performer Analysis. Added 2026-04-02 (5 new): MSN Formula Divergence, Formula × Topic Interaction, SmartNews Cross-Platform Formula Trap, Notification Outcome Language, Notification Send-Time. Playbook: Featured Targeting, Push Notifications, Section Tagging, Local vs. National, MSN Formula. Ongoing monitoring cadence (monthly Tarrow + weekly ANP). O&O/Amplitude layer is a separate sub-workstream requiring Amplitude access.',
+    description: 'Phase 2 active — 13 findings live, 5-tile playbook, experiments page live. March Tarrow data ingested 2026-04-02; exhaustive cross-platform analysis complete. Full ANP data pipeline (420K rows, weekly drops from Tarrow). Findings (original 8): Featured Targeting, Push Notifications, Platform Topic Inversion, Views vs. Engagement, Formula Trends, Featuring Reaches Non-Subscribers, Topic Predicts Featuring, ANP Bottom-Performer Analysis. Added 2026-04-02 (5 new): MSN Formula Divergence, Formula × Topic Interaction, SmartNews Cross-Platform Formula Trap, Notification Outcome Language, Notification Send-Time. Playbook: Featured Targeting, Push Notifications, Section Tagging, Local vs. National, MSN Formula. Experiments page (docs/experiments/index.html): 8 suggestion cards auto-generated, Export PNG button. Build report clean: 6 ✓ checks, 3 informational engagement-outlier warnings (Tarrow source data — active time values up to 23,496s, capped at 600s). Ongoing monitoring cadence (monthly Tarrow + weekly ANP). O&O/Amplitude layer is a separate sub-workstream requiring Amplitude access.',
     blockers: [
       'O&O/Amplitude layer blocked by Amplitude access (P1) — treat as separate workstream, do not block core work',
     ],
     nextActions: [
       'Meeting with Sarah Price 2026-04-04 — Apple headlines + TEO API through SEMrush + Sigma dashboard context',
-      'Share "What to know" Featured rate findings (Finding 1) → editorial leads',
-      'Add Mann-Whitney significance tests to sports/biz/pol subtopic tables (3 standing rigor warnings)',
+      'Notify Tarrow: active time outliers in source Excel (values up to 23,496s — likely milliseconds stored as seconds); pipeline caps at 600s but source data needs fixing',
+      'Downgrade WTK/SmartNews site prose from "significant" to "directional" — held pending human resolution (_SN_FORMULA_DATA shows WTK at p=3.0e-6 in a different run, conflicting with p=0.046)',
       'ANP March drop — Tarrow adding to Drive folder; drop into anp_data/ when it arrives',
       'O&O layer: once Amplitude access lands, layer in pageview data per design doc',
     ],
