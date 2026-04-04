@@ -112,4 +112,4 @@ Gary Kirwan's tool runs factual accuracy / claims validation post-CSA, before ed
 ---
 
 *Tiered Context Architecture. Budget: ≤150 lines.*
-*Lines used: ~110*
+*Lines used: ~120*
