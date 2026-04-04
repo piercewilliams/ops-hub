@@ -74,7 +74,7 @@ For session history: see [sessions/](sessions/)
 - Sara Vallone + Andy: Apple News + Smart News personas (Sara drafting; Andy reviews before handoff to dev)
 - Susannah Locke: pinning all 5 personas for National accounts (PGS-133); H1 enforcement fix (PGS-135); confirmation that AGENT-AUDIENCE tagging approach works
 - Gary Kirwan: API key + endpoint docs (P10) — second ask sent 2026-04-03; Sara Vallone also seeking access independently
-- IT / SEMrush: SEMrush access (Pierce escalated directly to SEMrush team 2026-04-03); Amplitude/Marfeel still inaccessible
+- Marfeel: status unclear as of 2026-04-04 — verify whether access is actually resolved (SEMrush + Amplitude now confirmed)
 - Tarrow: ANP March drop (adding to Drive folder)
 - Dev team: variant linking + Cluster ID field (P6), PGS-133/134/135 (all selected for dev)
 
