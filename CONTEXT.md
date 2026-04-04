@@ -51,7 +51,7 @@ For session history: see [sessions/](sessions/)
 
 **#1 — IMMEDIATE:**
 1. [ ] **Meeting with Sarah Price 2026-04-04** — Apple headlines + TEO API through SEMrush + Sigma dashboard context; collect first governor feedback.
-2. [ ] **Codify SmartNews/Apple News guidance** — after Price meeting, incorporate evidence report corrections (10 items) into csa-content-standards for CSA ingestion. Key corrections: remove WTK from SmartNews recs, add questions-hurt-both-platforms rule, add push notifications section, refine character targets (SN: 70–90, Apple: 90–120).
+2. [ ] **Get final Vallone format guide + codify into csa-content-standards** — DO NOT FORGET. Current guide (received 2026-04-03 via Sarah Price) has 10 corrections needed from T1 analysis engine. Need to confirm Vallone produces a final version incorporating those findings, then codify it into csa-content-standards for CSA ingestion. Key corrections to verify are in final version: remove WTK from SmartNews recs, add questions-hurt-both-platforms rule, add push notifications section, refine character targets (SN: 70–90, Apple: 90–120).
 3. [ ] **Andy review on SmartNews Skimmer + Apple News Explorer personas** — get approval before sending to Susannah to pin.
 4. [ ] **Send CSA metrics to Chris** — macro-level monthly stats (3,465 batting avg, 138 CSA runs/week). Direct boss ask.
 5. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
