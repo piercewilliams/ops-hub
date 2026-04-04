@@ -6,6 +6,7 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-03', task: 'P4 Governance: Sara Vallone alignment call — confirmed 4-agent routing architecture (headlines / SEO / body content / final style pass). Sara now understands AGENT-AUDIENCE tags and why content standards must be labeled by agent type. She will send Apple News + SmartNews combined doc (format at top, persona labeled at bottom) to Andy for review, then to Pierce. Sara conceptually frames Apple News/SmartNews best practices as format, not persona — once format/persona decoupling lands, content should migrate from persona to format section.', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-04', task: 'P1 Access: SEMrush + Amplitude access confirmed. Marfeel status still unclear. SEMrush 250K credits held by Sarah Price (confirmed 2026-04-03 alignment call) — to be forwarded to Pierce for API work.', project: '#1 Platform Access & Training' },
   { date: '2026-04-03', task: 'T1 Headlines: Governor system built into analysis environment — learns from Sarah Price\'s feedback over time; structured feedback request sent; Price will start providing notes next week.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-03', task: 'T1 Headlines: Evidence report generated against Sara Vallone\'s SmartNews/Apple News format guide (10 findings). Key corrections: WTK CONTRADICTED on SmartNews (p=0.046); questions worst formula on both platforms (Apple r=−0.265, SN r=−0.091, push −38% CTR); character ranges refined (SN: 70–90 ideal, Apple: 90–120); service journalism verticals claim softened. Push notifications section flagged as missing from guide entirely.', project: '#3 T1 Headlines Analysis' },
@@ -230,7 +231,8 @@ export const PROJECTS = {
     ],
     nextActions: [
       'After Price meeting: finalize SmartNews/Apple News guidance incorporating evidence report corrections; codify into csa-content-standards for CSA ingestion',
-      'Get Andy review on SmartNews Skimmer + Apple News Explorer personas; once approved, send to Susannah to pin for National accounts',
+      'Get Andy review on SmartNews Skimmer + Apple News Explorer personas; once approved, send to Susannah to pin for National accounts. NOTE: Sara is sending Andy a combined doc (format best practices at top, persona section labeled at bottom) — format labeling is all Pierce needs to sort them correctly on ingest.',
+      'Once format/persona decoupling lands (Susannah\'s ticket, 15/18 dev tickets in code review as of 2026-04-03): review whether Apple News + SmartNews best practices should migrate from persona section to format section — Sara already conceptually frames them as format, not persona.',
       'Confirm with Susannah that headline agent prompt has been updated with AGENT-AUDIENCE: headline content (csa-content-standards v1.4.0 applied it; CSA admin upload pending)',
       'Extend AGENT-AUDIENCE routing annotations beyond §1 to full guidance doc (pending Susannah confirmation it works)',
       'Document format/persona separation in csa-content-standards once dev tooling is defined (decision: independently selectable, mix-and-match)',
