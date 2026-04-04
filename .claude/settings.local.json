@@ -29,7 +29,8 @@
       "Skill(schedule)",
       "Bash(git:*)",
       "Bash(curl:*)",
-      "Bash(xargs ls:*)"
+      "Bash(xargs ls:*)",
+      "Bash(node --check data/requests.js)"
     ]
   }
 }
