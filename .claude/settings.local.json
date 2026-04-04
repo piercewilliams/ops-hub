@@ -28,7 +28,8 @@
       "Bash(pandoc:*)",
       "Skill(schedule)",
       "Bash(git:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(xargs ls:*)"
     ]
   }
 }
