@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-03 (Gary Tools deep review; Charlotte stress-test complete; Pierce in email chain with 4 questions; Sara Vallone aligned on parameter process — gated on Gary's answers)
-**Status:** P9 complete. Waiting on Chris/Sara PRD feedback. Active queue: Sarah Price meeting 2026-04-04, CSA metrics to Chris, Chad Bruton walkthrough, science persona definitions.
+**Last session:** 2026-04-04 (T1 Headlines: experiments page live, governor built, evidence report run against Vallone format guide; P4: Vallone SmartNews/Apple News guide received, 10 corrections surfaced; Jira sync)
+**Status:** P9 complete. Waiting on Chris/Sara PRD feedback. Active queue: Sarah Price meeting 2026-04-04, CSA metrics to Chris, Chad Bruton walkthrough, science persona definitions, format guide codification.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -50,12 +50,14 @@ For session history: see [sessions/](sessions/)
 ## What's Next
 
 **#1 — IMMEDIATE:**
-1. [ ] **Meeting with Sarah Price 2026-04-04** — Apple headlines + TEO API through SEMrush + Sigma dashboard context.
-2. [ ] **Send CSA metrics to Chris** — macro-level monthly stats (3,465 batting avg, 138 CSA runs/week). Direct boss ask.
-3. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
-4. [ ] **Finalize Science-Curious persona definitions** — Science-Curious Retiree + Science-Curious Casual Reader need canonical definitions before Susannah can save them as shared custom personas.
-5. [ ] **Extend AGENT-AUDIENCE routing annotations** beyond §1 to full content standards guidance (pending Susannah confirming the tagging approach works).
-6. [ ] **Gary Tools parameter session with Sara Vallone** — Approach aligned 2026-04-03: walk reports together, Sara flags what she'd escalate vs. not, Pierce drafts ruleset for iteration. Gated on Gary answering the 4 questions first.
+1. [ ] **Meeting with Sarah Price 2026-04-04** — Apple headlines + TEO API through SEMrush + Sigma dashboard context; collect first governor feedback.
+2. [ ] **Codify SmartNews/Apple News guidance** — after Price meeting, incorporate evidence report corrections (10 items) into csa-content-standards for CSA ingestion. Key corrections: remove WTK from SmartNews recs, add questions-hurt-both-platforms rule, add push notifications section, refine character targets (SN: 70–90, Apple: 90–120).
+3. [ ] **Andy review on SmartNews Skimmer + Apple News Explorer personas** — get approval before sending to Susannah to pin.
+4. [ ] **Send CSA metrics to Chris** — macro-level monthly stats (3,465 batting avg, 138 CSA runs/week). Direct boss ask.
+5. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data.
+6. [ ] **Finalize Science-Curious persona definitions** — Science-Curious Retiree + Science-Curious Casual Reader need canonical definitions before Susannah can save them as shared custom personas.
+7. [ ] **Extend AGENT-AUDIENCE routing annotations** beyond §1 to full content standards guidance (pending Susannah confirming the tagging approach works).
+8. [ ] **Gary Tools parameter session with Sara Vallone** — Approach aligned 2026-04-03: walk reports together, Sara flags what she'd escalate vs. not, Pierce drafts ruleset for iteration. Gated on Gary answering the 4 questions first.
 
 **Compass (HR — performance management):**
 - [ ] **Draft goals with Jeremy Gockel** in Compass — due **April 26, 2026**
