@@ -101,7 +101,7 @@ For session history: see [sessions/](sessions/)
 - Marfeel: access status unclear — verify
 - Tarrow: ANP March drop (adding to Drive folder)
 - Sarah Price: reaching out to Dedra 2026-04-06 to schedule Chad Snowflake meeting
-- Dev team: variant linking + Cluster ID field (P6); PGS-133/134/135; PGS-80 analytics (once live + Amplitude adapter active, CSA usage metrics become available to send to Chris — not a Pierce action until then)
+- Dev team: variant linking + Cluster ID field (P6); PGS-133/134/135; PGS-80 DONE (Amplitude event tracking implemented 2026-04-06 — p-tagging bug still the remaining blocker before data is reliable)
 
 
 ## Gary Tools — Summary of What It Is

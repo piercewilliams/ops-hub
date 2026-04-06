@@ -167,7 +167,7 @@ export const PROJECTS = {
       { name: 'Google Sheets (manual)', status: 'done', note: 'Manual metrics bridge live via data/manual-metrics.js + seedMetrics() — no API key needed. Edit that file to update numbers.' },
       { name: 'Sigma', status: 'pending-creds', note: 'Provides Stories/week, batting average. Needs OAuth2 credentials.' },
       { name: 'Marfeel', status: 'pending-creds', note: 'Provides Discover rate, batting average. Needs API key + account manager URL.' },
-      { name: 'Amplitude', status: 'pending-creds', note: 'Access granted 2026-04-04. CSA eng team p-tagging bug (CUE/WP tag format mismatch) still needs resolving before data quality is reliable — their fix. Once resolved, activate adapter.' },
+      { name: 'Amplitude', status: 'pending-creds', note: 'Access granted 2026-04-04. PGS-80 event tracking DONE (2026-04-06). Remaining blocker: CSA eng p-tagging bug (CUE/WP tag format mismatch) still needs resolving before data quality is reliable — their fix. Once resolved, activate adapter.' },
     ],
     blockers: [
       'Google Sheets adapter: needs OAuth2 credentials from Chad Bruton',
