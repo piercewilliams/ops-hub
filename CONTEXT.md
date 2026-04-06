@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-06 (PRD V0.4 completed — Sara Vallone + Sarah Price feedback incorporated; delivered to Chris Palo for final review. Rajiv Pant synthesis skills library updated: 3 new skills installed — synthesis-implementation-integrity, synthesis-skills-manager, synthesis-slack-sync.)
+**Last session:** 2026-04-06 (PRD V0.4 delivered; standup synced — CSA architectural refactor (YAML→Markdown/PG vector), thinking feature + progress bar shipped, PGS-139 + PGS-140 added, PGS-82 staging-approved by Susannah)
 **Status:** P9 complete. 14 active projects (+ P15 not-started). Primary gates: Gary (unresponsive), Vallone format guide final version, 3-way SEMrush meeting, Andy persona review.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -15,6 +15,10 @@ For session history: see [sessions/](sessions/)
 - 14 active projects across 5 dependency tiers + 1 hold (P13 closed) — P14 SEMrush added 2026-04-04, P15 Partner Content added 2026-04-04 (not-started)
 - P9 (PRD) complete — V0.4 delivered 2026-04-06; Sara Vallone + Sarah Price feedback incorporated; with Chris Palo for final review
 - SEMrush + Amplitude access confirmed 2026-04-04. Marfeel status unclear.
+- **CSA architectural refactor (Rajiv, 2026-04-06 weekend):** YAML style guide structure removed; style guides now in Markdown stored in PostgreSQL via PG vector plugin. Two-tier hierarchy: local/admin guides in PG vector; constitutional guides bundled with source code. CSA can now validate uploaded style guides. Fixes: LLM token exhaustion from conflicting content-length vs. source-quality rules.
+- **New CSA features (2026-04-06):** "Thinking feature" — CSA displays its reasoning to users (aids debugging, rule tracking). Progress bar replaced spinning circle ("elevator mirror" analogy). One known hang bug remains (Rajiv investigating — possibly Claude overload or hung connection).
+- **PGS-139 + PGS-140 (NEW, both Selected for Dev):** Pierce tagged on both. PGS-139: CSA internally tests variants for duplicate content, auto-regenerates if fails, notifies user if still fails — UX for extended time is key concern (Efren Castillo; coordinate with TEO/Jim Robinson). PGS-140: analytics for pass/fail rates, failing variant IDs, reanalysis clicks, auto-regen events — feeds P2 Amplitude once live.
+- **PGS-82:** Susannah approved merge to staging 2026-04-06 (conditional: national team flag required in production; accessible for stakeholder testing in staging).
 - Sync: **Manual** — update `data/projects.js` in a Claude Code session, commit, and push. Pill reads last commit time via GitHub public API (green <3d, yellow 3–7d, red >7d).
 
 ## Features Live
@@ -34,7 +38,7 @@ For session history: see [sessions/](sessions/)
 | # | Project | Tier | Status | Key Blocker / State |
 |---|---------|------|--------|---------------------|
 | 1 | Platform Access & Training | 1 | In progress | SEMrush + Amplitude confirmed. Marfeel unclear. Gary API key pending. |
-| 2 | Dashboard Instrumentation | 4 | In progress | Google Sheets creds from Chad = first live adapter. Amplitude blocked by p-tagging bug (eng). |
+| 2 | Dashboard Instrumentation | 4 | In progress | Google Sheets creds from Chad = first live adapter. Amplitude p-tagging bug (eng fix). PGS-140 analytics data will feed this once live. |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, experiments page, governor built. Sarah focus: headlines only. SEMrush layer next. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Vallone format guide in hand (10 corrections needed). Andy review pending for 2 personas. |
@@ -82,6 +86,11 @@ For session history: see [sessions/](sessions/)
 - [ ] Manager approval by **April 30, 2026**
 - [ ] Mid-year check-in: **July 2026** (mandatory)
 - [ ] Final evaluation: **January 2027**
+
+**PGS-82/139/140 rollout — Susannah is driving, Pierce is tagged:**
+- [ ] **Attend staging test session (Monday+)** — Susannah scheduling with TEO + national team. Pierce tagged on PGS-139/140; likely involved in staging analysis. No action needed to initiate — wait for Susannah's calendar invite.
+- [ ] **Monitor PGS-140 analytics spec** — duplicate content analytics will feed P2 dashboard once live; confirm Amplitude event names with dev team when ticket moves to build.
+- Rollout sequence: Staging (Mon+) → TEO + national team QA → mitigation strategies → thoughtful production launch → analytics (PGS-140, "later this week") → self-correction (PGS-139, "this week/next")
 
 **Waiting on others (no action needed):**
 - Sarah Price: SEMrush API key + 250K credits; governor tile feedback (starting next week); 3-way SEMrush meeting scheduling

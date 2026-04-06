@@ -30,7 +30,10 @@
       "Bash(git:*)",
       "Bash(curl:*)",
       "Bash(xargs ls:*)",
-      "Bash(node --check data/requests.js)"
+      "Bash(node --check data/requests.js)",
+      "Bash(textutil -convert txt -stdout \"/Users/pierce/Desktop/Chris Palo Huddle Brief - 2026-04-03.docx\")",
+      "Bash(pip3 install:*)",
+      "Bash(pip3 show:*)"
     ]
   }
 }

@@ -180,6 +180,7 @@ export const PROJECTS = {
       'Get Sigma credentials once Snowflake walkthrough happens → activate Sigma adapter',
       'Verify Marfeel access → get API key → activate Marfeel adapter',
       'Monitor CSA eng p-tagging fix → activate Amplitude adapter once resolved',
+      'Monitor PGS-140 (duplicate content analytics, Selected for Dev) — event data will feed Amplitude once live; confirm event names with dev team when in build',
     ],
     dependsOn: ['p1-access'],
   },
