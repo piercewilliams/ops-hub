@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-06 (PRD V0.4 delivered; standup synced — CSA architectural refactor (YAML→Markdown/PG vector), thinking feature + progress bar shipped, PGS-139 + PGS-140 added, PGS-82 staging-approved by Susannah)
-**Status:** P9 complete. 14 active projects (+ P15 not-started). Primary gates: Gary (unresponsive), Vallone format guide final version, 3-way SEMrush meeting, Andy persona review.
+**Last session:** 2026-04-06 (Content & Programming Weekly — P15 now active, P16 LTV Model added, headline grading tool committed, AI policy scope opened, Gary escalated to Chris)
+**Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Gary (Chris escalating), Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -12,7 +12,7 @@ For session history: see [sessions/](sessions/)
 ## Current State
 
 - Live at `https://piercewilliams.github.io/ops-hub`
-- 14 active projects across 5 dependency tiers + 1 hold (P13 closed) — P14 SEMrush added 2026-04-04, P15 Partner Content added 2026-04-04 (not-started)
+- 15 active projects across 5 dependency tiers + 1 hold (P13 closed) — P14 SEMrush added 2026-04-04, P15 Partner Content now in-progress (Lindy's going live, AI policy active), P16 LTV Model added 2026-04-06 (not-started)
 - P9 (PRD) complete — V0.4 delivered 2026-04-06; Sara Vallone + Sarah Price feedback incorporated; with Chris Palo for final review
 - SEMrush + Amplitude access confirmed 2026-04-04. Marfeel status unclear.
 - **CSA architectural refactor (Rajiv, 2026-04-06 weekend):** YAML style guide structure removed; style guides now in Markdown stored in PostgreSQL via PG vector plugin. Two-tier hierarchy: local/admin guides in PG vector; constitutional guides bundled with source code. CSA can now validate uploaded style guides. Fixes: LLM token exhaustion from conflicting content-length vs. source-quality rules.
@@ -47,24 +47,30 @@ For session history: see [sessions/](sessions/)
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris. Testing tracker is manual evidence of demand. |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking anything. |
 | 9 | PRD Revisions | 3 | **Complete** | V0.4 delivered 2026-04-06. Sara Vallone + Sarah Price feedback incorporated. With Chris Palo for final review. |
-| 10 | Gary Tools Integration | 2 | **Blocked** | Gary unresponsive. Sara engaged — 2-tier taxonomy proposed, 15 articles sent. Meeting next week. |
+| 10 | Gary Tools Integration | 2 | **Blocked** | Gary unresponsive. Chris Palo now personally following up (2026-04-06). Sara engaged — meeting next week. |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
 | 14 | SEMrush / Keyword Signal Layer | 4 | In progress | API key + 3-way alignment meeting needed before building. Sarah Price scheduling meeting. |
-| 15 | Partner Content / Inventory Optimization | 5 | Not started | Chris raised it — "not yet." Kathy-gated. Reuters eval pending. ~10% traffic lift potential (one-time). |
+| 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live this week. AI policy for AI-sourced content now active (Pierce + Chris + Kathryn). Reuters still blocked. Inventory analysis still deferred. |
+| 16 | LTV Model | 5 | Not started | Chris scheduling kickoff this week (Sara, Sarah Price, Pierce, Kathy). Statistical input from Pierce needed. |
 
 ## What's Next
 
 **#1 — THIS WEEK:**
-1. [ ] **Get SEMrush API key + 250K credits from Sarah Price** — she confirmed she'll forward it. Follow up if not received after today's meeting.
-2. [ ] **Meeting with Sarah Price 2026-04-04** — Apple headlines + SEMrush context + governor tile feedback (tiles 1–13: useful/not, which parts matter within useful tiles).
-3. [ ] **Draft Gary Tools ruleset** — before Sara Vallone meeting next week. Start from Sara's 2-tier taxonomy (Needs Clarification / Needs Correction); layer in source authority tiers + escalation logic. 15 test articles from Sara to structure around.
+1. [ ] **Julia Tortoriello meeting — Thursday 2026-04-10 at 2 PM EST** — El Nuevo translation process + selection criteria + CSA instrumentation scope. Prep notes: `sessions/meeting-2026-04-10-julia-tortoriello.md`
+2. [ ] **Get SEMrush API key + 250K credits from Sarah Price** — she confirmed she'll forward it; follow up if not received.
+2. [ ] **Co-lead tool responsibility document with Sara Vallone** (Chris assigned, 2026-04-06 C&P Weekly) — Sara has a doc started and will share draft EOW (by 2026-04-10). Pierce co-leads. Chris will also define AI policy for partner content vetting with Kathryn + Pierce.
+3. [x] ~~**Ping on CSA intro length**~~ — Pierce escalated to Susannah 2026-04-06 (Slack); may be folded into existing PGS-135 headline ticket. Susannah to triage.
+4. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
+5. [ ] **Draft Gary Tools ruleset** — before Sara Vallone meeting next week. Start from Sara's 2-tier taxonomy (Needs Clarification / Needs Correction); layer in source authority tiers + escalation logic. 15 test articles from Sara. (Chris is also personally following up with Gary.)
 
 **#2 — NEXT WEEK:**
-4. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset draft. Arrive with draft in hand.
-5. [ ] **3-way SEMrush meeting** (Pierce, Sarah Price, Sara Vallone) — Sarah Price scheduling. Align on: signals/trends to track, presentation format, weekly vs monthly cadence, what to toggle by. This scopes P14 build.
-6. [ ] **Andy review on SmartNews Skimmer + Apple News Explorer personas** — required before Susannah can pin for National accounts.
+6. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset draft. Arrive with draft in hand.
+7. [ ] **3-way SEMrush meeting** (Pierce, Sarah Price, Sara Vallone) — Sarah Price scheduling. Align on: signals/trends to track, presentation format, weekly vs monthly cadence, what to toggle by. This scopes P14 build.
+8. [ ] **Andy review on SmartNews Skimmer + Apple News Explorer personas** — required before Susannah can pin for National accounts.
+9. [x] ~~**Investigate Julia Tortoriello's content translation strategy**~~ — **Meeting scheduled: Thursday 2026-04-10 2PM EST.** Julia Tortoriello confirmed. Context: El Novo translating many stories; team exploring dedicated Spanish CSA pipeline.
+10. [ ] **Define headline grading rules** with Sara Vallone + Sarah Price — then build: (a) automated daily headline quality report using existing pipeline data, (b) hub page evaluating last 24-48hrs of headlines. Pierce committed to these builds at 2026-04-06 C&P Weekly. Tool to eventually integrate into CSA.
 
 **#3 — AFTER NEXT WEEK'S MEETINGS:**
 8. [ ] **When format/persona decoupling lands: migrate Apple News + SmartNews best practices from persona → format section** — Sara already frames these as format; dev ticket in queue (15/18 in code review as of 2026-04-03). Do this review as soon as the decoupling ticket closes.
@@ -93,15 +99,18 @@ For session history: see [sessions/](sessions/)
 - Rollout sequence: Staging (Mon+) → TEO + national team QA → mitigation strategies → thoughtful production launch → analytics (PGS-140, "later this week") → self-correction (PGS-139, "this week/next")
 
 **Waiting on others (no action needed):**
-- Sarah Price: SEMrush API key + 250K credits; governor tile feedback (starting next week); 3-way SEMrush meeting scheduling
-- Chris Palo: PRD V0.4 final review and feedback
+- Sarah Price: SEMrush API key + 250K credits; cluster performance data + Amplitude pulse data (to share with Pierce); 3-way SEMrush meeting scheduling
+- Chris Palo: PRD V0.4 final review; Gary direct follow-up; LTV meeting scheduling; AI policy collaboration
+- Susannah Locke: CSA GitHub repo access (username: piercewilliams; Susannah has OK to provision); intro length triage (queued 2026-04-06)
 - Sara Vallone + Andy: Apple News + Smart News personas (Sara drafting; Andy reviews before handoff)
-- Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); AGENT-AUDIENCE confirmation
-- Gary Kirwan: API key + endpoint docs + 4 open questions — unresponsive; second ask 2026-04-03; Sara also seeking access
+- Sara Vallone: tool responsibility doc draft (EOW 2026-04-10)
+- Sara Vallone: Alex Meta contact (El Novo Spanish strategy)
+- Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); AGENT-AUDIENCE confirmation; CSA intro length investigation (Pierce to escalate)
+- Gary Kirwan: API key + endpoint docs — Chris Palo now personally following up
 - Marfeel: access status unclear — verify
 - Tarrow: ANP March drop (adding to Drive folder)
 - Sarah Price: reaching out to Dedra 2026-04-06 to schedule Chad Snowflake meeting
-- Dev team: variant linking + Cluster ID field (P6); PGS-133/134/135; PGS-80 DONE (Amplitude event tracking implemented 2026-04-06 — p-tagging bug still the remaining blocker before data is reliable)
+- Dev team: variant linking + Cluster ID field (P6); PGS-133/134/135; p-tagging bug (Amplitude blocker)
 
 
 ## Gary Tools — Summary of What It Is
