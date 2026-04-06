@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-04 (Full sync: T1 Headlines, Gary Tools, Jira, Slack, meeting notes, testing tracker. P14 SEMrush layer added. Chris Palo huddle transcript processed. P15 Partner Content added. Priority sequence fully rebuilt.)
+**Last session:** 2026-04-06 (PRD V0.4 completed. Sara Vallone + Sarah Price feedback incorporated. Syndication ecosystem taxonomy, LTV=0, swarm testing, testing module, evergreen backlinking all added. Delivered to Chris Palo for final review.)
 **Status:** P9 complete. 14 active projects (+ P15 not-started). Primary gates: Gary (unresponsive), Vallone format guide final version, 3-way SEMrush meeting, Andy persona review.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -13,7 +13,7 @@ For session history: see [sessions/](sessions/)
 
 - Live at `https://piercewilliams.github.io/ops-hub`
 - 14 active projects across 5 dependency tiers + 1 hold (P13 closed) — P14 SEMrush added 2026-04-04, P15 Partner Content added 2026-04-04 (not-started)
-- P9 (PRD) complete — has open items (testing module, backlinking, process detail) but not blocking anything
+- P9 (PRD) complete — V0.4 delivered 2026-04-06; Sara Vallone + Sarah Price feedback incorporated; with Chris Palo for final review
 - SEMrush + Amplitude access confirmed 2026-04-04. Marfeel status unclear.
 - Sync: **Manual** — update `data/projects.js` in a Claude Code session, commit, and push. Pill reads last commit time via GitHub public API (green <3d, yellow 3–7d, red >7d).
 
@@ -42,7 +42,7 @@ For session history: see [sessions/](sessions/)
 | 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | In dev team's hands. Swarming Test in tracker validates approach. |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris. Testing tracker is manual evidence of demand. |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking anything. |
-| 9 | PRD Revisions | 3 | **Complete** | V0.3 delivered. Open items: testing module, backlinking, process detail, claims validation scope. |
+| 9 | PRD Revisions | 3 | **Complete** | V0.4 delivered 2026-04-06. Sara Vallone + Sarah Price feedback incorporated. With Chris Palo for final review. |
 | 10 | Gary Tools Integration | 2 | **Blocked** | Gary unresponsive. Sara engaged — 2-tier taxonomy proposed, 15 articles sent. Meeting next week. |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
@@ -72,7 +72,7 @@ For session history: see [sessions/](sessions/)
 14. [ ] **Document 20-step analysis environment build process** — Chris explicitly asked for this. Write up the full environment setup (deps, ingest pipeline, generator, tests) so Chris can understand and replicate the sandbox. Will also serve as onboarding doc.
 15. [ ] **Investigate Bitbucket shared repo provisioning** — can Pierce provision a shared repo space for the team? Chris implied this is needed for collaboration on analysis code. Check access level.
 16. [ ] **T1 ecosystem taxonomy audit** — validate that cross-platform comparisons in current analysis respect ecosystem boundaries (app-based captured: Apple News, SmartNews, Newsbreak vs. web-based competitive: Yahoo, O&O). Flag any findings that commingle these groups; note in governor.
-17. [ ] **Update PRD** with LTV=0 syndication framework, swarm testing vision as product req, syndication ecosystem taxonomy as analytical framework (from Chris 2026-04-03 huddle).
+17. [x] ~~**Update PRD** with LTV=0 syndication framework, swarm testing vision as product req, syndication ecosystem taxonomy as analytical framework~~ — Done. V0.4 delivered to Chris Palo 2026-04-06.
 
 **Compass (HR — performance management):**
 - [ ] **Draft goals with Jeremy Gockel** in Compass — due **April 26, 2026**
@@ -85,7 +85,7 @@ For session history: see [sessions/](sessions/)
 
 **Waiting on others (no action needed):**
 - Sarah Price: SEMrush API key + 250K credits; governor tile feedback (starting next week); 3-way SEMrush meeting scheduling
-- Chris + Sara Vallone: PRD V0.3 feedback
+- Chris Palo: PRD V0.4 final review and feedback
 - Sara Vallone + Andy: Apple News + Smart News personas (Sara drafting; Andy reviews before handoff)
 - Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); AGENT-AUDIENCE confirmation
 - Gary Kirwan: API key + endpoint docs + 4 open questions — unresponsive; second ask 2026-04-03; Sara also seeking access

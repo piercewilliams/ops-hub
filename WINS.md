@@ -48,6 +48,9 @@ Evaluated Gary Kirwan's toolkit against internal alternatives. Determined Gary's
 
 ## Tier 3 — Strategy & Schema
 
+**2026-04-06 — PRD V0.4: McClatchy Content Pipeline End-to-End Vision**
+Completed full revision of the pipeline PRD incorporating Sara Vallone and Sarah Price stakeholder feedback. Added syndication ecosystem taxonomy (app-based captured vs. web-based competitive as hard analytical boundary), LTV=0 syndication framework, swarm testing as a formal Phase 2/3 product requirement, standalone testing module as a distinct system component, and evergreen backlinking as a named internal links use case. Sara Vallone's editorial experience section completed and validated. All five open audit gaps resolved. V0.4 delivered to Chris Palo for final review.
+
 **2026-03-26 — Cluster tagging schema design**
 Clarified and documented the full cluster data model (3-tier: Cluster → Subject → Article). Established proactive assignment at CSA Research Draft stage as the correct entry point. Documented alignment meeting blocker and held the line against building before stakeholder agreement — preventing throwaway work.
 
