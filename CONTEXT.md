@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-06 (Content & Programming Weekly — P15 now active, P16 LTV Model added, headline grading tool committed, AI policy scope opened, Gary escalated to Chris)
+**Last session:** 2026-04-06 (Full sync day — standup + Jira + C&P Weekly + afternoon Slacks. PGS-80 Done; P15 active; P16 LTV added; Julia Tortoriello meeting Thu 4/10 2PM; Sara AI usage doc shared; CSA GitHub access pending)
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Gary (Chris escalating), Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -18,7 +18,11 @@ For session history: see [sessions/](sessions/)
 - **CSA architectural refactor (Rajiv, 2026-04-06 weekend):** YAML style guide structure removed; style guides now in Markdown stored in PostgreSQL via PG vector plugin. Two-tier hierarchy: local/admin guides in PG vector; constitutional guides bundled with source code. CSA can now validate uploaded style guides. Fixes: LLM token exhaustion from conflicting content-length vs. source-quality rules.
 - **New CSA features (2026-04-06):** "Thinking feature" — CSA displays its reasoning to users (aids debugging, rule tracking). Progress bar replaced spinning circle ("elevator mirror" analogy). One known hang bug remains (Rajiv investigating — possibly Claude overload or hung connection).
 - **PGS-139 + PGS-140 (NEW, both Selected for Dev):** Pierce tagged on both. PGS-139: CSA internally tests variants for duplicate content, auto-regenerates if fails, notifies user if still fails — UX for extended time is key concern (Efren Castillo; coordinate with TEO/Jim Robinson). PGS-140: analytics for pass/fail rates, failing variant IDs, reanalysis clicks, auto-regen events — feeds P2 Amplitude once live.
+- **PGS-80 DONE (2026-04-06):** Amplitude event tracking implemented. Remaining P2 blocker: p-tagging bug (CUE/WP format mismatch) — CSA eng fix.
 - **PGS-82:** Susannah approved merge to staging 2026-04-06 (conditional: national team flag required in production; accessible for stakeholder testing in staging).
+- **CSA GitHub repo access:** Susannah got OK; Pierce provided GitHub username `piercewilliams`; awaiting provisioning.
+- **Sara Vallone AI usage/accountability doc:** Shared 2026-04-06 after check-in. Sara leads; Pierce to review EOW and add escalation procedures + partner content vetting policy. Suggested expansion provided (escalation section is the main gap Chris named).
+- **Julia Tortoriello meeting:** Thursday 2026-04-10 2PM EST — El Nuevo Spanish translation process. Prep: `sessions/meeting-2026-04-10-julia-tortoriello.md`
 - Sync: **Manual** — update `data/projects.js` in a Claude Code session, commit, and push. Pill reads last commit time via GitHub public API (green <3d, yellow 3–7d, red >7d).
 
 ## Features Live
@@ -60,14 +64,14 @@ For session history: see [sessions/](sessions/)
 **#1 — THIS WEEK:**
 1. [ ] **Julia Tortoriello meeting — Thursday 2026-04-10 at 2 PM EST** — El Nuevo translation process + selection criteria + CSA instrumentation scope. Prep notes: `sessions/meeting-2026-04-10-julia-tortoriello.md`
 2. [ ] **Get SEMrush API key + 250K credits from Sarah Price** — she confirmed she'll forward it; follow up if not received.
-2. [ ] **Co-lead tool responsibility document with Sara Vallone** (Chris assigned, 2026-04-06 C&P Weekly) — Sara has a doc started and will share draft EOW (by 2026-04-10). Pierce co-leads. Chris will also define AI policy for partner content vetting with Kathryn + Pierce.
-3. [x] ~~**Ping on CSA intro length**~~ — Pierce escalated to Susannah 2026-04-06 (Slack); may be folded into existing PGS-135 headline ticket. Susannah to triage.
-4. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
-5. [ ] **Draft Gary Tools ruleset** — before Sara Vallone meeting next week. Start from Sara's 2-tier taxonomy (Needs Clarification / Needs Correction); layer in source authority tiers + escalation logic. 15 test articles from Sara. (Chris is also personally following up with Gary.)
+3. [ ] **Review Sara Vallone's AI usage guidance draft** — Sara is leading; sharing draft EOW 2026-04-10. Check in on progress, review what she's drafted, and identify what Pierce should add: AI policy for partner content vetting (with Chris + Kathryn) + any escalation/accountability gaps her doc doesn't cover.
+4. [x] ~~**Ping on CSA intro length**~~ — Pierce escalated to Susannah 2026-04-06 (Slack); may be folded into existing PGS-135 headline ticket. Susannah to triage.
+5. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
+6. [ ] **Draft Gary Tools escalation ruleset** — before Sara Vallone meeting next week. Start from Sara's 2-tier taxonomy (Needs Clarification / Needs Correction); layer in source authority tiers + escalation logic. 15 test articles from Sara. (Separate from Sara's AI usage doc — this is the Gary-specific verdict/parameter doc. Chris also personally following up with Gary.)
 
 **#2 — NEXT WEEK:**
-6. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset draft. Arrive with draft in hand.
-7. [ ] **3-way SEMrush meeting** (Pierce, Sarah Price, Sara Vallone) — Sarah Price scheduling. Align on: signals/trends to track, presentation format, weekly vs monthly cadence, what to toggle by. This scopes P14 build.
+7. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset draft. Arrive with draft in hand.
+8. [ ] **3-way SEMrush meeting** (Pierce, Sarah Price, Sara Vallone) — Sarah Price scheduling. Align on: signals/trends to track, presentation format, weekly vs monthly cadence, what to toggle by. This scopes P14 build.
 8. [ ] **Andy review on SmartNews Skimmer + Apple News Explorer personas** — required before Susannah can pin for National accounts.
 9. [x] ~~**Investigate Julia Tortoriello's content translation strategy**~~ — **Meeting scheduled: Thursday 2026-04-10 2PM EST.** Julia Tortoriello confirmed. Context: El Novo translating many stories; team exploring dedicated Spanish CSA pipeline.
 10. [ ] **Define headline grading rules** with Sara Vallone + Sarah Price — then build: (a) automated daily headline quality report using existing pipeline data, (b) hub page evaluating last 24-48hrs of headlines. Pierce committed to these builds at 2026-04-06 C&P Weekly. Tool to eventually integrate into CSA.
