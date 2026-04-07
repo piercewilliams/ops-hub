@@ -28,8 +28,35 @@
   --text-secondary-rgb: 148, 152, 176;
 
   /* Layout */
-  --sidebar-w: 400px;
+  --sidebar-w:    400px;
   --tier-label-w: 130px;
+  --card-w:       190px;
+  --sync-dot-size: 7px;
+
+  /* Z-indexes */
+  --z-arrows:          0;
+  --z-diagram:         1;
+  --z-header:         50;
+  --z-sidebar:       100;
+  --z-sidebar-close: 101;
+  --z-progress-panel:200;
+  --z-modal:         500;
+  --z-popover:      1000;
+
+  /* Shadows */
+  --shadow-card:     0 2px 12px rgba(0,0,0,0.35);
+  --shadow-sidebar:  -8px 0 32px rgba(0,0,0,0.4);
+  --shadow-progress: -4px 0 24px rgba(0,0,0,0.4);
+  --shadow-popover:  0 8px 24px rgba(0,0,0,0.5);
+  --shadow-modal:    0 12px 40px rgba(0,0,0,0.55);
+
+  /* Backgrounds */
+  --header-bg:  rgba(15, 17, 23, 0.92);
+  --backdrop-bg: rgba(0, 0, 0, 0.55);
+
+  /* Misc */
+  --opacity-hold:           0.65;
+  --passkey-letter-spacing: 0.15em;
 }
 
 /* ============================================================
@@ -57,7 +84,7 @@ html, body {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0; /* TODO: consider --z-arrows variable */
+  z-index: var(--z-arrows);
 }
 
 /* ============================================================
@@ -67,8 +94,8 @@ html, body {
 #header {
   position: sticky;
   top: 0;
-  z-index: 50; /* TODO: consider --z-header variable */
-  background: rgba(15, 17, 23, 0.92); /* TODO: magic opacity 0.92 — could be --header-bg-opacity */
+  z-index: var(--z-header);
+  background: var(--header-bg);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   padding: 14px 24px 12px;
@@ -139,7 +166,7 @@ html, body {
   flex-direction: column;
   gap: 0;
   position: relative;
-  z-index: 1; /* TODO: consider --z-diagram variable */
+  z-index: var(--z-diagram);
 }
 
 /* ── Tier row ───────────────────────────────────────────────── */
@@ -155,7 +182,7 @@ html, body {
 .tier-row:last-child { border-bottom: none; }
 
 .tier-hold {
-  opacity: 0.65; /* TODO: magic opacity — could be --opacity-hold */
+  opacity: var(--opacity-hold);
 }
 
 /* ── Tier label ─────────────────────────────────────────────── */
@@ -210,7 +237,7 @@ html, body {
    ============================================================ */
 
 .card {
-  width: 190px; /* TODO: magic width — could be --card-w */
+  width: var(--card-w);
   min-height: 96px;
   background: var(--surface);
   border: 1px solid var(--border-mid);
@@ -228,7 +255,7 @@ html, body {
 .card:hover {
   border-color: var(--border-bright);
   background: var(--surface2);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.35); /* TODO: magic shadow opacity */
+  box-shadow: var(--shadow-card);
 }
 
 .card.active {
@@ -341,7 +368,7 @@ html, body {
   height: 100%;
   background: var(--surface);
   border-left: 1px solid var(--border-mid);
-  z-index: 100; /* TODO: consider --z-sidebar variable */
+  z-index: var(--z-sidebar);
   transform: translateX(100%);
   transition: transform 0.22s ease;
   overflow: hidden;
@@ -351,7 +378,7 @@ html, body {
 
 #sidebar.open {
   transform: translateX(0);
-  box-shadow: -8px 0 32px rgba(0,0,0,0.4); /* TODO: magic shadow opacity */
+  box-shadow: var(--shadow-sidebar);
 }
 
 #sidebar-inner {
@@ -377,7 +404,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 101; /* TODO: consider --z-sidebar-close variable */
+  z-index: var(--z-sidebar-close);
   transition: color 0.12s, border-color 0.12s;
 }
 #sidebar-close:hover {
@@ -629,13 +656,13 @@ html, body {
 
 #csa-popover {
   position: absolute;
-  z-index: 1000; /* TODO: consider --z-popover variable */
+  z-index: var(--z-popover);
   width: 300px;
   background: var(--surface2);
   border: 1px solid var(--border-bright);
   border-radius: 8px;
   padding: 12px 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5); /* TODO: magic shadow opacity */
+  box-shadow: var(--shadow-popover);
   display: none;
   pointer-events: auto;
 }
@@ -696,10 +723,10 @@ html, body {
   height: 100vh;
   background: var(--surface);
   border-left: 1px solid var(--border-mid);
-  box-shadow: -4px 0 24px rgba(0,0,0,0.4); /* TODO: magic shadow opacity */
+  box-shadow: var(--shadow-progress);
   display: flex;
   flex-direction: column;
-  z-index: 200; /* TODO: consider --z-progress-panel variable */
+  z-index: var(--z-progress-panel);
   transform: translateX(100%);
   transition: transform 0.2s ease;
 }
@@ -887,10 +914,10 @@ html, body {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 500; /* TODO: consider --z-modal variable */
+  z-index: var(--z-modal);
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.55); /* TODO: magic backdrop opacity */
+  background: var(--backdrop-bg);
   backdrop-filter: blur(4px);
 }
 #snap-restore-modal.visible { display: flex; }
@@ -901,7 +928,7 @@ html, body {
   border-radius: 10px;
   padding: 22px 24px;
   width: 400px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.55); /* TODO: magic shadow opacity */
+  box-shadow: var(--shadow-modal);
 }
 
 .srm-title {
@@ -937,7 +964,7 @@ html, body {
   padding: 8px 12px;
   color: var(--text-primary);
   font-size: 15px;
-  letter-spacing: 0.15em; /* TODO: magic letter-spacing for passkey dots */
+  letter-spacing: var(--passkey-letter-spacing);
   margin-bottom: 6px;
   outline: none;
   transition: border-color 0.15s;
@@ -1009,7 +1036,7 @@ html, body {
 }
 
 .sync-dot {
-  width: 7px; height: 7px; /* TODO: magic size — could be --sync-dot-size */
+  width: var(--sync-dot-size); height: var(--sync-dot-size);
   border-radius: 50%;
   flex-shrink: 0;
   background: var(--text-muted);

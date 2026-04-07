@@ -426,7 +426,7 @@ async function renderSnapshotBar() {
   try {
     const res = await fetch(`./data/snapshots/index.json?t=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error();
-    const snapshots = await res.json();
+    const snapshots = (await res.json()).slice(0, SNAPSHOT_MAX);
     if (!snapshots.length) { el.style.display = 'none'; return; }
 
     _snapshotIndex = snapshots;

@@ -120,7 +120,51 @@ if grep -q 'name="viewport"' index.html; then ok "viewport meta present"; else f
 if grep -q 'name="description"' index.html; then ok "description meta present"; else warn "missing description meta"; fi
 if grep -q 'type="module"' index.html; then ok "ES module script tag present"; else fail "missing type=module on script"; fi
 
-# 7. Git status
+# 7. Behavioral integrity
+echo ""
+echo "[ Behavioral integrity ]"
+
+# Key exports exist
+if grep -q 'export function renderDiagram' js/diagram.js && grep -q 'export function drawArrows' js/diagram.js; then
+  ok "diagram.js exports renderDiagram + drawArrows"
+else
+  fail "diagram.js missing expected exports"
+fi
+if node -e "const src = require('fs').readFileSync('data/projects.js','utf8'); ['PROJECTS','COMPLETED_TASKS','TIERS'].forEach(e => { if (!src.includes('export') || !src.includes(e)) throw new Error(e); });" 2>/dev/null; then
+  ok "projects.js exports PROJECTS, COMPLETED_TASKS, TIERS"
+else
+  fail "projects.js missing expected exports"
+fi
+
+# sanitize() is defined
+if grep -q 'function sanitize' js/app.js; then
+  ok "sanitize() defined in app.js"
+else
+  fail "sanitize() missing from app.js"
+fi
+
+# setInterval not nested inside DOMContentLoaded (module-top-level check)
+# Match the actual addEventListener call, not comments that mention DOMContentLoaded
+INTERVAL_LINE=$(grep -n 'setInterval(fetchSyncStatus' js/app.js | head -1 | cut -d: -f1)
+DCL_LINE=$(grep -n "addEventListener.*DOMContentLoaded" js/app.js | head -1 | cut -d: -f1)
+if [ -n "$INTERVAL_LINE" ] && [ -n "$DCL_LINE" ] && [ "$INTERVAL_LINE" -lt "$DCL_LINE" ]; then
+  ok "setInterval(fetchSyncStatus) is at module top level"
+else
+  warn "setInterval(fetchSyncStatus) may be inside DOMContentLoaded — verify manually"
+fi
+
+# Snapshot file count matches index.json
+if [ -f "data/snapshots/index.json" ]; then
+  INDEX_COUNT=$(node -e "console.log(JSON.parse(require('fs').readFileSync('data/snapshots/index.json','utf8')).length)")
+  FILE_COUNT=$(find data/snapshots -maxdepth 1 -name '*.json' ! -name 'index.json' | wc -l | tr -d ' ')
+  if [ "$INDEX_COUNT" -eq "$FILE_COUNT" ]; then
+    ok "Snapshot file count matches index.json ($INDEX_COUNT entries, $FILE_COUNT files)"
+  else
+    warn "Snapshot file count mismatch: index.json has $INDEX_COUNT entries, found $FILE_COUNT snapshot files"
+  fi
+fi
+
+# 8. Git status
 echo ""
 echo "[ Git status ]"
 if git diff --quiet && git diff --cached --quiet; then
