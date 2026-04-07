@@ -109,7 +109,7 @@ export const PROJECTS = {
       'Sara Vallone meeting (next week) needed to finalize verdict taxonomy and run through test articles',
     ],
     nextActions: [
-      'Run Sara Vallone parameter session — walk 15 test articles she sent; arrive with v0.1 ruleset for iteration',
+      'Run Sara Vallone parameter session next week — walk 15 test articles; v0.1 ruleset already sent to Sara 2026-04-08, awaiting her review',
       'Await Chris Palo\'s direct follow-up with Gary — monitor for resolution; no additional Pierce action needed',
       'Draft parameters document for Chris review once Sara session complete',
       'Define source trustworthiness management process — Pierce owns list; Sara wants to build it out from the subpar-source-flagging capability',
@@ -183,7 +183,7 @@ export const PROJECTS = {
       'Verify Marfeel access → get API key → activate Marfeel adapter',
       'Schedule Chad Bruton Snowflake walkthrough → get Sigma OAuth2 credentials → activate Sigma adapter',
       'Monitor CSA eng p-tagging fix → activate Amplitude adapter once resolved',
-      'Monitor PGS-140 (duplicate content analytics, Selected for Dev) — confirm Amplitude event names with dev team when ticket moves to build',
+      'Monitor PGS-140 (duplicate content analytics) — Marcelo started Amplitude implementation 2026-04-07 (intelligence only, no UI); confirm Amplitude event names with dev team when ticket moves to build',
     ],
     dependsOn: ['p1-access'],
   },
@@ -219,13 +219,14 @@ export const PROJECTS = {
     name: 'Article Format + Persona + Keyword Governance',
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
     description: '5 personas sent to Susannah Locke to pin for all National accounts (2026-04-03): Discover Browser (already saved), + 4 additional ticketed in PGS-133. Content standards routing annotations live in §1: AGENT-AUDIENCE tags (general-style, headline, seo, human-only) enable CSA to grep rule sets by type. General style doc sent to Susannah to upload as CSA admin. H1 headline enforcement (80–100 chars) ticketed PGS-135. Sara Vallone\'s SmartNews/Apple News format guide received 2026-04-03 (via Sarah Price) — includes 2 new personas: SmartNews Skimmer + Apple News Explorer. Evidence report produced: guide needs 10 corrections before codification (WTK contradicted on SmartNews, questions worst formula on both platforms, character ranges refined, push notifications section missing). Final guidance to be codified in csa-content-standards after Price conversation. Andy review still required before personas go to Susannah. Pairwise testing approach confirmed: ~3 formats × 3 personas = ~9 tests.',
-    status_detail: 'In progress. All 5 National team personas sent to Susannah 2026-04-03. PGS-133 (4 additional target audiences) selected for dev. PGS-134 (Everything to Know + FAQ/Service Journalism formats) in progress. PGS-135 (H1 headline 80–100 char enforcement) selected for dev. Apple News + Smart News format guide received — personas (SmartNews Skimmer, Apple News Explorer) in hand, Andy review still needed before codification.',
+    status_detail: 'In progress. All 5 National team personas sent to Susannah 2026-04-03. PGS-133 (4 additional target audiences) now in Code Review. PGS-134 (Everything to Know + FAQ/Service Journalism formats) in progress. PGS-135 (H1 headline 80–100 char enforcement) selected for dev. PGS-141 (H1 rules for National Team agent prompt) selected for dev. PGS-147 (intro length ~80–100 words for National team) new ticket — National team only, current ~50 words. Apple News + Smart News format guide received — personas (SmartNews Skimmer, Apple News Explorer) in hand, Andy review still needed before codification.',
     blockers: [
       'Apple News + Smart News personas (SmartNews Skimmer, Apple News Explorer) received from Sara Vallone — Andy review still needed before sending to Susannah',
       'Format guide has 10 evidence-report corrections needed before codification in csa-content-standards',
       'H1 headline enforcement (PGS-135) pending Susannah prompt-level fix',
     ],
     nextActions: [
+      'PGS-147: Verify intro length guidance (~80–100 words) is included in the National team style guide uploaded 2026-04-02 — if not, add it before eng implements at prompt level',
       'Confirm with Susannah that headline agent prompt has been updated with AGENT-AUDIENCE: headline content (csa-content-standards v1.4.0 applied it; CSA admin upload pending)',
       'Get Andy review on SmartNews Skimmer + Apple News Explorer personas — Sara sending Andy combined doc (format at top, persona at bottom); monitor for Andy sign-off, then forward to Susannah',
       'Consolidate TH/TH B2C variants with Sara Vallone and Sarah Price',

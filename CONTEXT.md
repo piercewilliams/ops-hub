@@ -17,12 +17,17 @@ For session history: see [sessions/](sessions/)
 - SEMrush + Amplitude access confirmed 2026-04-04. Marfeel status unclear.
 - **CSA architectural refactor (Rajiv, 2026-04-06 weekend):** YAML style guide structure removed; style guides now in Markdown stored in PostgreSQL via PG vector plugin. Two-tier hierarchy: local/admin guides in PG vector; constitutional guides bundled with source code. CSA can now validate uploaded style guides. Fixes: LLM token exhaustion from conflicting content-length vs. source-quality rules.
 - **New CSA features (2026-04-06):** "Thinking feature" — CSA displays its reasoning to users (aids debugging, rule tracking). Progress bar replaced spinning circle ("elevator mirror" analogy). One known hang bug remains (Rajiv investigating — possibly Claude overload or hung connection).
-- **PGS-139 + PGS-140 (NEW, both Selected for Dev):** Pierce tagged on both. PGS-139: CSA internally tests variants for duplicate content, auto-regenerates if fails, notifies user if still fails — UX for extended time is key concern (Efren Castillo; coordinate with TEO/Jim Robinson). PGS-140: analytics for pass/fail rates, failing variant IDs, reanalysis clicks, auto-regen events — feeds P2 Amplitude once live.
+- **CSA performance improvement (2026-04-07):** Rajiv replaced thinking tokens for trivial tasks (char counting, text sizing) with code + targeted LLM call to shorten headlines when too brief. Result: 8.5 min → 1 min 18 sec on test runs, with equal or better content quality.
+- **2-PR process (new, effective after this week):** All non-emergency code changes require 2 PRs. Rajiv establishing before handing off product more broadly to team. Emergency hotfixes excepted.
+- **Own voice feature:** Discussed in standup — Susannah interested, Rajiv open to it. Emil flagged privacy + plagiarism risk if generated voice is used elsewhere. No decision; Rajiv says implement thoughtfully or not at all.
+- **Mobile app:** Rodrigo started feature development (Saner Keles coordinating). Demo potential; no timeline yet.
+- **PGS-141 (NEW, Selected for Dev):** Implement H1 headline rules for National Team agent prompt.
+- **PGS-139 + PGS-140 (both Selected for Dev):** Pierce tagged on both. PGS-139: CSA internally tests variants for duplicate content, auto-regenerates if fails, notifies user if still fails — UX for extended time is key concern (Efren Castillo; coordinate with TEO/Jim Robinson). PGS-140: analytics for pass/fail rates, failing variant IDs, reanalysis clicks, auto-regen events — Marcelo starting Amplitude implementation today (intelligence only, no UI needed). Feeds P2 Amplitude once live.
 - **PGS-80 DONE (2026-04-06):** Amplitude event tracking implemented. Remaining P2 blocker: p-tagging bug (CUE/WP format mismatch) — CSA eng fix.
-- **PGS-82:** Susannah approved merge to staging 2026-04-06 (conditional: national team flag required in production; accessible for stakeholder testing in staging).
+- **PGS-82:** Susannah approved merge to staging 2026-04-06. Staging QA will use real national team users + real content (Susannah has samples) — not just pass/fail. Jonathan Gonzalvo reviewing docs; will QA when ticket moves out of code review. National team flag required before production.
 - **CSA GitHub repo access:** Susannah got OK; Pierce provided GitHub username `piercewilliams`; awaiting provisioning.
-- **AI Tool Responsibility page (csa-content-standards):** Live as of 2026-04-07 with DRAFT banner. Full expanded language drafted: named escalation chain, supervisor conflict path, stop-use trigger, plagiarism/attribution check, partner content vetting, override documentation. Six [TBD] gaps need Chris + Sara decisions (Step 2/3 contacts, supervisor conflict contact, Slack channel, override doc location, United Robots scope, doc ownership/cadence). Align tomorrow 2026-04-08.
-- **CSA fact-checking ruleset v0.1:** Drafted 2026-04-07. Built-in CSA module framing (no external attribution). Verdict taxonomy → Sara's 2-tier action taxonomy, source authority tiers, content-type rules, escalation logic, override doc format. 4 open items for Rajiv/Susannah. Ready for Sara Vallone test-article session next week.
+- **AI Tool Responsibility page (csa-content-standards):** Live as of 2026-04-07 with DRAFT banner. Completed draft passed to Sara Vallone 2026-04-08 — awaiting her review. Six [TBD] gaps still need Chris + Sara to fill before final: Step 2/3 contacts, supervisor conflict contact, Slack channel, override doc location, United Robots scope, phrasing-reproduction threshold.
+- **CSA fact-checking ruleset v0.1:** Completed draft passed to Sara Vallone 2026-04-08 — awaiting her review + validation against 15 test articles. 4 open items for Rajiv/Susannah: United Robots scope, module access by role, verdict confidence scores, audit trail/storage.
 - **Julia Tortoriello meeting:** Thursday 2026-04-10 2PM EST — El Nuevo Spanish translation process. Prep: `sessions/meeting-2026-04-10-julia-tortoriello.md`
 - Sync: **Manual** — update `data/projects.js` in a Claude Code session, commit, and push. Pill reads last commit time via GitHub public API (green <3d, yellow 3–7d, red >7d).
 
@@ -65,14 +70,15 @@ For session history: see [sessions/](sessions/)
 **#1 — THIS WEEK:**
 1. [ ] **Julia Tortoriello meeting — Thursday 2026-04-10 at 2 PM EST** — El Nuevo translation process + selection criteria + CSA instrumentation scope. Prep notes: `sessions/meeting-2026-04-10-julia-tortoriello.md`
 2. [ ] **Get SEMrush API key + 250K credits from Sarah Price** — she confirmed she'll forward it; follow up if not received.
-3. [x] ~~**Review Sara Vallone's AI usage guidance draft**~~ — Received. Pierce drafted expanded escalation language: named escalation chain, supervisor conflict path, stop-use trigger, plagiarism/attribution check, partner content vetting, override documentation. Six knowledge gaps require decisions from Chris + Sara before the doc is final.
-   - [ ] **Tomorrow (2026-04-08): Align with Chris + Sara on doc gaps** — (1) named escalation chain (Step 2 + Step 3 contacts), (2) supervisor conflict named contact, (3) reporting Slack channel, (4) override documentation location + review cadence, (5) partner content scope (does it cover United Robots?), (6) doc ownership and review cadence. Bring the draft language; these are the only blanks remaining.
-4. [x] ~~**Ping on CSA intro length**~~ — Pierce escalated to Susannah 2026-04-06 (Slack); may be folded into existing PGS-135 headline ticket. Susannah to triage.
+3. [x] ~~**Review Sara Vallone's AI usage guidance draft**~~ — Received. Pierce drafted expanded escalation language: named escalation chain, supervisor conflict path, stop-use trigger, plagiarism/attribution check, partner content vetting, override documentation.
+   - [x] ~~**Draft AI Tool Responsibility page + fact-checking ruleset**~~ — Both completed drafts passed to Sara Vallone 2026-04-08. Waiting on her review.
+   - [ ] **Sara Vallone review → fill 6 gaps in AI Tool Responsibility page** — Step 2/3 contacts, supervisor conflict contact, Slack channel, override doc location, United Robots scope, phrasing-reproduction threshold. Doc cannot be finalized until these are answered.
+4. [x] ~~**Ping on CSA intro length**~~ — Got its own ticket: PGS-147. National team only; ~80–100 words before first H2 (currently ~50). Susannah owns triage.
 5. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
-6. [x] ~~**Draft Gary Tools escalation ruleset**~~ — CSA fact-checking module ruleset v0.1 complete (2026-04-07). Framed as built-in CSA module. 4 open items for Rajiv/Susannah. Bring to Sara Vallone meeting next week.
+6. [x] ~~**Draft Gary Tools escalation ruleset**~~ — CSA fact-checking module ruleset v0.1 complete (2026-04-07). Passed to Sara Vallone 2026-04-08. Bring to test article session next week once she's reviewed.
 
 **#2 — NEXT WEEK:**
-7. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset draft. Arrive with draft in hand.
+7. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset. Draft already in her hands.
 8. [ ] **3-way SEMrush meeting** (Pierce, Sarah Price, Sara Vallone) — Sarah Price scheduling. Align on: signals/trends to track, presentation format, weekly vs monthly cadence, what to toggle by. This scopes P14 build.
 8. [ ] **Andy review on SmartNews Skimmer + Apple News Explorer personas** — required before Susannah can pin for National accounts.
 9. [x] ~~**Investigate Julia Tortoriello's content translation strategy**~~ — **Meeting scheduled: Thursday 2026-04-10 2PM EST.** Julia Tortoriello confirmed. Context: El Novo translating many stories; team exploring dedicated Spanish CSA pipeline.
@@ -102,14 +108,14 @@ For session history: see [sessions/](sessions/)
 **PGS-82/139/140 rollout — Susannah is driving, Pierce is tagged:**
 - [ ] **Attend staging test session (Monday+)** — Susannah scheduling with TEO + national team. Pierce tagged on PGS-139/140; likely involved in staging analysis. No action needed to initiate — wait for Susannah's calendar invite.
 - [ ] **Monitor PGS-140 analytics spec** — duplicate content analytics will feed P2 dashboard once live; confirm Amplitude event names with dev team when ticket moves to build.
-- Rollout sequence: Staging (Mon+) → TEO + national team QA → mitigation strategies → thoughtful production launch → analytics (PGS-140, "later this week") → self-correction (PGS-139, "this week/next")
+- Rollout sequence: Staging (real users + real content) → TEO + national team QA → mitigation strategies → thoughtful production launch → analytics (PGS-140) → self-correction (PGS-139)
 
 **Waiting on others (no action needed):**
 - Sarah Price: SEMrush API key + 250K credits; cluster performance data + Amplitude pulse data (to share with Pierce); 3-way SEMrush meeting scheduling; El Nuevo article count + translation % filtered by author bylines (from C&P Weekly 2026-04-06)
 - Chris Palo: PRD V0.4 final review; Gary direct follow-up; LTV meeting scheduling; AI policy collaboration
 - Susannah Locke: CSA GitHub repo access (username: piercewilliams; Susannah has OK to provision); intro length triage (queued 2026-04-06)
 - Sara Vallone + Andy: Apple News + Smart News personas (Sara drafting; Andy reviews before handoff)
-- Sara Vallone: tool responsibility doc draft (EOW 2026-04-10)
+- Sara Vallone: review of AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (both passed 2026-04-08)
 - Sara Vallone: Alex Meta contact (El Novo Spanish strategy)
 - Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); AGENT-AUDIENCE confirmation; CSA intro length investigation (Pierce to escalate)
 - Gary Kirwan: API key + endpoint docs — Chris Palo now personally following up
