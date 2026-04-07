@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-08 (Sara Vallone answered 3 of 6 AI Tool Responsibility gaps. Standup + Jira synced: PGS-141/147 added, PGS-133/102→Code Review, PGS-95→Done, CSA perf improvement noted, 2-PR process noted. PGS-148 new: Implement SEO Field Rules for National Team — Selected for Dev, High priority. AGENT-AUDIENCE §1 content uploaded by Susannah (general-style sections done via UI); PGS-141 headline + PGS-148 seo both selected for dev. §1.4 What to Link To + §1.5–1.9 human-only, no action needed. Susannah using Claude to fetch content by tag. Committed + pushed.)
+**Last session:** 2026-04-07 (Pierce<>Chris 1:30pm EDT. Headline Grader stalled — needs M-Lache org home for OAuth/API keys; sandbox documentation now top Pierce action. Gary won't share code — choosing to run docs himself; Chris told Jason. Roundups = bad per Chris (US Weekly editor concern). Clustering stats repackaging for Eric Nelson + Kathy Veter. PRD V0.4 not yet read by Chris — dropping link in meeting; automation levels in middle categories = his open question. Partner content fact-checking: new P15 sub-scope — Athlon Sports ~1M stories/year; legal data-vs-content question open. Amplitude connected to Claude via MCP. Chris pinging Rasheed re: Bitbucket + Cloudflare team environment.) Also 2026-04-08: Sara Vallone answered 3 of 6 AI Tool Responsibility gaps; PGS-40 + PGS-147 now in progress.
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Gary (Chris escalating), Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -51,20 +51,20 @@ For session history: see [sessions/](sessions/)
 |---|---------|------|--------|---------------------|
 | 1 | Platform Access & Training | 1 | In progress | SEMrush + Amplitude confirmed. Marfeel unclear. Gary API key pending. |
 | 2 | Dashboard Instrumentation | 4 | In progress | Google Sheets creds from Chad = first live adapter. Amplitude p-tagging bug (eng fix). PGS-140 analytics data will feed this once live. |
-| 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, experiments page, governor, Headline Grader built + delivered (2026-04-06). SEMrush layer next. |
+| 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, experiments page, governor, Headline Grader built + delivered (2026-04-06). **Grader stalled — M-Lache org blocks OAuth/API keys; sandbox doc needed first.** SEMrush layer next. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Vallone format guide in hand (10 corrections needed). Andy review pending for 2 personas. |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7. Discover Persona test sheet exists in tracker (empty). |
-| 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | In dev team's hands. Swarming Test in tracker validates approach. |
+| 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | PGS-40 now in progress. Tagging model scope: content formats, personas, output variants, distribution platforms. Swarming Test in tracker validates approach. |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris. Testing tracker is manual evidence of demand. |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking anything. |
-| 9 | PRD Revisions | 3 | **Complete** | V0.4 delivered 2026-04-06. Sara Vallone + Sarah Price feedback incorporated. With Chris Palo for final review. |
-| 10 | Gary Tools Integration | 2 | **Blocked** | Gary unresponsive. Chris Palo now personally following up (2026-04-06). Sara engaged — meeting next week. |
+| 9 | PRD Revisions | 3 | **Complete** | V0.4 delivered 2026-04-06. Chris had not read it as of 2026-04-07 meeting (Pierce dropped link). Outstanding question for Chris: automation levels in middle categories — his call. |
+| 10 | Gary Tools Integration | 2 | **Blocked** | Gary has API endpoint + key but won't share — choosing to run docs himself. Chris told Jason (2026-04-07). Sara following up directly (2026-04-08). Disposition issue, not just unresponsiveness. |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
 | 14 | SEMrush / Keyword Signal Layer | 4 | In progress | API key + 3-way alignment meeting needed before building. Sarah Price scheduling meeting. |
-| 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live this week. AI policy for AI-sourced content now active (Pierce + Chris + Kathryn). Reuters still blocked. Inventory analysis still deferred. |
+| 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live this week. AI policy for AI-sourced content now active. Reuters still blocked. **New sub-scope: fact-checking inbound partner content (Athlon Sports ~1M stories/year). Legal question: data vs. content (analyzable vs. contractually forbidden). Low priority.** |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff this week (Sara, Sarah Price, Pierce, Kathy). Statistical input from Pierce needed. |
 
 ## What's Next
@@ -75,7 +75,7 @@ For session history: see [sessions/](sessions/)
 3. [x] ~~**Review Sara Vallone's AI usage guidance draft**~~ — Received. Pierce drafted expanded escalation language: named escalation chain, supervisor conflict path, stop-use trigger, plagiarism/attribution check, partner content vetting, override documentation.
    - [x] ~~**Draft AI Tool Responsibility page + fact-checking ruleset**~~ — Both completed drafts passed to Sara Vallone 2026-04-08. Waiting on her review.
    - [ ] **3 remaining gaps in AI Tool Responsibility page** — Sara answered 3 of 6 (2026-04-08): escalation chain = Sara + Slack channel; supervisor conflict = Sara + Chris; phrasing threshold defined. Still open: (1) which Slack channel for Step 2, (2) override doc location + EOD report buildability (Rajiv/Susannah), (3) United Robots scope (Chris). Doc cannot be finalized until these are answered.
-4. [x] ~~**Ping on CSA intro length**~~ — Got its own ticket: PGS-147. National team only; ~80–100 words before first H2 (currently ~50). Susannah owns triage.
+4. [x] ~~**Ping on CSA intro length**~~ — PGS-147 now **in progress**. National team only; ~80–100 words before first H2 (currently ~50). Applies to all National content formats via feature flag.
 5. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
 6. [x] ~~**Draft Gary Tools escalation ruleset**~~ — CSA fact-checking module ruleset v0.1 complete (2026-04-07). Passed to Sara Vallone 2026-04-08. Bring to test article session next week once she's reviewed.
 
@@ -93,7 +93,7 @@ For session history: see [sessions/](sessions/)
 11. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data. (Sarah Price also reaching out to Dedra 2026-04-06 to coordinate.)
 12. [ ] **Finalize Science-Curious persona definitions** — Retiree + Casual Reader need canonical definitions before Susannah saves as shared custom personas.
 13. [ ] **Extend AGENT-AUDIENCE routing annotations beyond §1** — §1 fully confirmed live (2026-04-08). Susannah is tagging; next: audit §2+ sections and add AGENT-AUDIENCE tags where applicable.
-14. [ ] **Document 20-step analysis environment build process** — Chris explicitly asked for this. Write up the full environment setup (deps, ingest pipeline, generator, tests) so Chris can understand and replicate the sandbox. Will also serve as onboarding doc.
+14. [ ] **Document sandbox base build** — Chris explicitly asked (2026-04-07). Document the toolkit, guardrails, and access info so Chris Palo and Sarah Price can create their own specialized builds (e.g., analytics, partner content). Repo is public; package it. This supersedes the earlier "20-step environment" framing — focus is on repeatability for non-Pierce users, not just setup documentation.
 15. [ ] **Investigate Bitbucket shared repo provisioning** — can Pierce provision a shared repo space for the team? Chris implied this is needed for collaboration on analysis code. Check access level.
 16. [ ] **T1 ecosystem taxonomy audit** — validate that cross-platform comparisons in current analysis respect ecosystem boundaries (app-based captured: Apple News, SmartNews, Newsbreak vs. web-based competitive: Yahoo, O&O). Flag any findings that commingle these groups; note in governor.
 17. [x] ~~**Update PRD** with LTV=0 syndication framework, swarm testing vision as product req, syndication ecosystem taxonomy as analytical framework~~ — Done. V0.4 delivered to Chris Palo 2026-04-06.
@@ -114,13 +114,13 @@ For session history: see [sessions/](sessions/)
 
 **Waiting on others (no action needed):**
 - Sarah Price: SEMrush API key + 250K credits; cluster performance data + Amplitude pulse data (to share with Pierce); 3-way SEMrush meeting scheduling; El Nuevo article count + translation % filtered by author bylines (from C&P Weekly 2026-04-06)
-- Chris Palo: PRD V0.4 final review; Gary direct follow-up; LTV meeting scheduling; AI policy collaboration
+- Chris Palo: PRD V0.4 review (not yet read as of 2026-04-07; automation levels = his open question); clustering stats repackage → Eric Nelson + Kathy Veter; told Jason about Gary's reluctance; pinging Rasheed re: Bitbucket + Cloudflare team environment; LTV meeting scheduling
 - Susannah Locke: CSA GitHub repo access (username: piercewilliams; Susannah has OK to provision); intro length triage (queued 2026-04-06)
 - Sara Vallone + Andy: Apple News + Smart News personas (Sara drafting; Andy reviews before handoff)
 - Sara Vallone: review of AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (both passed 2026-04-08)
 - Sara Vallone: Alex Meta contact (El Novo Spanish strategy)
 - Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); CSA intro length investigation (Pierce to escalate)
-- Gary Kirwan: API key + endpoint docs — Chris Palo now personally following up
+- Gary Kirwan: Has API endpoint + McClatchy key but won't share — prefers to run docs himself. Chris told Jason (2026-04-07). Sara Vallone following up directly (2026-04-08). Not an unresponsiveness issue — a disposition issue.
 - Marfeel: access status unclear — verify
 - Tarrow: ANP March drop (adding to Drive folder)
 - Sarah Price: reaching out to Dedra 2026-04-06 to schedule Chad Snowflake meeting
@@ -129,7 +129,7 @@ For session history: see [sessions/](sessions/)
 
 ## Gary Tools — Summary of What It Is
 
-Gary Kirwan's tool runs factual accuracy / claims validation post-CSA, before editor's desk. Three reports run: Duggar legal, Women's World health, Charlotte Home Buyers Guide. Charlotte stress-test complete — tool caught stale FY2025 tax rate ($966.20 vs $985.40) that human editor missed. Chris directed Pierce + Sara Vallone to define editorial parameters. Sara proposed simplified 2-tier taxonomy: **"Needs Clarification"** (nuanced/mostly true, needs rewording) + **"Needs Correction"** (factually wrong, misleading, or needs verified source). Sara also values source quality flagging (subpar blog callout). 4 technical questions still unanswered by Gary. Sara sent 15 test articles; meeting next week. Pierce to draft ruleset before meeting. Details: gary-tools repo.
+Gary Kirwan's tool runs factual accuracy / claims validation post-CSA, before editor's desk. **Gary has the API endpoint + McClatchy API key but will not share location — prefers to run docs himself. Disposition issue (not unresponsiveness). Chris told Jason (2026-04-07). Sara following up directly (2026-04-08).** Three reports run: Duggar legal, Women's World health, Charlotte Home Buyers Guide. Charlotte stress-test complete — tool caught stale FY2025 tax rate ($966.20 vs $985.40) that human editor missed. Chris directed Pierce + Sara Vallone to define editorial parameters. Sara proposed simplified 2-tier taxonomy: **"Needs Clarification"** (nuanced/mostly true, needs rewording) + **"Needs Correction"** (factually wrong, misleading, or needs verified source). Sara also values source quality flagging (subpar blog callout). 4 technical questions still unanswered by Gary. Sara sent 15 test articles; meeting next week. Pierce to draft ruleset before meeting. Details: gary-tools repo.
 
 ## Strategic Frameworks (from Chris Palo huddle 2026-04-03)
 

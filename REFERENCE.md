@@ -113,6 +113,9 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | Jason Smith | External; building similar AI pipeline tools; Chris mentioned as parallel case — also struggling to communicate ideal end state to dev team | — |
 | Matheus Czizewski | CSA dev team (engineer) | First appeared in standup 2026-04-06 invite list |
 | Kathy | Chris's direct report; owns syndication partnership review + United Robots evaluation. Also owns partner content relationship (P15). Reuters being evaluated as potential replacement for current partner content provider — Kathy is the right contact when P15 activates. | Separate from Kat Sheplavy |
+| Kathy Veter | On Eric Nelson's side ("new side of the aisle"). Chris sending her clustering success stats (with Eric Nelson) 2026-04-07. | Distinct from both Kathy above and Kathryn Sheplavy |
+| Brody | US Weekly team lead. Chris spoke to Brody about needing an avenue for the team to report tool usage issues (e.g., roundup practice). Chris will surface briefly at CSSE meeting. | — |
+| Rasheed | Chris's contact for Bitbucket + Cloudflare JSON access. Chris pinging him 2026-04-07 to see if he can set up a team environment for Pierce's tools (Bitbucket bucket, Cloudflare JSON). | May or may not be within M-Lache environment |
 | Stephanie Zandecki | Internal SEO; reviewing Gary's toolkit | — |
 | Patrick / Dar | Engineering (dev standup contacts for Amplitude event names) | — |
 | Regina | WordPress contact — needed for WordPress integration | — |
@@ -139,7 +142,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | Snowflake login issue | In progress | IT | Access granted (role: growth_and_strategy_role, wh: growth_and_strategy_role_wh). Login issue being remedied. Sigma still pending. |
 | Amplitude / SemRush / Marfeel access | Awaiting follow-up | IT (help@mcclatchy.com) | IT responded 2026-03-31 claiming access was granted — but Marfeel, Amplitude, and SemRush are still inaccessible (no special boards, accounts, or APIs working). Pierce replied; waiting for IT follow-up. |
 | IT webhook ticket | Pending | IT | May become irrelevant if Snowflake path works. |
-| Gary API key + endpoint docs | Awaiting reply | Gary Kirwan | Messaged 2026-03-30. Required for P10. Group committed 2026-03-31 to formal evaluation and definitive yes/no on integration. |
+| Gary API key + endpoint docs | **Disposition issue** | Gary Kirwan | Gary has endpoint + key but will not share location — prefers to run docs himself. Chris told Jason about Gary's reluctance (2026-04-07). Sara following up (2026-04-08). Not an unresponsiveness issue. Required for P10. |
 | Amplitude p-tagging issue | Dev fix needed | Engineering | Cue/WP tag format incompatibility. Blocks Amplitude adapter. |
 
 ### Content & Personas
@@ -163,7 +166,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 
 | Ticket | Status | Owner | Notes |
 |--------|--------|-------|-------|
-| PGS-147: Add Intro Length Requirement for National Team (~80–100 Words) | **New** | National team only (feature flag). Current: ~50 words. Target: ~80–100 words before first H2. Applies to all National content formats. Originated from Pierce's escalation to Susannah 2026-04-06. Style guide uploaded 2026-04-02 may also need this added. |
+| PGS-147: Add Intro Length Requirement for National Team (~80–100 Words) | **In progress** | National team only (feature flag). Current: ~50 words. Target: ~80–100 words before first H2. Applies to all content formats for National team users. Style guide uploaded 2026-04-02 may need this added at prompt level as well. Slack: #nationalteam-csa-feedback, 2026-04-06. |
 | PGS-148: Implement SEO Field Rules for National Team Agent Prompt (seo title, meta description, seo keywords) | **Selected for dev** | High priority. Susannah Locke reporter; @Pierce Williams tagged. Scope: seo title 50–70 chars, meta description 100–155 chars, focus keyphrase rules — all from attached seo-rules.md. National team only (feature flag); overrides PGS-102 for National team. Eng must review alongside PGS-104 to avoid conflicts. |
 | PGS-141: Implement Headline (H1) Rules for National Team Agent Prompt | **Selected for dev** | New ticket 2026-04-07. |
 | PGS-140: Duplicate Content (Differentiation) Analytics | **Selected for dev** | Track pass/fail rate, failing variant pairs, reanalysis clicks, CSA auto-regeneration events. Marcelo starting Amplitude implementation 2026-04-07 (intelligence only, no UI). Feeds P2 Amplitude adapter once live. @Pierce Williams + @Jim Robinson tagged. |
@@ -189,7 +192,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | PGS-125: Amazon API integration | In progress | Guilherme Gomes Caires | Testing locally; Amazon API issues nearly resolved; close to code review as of 2026-04-07. |
 | PGS-124: (dropdown/filtering options) | **On hold** | Susannah Locke | Held to discuss customization scope with Kathryn Sheplavy before hard-coding. Spike ticket to be created for dropdown and filtering options. |
 | PGS-109: (unknown title) | Pending merge approval | Marcelo Freitas | Ready to merge; pending approval from Daury Caba and Emil Penalo as of 2026-04-07. |
-| PGS-40: Define tagging taxonomy for CSA output tracking | On hold | Eng team | References Susannah's tagging schema doc. Scope: content formats, personas, output variants, distribution platforms. P6 strategy settled 2026-04-01. Eng builds from settled strategy; variant linking is next priority. |
+| PGS-40: Define tagging taxonomy for CSA output tracking | **In progress** | Eng team | Scope: content formats, personas, output variants, distribution platforms. P6 strategy settled 2026-04-01. Tagging model must support analytics/reporting across all CSA dimensions. Reference doc: tagging-taxonomy-kickoff-v3.docx + alignment meeting agenda. |
 
 ## Strategic Guidance from Chris (2026-03-30)
 
