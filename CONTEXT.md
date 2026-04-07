@@ -2,7 +2,7 @@
 
 **Phase:** Build / Active
 **Last session:** 2026-04-07 (Pierce<>Chris 1:30pm EDT. Headline Grader stalled — needs M-Lache org home for OAuth/API keys; sandbox documentation now top Pierce action. Gary won't share code — choosing to run docs himself; Chris told Jason. Roundups = bad per Chris (US Weekly editor concern). Clustering stats repackaging for Eric Nelson + Kathy Veter. PRD V0.4 not yet read by Chris — dropping link in meeting; automation levels in middle categories = his open question. Partner content fact-checking: new P15 sub-scope — Athlon Sports ~1M stories/year; legal data-vs-content question open. Amplitude connected to Claude via MCP. Chris pinging Rasheed re: Bitbucket + Cloudflare team environment.) Also 2026-04-08: Sara Vallone answered 3 of 6 AI Tool Responsibility gaps; PGS-40 + PGS-147 now in progress. **Gary sent full API docs to Chris (2026-04-08) — P10 fully unblocked. McClatchy key in hand, first-test sequence ready.**
-**Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Gary (Chris escalating), Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling).
+**Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling). Gary unblocked 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -49,7 +49,7 @@ For session history: see [sessions/](sessions/)
 
 | # | Project | Tier | Status | Key Blocker / State |
 |---|---------|------|--------|---------------------|
-| 1 | Platform Access & Training | 1 | In progress | SEMrush + Amplitude confirmed. Marfeel unclear. Gary API key pending. |
+| 1 | Platform Access & Training | 1 | In progress | SEMrush + Amplitude confirmed. Marfeel unclear. Gary API key received 2026-04-08. |
 | 2 | Dashboard Instrumentation | 4 | In progress | Google Sheets creds from Chad = first live adapter. Amplitude p-tagging bug (eng fix). PGS-140 analytics data will feed this once live. |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, experiments page, governor, Headline Grader built + delivered (2026-04-06). **Grader stalled — M-Lache org blocks OAuth/API keys; sandbox doc needed first.** SEMrush layer next. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |

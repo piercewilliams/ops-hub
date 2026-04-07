@@ -62,7 +62,7 @@ export const PROJECTS = {
       { name: 'Google Sheets API', status: 'done', note: 'Manual metrics bridge in place via data/manual-metrics.js + seedMetrics() in csa-dashboard — no API key needed for current use.' },
       { name: 'Amplitude', status: 'done', note: 'Access confirmed 2026-04-04. CSA eng team has a separate p-tagging bug (CUE/WP tag format mismatch) — their fix, not a Pierce action item. Once resolved, activate dashboard adapter.' },
       { name: 'Marfeel', status: 'pending', note: 'Status unclear as of 2026-04-04 — may or may not be resolved. Verify. Also ask: why was Apple filter removed from main interface (Mar 2026)? Sarah Price\'s custom dashboard is now the only accurate Apple view. Note: Marfeel numbers may be inflated for El Nuevo specifically (C&P Weekly 2026-04-06) — verify before using in analysis.' },
-      { name: 'Gary API', status: 'pending', note: 'Gary Kirwan to deliver API endpoint docs + McClatchy API key. Blocks Project 10.' },
+      { name: 'Gary API', status: 'done', note: 'Full API docs received 2026-04-08. Base URL: unified-seo-gateway.kirwan-digital-marketing-ltd.workers.dev. McClatchy key in hand (rotatable). See gary-tools repo for endpoint catalog and first-test sequence.' },
       { name: 'SemRush', status: 'done', note: 'Access confirmed 2026-04-04.' },
       { name: 'MAIA', status: 'done', note: 'Access in hand.' },
       { name: 'BitBucket', status: 'done', note: 'Account created by IT. Added to CSA project by Amanda Hamilton 2026-03-30.' },
@@ -71,14 +71,12 @@ export const PROJECTS = {
     blockers: [
       'Sigma OAuth2 credentials still pending from Chad/IT',
       'Marfeel status unclear — verify whether access is actually resolved',
-      'Gary API key not yet delivered by Gary Kirwan',
       'CSA GitHub repo access pending — Susannah to provision (GitHub: piercewilliams)',
     ],
     nextActions: [
       'Schedule Chad Bruton walkthrough of growth_and_strategy_role Snowflake data (login resolved)',
       'Verify Marfeel access — may be resolved, may not',
       'Await CSA GitHub access from Susannah — no action needed; she has the username (piercewilliams)',
-      'Await Gary API key — Chris Palo following up directly; no additional Pierce action needed',
     ],
     dependsOn: [],
   },
