@@ -22,7 +22,7 @@ def read_file(path):
             return f.read()
     return f'(file not found: {path})'
 
-REPOS = ['csa-dashboard', 'csa-content-standards', 'data-t1headlines', 'data-cmstracker', 'gary-tools']
+REPOS = ['csa-dashboard', 'csa-content-standards', 'data-headlines', 'data-cmstracker', 'gary-tools']
 
 contexts = {repo: read_file(f'{repo}/CONTEXT.md') for repo in REPOS}
 csa_links_source = read_file('csa-dashboard/data/links.js')

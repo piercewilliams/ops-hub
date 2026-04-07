@@ -42,10 +42,10 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | Trigger ID | `trig_01Qze9PVrNErCEYa1fMXxF2U` |
 | Schedule | Monday 8:00 AM Dallas CDT (`0 13 * * 1` UTC) |
 | Manage / view logs | https://claude.ai/code/scheduled/trig_01Qze9PVrNErCEYa1fMXxF2U |
-| What it does | Snapshots data-t1headlines, csa-content-standards, and csa-dashboard sequentially; max 5 per site |
+| What it does | Snapshots data-headlines, csa-content-standards, and csa-dashboard sequentially; max 5 per site |
 
 **Sites covered:**
-- `data-t1headlines` — copies `docs/index.html` → `docs/snapshots/snap-NNN.html` (strips snapshot bar script tag)
+- `data-headlines` — copies `docs/index.html` → `docs/snapshots/snap-NNN.html` (strips snapshot bar script tag)
 - `csa-content-standards` — bundles all `docs/*.md` + `api/reference.json` → `data/snapshots/snap-NNN.json`
 - `csa-dashboard` — bundles `nodes.js`, `pain.js`, `requests.js`, `metrics.js` → `data/snapshots/snap-NNN.json`
 
@@ -67,7 +67,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | CSA Staging | https://staging.trendhunteragents.ai/csa |
 | Sigma TH-CSA Dashboard | Workbook ID: `NkXYNE5ANMr9eMcXI11uP` — Story count, avg/median PVs, market breakdown |
 | CSA Content Standards | https://csa-content-standards.netlify.app |
-| T1 Headlines site | `/Users/pierce/Documents/GitHub/data-t1headlines/docs/index.html` |
+| T1 Headlines site | `/Users/pierce/Documents/GitHub/data-headlines/docs/index.html` |
 | Alignment meeting agenda | https://docs.google.com/document/d/1MtVlBJeh_k9X7dnrpRmEQ9jefrbdWwY2/edit |
 | CSA Pipeline Concerns: First Two Weeks (Pierce, April 2026) | Strategic assessment of 9 structural CSA pipeline problems + 2 operational concerns (no shared product vision, no delivery commitments). At: docs.google.com/document/d/105XK60PgJnLUo7tHZ_jdRb_R11J-OsutFXvs8o8K_XY |
 | PRD: Content Graph & Operations Layer V3 Breakout | THIS IS THE CURRENT PRD. Describes Content Graph (asset lineage/versioning/performance) and Operations Layer (air traffic control dashboard). Does NOT include a section on what the CSA itself should ultimately be and do — Pierce + Claude are writing that missing section to add to this document. |
@@ -125,7 +125,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | `ops-hub` | Meta project registry + dependency map (this repo) | local |
 | `csa-dashboard` | CSA pipeline health monitoring + request register | https://piercewilliams.github.io/csa-dashboard/ |
 | `csa-content-standards` | CSA style/format documentation site | https://csa-content-standards.netlify.app |
-| `data-t1headlines` | T1 headline performance analysis (monthly) | local `docs/index.html` |
+| `data-headlines` | T1 headline performance analysis (monthly) | local `docs/index.html` |
 | `data-cmstracker` | CMS automation planning (pre-build) | local |
 | `gary-tools` | Gary API integration planning | local |
 

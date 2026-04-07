@@ -4,7 +4,7 @@
       "Bash(find /Users/pierce/Documents/GitHub/csa-content-standards -type f \\\\\\(-name *.css -o -name *.scss -o -name *.sass \\\\\\))",
       "Bash(node --check /Users/pierce/Documents/GitHub/csa-dashboard/js/app.js)",
       "Bash(node --check /Users/pierce/Documents/GitHub/csa-content-standards/assets/js/snapshot.js)",
-      "Bash(node --check /Users/pierce/Documents/GitHub/data-t1headlines/docs/js/snapshot-bar.js)",
+      "Bash(node --check /Users/pierce/Documents/GitHub/data-headlines/docs/js/snapshot-bar.js)",
       "Bash(bash scripts/check.sh)",
       "Bash(node --check /Users/pierce/Documents/GitHub/csa-dashboard/js/diagram.js)",
       "Bash(node --check /Users/pierce/Documents/GitHub/csa-dashboard/js/panels.js)",
@@ -33,7 +33,10 @@
       "Bash(node --check data/requests.js)",
       "Bash(textutil -convert txt -stdout \"/Users/pierce/Desktop/Chris Palo Huddle Brief - 2026-04-03.docx\")",
       "Bash(pip3 install:*)",
-      "Bash(pip3 show:*)"
+      "Bash(pip3 show:*)",
+      "Bash(crontab -l)",
+      "Bash(gh repo:*)",
+      "Bash(crontab -)"
     ]
   }
 }

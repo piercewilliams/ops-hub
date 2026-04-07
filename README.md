@@ -101,7 +101,7 @@ Commit in GitHub Desktop, then push. The GitHub Pages site updates automatically
 
 A Claude Code agent runs 3 times per day. On each run it:
 
-1. Reads `CONTEXT.md` from each of the 5 subsidiary repos (`csa-dashboard`, `csa-content-standards`, `data-cmstracker`, `data-t1headlines`, `gary-tools`)
+1. Reads `CONTEXT.md` from each of the 5 subsidiary repos (`csa-dashboard`, `csa-content-standards`, `data-cmstracker`, `data-headlines`, `gary-tools`)
 2. Extracts current status, blockers, and next actions from each
 3. Updates `data/projects.js` in this repo with the latest information
 4. Writes `sync-status.json` recording the timestamp, run status, and change count
