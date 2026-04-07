@@ -74,7 +74,7 @@ For session history: see [sessions/](sessions/)
 8. [ ] **3-way SEMrush meeting** (Pierce, Sarah Price, Sara Vallone) — Sarah Price scheduling. Align on: signals/trends to track, presentation format, weekly vs monthly cadence, what to toggle by. This scopes P14 build.
 8. [ ] **Andy review on SmartNews Skimmer + Apple News Explorer personas** — required before Susannah can pin for National accounts.
 9. [x] ~~**Investigate Julia Tortoriello's content translation strategy**~~ — **Meeting scheduled: Thursday 2026-04-10 2PM EST.** Julia Tortoriello confirmed. Context: El Novo translating many stories; team exploring dedicated Spanish CSA pipeline.
-10. [ ] **Define headline grading rules** with Sara Vallone + Sarah Price — then build: (a) automated daily headline quality report using existing pipeline data, (b) hub page evaluating last 24-48hrs of headlines. Pierce committed to these builds at 2026-04-06 C&P Weekly. Tool to eventually integrate into CSA.
+10. [x] ~~**Build Headline Grader**~~ — Built and delivered 2026-04-06. Requirements gathered at C&P Weekly, refined by Pierce; 14-criteria daily grader live at data-t1headlines (docs/grader/index.html), link delivered to Sara Vallone + Sarah Price. Remaining: criteria refinement as they review; individual performance tracking (per-author breakdown) to add.
 
 **#3 — AFTER NEXT WEEK'S MEETINGS:**
 8. [ ] **When format/persona decoupling lands: migrate Apple News + SmartNews best practices from persona → format section** — Sara already frames these as format; dev ticket in queue (15/18 in code review as of 2026-04-03). Do this review as soon as the decoupling ticket closes.
