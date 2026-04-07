@@ -58,7 +58,7 @@ export const PROJECTS = {
       { name: 'WordPress', status: 'done', note: 'Full access as of 2026-03-28.' },
       { name: 'Google Sheets API', status: 'done', note: 'Manual metrics bridge in place via data/manual-metrics.js + seedMetrics() in csa-dashboard — no API key needed for current use.' },
       { name: 'Amplitude', status: 'done', note: 'Access confirmed 2026-04-04. CSA eng team has a separate p-tagging bug (CUE/WP tag format mismatch) — their fix, not a Pierce action item. Once resolved, activate dashboard adapter.' },
-      { name: 'Marfeel', status: 'pending', note: 'Status unclear as of 2026-04-04 — may or may not be resolved. Verify. Also ask: why was Apple filter removed from main interface (Mar 2026)? Sarah Price\'s custom dashboard is now the only accurate Apple view.' },
+      { name: 'Marfeel', status: 'pending', note: 'Status unclear as of 2026-04-04 — may or may not be resolved. Verify. Also ask: why was Apple filter removed from main interface (Mar 2026)? Sarah Price\'s custom dashboard is now the only accurate Apple view. Note: Marfeel numbers may be inflated for El Nuevo specifically (C&P Weekly 2026-04-06) — verify before using in analysis.' },
       { name: 'Gary API', status: 'pending', note: 'Gary Kirwan to deliver API endpoint docs + McClatchy API key. Blocks Project 10.' },
       { name: 'SemRush', status: 'done', note: 'Access confirmed 2026-04-04.' },
       { name: 'MAIA', status: 'done', note: 'Access in hand.' },

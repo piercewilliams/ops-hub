@@ -43,7 +43,7 @@ For session history: see [sessions/](sessions/)
 |---|---------|------|--------|---------------------|
 | 1 | Platform Access & Training | 1 | In progress | SEMrush + Amplitude confirmed. Marfeel unclear. Gary API key pending. |
 | 2 | Dashboard Instrumentation | 4 | In progress | Google Sheets creds from Chad = first live adapter. Amplitude p-tagging bug (eng fix). PGS-140 analytics data will feed this once live. |
-| 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, experiments page, governor built. Sarah focus: headlines only. SEMrush layer next. |
+| 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, experiments page, governor, Headline Grader built + delivered (2026-04-06). SEMrush layer next. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Vallone format guide in hand (10 corrections needed). Andy review pending for 2 personas. |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7. Discover Persona test sheet exists in tracker (empty). |
@@ -103,7 +103,7 @@ For session history: see [sessions/](sessions/)
 - Rollout sequence: Staging (Mon+) → TEO + national team QA → mitigation strategies → thoughtful production launch → analytics (PGS-140, "later this week") → self-correction (PGS-139, "this week/next")
 
 **Waiting on others (no action needed):**
-- Sarah Price: SEMrush API key + 250K credits; cluster performance data + Amplitude pulse data (to share with Pierce); 3-way SEMrush meeting scheduling
+- Sarah Price: SEMrush API key + 250K credits; cluster performance data + Amplitude pulse data (to share with Pierce); 3-way SEMrush meeting scheduling; El Nuevo article count + translation % filtered by author bylines (from C&P Weekly 2026-04-06)
 - Chris Palo: PRD V0.4 final review; Gary direct follow-up; LTV meeting scheduling; AI policy collaboration
 - Susannah Locke: CSA GitHub repo access (username: piercewilliams; Susannah has OK to provision); intro length triage (queued 2026-04-06)
 - Sara Vallone + Andy: Apple News + Smart News personas (Sara drafting; Andy reviews before handoff)
@@ -130,6 +130,10 @@ Gary Kirwan's tool runs factual accuracy / claims validation post-CSA, before ed
 **Cluster batting average:** Stories above avg PVs on 2+ sites. Q1 goal: 1-in-4. Current: ~1-in-3 (before CSA: 1-in-5 with fewer articles; now 1-in-3 with 5× more). "Double and triple dipping" = same story lands on multiple sites, each contributing incremental PVs.
 
 **Political data (two worlds):** Macro numbers (Justin's/Dedra's dashboards) are a separate world from Pierce's CSA statistical testing layer. Don't need to reconcile them. Pierce's work = isolated analysis environment for testing; Chris's cluster/political tracking = macro dashboard view.
+
+**Q2 metrics (from C&P Weekly 2026-04-06):** 3× output target; $85/asset cost benchmark; 500K PV "big hairy goal"; 5–8% long-term traffic lift goal; current batting average 1-in-3 (before CSA: 1-in-5). Confirmed in session.
+
+**Headline vs. article distinction:** Headline is the acquisition tool (drives click from syndication surface). Article content is the retention/value creation layer. These are analytically distinct — headline formula findings apply to click acquisition; content quality findings apply to return visits and subscriber conversion. Do not conflate in analysis or stakeholder comms.
 
 ---
 
