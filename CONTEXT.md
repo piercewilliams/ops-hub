@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-07 (AI tool responsibility doc + CSA fact-checking ruleset — tool-responsibility.md live in csa-content-standards with DRAFT banner + 6 [TBD] gaps; CSA fact-checking ruleset v0.1 drafted, framed as built-in CSA module; /sync-repos skill + CLAUDE.md enforcement created.)
+**Last session:** 2026-04-07 (projects.js audit — removed all stale nextActions/blockers across all projects; reprioritized every project queue by immediacy; added 5 staleness rules to CLAUDE.md to prevent future drift. No content changes — housekeeping only.)
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Gary (Chris escalating), Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
