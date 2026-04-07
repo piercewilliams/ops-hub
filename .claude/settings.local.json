@@ -36,7 +36,9 @@
       "Bash(pip3 show:*)",
       "Bash(crontab -l)",
       "Bash(gh repo:*)",
-      "Bash(crontab -)"
+      "Bash(crontab -)",
+      "Bash(launchctl load:*)",
+      "Bash(launchctl list:*)"
     ]
   }
 }
