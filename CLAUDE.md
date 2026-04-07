@@ -68,6 +68,8 @@ The snapshot restore feature requires a passkey to download a `projects.js` + `i
 
 Read `CONTEXT.md` at the start of every session. Update it at the end. Archive content older than ~1 week to `sessions/`.
 
+**At the end of any session where work touched multiple repos:** run `/sync-repos` to ensure all deliverables, blockers, decisions, waiting-on-others items, and CSA dashboard state are reflected across all repos. Do not skip this. Do not wait for the user to ask. If the session was ops-hub-only with no cross-repo work, a targeted CONTEXT.md + projects.js update is sufficient.
+
 ## Known Tech Debt
 
 - `ensureElement('progress-panel', 'div', 'body')` passes `'body'` as parent ID, but `<body>` has no `id` attribute, so `document.getElementById('body')` returns null and `ensureElement` can't create the element. A `|| fallback` creates it manually. Works correctly but is misleading — future refactor should use `document.body` directly.
