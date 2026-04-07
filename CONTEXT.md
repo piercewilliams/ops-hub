@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-07 (Pierce<>Chris 1:30pm EDT. Headline Grader stalled — needs M-Lache org home for OAuth/API keys; sandbox documentation now top Pierce action. Gary won't share code — choosing to run docs himself; Chris told Jason. Roundups = bad per Chris (US Weekly editor concern). Clustering stats repackaging for Eric Nelson + Kathy Veter. PRD V0.4 not yet read by Chris — dropping link in meeting; automation levels in middle categories = his open question. Partner content fact-checking: new P15 sub-scope — Athlon Sports ~1M stories/year; legal data-vs-content question open. Amplitude connected to Claude via MCP. Chris pinging Rasheed re: Bitbucket + Cloudflare team environment.) Also 2026-04-08: Sara Vallone answered 3 of 6 AI Tool Responsibility gaps; PGS-40 + PGS-147 now in progress. **Gary sent full API docs to Chris (2026-04-08) — P10 fully unblocked. McClatchy key in hand, first-test sequence ready.**
+**Last session:** 2026-04-08 (Context recovery after token limit hit. Gary sent full API docs to Chris — P10 fully unblocked; McClatchy key in hand; first-test sequence ready. Full cross-repo sync: ops-hub, gary-tools, csa-dashboard, csa-content-standards. CSA weekly agenda prepped — 7 items for Chris/Sara/Susannah: Gary verdict taxonomy decision, PGS-82 staging schedule, PGS-139 UX meeting, AI Tool Responsibility 3 remaining gaps, format/persona decoupling status, PRD automation levels, Gary API loop-in for Susannah.)
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling). Gary unblocked 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -70,8 +70,9 @@ For session history: see [sessions/](sessions/)
 ## What's Next
 
 **#1 — THIS WEEK:**
-1. [ ] **Julia Tortoriello meeting — Thursday 2026-04-10 at 2 PM EST** — El Nuevo translation process + selection criteria + CSA instrumentation scope. Prep notes: `sessions/meeting-2026-04-10-julia-tortoriello.md`
-2. [ ] **Get SEMrush API key + 250K credits from Sarah Price** — she confirmed she'll forward it; follow up if not received.
+1. [ ] **CSA Weekly — Chris Palo, Sara Vallone, Susannah Locke** — Agenda prepped (2026-04-08). Key decision needed before meeting: draft a one-sentence proposal on how Sara's 2-tier verdict taxonomy maps onto Chris's 5-verdict set (verdict taxonomy is #1 agenda item and highest-leverage). Other items: PGS-82 staging schedule, PGS-139 UX meeting status, AI Tool Responsibility 3 gaps (Slack channel/override doc/United Robots scope), format/persona decoupling, PRD automation levels, Gary API loop-in for Susannah.
+2. [ ] **Julia Tortoriello meeting — Thursday 2026-04-10 at 2 PM EST** — El Nuevo translation process + selection criteria + CSA instrumentation scope. Prep notes: `sessions/meeting-2026-04-10-julia-tortoriello.md`
+3. [ ] **Get SEMrush API key + 250K credits from Sarah Price** — she confirmed she'll forward it; follow up if not received.
 3. [x] ~~**Review Sara Vallone's AI usage guidance draft**~~ — Received. Pierce drafted expanded escalation language: named escalation chain, supervisor conflict path, stop-use trigger, plagiarism/attribution check, partner content vetting, override documentation.
    - [x] ~~**Draft AI Tool Responsibility page + fact-checking ruleset**~~ — Both completed drafts passed to Sara Vallone 2026-04-08. Waiting on her review.
    - [ ] **3 remaining gaps in AI Tool Responsibility page** — Sara answered 3 of 6 (2026-04-08): escalation chain = Sara + Slack channel; supervisor conflict = Sara + Chris; phrasing threshold defined. Still open: (1) which Slack channel for Step 2, (2) override doc location + EOD report buildability (Rajiv/Susannah), (3) United Robots scope (Chris). Doc cannot be finalized until these are answered.
