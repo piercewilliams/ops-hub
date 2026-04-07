@@ -117,7 +117,7 @@ For session history: see [sessions/](sessions/)
 **Waiting on others (no action needed):**
 - Sarah Price: SEMrush API key + 250K credits; cluster performance data + Amplitude pulse data (to share with Pierce); 3-way SEMrush meeting scheduling; El Nuevo article count + translation % filtered by author bylines (from C&P Weekly 2026-04-06)
 - Chris Palo: PRD V0.4 review (not yet read as of 2026-04-07; automation levels = his open question); clustering stats repackage → Eric Nelson + Kathy Veter; told Jason about Gary's reluctance; pinging Rasheed re: Bitbucket + Cloudflare team environment; LTV meeting scheduling
-- Susannah Locke: CSA GitHub repo access (username: piercewilliams; Susannah has OK to provision); intro length triage (queued 2026-04-06)
+- Susannah Locke: CSA GitHub repo access (username: piercewilliams; Susannah has OK to provision)
 - Sara Vallone + Andy: Apple News + Smart News personas (Sara drafting; Andy reviews before handoff)
 - Sara Vallone: review of AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (both passed 2026-04-08)
 - Sara Vallone: Alex Meta contact (El Novo Spanish strategy)
