@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-07 (human: projects.js audit — staleness rules + full queue reprioritization. Auto-sync 2026-04-07: csa-links.js updated with rq-intro-length → p4, rq-spanish-csa-pipeline → p8. No project status changes.)
+**Last session:** 2026-04-08 (Sara Vallone answered 3 of 6 AI Tool Responsibility gaps: escalation chain mushed to Step 2 = Sara + [Slack channel TBD]; supervisor conflict = Sara + Chris Palo; phrasing threshold defined. Override EOD report cadence confirmed (Sara); location TBD. Standup + Jira synced: PGS-141/147 added, PGS-133/102→Code Review, PGS-95→Done, CSA perf improvement noted, 2-PR process noted. Committed + pushed.)
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Gary (Chris escalating), Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -72,7 +72,7 @@ For session history: see [sessions/](sessions/)
 2. [ ] **Get SEMrush API key + 250K credits from Sarah Price** — she confirmed she'll forward it; follow up if not received.
 3. [x] ~~**Review Sara Vallone's AI usage guidance draft**~~ — Received. Pierce drafted expanded escalation language: named escalation chain, supervisor conflict path, stop-use trigger, plagiarism/attribution check, partner content vetting, override documentation.
    - [x] ~~**Draft AI Tool Responsibility page + fact-checking ruleset**~~ — Both completed drafts passed to Sara Vallone 2026-04-08. Waiting on her review.
-   - [ ] **Sara Vallone review → fill 6 gaps in AI Tool Responsibility page** — Step 2/3 contacts, supervisor conflict contact, Slack channel, override doc location, United Robots scope, phrasing-reproduction threshold. Doc cannot be finalized until these are answered.
+   - [ ] **3 remaining gaps in AI Tool Responsibility page** — Sara answered 3 of 6 (2026-04-08): escalation chain = Sara + Slack channel; supervisor conflict = Sara + Chris; phrasing threshold defined. Still open: (1) which Slack channel for Step 2, (2) override doc location + EOD report buildability (Rajiv/Susannah), (3) United Robots scope (Chris). Doc cannot be finalized until these are answered.
 4. [x] ~~**Ping on CSA intro length**~~ — Got its own ticket: PGS-147. National team only; ~80–100 words before first H2 (currently ~50). Susannah owns triage.
 5. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
 6. [x] ~~**Draft Gary Tools escalation ruleset**~~ — CSA fact-checking module ruleset v0.1 complete (2026-04-07). Passed to Sara Vallone 2026-04-08. Bring to test article session next week once she's reviewed.
