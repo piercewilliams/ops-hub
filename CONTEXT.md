@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-07 (Pierce<>Chris 1:30pm EDT. Headline Grader stalled — needs M-Lache org home for OAuth/API keys; sandbox documentation now top Pierce action. Gary won't share code — choosing to run docs himself; Chris told Jason. Roundups = bad per Chris (US Weekly editor concern). Clustering stats repackaging for Eric Nelson + Kathy Veter. PRD V0.4 not yet read by Chris — dropping link in meeting; automation levels in middle categories = his open question. Partner content fact-checking: new P15 sub-scope — Athlon Sports ~1M stories/year; legal data-vs-content question open. Amplitude connected to Claude via MCP. Chris pinging Rasheed re: Bitbucket + Cloudflare team environment.) Also 2026-04-08: Sara Vallone answered 3 of 6 AI Tool Responsibility gaps; PGS-40 + PGS-147 now in progress.
+**Last session:** 2026-04-07 (Pierce<>Chris 1:30pm EDT. Headline Grader stalled — needs M-Lache org home for OAuth/API keys; sandbox documentation now top Pierce action. Gary won't share code — choosing to run docs himself; Chris told Jason. Roundups = bad per Chris (US Weekly editor concern). Clustering stats repackaging for Eric Nelson + Kathy Veter. PRD V0.4 not yet read by Chris — dropping link in meeting; automation levels in middle categories = his open question. Partner content fact-checking: new P15 sub-scope — Athlon Sports ~1M stories/year; legal data-vs-content question open. Amplitude connected to Claude via MCP. Chris pinging Rasheed re: Bitbucket + Cloudflare team environment.) Also 2026-04-08: Sara Vallone answered 3 of 6 AI Tool Responsibility gaps; PGS-40 + PGS-147 now in progress. **Gary sent full API docs to Chris (2026-04-08) — P10 fully unblocked. McClatchy key in hand, first-test sequence ready.**
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Gary (Chris escalating), Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -59,7 +59,7 @@ For session history: see [sessions/](sessions/)
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris. Testing tracker is manual evidence of demand. |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking anything. |
 | 9 | PRD Revisions | 3 | **Complete** | V0.4 delivered 2026-04-06. Chris had not read it as of 2026-04-07 meeting (Pierce dropped link). Outstanding question for Chris: automation levels in middle categories — his call. |
-| 10 | Gary Tools Integration | 2 | **Blocked** | Gary has API endpoint + key but won't share — choosing to run docs himself. Chris told Jason (2026-04-07). Sara following up directly (2026-04-08). Disposition issue, not just unresponsiveness. |
+| 10 | Gary Tools Integration | 2 | **In progress** | **UNBLOCKED 2026-04-08.** Gary sent full API docs to Chris: base URL, McClatchy API key (`uak_...`), all live endpoints. Key fact-checking endpoint: `POST /api/v1/research/data-validity`. First-test sequence ready to run. Sara Vallone parameter session still next week. |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
@@ -80,7 +80,8 @@ For session history: see [sessions/](sessions/)
 6. [x] ~~**Draft Gary Tools escalation ruleset**~~ — CSA fact-checking module ruleset v0.1 complete (2026-04-07). Passed to Sara Vallone 2026-04-08. Bring to test article session next week once she's reviewed.
 
 **#2 — NEXT WEEK:**
-7. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset. Draft already in her hands.
+7. [ ] **Run first-test sequence against Gary API** — health → scrape → meta → content-structure → unanswered-questions → brands/mcclatchy/readiness → citations → poll. McClatchy key in hand. Gary's intended workflow: copy API doc into Claude, run markdown article through it.
+8. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset. Draft already in her hands.
 8. [ ] **3-way SEMrush meeting** (Pierce, Sarah Price, Sara Vallone) — Sarah Price scheduling. Align on: signals/trends to track, presentation format, weekly vs monthly cadence, what to toggle by. This scopes P14 build.
 8. [ ] **Andy review on SmartNews Skimmer + Apple News Explorer personas** — required before Susannah can pin for National accounts.
 9. [x] ~~**Investigate Julia Tortoriello's content translation strategy**~~ — **Meeting scheduled: Thursday 2026-04-10 2PM EST.** Julia Tortoriello confirmed. Context: El Novo translating many stories; team exploring dedicated Spanish CSA pipeline.
@@ -120,7 +121,7 @@ For session history: see [sessions/](sessions/)
 - Sara Vallone: review of AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (both passed 2026-04-08)
 - Sara Vallone: Alex Meta contact (El Novo Spanish strategy)
 - Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); CSA intro length investigation (Pierce to escalate)
-- Gary Kirwan: Has API endpoint + McClatchy key but won't share — prefers to run docs himself. Chris told Jason (2026-04-07). Sara Vallone following up directly (2026-04-08). Not an unresponsiveness issue — a disposition issue.
+- Gary Kirwan: **UNBLOCKED.** Sent full API docs to Chris (2026-04-08). First-test sequence ready to run. No further action needed from Gary to begin testing.
 - Marfeel: access status unclear — verify
 - Tarrow: ANP March drop (adding to Drive folder)
 - Sarah Price: reaching out to Dedra 2026-04-06 to schedule Chad Snowflake meeting
@@ -129,7 +130,7 @@ For session history: see [sessions/](sessions/)
 
 ## Gary Tools — Summary of What It Is
 
-Gary Kirwan's tool runs factual accuracy / claims validation post-CSA, before editor's desk. **Gary has the API endpoint + McClatchy API key but will not share location — prefers to run docs himself. Disposition issue (not unresponsiveness). Chris told Jason (2026-04-07). Sara following up directly (2026-04-08).** Three reports run: Duggar legal, Women's World health, Charlotte Home Buyers Guide. Charlotte stress-test complete — tool caught stale FY2025 tax rate ($966.20 vs $985.40) that human editor missed. Chris directed Pierce + Sara Vallone to define editorial parameters. Sara proposed simplified 2-tier taxonomy: **"Needs Clarification"** (nuanced/mostly true, needs rewording) + **"Needs Correction"** (factually wrong, misleading, or needs verified source). Sara also values source quality flagging (subpar blog callout). 4 technical questions still unanswered by Gary. Sara sent 15 test articles; meeting next week. Pierce to draft ruleset before meeting. Details: gary-tools repo.
+Gary Kirwan's tool runs factual accuracy / claims validation post-CSA, before editor's desk. **UNBLOCKED 2026-04-08 — Gary sent full API documentation to Chris.** Base URL: `https://unified-seo-gateway.kirwan-digital-marketing-ltd.workers.dev`. McClatchy API key in hand (rotatable). Key endpoint: `POST /api/v1/research/data-validity` (main claims validator). First-test sequence: health → scrape → meta → content-structure → unanswered-questions → brands/readiness → citations → poll. Three reports run: Duggar legal, Women's World health, Charlotte Home Buyers Guide. Charlotte caught stale FY2025 tax rate that human editor missed. Chris directed Pierce + Sara Vallone to define editorial parameters. Sara proposed 2-tier taxonomy: **"Needs Clarification"** + **"Needs Correction"**. Sara also values source quality flagging. 4 technical questions still unanswered. Sara has 15 test articles; parameter session next week. Details: gary-tools repo.
 
 ## Strategic Frameworks (from Chris Palo huddle 2026-04-03)
 

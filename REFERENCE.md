@@ -142,7 +142,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | Snowflake login issue | In progress | IT | Access granted (role: growth_and_strategy_role, wh: growth_and_strategy_role_wh). Login issue being remedied. Sigma still pending. |
 | Amplitude / SemRush / Marfeel access | Awaiting follow-up | IT (help@mcclatchy.com) | IT responded 2026-03-31 claiming access was granted — but Marfeel, Amplitude, and SemRush are still inaccessible (no special boards, accounts, or APIs working). Pierce replied; waiting for IT follow-up. |
 | IT webhook ticket | Pending | IT | May become irrelevant if Snowflake path works. |
-| Gary API key + endpoint docs | **Disposition issue** | Gary Kirwan | Gary has endpoint + key but will not share location — prefers to run docs himself. Chris told Jason about Gary's reluctance (2026-04-07). Sara following up (2026-04-08). Not an unresponsiveness issue. Required for P10. |
+| Gary API key + endpoint docs | **RECEIVED 2026-04-08** | Gary Kirwan | Full API docs sent to Chris. Base URL: `https://unified-seo-gateway.kirwan-digital-marketing-ltd.workers.dev`. McClatchy key: `uak_AWuPNYNP7j2BYi8ZDiAACwPaueknsRHM` (rotatable per Gary). Key fact-checking endpoint: `POST /api/v1/research/data-validity`. Stored in gary-tools repo. |
 | Amplitude p-tagging issue | Dev fix needed | Engineering | Cue/WP tag format incompatibility. Blocks Amplitude adapter. |
 
 ### Content & Personas
