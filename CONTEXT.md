@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-06 (ops-hub integrity audit — 7-pass review, all findings fixed: 20 CSS magic values → :root variables; SNAPSHOT_MAX enforced client-side; snapshot index pruned 5→4; 5 behavioral checks added to check.sh. 28 passed, 0 failed.)
+**Last session:** 2026-04-07 (AI tool responsibility doc + CSA fact-checking ruleset — tool-responsibility.md live in csa-content-standards with DRAFT banner + 6 [TBD] gaps; CSA fact-checking ruleset v0.1 drafted, framed as built-in CSA module; /sync-repos skill + CLAUDE.md enforcement created.)
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Gary (Chris escalating), Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -21,7 +21,8 @@ For session history: see [sessions/](sessions/)
 - **PGS-80 DONE (2026-04-06):** Amplitude event tracking implemented. Remaining P2 blocker: p-tagging bug (CUE/WP format mismatch) — CSA eng fix.
 - **PGS-82:** Susannah approved merge to staging 2026-04-06 (conditional: national team flag required in production; accessible for stakeholder testing in staging).
 - **CSA GitHub repo access:** Susannah got OK; Pierce provided GitHub username `piercewilliams`; awaiting provisioning.
-- **Sara Vallone AI usage/accountability doc:** Shared 2026-04-06 after check-in. Sara leads; Pierce to review EOW and add escalation procedures + partner content vetting policy. Suggested expansion provided (escalation section is the main gap Chris named).
+- **AI Tool Responsibility page (csa-content-standards):** Live as of 2026-04-07 with DRAFT banner. Full expanded language drafted: named escalation chain, supervisor conflict path, stop-use trigger, plagiarism/attribution check, partner content vetting, override documentation. Six [TBD] gaps need Chris + Sara decisions (Step 2/3 contacts, supervisor conflict contact, Slack channel, override doc location, United Robots scope, doc ownership/cadence). Align tomorrow 2026-04-08.
+- **CSA fact-checking ruleset v0.1:** Drafted 2026-04-07. Built-in CSA module framing (no external attribution). Verdict taxonomy → Sara's 2-tier action taxonomy, source authority tiers, content-type rules, escalation logic, override doc format. 4 open items for Rajiv/Susannah. Ready for Sara Vallone test-article session next week.
 - **Julia Tortoriello meeting:** Thursday 2026-04-10 2PM EST — El Nuevo Spanish translation process. Prep: `sessions/meeting-2026-04-10-julia-tortoriello.md`
 - Sync: **Manual** — update `data/projects.js` in a Claude Code session, commit, and push. Pill reads last commit time via GitHub public API (green <3d, yellow 3–7d, red >7d).
 
@@ -68,7 +69,7 @@ For session history: see [sessions/](sessions/)
    - [ ] **Tomorrow (2026-04-08): Align with Chris + Sara on doc gaps** — (1) named escalation chain (Step 2 + Step 3 contacts), (2) supervisor conflict named contact, (3) reporting Slack channel, (4) override documentation location + review cadence, (5) partner content scope (does it cover United Robots?), (6) doc ownership and review cadence. Bring the draft language; these are the only blanks remaining.
 4. [x] ~~**Ping on CSA intro length**~~ — Pierce escalated to Susannah 2026-04-06 (Slack); may be folded into existing PGS-135 headline ticket. Susannah to triage.
 5. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
-6. [ ] **Draft Gary Tools escalation ruleset** — before Sara Vallone meeting next week. Start from Sara's 2-tier taxonomy (Needs Clarification / Needs Correction); layer in source authority tiers + escalation logic. 15 test articles from Sara. (Separate from Sara's AI usage doc — this is the Gary-specific verdict/parameter doc. Chris also personally following up with Gary.)
+6. [x] ~~**Draft Gary Tools escalation ruleset**~~ — CSA fact-checking module ruleset v0.1 complete (2026-04-07). Framed as built-in CSA module. 4 open items for Rajiv/Susannah. Bring to Sara Vallone meeting next week.
 
 **#2 — NEXT WEEK:**
 7. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset draft. Arrive with draft in hand.
