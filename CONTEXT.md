@@ -41,7 +41,7 @@ For session history: see [sessions/](sessions/)
 - Sync status pill — shows "Last synced X ago" (green <3d, yellow 3–7d, red >7d)
 - Mutual-close behavior: sidebar and progress panel can't both be open
 - Quality gate script at `scripts/check.sh`
-- Snapshot version bars on csa-dashboard, csa-content-standards, data-headlines — weekly auto-snapshot (Mon 8am), passkey `8812`, max 5 per site; trigger `trig_01Qze9PVrNErCEYa1fMXxF2U`
+- Snapshot version bars on csa-dashboard, csa-content-standards, data-headlines — weekly auto-snapshot (Mon 8am), passkey `8812`, max 5 per site; trigger `trig_014MR5mJJxFsVYLdVdDU4u1d`
 
 ## Project Status Snapshot
 

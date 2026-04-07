@@ -38,10 +38,11 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 
 | Item | Value |
 |------|-------|
-| Trigger name | Weekly Snapshots - All Sites (Mon 8am) |
-| Trigger ID | `trig_01Qze9PVrNErCEYa1fMXxF2U` |
+| Trigger name | Weekly Snapshots — All Sites (Mon 8am Dallas) |
+| Trigger ID | `trig_014MR5mJJxFsVYLdVdDU4u1d` |
 | Schedule | Monday 8:00 AM Dallas CDT (`0 13 * * 1` UTC) |
-| Manage / view logs | https://claude.ai/code/scheduled/trig_01Qze9PVrNErCEYa1fMXxF2U |
+| Manage / view logs | https://claude.ai/code/scheduled/trig_014MR5mJJxFsVYLdVdDU4u1d |
+| Prompt source | `ops-hub/triggers/weekly-snapshots.md` — full prompt backed up here |
 | What it does | Snapshots data-headlines, csa-content-standards, and csa-dashboard sequentially; max 5 per site |
 
 **Sites covered:**
@@ -54,7 +55,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 **Troubleshooting:**
 - If snapshot bar shows no versions: check trigger ran at claude.ai/code/scheduled; if index.json is still `[]`, trigger may have errored — check logs
 - If trigger errors on one site, it continues to the next (failure isolation)
-- To re-create: tell Claude "Re-create the weekly snapshot trigger. Details in ops-hub/REFERENCE.md."
+- **If trigger ID returns 404:** it was deleted. Recreate from `triggers/weekly-snapshots.md` — the full prompt is stored there. Update the ID in this table after recreating.
 
 ---
 
