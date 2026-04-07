@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-08 (Sara Vallone answered 3 of 6 AI Tool Responsibility gaps: escalation chain mushed to Step 2 = Sara + [Slack channel TBD]; supervisor conflict = Sara + Chris Palo; phrasing threshold defined. Override EOD report cadence confirmed (Sara); location TBD. Standup + Jira synced: PGS-141/147 added, PGS-133/102→Code Review, PGS-95→Done, CSA perf improvement noted, 2-PR process noted. Committed + pushed.)
+**Last session:** 2026-04-08 (Sara Vallone answered 3 of 6 AI Tool Responsibility gaps. Standup + Jira synced: PGS-141/147 added, PGS-133/102→Code Review, PGS-95→Done, CSA perf improvement noted, 2-PR process noted. AGENT-AUDIENCE routing confirmed live in all of §1 (§1.1–1.9): Susannah uploaded general-style/explicit/linking docs via UI; PGS-141 = headline, PGS-148 = seo — both Done. §1.4 "What to Link To" + §1.5–1.9 = human-only, no action needed. Susannah using Claude to fetch content by tag. Committed + pushed.)
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Gary (Chris escalating), Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -21,7 +21,9 @@ For session history: see [sessions/](sessions/)
 - **2-PR process (new, effective after this week):** All non-emergency code changes require 2 PRs. Rajiv establishing before handing off product more broadly to team. Emergency hotfixes excepted.
 - **Own voice feature:** Discussed in standup — Susannah interested, Rajiv open to it. Emil flagged privacy + plagiarism risk if generated voice is used elsewhere. No decision; Rajiv says implement thoughtfully or not at all.
 - **Mobile app:** Rodrigo started feature development (Saner Keles coordinating). Demo potential; no timeline yet.
-- **PGS-141 (NEW, Selected for Dev):** Implement H1 headline rules for National Team agent prompt.
+- **PGS-148 (Done):** SEO fields — AGENT-AUDIENCE: seo routing implemented in CSA. §1.2 SEO fields section now live.
+- **PGS-141 (Done):** Implement H1 headline rules for National Team agent prompt. AGENT-AUDIENCE: headline routing live in CSA.
+- **AGENT-AUDIENCE routing fully live in §1 (2026-04-08):** All General Guidelines sections broken down and ticketed by Susannah. §1.1 Voice & Tone → general-style (Susannah UI upload). §1.2 Headline Best Practices → headline (PGS-141). §1.2 SEO fields → seo (PGS-148). §1.3 Explicit Language → general-style (Susannah UI upload). §1.4 Linking count + anchor text → general-style (Susannah UI upload). §1.4 What to Link To → human-only (no action). §1.5–1.9 → human-only (no action). Susannah using Claude to fetch content by tag during uploads.
 - **PGS-139 + PGS-140 (both Selected for Dev):** Pierce tagged on both. PGS-139: CSA internally tests variants for duplicate content, auto-regenerates if fails, notifies user if still fails — UX for extended time is key concern (Efren Castillo; coordinate with TEO/Jim Robinson). PGS-140: analytics for pass/fail rates, failing variant IDs, reanalysis clicks, auto-regen events — Marcelo starting Amplitude implementation today (intelligence only, no UI needed). Feeds P2 Amplitude once live.
 - **PGS-80 DONE (2026-04-06):** Amplitude event tracking implemented. Remaining P2 blocker: p-tagging bug (CUE/WP format mismatch) — CSA eng fix.
 - **PGS-82:** Susannah approved merge to staging 2026-04-06. Staging QA will use real national team users + real content (Susannah has samples) — not just pass/fail. Jonathan Gonzalvo reviewing docs; will QA when ticket moves out of code review. National team flag required before production.
@@ -90,7 +92,7 @@ For session history: see [sessions/](sessions/)
 10. [ ] **Build SEMrush layer (P14)** — after 3-way meeting defines scope. Point-and-click interface for Sarah Price on top of API.
 11. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data. (Sarah Price also reaching out to Dedra 2026-04-06 to coordinate.)
 12. [ ] **Finalize Science-Curious persona definitions** — Retiree + Casual Reader need canonical definitions before Susannah saves as shared custom personas.
-13. [ ] **Extend AGENT-AUDIENCE routing annotations** beyond §1 — pending Susannah confirming it works.
+13. [ ] **Extend AGENT-AUDIENCE routing annotations beyond §1** — §1 fully confirmed live (2026-04-08). Susannah is tagging; next: audit §2+ sections and add AGENT-AUDIENCE tags where applicable.
 14. [ ] **Document 20-step analysis environment build process** — Chris explicitly asked for this. Write up the full environment setup (deps, ingest pipeline, generator, tests) so Chris can understand and replicate the sandbox. Will also serve as onboarding doc.
 15. [ ] **Investigate Bitbucket shared repo provisioning** — can Pierce provision a shared repo space for the team? Chris implied this is needed for collaboration on analysis code. Check access level.
 16. [ ] **T1 ecosystem taxonomy audit** — validate that cross-platform comparisons in current analysis respect ecosystem boundaries (app-based captured: Apple News, SmartNews, Newsbreak vs. web-based competitive: Yahoo, O&O). Flag any findings that commingle these groups; note in governor.
@@ -117,7 +119,7 @@ For session history: see [sessions/](sessions/)
 - Sara Vallone + Andy: Apple News + Smart News personas (Sara drafting; Andy reviews before handoff)
 - Sara Vallone: review of AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (both passed 2026-04-08)
 - Sara Vallone: Alex Meta contact (El Novo Spanish strategy)
-- Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); AGENT-AUDIENCE confirmation; CSA intro length investigation (Pierce to escalate)
+- Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); CSA intro length investigation (Pierce to escalate)
 - Gary Kirwan: API key + endpoint docs — Chris Palo now personally following up
 - Marfeel: access status unclear — verify
 - Tarrow: ANP March drop (adding to Drive folder)
