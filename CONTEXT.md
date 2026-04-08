@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-07 CSA Weekly meeting (Sara Vallone, Chris Palo, Kathryn Sheplavy, Susannah Locke, Pierce) — PGS-82 staging clarified; WordPress any day; taxonomy restructured; cluster 1:3.3; US team listicle issue; GitHub access dropped; team expanded; reporter terminology. · 2026-04-07 auto-sync + PGS-148 SEO Keywords gap + PGS-150 spike added. · 2026-04-08 Gary API unblocked; cross-repo sync.
-**Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling). Gary unblocked 2026-04-08.
+**Last session:** 2026-04-07 EOD sync — processed PGS-148 (Oliver Felix SEO Keywords gap flagged; TEO spec captured; adopt-vs-rewrite decision needed before eng builds) + PGS-150 (new plagiarism detection spike; off-the-shelf API investigation; surfaces at Audience Variants alongside PGS-82; Emily Bohnet B2B feedback). Processed CSA Weekly 2026-04-07 transcript: PGS-82 staging clarified (waiting to enter; inform-only first version; real Sara drafts; QA tester), WordPress imminent, Q estimate Apr 8, taxonomy restructured as epic (~7 tickets, siblings in scope), GitHub access dropped (Bitbucket sufficient), dev team +2 eng +1 QA, cluster 1:3.3 (exceeds 1:4 target), US team listicle + external Claude URL workflow flagged (Sara investigating), reporter terminology (content creators/contributors not reporters), Gary: Pierce documenting escalation hierarchy first, Andy: 2 emails no response (wait then ticket), AB testing templates logged as future request.
+**Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: PGS-148 SEO Keywords decision (Pierce), Vallone format guide, 3-way SEMrush meeting, Andy template sign-off, LTV meeting (Chris scheduling). Gary unblocked 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
