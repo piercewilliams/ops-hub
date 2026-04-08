@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-08 EOD sync — csa-content-standards: §9 Claims Validation spec built (docs/claims-validation.md; 5-verdict taxonomy; content-type rules; Gary API integration to follow Sara parameter session); §10 Platform Formats built (SmartNews §10.1 + Apple News §10.2 standalone pages); v1.6.1 consistency audit (publishing-guidelines + headlines.md corrected against validated data; data-validated labels added); tool-responsibility.md finalized (DRAFT banner removed; 5 of 6 gaps resolved; only override doc location still TBD).
+**Last session:** 2026-04-08 EOD — captured missed csa-content-standards work (§9 Claims Validation, §10 Platform Formats, v1.6.1 consistency audit, tool-responsibility finalized); fixed sync infrastructure: sync-repos skill rewritten to start with git log audit for all repos before reading any CONTEXT.md, CLAUDE.md enforcement rule added, feedback memory written.
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: PGS-148 SEO Keywords decision (Pierce), Vallone format guide, 3-way SEMrush meeting, Andy template sign-off, LTV meeting (Chris scheduling). Gary unblocked 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
