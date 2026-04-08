@@ -38,7 +38,8 @@
       "Bash(gh repo:*)",
       "Bash(crontab -)",
       "Bash(launchctl load:*)",
-      "Bash(launchctl list:*)"
+      "Bash(launchctl list:*)",
+      "Bash(ls /Users/pierce/Desktop/*.pdf)"
     ]
   }
 }
