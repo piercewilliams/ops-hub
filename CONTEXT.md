@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-07 22:14 UTC auto-sync (csa-links.js: PGS-82→staging, PGS-40→in-progress, PGS-147/148/141 updated, rq-seo-field-rules + rq-h1-headline-rules added; projects.js unchanged) · 2026-04-08 (Gary API unblocked; cross-repo sync; CSA weekly agenda prepped; sync-repos skill fixed)
+**Last session:** 2026-04-07 CSA Weekly meeting (Sara Vallone, Chris Palo, Kathryn Sheplavy, Susannah Locke, Pierce) — PGS-82 staging clarified; WordPress any day; taxonomy restructured; cluster 1:3.3; US team listicle issue; GitHub access dropped; team expanded; reporter terminology. · 2026-04-07 auto-sync + PGS-148 SEO Keywords gap + PGS-150 spike added. · 2026-04-08 Gary API unblocked; cross-repo sync.
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, 3-way SEMrush meeting, Andy persona review, LTV meeting (Chris scheduling). Gary unblocked 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -27,8 +27,12 @@ For session history: see [sessions/](sessions/)
 - **AGENT-AUDIENCE routing — §1 status (2026-04-08):** §1.1 Voice & Tone → general-style (Susannah UI upload, done). §1.2 Headline Best Practices → headline (PGS-141, selected for dev). §1.2 SEO fields → seo (PGS-148, selected for dev). §1.3 Explicit Language → general-style (Susannah UI upload, done). §1.4 link count + anchor text → general-style (Susannah UI upload, done). §1.4 What to Link To → human-only (no action needed). §1.5–1.9 → human-only (no action needed). Susannah using Claude to fetch content by tag during uploads.
 - **PGS-139 + PGS-140 (both Selected for Dev):** Pierce tagged on both. PGS-139: CSA internally tests variants for duplicate content, auto-regenerates if fails, notifies user if still fails — UX for extended time is key concern (Efren Castillo; coordinate with TEO/Jim Robinson). PGS-140: analytics for pass/fail rates, failing variant IDs, reanalysis clicks, auto-regen events — Marcelo starting Amplitude implementation today (intelligence only, no UI needed). Feeds P2 Amplitude once live.
 - **PGS-80 DONE (2026-04-06):** Amplitude event tracking implemented. Remaining P2 blocker: p-tagging bug (CUE/WP format mismatch) — CSA eng fix.
-- **PGS-82:** Susannah approved merge to staging 2026-04-06. Staging QA will use real national team users + real content (Susannah has samples) — not just pass/fail. Jonathan Gonzalvo reviewing docs; will QA when ticket moves out of code review. National team flag required before production.
-- **CSA GitHub repo access:** Susannah got OK; Pierce provided GitHub username `piercewilliams`; awaiting provisioning.
+- **PGS-82 (2026-04-07 CSA Weekly):** Waiting to enter staging. First version = inform only: run all variants through CSA, flag concerning similarity pairs, tell user to edit/deselect those pairs, then reanalyze. Second version (PGS-139, already ticketed) = CSA resolves internally first. Staging will use real Sara Vallone drafts + real workflows — no dummy content. Susannah has dedicated QA tester now. National team flag ready; no lag expected between staging and production.
+- **CSA GitHub access: NOT NEEDED (2026-04-07).** Kathryn Sheplavy confirmed: Bitbucket mirrors GitHub; Bitbucket access is sufficient. Dropped action item.
+- **Dev team expanded (2026-04-07):** 2 new engineers + 1 dedicated QA tester added to Susannah's team.
+- **Cluster performance (2026-04-07 CSA Weekly):** National team at 1-in-3.3 stories-per-cluster ratio. Target was 1-in-4 — already exceeded. Chris showing examples: some clusters land on 2–3 markets (Netflix One Piece: Miami + Kansas City). Tracking still painful because tagging isn't live. Chris sharing sanitized data with Kathy + Eric.
+- **US team listicle + external Claude workflow (flagged 2026-04-07):** Susannah flagged two issues: (1) US team using CSA for listicles (combining info — different work stream, Chris OK'd but directed to Brody for escalation path on author attribution). (2) A content creator using external Claude to extract facts from URLs, then using that as CSA outline — Sara Vallone assigned to investigate. AI Tool Responsibility doc being circulated (Chris + Sara + Pierce).
+- **Reporter terminology (2026-04-07, stays internal):** Chris: do NOT call national team members "reporters." They are "content creators" or "contributors." Labor/union sensitivity — news division members are journalists; national team are not. Susannah acknowledged. Conversation stays internal.
 - **AI Tool Responsibility page (csa-content-standards):** Live as of 2026-04-07 with DRAFT banner. Completed draft passed to Sara Vallone 2026-04-08 — awaiting her review. Six [TBD] gaps still need Chris + Sara to fill before final: Step 2/3 contacts, supervisor conflict contact, Slack channel, override doc location, United Robots scope, phrasing-reproduction threshold.
 - **CSA fact-checking ruleset v0.1:** Completed draft passed to Sara Vallone 2026-04-08 — awaiting her review + validation against 15 test articles. 4 open items for Rajiv/Susannah: United Robots scope, module access by role, verdict confidence scores, audit trail/storage.
 - **Julia Tortoriello meeting:** Thursday 2026-04-10 2PM EST — El Nuevo Spanish translation process. Prep: `sessions/meeting-2026-04-10-julia-tortoriello.md`
@@ -83,10 +87,11 @@ For session history: see [sessions/](sessions/)
 6. [x] ~~**Draft Gary Tools escalation ruleset**~~ — CSA fact-checking module ruleset v0.1 complete (2026-04-07). Passed to Sara Vallone 2026-04-08. Bring to test article session next week once she's reviewed.
 
 **#2 — NEXT WEEK:**
-7. [ ] **Run first-test sequence against Gary API** — health → scrape → meta → content-structure → unanswered-questions → brands/mcclatchy/readiness → citations → poll. McClatchy key in hand. Gary's intended workflow: copy API doc into Claude, run markdown article through it.
+7. [ ] **Document Gary fact-checker desired functionality** — Pierce writing: hierarchy of escalation paths, desired behavior/responses for each scenario, internal logic. Susannah confirmed this is the right approach to set dev expectations upfront. Do this before running first-test sequence.
+7.5 [ ] **Run first-test sequence against Gary API** — health → scrape → meta → content-structure → unanswered-questions → brands/mcclatchy/readiness → citations → poll. McClatchy key in hand. Gary's intended workflow: copy API doc into Claude, run markdown article through it.
 8. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset. Draft already in her hands.
 8. [ ] **3-way SEMrush meeting** (Pierce, Sarah Price, Sara Vallone) — Sarah Price scheduling. Align on: signals/trends to track, presentation format, weekly vs monthly cadence, what to toggle by. This scopes P14 build.
-8. [ ] **Andy review on SmartNews Skimmer + Apple News Explorer personas** — required before Susannah can pin for National accounts.
+8. [ ] **Andy review on Apple News + SmartNews distribution templates** — Sara sent 2 emails, no response. Chris (2026-04-07): wait a few more days, then submit ticket; eng turnaround = few days. Do not block on Andy indefinitely.
 9. [x] ~~**Investigate Julia Tortoriello's content translation strategy**~~ — **Meeting scheduled: Thursday 2026-04-10 2PM EST.** Julia Tortoriello confirmed. Context: El Novo translating many stories; team exploring dedicated Spanish CSA pipeline.
 10. [x] ~~**Build Headline Grader**~~ — Built and delivered 2026-04-06. Requirements gathered at C&P Weekly, refined by Pierce; 14-criteria daily grader live at data-headlines (docs/grader/index.html), link delivered to Sara Vallone + Sarah Price. Remaining: criteria refinement as they review; individual performance tracking (per-author breakdown) to add.
 
@@ -112,15 +117,14 @@ For session history: see [sessions/](sessions/)
 - [ ] Final evaluation: **January 2027**
 
 **PGS-82/139/140 rollout — Susannah is driving, Pierce is tagged:**
-- [ ] **Attend staging test session (Monday+)** — Susannah scheduling with TEO + national team. Pierce tagged on PGS-139/140; likely involved in staging analysis. No action needed to initiate — wait for Susannah's calendar invite.
+- [ ] **Await Susannah's notification when PGS-82 enters staging** — Pierce + Sara Vallone + Kathryn Sheplavy all invited. Real Sara Vallone drafts will be used. No action needed to initiate.
 - [ ] **Monitor PGS-140 analytics spec** — duplicate content analytics will feed P2 dashboard once live; confirm Amplitude event names with dev team when ticket moves to build.
-- Rollout sequence: Staging (real users + real content) → TEO + national team QA → mitigation strategies → thoughtful production launch → analytics (PGS-140) → self-correction (PGS-139)
+- Rollout: PGS-82 enters staging (inform-only version) → Pierce/Sara/Kat QA with real content → mitigation strategies → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
 
 **Waiting on others (no action needed):**
 - Sarah Price: SEMrush API key + 250K credits; cluster performance data + Amplitude pulse data (to share with Pierce); 3-way SEMrush meeting scheduling; El Nuevo article count + translation % filtered by author bylines (from C&P Weekly 2026-04-06)
 - Chris Palo: PRD V0.4 review (not yet read as of 2026-04-07; automation levels = his open question); clustering stats repackage → Eric Nelson + Kathy Veter; told Jason about Gary's reluctance; pinging Rasheed re: Bitbucket + Cloudflare team environment; LTV meeting scheduling
-- Susannah Locke: CSA GitHub repo access (username: piercewilliams; Susannah has OK to provision)
-- Sara Vallone + Andy: Apple News + Smart News personas (Sara drafting; Andy reviews before handoff)
+- Sara Vallone + Andy: Apple News + Smart News distribution templates mostly done (Sara). Andy sent 2 emails, no response. Chris: wait a few more days, then submit ticket — changes go through eng (few days turnaround).
 - Sara Vallone: review of AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (both passed 2026-04-08)
 - Sara Vallone: Alex Meta contact (El Novo Spanish strategy)
 - Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); CSA intro length investigation (Pierce to escalate)
@@ -128,7 +132,8 @@ For session history: see [sessions/](sessions/)
 - Marfeel: access status unclear — verify
 - Tarrow: ANP March drop (adding to Drive folder)
 - Sarah Price: reaching out to Dedra 2026-04-06 to schedule Chad Snowflake meeting
-- Dev team: variant linking + Cluster ID field (P6); PGS-133/134/135; p-tagging bug (Amplitude blocker)
+- Dev team: variant linking + Cluster ID field (P6 — restructured as epic with ~7 new tickets, siblings still in scope, goes live when CMS connections established); PGS-133/134/135; p-tagging bug (Amplitude blocker); WordPress send-to "any day now" (Susannah's side done, other team's estimate expected Apr 8); Q/Cue estimate expected Apr 8
+- Sara Vallone: investigating content creator using external Claude to process URLs as CSA outline
 
 
 ## Gary Tools — Summary of What It Is
@@ -141,7 +146,7 @@ Gary Kirwan's tool runs factual accuracy / claims validation post-CSA, before ed
 
 **LTV = 0 for syndication:** Every syndication platform play is incremental PVs only — same articles also live on O&O. No subscriber conversion from syndication. The "value" of each syndication slot = PV delta. PRD must frame syndication strategy accordingly.
 
-**Cluster batting average:** Stories above avg PVs on 2+ sites. Q1 goal: 1-in-4. Current: ~1-in-3 (before CSA: 1-in-5 with fewer articles; now 1-in-3 with 5× more). "Double and triple dipping" = same story lands on multiple sites, each contributing incremental PVs.
+**Cluster batting average:** Stories above avg PVs on 2+ sites. Q1 goal: 1-in-4. **Current: 1-in-3.3 as of 2026-04-07 — already exceeding target** (before CSA: 1-in-5). Chris sharing sanitized data with Kathy + Eric. "Double and triple dipping" = same story lands on multiple sites, each contributing incremental PVs. Chris proposed future: daily AB testing of templates (content creators unaware of test group) — logged as future feature request.
 
 **Political data (two worlds):** Macro numbers (Justin's/Dedra's dashboards) are a separate world from Pierce's CSA statistical testing layer. Don't need to reconcile them. Pierce's work = isolated analysis environment for testing; Chris's cluster/political tracking = macro dashboard view.
 
