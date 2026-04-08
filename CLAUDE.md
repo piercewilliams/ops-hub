@@ -70,6 +70,8 @@ Read `CONTEXT.md` at the start of every session. Update it at the end. Archive c
 
 **At the end of any session where work touched multiple repos:** run `/sync-repos` to ensure all deliverables, blockers, decisions, waiting-on-others items, and CSA dashboard state are reflected across all repos. Do not skip this. Do not wait for the user to ask. If the session was ops-hub-only with no cross-repo work, a targeted CONTEXT.md + projects.js update is sufficient.
 
+**Critical sync rule — git log is the source of truth:** When running `/sync-repos`, the very first action must be `git log --oneline -20` and `git status` for every repo. CONTEXT.md and session logs can be stale; git history cannot lie. Any commit not described in that repo's session log and not captured in ops-hub COMPLETED_TASKS is a gap that must be fixed. Never declare "no gaps found" without having checked git log for all five repos.
+
 ## projects.js Staleness Rules
 
 Any time `data/projects.js` is updated — including during sync — audit every project's `nextActions` and `blockers` arrays against the following rules. Do not wait for the user to flag stale entries:
