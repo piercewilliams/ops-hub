@@ -126,6 +126,7 @@ For session history: see [sessions/](sessions/)
 - Chris Palo: PRD V0.4 review (not yet read as of 2026-04-07; automation levels = his open question); clustering stats repackage → Eric Nelson + Kathy Veter; told Jason about Gary's reluctance; pinging Rasheed re: Bitbucket + Cloudflare team environment; LTV meeting scheduling
 - Sara Vallone + Andy: Apple News + Smart News distribution templates mostly done (Sara). Andy sent 2 emails, no response. Chris: wait a few more days, then submit ticket — changes go through eng (few days turnaround).
 - Sara Vallone: review of AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (both passed 2026-04-08)
+- Sara Vallone: PGS-148 SEO Keywords spec — Pierce sending question 2026-04-08 morning (TEO spec in hand; does she want that or something National-specific?)
 - Sara Vallone: Alex Meta contact (El Novo Spanish strategy)
 - Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); CSA intro length investigation (Pierce to escalate)
 - Gary Kirwan: **UNBLOCKED.** Sent full API docs to Chris (2026-04-08). First-test sequence ready to run. No further action needed from Gary to begin testing.
