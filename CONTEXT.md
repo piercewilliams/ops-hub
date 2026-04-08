@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-08 — standup sync + morning Slack exchanges: PGS-40 WON'T DO → EGS-127; PGS-148 unblocked (SEO keywords spec finalized by Pierce: 1–5 keywords, single words OK); PGS-141/134/147 → CODE REVIEW; PGS-150 → IN PROGRESS; diff tool threshold calibration added to CSA Weekly agenda; CEO validation of CSA; csa-content-standards v1.6.2 (SEO Keywords) shipped.
+**Last session:** 2026-04-08 22:16 UTC — Automated sync. Added COMPLETED_TASKS: T1 Headlines GitHub Actions grader + Sarah Price tile feedback (2026-04-08a/b). No status changes. Prior session (human): standup sync — PGS-40 WON'T DO → EGS-127; PGS-148 unblocked; PGS-141/134/147 → CODE REVIEW; PGS-150 → IN PROGRESS; csa-content-standards v1.6.2 shipped.
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, 3-way SEMrush meeting, Andy template sign-off, LTV meeting (Chris scheduling). Gary unblocked 2026-04-08. PGS-148 SEO keywords resolved 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -95,15 +95,9 @@ For session history: see [sessions/](sessions/)
 
 **#1 — THIS WEEK:**
 1. [ ] **CSA Weekly — Chris Palo, Sara Vallone, Susannah Locke** — Agenda prepped (2026-04-08). Key decision needed before meeting: draft a one-sentence proposal on how Sara's 2-tier verdict taxonomy maps onto Chris's 5-verdict set (verdict taxonomy is #1 agenda item and highest-leverage). Other items: PGS-82 staging schedule + **diff tool threshold calibration** (two signals needed: hard SEO floor vs. softer persona-targeting signal — who proposes initial threshold values, how validated with real content?), PGS-139 UX meeting status, AI Tool Responsibility 3 gaps (Slack channel/override doc/United Robots scope), format/persona decoupling, PRD automation levels, Gary API loop-in for Susannah.
-1.5 [x] ~~**PGS-148 SEO Keywords gap**~~ — **RESOLVED 2026-04-08.** National team spec: 1–5 keywords, single words OK, lowercase, comma-separated, location names for local stories. Differs from TEO (3–5, multi-word only). Oliver and Susannah confirmed using Pierce's requirements.
 2. [ ] **Julia Tortoriello meeting — Thursday 2026-04-10 at 2 PM EST** — El Nuevo translation process + selection criteria + CSA instrumentation scope. Prep notes: `sessions/meeting-2026-04-10-julia-tortoriello.md`
 3. [ ] **Get SEMrush API key + 250K credits from Sarah Price** — she confirmed she'll forward it; follow up if not received.
-3. [x] ~~**Review Sara Vallone's AI usage guidance draft**~~ — Received. Pierce drafted expanded escalation language: named escalation chain, supervisor conflict path, stop-use trigger, plagiarism/attribution check, partner content vetting, override documentation.
-   - [x] ~~**Draft AI Tool Responsibility page + fact-checking ruleset**~~ — Both completed drafts passed to Sara Vallone 2026-04-08. Waiting on her review.
-   - [x] ~~**3 remaining gaps in AI Tool Responsibility page**~~ — All resolved (2026-04-07/08). Page finalized (v1.4.1); DRAFT banner removed. One item still TBD: override documentation location (Rajiv/Susannah to decide format — CMS field, Slack thread, or separate log).
-4. [x] ~~**Ping on CSA intro length**~~ — PGS-147 now **in progress**. National team only; ~80–100 words before first H2 (currently ~50). Applies to all National content formats via feature flag.
-5. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
-6. [x] ~~**Draft Gary Tools escalation ruleset**~~ — CSA fact-checking module ruleset v0.1 complete (2026-04-07). Passed to Sara Vallone 2026-04-08. Bring to test article session next week once she's reviewed.
+4. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
 
 **#2 — NEXT WEEK:**
 7. [ ] **Document Gary fact-checker desired functionality** — Pierce writing: hierarchy of escalation paths, desired behavior/responses for each scenario, internal logic. Susannah confirmed this is the right approach to set dev expectations upfront. Do this before running first-test sequence.
@@ -111,9 +105,6 @@ For session history: see [sessions/](sessions/)
 8. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset. Draft already in her hands.
 8. [ ] **3-way SEMrush meeting** (Pierce, Sarah Price, Sara Vallone) — Sarah Price scheduling. Align on: signals/trends to track, presentation format, weekly vs monthly cadence, what to toggle by. This scopes P14 build.
 8. [ ] **Andy review on Apple News + SmartNews distribution templates** — Sara sent 2 emails, no response. Chris (2026-04-07): wait a few more days, then submit ticket; eng turnaround = few days. Do not block on Andy indefinitely.
-9. [x] ~~**Investigate Julia Tortoriello's content translation strategy**~~ — **Meeting scheduled: Thursday 2026-04-10 2PM EST.** Julia Tortoriello confirmed. Context: El Novo translating many stories; team exploring dedicated Spanish CSA pipeline.
-10. [x] ~~**Build Headline Grader**~~ — Built and delivered 2026-04-06. Requirements gathered at C&P Weekly, refined by Pierce; 14-criteria daily grader live at data-headlines (docs/grader/index.html), link delivered to Sara Vallone + Sarah Price. Remaining: criteria refinement as they review; individual performance tracking (per-author breakdown) to add.
-
 **#3 — AFTER NEXT WEEK'S MEETINGS:**
 8. [ ] **When format/persona decoupling lands: migrate Apple News + SmartNews best practices from persona → format section** — Sara already frames these as format; dev ticket in queue (15/18 in code review as of 2026-04-03). Do this review as soon as the decoupling ticket closes.
 9. [ ] **Get final Vallone format guide + codify into csa-content-standards** — DO NOT FORGET. Confirm Vallone produces final version with T1 findings incorporated, then codify. 10 corrections to verify: remove WTK from SmartNews recs, add questions-hurt-both rule, add push notifications section, refine char targets (SN: 70–90 / Apple: 90–120).
@@ -124,8 +115,6 @@ For session history: see [sessions/](sessions/)
 14. [ ] **Document sandbox base build** — Chris explicitly asked (2026-04-07). Document the toolkit, guardrails, and access info so Chris Palo and Sarah Price can create their own specialized builds (e.g., analytics, partner content). Repo is public; package it. This supersedes the earlier "20-step environment" framing — focus is on repeatability for non-Pierce users, not just setup documentation.
 15. [ ] **Investigate Bitbucket shared repo provisioning** — can Pierce provision a shared repo space for the team? Chris implied this is needed for collaboration on analysis code. Check access level.
 16. [ ] **T1 ecosystem taxonomy audit** — validate that cross-platform comparisons in current analysis respect ecosystem boundaries (app-based captured: Apple News, SmartNews, Newsbreak vs. web-based competitive: Yahoo, O&O). Flag any findings that commingle these groups; note in governor.
-17. [x] ~~**Update PRD** with LTV=0 syndication framework, swarm testing vision as product req, syndication ecosystem taxonomy as analytical framework~~ — Done. V0.4 delivered to Chris Palo 2026-04-06.
-
 **Compass (HR — performance management):**
 - [ ] **Draft goals with Jeremy Gockel** in Compass — due **April 26, 2026**
 - [ ] **Goals must total 100%**, each aligned to a division org objective
@@ -136,45 +125,26 @@ For session history: see [sessions/](sessions/)
 - [ ] Final evaluation: **January 2027**
 
 **PGS-82/139/140 rollout — Susannah is driving, Pierce is tagged:**
-- [ ] **Await Susannah's notification when PGS-82 enters staging** — Pierce + Sara Vallone + Kathryn Sheplavy all invited. Real Sara Vallone drafts will be used. No action needed to initiate.
-- [ ] **Monitor PGS-140 analytics spec** — duplicate content analytics will feed P2 dashboard once live; confirm Amplitude event names with dev team when ticket moves to build.
-- Rollout: PGS-82 enters staging (inform-only version) → Pierce/Sara/Kat QA with real content → mitigation strategies → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
+- [ ] Await PGS-82 staging notification (Pierce/Sara/Kat invited; real Sara Vallone drafts). Monitor PGS-140 Amplitude event names when ticket moves to build.
+- Rollout: staging (inform-only) → QA → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
 
 **Waiting on others (no action needed):**
-- Sarah Price: SEMrush API key + 250K credits; cluster performance data + Amplitude pulse data (to share with Pierce); 3-way SEMrush meeting scheduling; El Nuevo article count + translation % filtered by author bylines (from C&P Weekly 2026-04-06)
-- Chris Palo: PRD V0.4 review (not yet read as of 2026-04-07; automation levels = his open question); clustering stats repackage → Eric Nelson + Kathy Veter; told Jason about Gary's reluctance; pinging Rasheed re: Bitbucket + Cloudflare team environment; LTV meeting scheduling
-- Sara Vallone + Andy: Apple News + Smart News distribution templates mostly done (Sara). Andy sent 2 emails, no response. Chris: wait a few more days, then submit ticket — changes go through eng (few days turnaround).
-- Sara Vallone: review of AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (both passed 2026-04-08)
-- ~~Sara Vallone: PGS-148 SEO Keywords~~ — **DONE.** Pierce made the call: 1–5 keywords, single words OK. Susannah confirmed.
-- Sara Vallone: Alex Meta contact (El Novo Spanish strategy)
-- Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); CSA intro length investigation (Pierce to escalate)
-- Gary Kirwan: **UNBLOCKED.** Sent full API docs to Chris (2026-04-08). First-test sequence ready to run. No further action needed from Gary to begin testing.
-- Marfeel: access status unclear — verify
-- Tarrow: ANP March drop (adding to Drive folder)
-- Sarah Price: reaching out to Dedra 2026-04-06 to schedule Chad Snowflake meeting
-- Dev team: variant linking + Cluster ID field (P6 — restructured as epic with ~7 new tickets, siblings still in scope, goes live when CMS connections established); PGS-133/134/135; p-tagging bug (Amplitude blocker); WordPress send-to "any day now" (Susannah's side done, other team's estimate expected Apr 8); Q/Cue estimate expected Apr 8
-- Sara Vallone: investigating content creator using external Claude to process URLs as CSA outline
+- Sarah Price: SEMrush API key + 250K credits; cluster/Amplitude pulse data; 3-way SEMrush meeting scheduling; El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra)
+- Chris Palo: PRD V0.4 review (automation levels = his open question); clustering stats → Eric Nelson + Kathy Veter; Rasheed re: Bitbucket + Cloudflare team environment; LTV meeting scheduling
+- Sara Vallone: review AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (passed 2026-04-08); Apple News/SmartNews templates (Andy 2 emails, no response — submit ticket if no reply); Alex Meta contact (El Nuevo); content creator using external Claude (investigating)
+- Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135)
+- Dev team: EGS-127 (variant origin tracking); PGS-133/134/135; p-tagging bug (Amplitude blocker); WordPress send-to + CUE/Q estimates
+- Marfeel: access status unclear — verify. Tarrow: ANP March drop.
 
-
-## Gary Tools — Summary of What It Is
-
-Gary Kirwan's tool runs factual accuracy / claims validation post-CSA, before editor's desk. **UNBLOCKED 2026-04-08 — Gary sent full API documentation to Chris.** Base URL: `https://unified-seo-gateway.kirwan-digital-marketing-ltd.workers.dev`. McClatchy API key in hand (rotatable). Key endpoint: `POST /api/v1/research/data-validity` (main claims validator). First-test sequence: health → scrape → meta → content-structure → unanswered-questions → brands/readiness → citations → poll. Three reports run: Duggar legal, Women's World health, Charlotte Home Buyers Guide. Charlotte caught stale FY2025 tax rate that human editor missed. Chris directed Pierce + Sara Vallone to define editorial parameters. Sara proposed 2-tier taxonomy: **"Needs Clarification"** + **"Needs Correction"**. Sara also values source quality flagging. 4 technical questions still unanswered. Sara has 15 test articles; parameter session next week. Details: gary-tools repo.
 
 ## Strategic Frameworks (from Chris Palo huddle 2026-04-03)
 
-**Syndication ecosystem taxonomy:** Two distinct environments. App-based captured (Apple News, SmartNews, Newsbreak) — users stay in-app, LTV=0, no subscriber conversion, pure PV increment. Web-based competitive (Yahoo, O&O) — users land on site, discovery model, standard CTR/PV dynamics. Do NOT commingle in analytics — headline/format formulas that work in one will not generalize to the other.
-
-**LTV = 0 for syndication:** Every syndication platform play is incremental PVs only — same articles also live on O&O. No subscriber conversion from syndication. The "value" of each syndication slot = PV delta. PRD must frame syndication strategy accordingly.
-
-**Cluster batting average:** Stories above avg PVs on 2+ sites. Q1 goal: 1-in-4. **Current: 1-in-3.3 as of 2026-04-07 — already exceeding target** (before CSA: 1-in-5). Chris sharing sanitized data with Kathy + Eric. "Double and triple dipping" = same story lands on multiple sites, each contributing incremental PVs. Chris proposed future: daily AB testing of templates (content creators unaware of test group) — logged as future feature request.
-
-**Political data (two worlds):** Macro numbers (Justin's/Dedra's dashboards) are a separate world from Pierce's CSA statistical testing layer. Don't need to reconcile them. Pierce's work = isolated analysis environment for testing; Chris's cluster/political tracking = macro dashboard view.
-
-**Q2 metrics (from C&P Weekly 2026-04-06):** 3× output target; $85/asset cost benchmark; 500K PV "big hairy goal"; 5–8% long-term traffic lift goal; current batting average 1-in-3 (before CSA: 1-in-5). Confirmed in session.
-
-**Headline vs. article distinction:** Headline is the acquisition tool (drives click from syndication surface). Article content is the retention/value creation layer. These are analytically distinct — headline formula findings apply to click acquisition; content quality findings apply to return visits and subscriber conversion. Do not conflate in analysis or stakeholder comms.
+**Syndication ecosystems:** App-based captured (Apple News, SmartNews, Newsbreak) — LTV=0, pure PV increment. Web-based competitive (Yahoo, O&O) — standard CTR/PV dynamics. Do NOT commingle in analytics.
+**LTV=0 for syndication:** PV delta only — no subscriber conversion. Every syndication slot = incremental PVs on top of O&O.
+**Cluster batting average:** 1-in-3.3 as of 2026-04-07 (target 1-in-4, before CSA: 1-in-5). Q2 metrics: 3× output; $85/asset cost; 500K PV goal; 5–8% long-term traffic lift.
+**Headline vs. article:** Headline = click acquisition (syndication surface). Article = retention/subscriber conversion. Analytically distinct — do not conflate.
+**Political data:** Justin's/Dedra's macro dashboards are separate from Pierce's CSA statistical testing layer.
 
 ---
 
 *Tiered Context Architecture. Budget: ≤150 lines.*
-*Lines used: ~120*
