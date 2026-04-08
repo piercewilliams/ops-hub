@@ -39,7 +39,8 @@
       "Bash(crontab -)",
       "Bash(launchctl load:*)",
       "Bash(launchctl list:*)",
-      "Bash(ls /Users/pierce/Desktop/*.pdf)"
+      "Bash(ls /Users/pierce/Desktop/*.pdf)",
+      "Bash(pbcopy)"
     ]
   }
 }
