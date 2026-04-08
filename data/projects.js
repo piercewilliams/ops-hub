@@ -227,9 +227,7 @@ export const PROJECTS = {
       'H1 headline enforcement (PGS-135) pending Susannah prompt-level fix',
     ],
     nextActions: [
-      'PGS-148 SEO Keywords gap — confirm with Oliver Felix / Susannah whether to adopt TEO spec (3–5 multi-word phrases, lowercase, comma-separated, location-inclusive for local stories) or write a National-specific version. Communicate decision on the ticket before eng starts build.',
       'PGS-150 (plagiarism detection spike) — monitor eng recommendation. No action until spike produces shortlist. When recommendation lands: scope integration at Audience Variants stage alongside PGS-82.',
-      'PGS-147: Verify intro length guidance (~80–100 words) is included in the National team style guide uploaded 2026-04-02 — if not, add it before eng implements at prompt level',
       'Andy: wait a few more days for Apple News + Smart News template feedback. If still no response, submit ticket — Sara\'s version is good enough to proceed (Chris confirmed). Note: any Andy edits will require a ticket to eng (few days turnaround).',
       'CAUTION: Do not call national team members "reporters" — use "content creators" or "contributors." Labor/union sensitivity. Chris Palo (2026-04-07); conversation stays internal.',
       'Monitor Sara Vallone investigation of content creator using external Claude to process URLs before CSA outline input (flagged Susannah 2026-04-07). Escalation path for author attribution issues via Brody.',
@@ -301,11 +299,11 @@ export const PROJECTS = {
     owner: 'Pierce (dev) · Sara Vallone (stakeholder)',
     description: 'Automate Sara Vallone\'s content governance Google Sheet — who published what, under which persona/format/cluster, and how it performed. Deprioritized by Chris Palo 2026-03-30. HOWEVER: the four Jira prerequisites below are actively being built. When they land, the tracker becomes low-effort to realize and would be auto-populated rather than manual. The same infra that enables CMS push/pull and cluster tagging essentially builds the tracker\'s data layer for free.',
     blockers: [
-      'HOLD pending four Jira prerequisites: (1) Cluster ID field in CUE + WP (P6 dev / PGS-40), (2) Send-to-CUE functional (rq-send-to-cue), (3) Send-to-WP functional (rq-send-to-wp), (4) PGS-80 analytics live (draft-to-publish ratio + export event tracking)',
+      'HOLD pending four Jira prerequisites: (1) Cluster ID field in CUE + WP (P6 dev / EGS-127), (2) Send-to-CUE functional (rq-send-to-cue), (3) Send-to-WP functional (rq-send-to-wp), (4) PGS-80 analytics live (draft-to-publish ratio + export event tracking)',
       'Chris deprioritized 2026-03-30 — revisit once prerequisites land and bring to Chris with updated scope',
     ],
     nextActions: [
-      'Monitor Jira for: PGS-40 (tagging taxonomy), Send-to-CUE, Send-to-WP, PGS-80 analytics',
+      'Monitor Jira for: EGS-127 (variant origin tracking, replaces PGS-40), Send-to-CUE, Send-to-WP, PGS-80 analytics',
       'When all four prerequisites are fulfilled: scope tracker build and bring revised proposal to Chris — the manual work will be dramatically reduced by the infra already in place',
     ],
     dependsOn: ['p6-taxonomy', 'p1-access'],
