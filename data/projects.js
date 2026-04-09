@@ -6,6 +6,7 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-09', task: 'Gary Tools: Documented desired functionality — escalation paths, Needs Clarification vs. Needs Correction behavior, internal logic. Passed to Sara Vallone with v0.1 ruleset.', project: '#10 Gary Tools Integration' },
   { date: '2026-04-09', task: 'WordPress send-to WP is now LIVE for Us Weekly, Woman\'s World, Soap Opera Digest, and Bargain Hunter. Content creators can send CSA drafts directly to WordPress as drafts via the CSA UI. Built by Saner Keles, Emil Penalo, Daury Caba, Susannah Locke, Regina Faler, and sasha_levchuk. CUE send-to still in progress (date TBD from Kat Sheplavy). Satisfies rq-send-to-wp prerequisite for P12.', project: '#12 United Robots Inbound Pipeline' },
   { date: '2026-04-09', task: 'data-headlines weekly auto-ingest pipeline built and fully unblocked: (1) download_tarrow.py — downloads live 2026 Google Sheet via Drive API using existing service account; (2) .github/workflows/weekly_ingest.yml — Monday 8pm CDT cron; change-detection; commits xlsx + docs/ + data/; (3) generate_site.py writes data/build_summary.json (8 tracked metrics); (4) update_snapshots.py appends to data/weekly_snapshots.json for longitudinal tracking. 19/19 smoke tests pass. Tarrow shared 2026 sheet with service account 2026-04-09 — pipeline fully operational.', project: '#3 T1 Headlines Analysis (Price)' },
   { date: '2026-04-09', task: 'data-keywords repo created (piercewilliams/data-keywords) — dedicated implementation repo for P14 SEMrush / Keyword Signal Layer. Full context architecture seeded: CONTEXT.md (blockers, prioritized tasks, scope decisions), REFERENCE.md (team/contacts, SEMrush credit model, DataForSEO alternative, all 3 confirmed use cases, related Jira tickets), sessions/2026-04.md (3-way meeting + email chain history). Claude Code permissions installed.', project: '#14 SEMrush / Keyword Signal Layer' },
@@ -101,7 +102,7 @@ export const PROJECTS = {
     description: 'Map CSA transformations via BitBucket. Low priority — not blocking anything.',
     blockers: [],
     nextActions: [
-      'Do opportunistically; do not block other work',
+      'Map CSA pipeline transformations via Bitbucket (low priority — do opportunistically)',
     ],
     dependsOn: ['p1-access'],
   },
@@ -115,7 +116,6 @@ export const PROJECTS = {
       'Sara Vallone parameter session (next week) — walk 15 test articles, finalize verdict taxonomy',
     ],
     nextActions: [
-      'Document desired Gary functionality before running first test: escalation paths, Needs Clarification vs Correction behavior, internal logic',
       'Run first API test sequence: health → scrape → meta → content-structure → unanswered-questions → citations',
       'Sara Vallone session next week — iterate on v0.1 ruleset',
     ],
@@ -175,7 +175,6 @@ export const PROJECTS = {
       'Amplitude: CSA eng p-tagging bug must be fixed first',
     ],
     nextActions: [
-      'Chad Bruton walkthrough → Sigma OAuth2 creds → activate adapter',
       'Get Marfeel API key → activate adapter',
       'Monitor p-tagging fix → activate Amplitude adapter',
       'Attend Amplitude/Amanda Hamilton meeting (Sarah Price adding Pierce)',
