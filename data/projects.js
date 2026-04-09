@@ -6,6 +6,7 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-08', task: 'SEMrush: Pierce looped into email chain with Rocky Rhodes (SEMrush admin) and Stephanie Zandecki. Rocky clarified credit unit model (live ~10 units/line, historical ~50 units/line); 250K credits ≈ 50 full runs at batch scale — Sara Vallone\'s credit concern validated. Rocky reaching out to SEMrush rep Julio for exact endpoint-level rates. DataForSEO API flagged as potentially cheaper alternative. Stephanie Zandecki (Senior SEO/TEO Lead) may have keyword-to-article data in Sigma dashboard already. Pierce has access to full SEMrush API docs.', project: '#14 SEMrush / Keyword Signal Layer' },
   { date: '2026-04-08', task: 'SEMrush 3-way alignment meeting complete (Pierce, Sarah Price, Sara Vallone). Key outcomes: (1) SEMrush API held by Sarah Price — 250K credits allocated to L&E, NOT the CSA team; CSA is governed by team-provided keywords, not SEMrush-selected ones. (2) Immediate plan: track ~25 articles to compare identified keywords. (3) Credit concern: Sara Vallone afraid of running out quickly — need to confirm usage rate + recycling schedule before heavy use. (4) Testing incorporated into existing testing tracker, not a new spreadsheet. (5) Longer-term goals: backlinking tracking in CSA; utility tab for service journalism (Sara added to tracker for Trend Hunter team). (6) Headline grader: Sara Vallone noted it seems sufficient, needs a few days of use before specific feedback. (7) Amplitude/Claude integration: Sarah Price struggling — meeting with Amanda Hamilton (manages Amplitude) coming up; Pierce being added. Next: Sarah Price to forward SEMrush API email chain to Pierce (CC Sara Vallone).', project: '#14 SEMrush / Keyword Signal Layer' },
   { date: '2026-04-08', task: 'PTECH-7641 DONE (Platform Technology team — different from CSA eng/Maktachi): CSA analytics engineer set up foundational CSA data layer properties. Each CSA article now pushes csa_canonical_article_id, csa_variant_type, and csa_variant_id to window.dataLayer. Scoped to L&E sites; includes WordPress and CUE integration. Susannah flagged to Pierce: "different team than the CSA-focused team." Feeds Amplitude analytics layer but distinct from PGS-80 (user event tracking by CSA eng team).', project: '#2 Dashboard Instrumentation' },
   { date: '2026-04-08', task: 'Claude Code permission settings fully implemented: ~/.claude/settings.json (global user scope — applies in every repo, every surface including CLI, desktop app, IDE extensions) written from Rajiv Pant\'s curated 80+ permission template. .claude/settings.json (project scope) written to all 6 repos (ops-hub, csa-dashboard, csa-content-standards, data-headlines, gary-tools, data-cmstracker) and committed. ~/.claude/project-settings-template.json created as canonical template. ~/.zshrc updated with _claude_auto_setup chpwd hook — auto-installs project settings whenever cd-ing into any git repo that lacks them; also fires on shell startup. Result: no more permission interruptions for read/reversible operations across all repos and surfaces.', project: '#8 Rajiv CSA Mapping' },
@@ -211,10 +212,8 @@ export const PROJECTS = {
       'Share formula × topic interaction finding → editorial leads ("here\'s" / question lift Apple News featuring ONLY for weather/emergency content)',
       'Share SmartNews formula trap finding → distribution team (questions and WTK actively hurt SmartNews; opposite of Apple News playbook)',
       'Individual performance tracking: add per-author breakdown to Headline Grader — author field already in Sara\'s Tracker sheet',
-      'Follow up with Sarah Price on SEMrush API key + 250K credits if not yet received',
-      '3-way SEMrush meeting (Pierce, Sarah Price, Sara Vallone) — Sarah Price scheduling; align on signals to track, cadence, presentation format',
       'Codify finalized SmartNews/Apple News guidance into csa-content-standards — pending Vallone final format guide (10 corrections needed first)',
-      'Build SEMrush layer after 3-way meeting defines scope',
+      'Build SEMrush keyword layer now that scope is defined — wait for Rocky/Julio credit rate confirmation first',
       'Headline Grader: monitor Sara Vallone + Sarah Price feedback on criteria; refine rule tiers in generate_grader.py as input comes in',
       'Receive cluster performance data + Amplitude pulse data from Sarah Price (waiting on her)',
       'O&O layer: activate once CSA eng p-tagging bug resolved',
@@ -279,22 +278,25 @@ export const PROJECTS = {
     id: 'p14-semrush', num: '14', tier: 4, type: 'project', status: 'in-progress',
     name: 'SEMrush / Keyword Signal Layer',
     owner: 'Pierce · Sarah Price · Sara Vallone',
-    description: '3-way alignment meeting DONE 2026-04-08 (Pierce, Sarah Price, Sara Vallone). Key scope decisions: credits are 250K allocated to L&E (not the CSA team) — CSA is governed by team-provided keywords, not SEMrush-selected; Sara Vallone concerned about running out quickly (need usage rate + recycling schedule). Immediate plan: track ~25 articles to compare identified keywords; use existing testing tracker (not new spreadsheet). Longer-term: backlinking tracking in CSA; utility tab for service journalism (Sara added Trend Hunter tracker tab). API email chain being forwarded by Sarah Price to Pierce (CC Sara Vallone). Two confirmed use cases: (1) analyze current keywords, suggest better alternatives for planning future articles and improving long-tail content; (2) evergreen backlinking — track ~25 URLs, measure improvement after adding backlinks to proven evergreen article (~800 views/day).',
+    description: '3-way alignment meeting DONE 2026-04-08 (Pierce, Sarah Price, Sara Vallone). Pierce looped into SEMrush email chain 2026-04-08 — Rocky Rhodes (SEMrush admin, rrhodes@mcclatchy.com) CC\'d Pierce and is liaising with SEMrush rep Julio for endpoint-level credit guidance. Credit model (from Rocky): live data ~10 units/line of response, historical ~50 units/line; complex queries scale multiplicatively. 250K credits = ~50 full runs of 500-keyword batch at live rate — Sara Vallone\'s credit concern is valid at scale. Rocky flagged DataForSEO API as a potentially cheaper alternative for keyword-to-article use cases. Stephanie Zandecki (Senior SEO/TEO Lead, szandecki@mcclatchy.com) may already have keyword-to-article data in Sigma dashboard — confirm before building from scratch. Scope from 3-way meeting: credits are 250K allocated to L&E; CSA governed by team-provided keywords; track ~25 articles in existing testing tracker. Two confirmed use cases: (1) analyze current keywords, suggest better alternatives; (2) evergreen backlinking — track ~25 URLs, measure improvement after adding backlinks to proven evergreen article (~800 views/day). Pierce now has access to full SEMrush API docs.',
     blockers: [
-      'SEMrush API email chain not yet forwarded by Sarah Price (confirmed she will forward; CC Sara Vallone)',
-      'Credit usage rate + recycling schedule unknown — must confirm before heavy use to avoid running out of 250K credits',
+      'Credit burn rate per endpoint not yet confirmed — Rocky reaching out to SEMrush rep Julio for exact figures; must have before building any automated use',
+      'Need to confirm with Stephanie Zandecki whether keyword-to-article data already exists in Sigma (avoid duplicate build)',
     ],
     nextActions: [
-      'Receive SEMrush API email chain from Sarah Price (she confirmed she will forward; CC Sara Vallone)',
-      'Confirm: how fast do 250K credits consume, and when do they recycle? Answer before building any automated use',
+      'Wait for Rocky/Julio response on exact credit rate per endpoint before writing automation',
+      'Confirm with Stephanie Zandecki: does Sigma already have keyword-to-article mapping data?',
+      'Evaluate DataForSEO API vs SEMrush for Sarah Price\'s batch keyword use case (Rocky flagged as cheaper alternative)',
       'Build initial keyword tracking pass against ~25 articles in existing testing tracker',
       'Build SEMrush layer: point-and-click interface for Sarah Price; start with evergreen backlinking use case (~25 URLs)',
-      'Second use case: headline tweaks on underperforming articles — identify underperformers, tweak headline, track keyword/traffic improvement (Sarah Price input 2026-04-03)',
+      'Second use case: headline tweaks on underperforming articles — identify underperformers, tweak headline, track keyword/traffic improvement',
     ],
     dependsOn: ['p1-access', 'p3-headlines'],
     contacts: [
       { name: 'Sarah Price', role: 'Primary user; holds SEMrush API key + 250K credits' },
       { name: 'Sara Vallone', role: 'Stakeholder; aligning on signals to track' },
+      { name: 'Rocky Rhodes', role: 'SEMrush admin (rrhodes@mcclatchy.com); liaising with SEMrush rep Julio on credit rates; flagged DataForSEO alternative' },
+      { name: 'Stephanie Zandecki', role: 'Senior SEO/TEO Lead, Platform Services (szandecki@mcclatchy.com); may have keyword-to-article data in Sigma' },
     ],
   },
 

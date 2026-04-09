@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-08 late EOD — Jira + meeting sync. SEMrush 3-way meeting happened (scope defined, credit concern, API chain incoming). PGS-140 → IN PROGRESS. PTECH-7641 DONE (Platform Tech data layer). Amanda Hamilton Amplitude meeting: Pierce being added. UsWeekly/L&E dropping intro word length before first H2. Claude Code permissions setup also this session.
-**Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, 3-way SEMrush meeting, Andy template sign-off, LTV meeting (Chris scheduling). Gary unblocked 2026-04-08. PGS-148 SEO keywords resolved 2026-04-08.
+**Last session:** 2026-04-08 EOD — SEMrush email chain: Rocky Rhodes looped Pierce in (credit model clarified, DataForSEO alternative flagged, Stephanie Zandecki/Sigma noted). Claude Code permissions (global + all repos). Jira sync (PTECH-7641 done, PGS-140 in-progress). Full SEMrush API docs now in Pierce's hands.
+**Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky/Julio credit rate confirmation. Gary unblocked 2026-04-08. PGS-148 SEO keywords resolved 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -87,7 +87,7 @@ For session history: see [sessions/](sessions/)
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
-| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | 3-way meeting DONE 2026-04-08. Credits are 250K to L&E (not CSA). API chain being forwarded by Sarah Price. Need to confirm credit burn rate before building. |
+| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | 3-way meeting DONE. Pierce looped into email chain via Rocky Rhodes (SEMrush admin). Credit model: ~10 units/line live, ~50/line historical. Rocky → Julio for exact rates. DataForSEO API + Stephanie Zandecki/Sigma as alternatives. Pierce has full API docs. |
 | 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live this week. AI policy for AI-sourced content now active. Reuters still blocked. **New sub-scope: fact-checking inbound partner content (Athlon Sports ~1M stories/year). Legal question: data vs. content (analyzable vs. contractually forbidden). Low priority.** |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff this week (Sara, Sarah Price, Pierce, Kathy). Statistical input from Pierce needed. |
 
@@ -96,7 +96,7 @@ For session history: see [sessions/](sessions/)
 **#1 — THIS WEEK:**
 1. [ ] **CSA Weekly — Chris Palo, Sara Vallone, Susannah Locke** — Agenda prepped (2026-04-08). Key decision needed before meeting: draft a one-sentence proposal on how Sara's 2-tier verdict taxonomy maps onto Chris's 5-verdict set (verdict taxonomy is #1 agenda item and highest-leverage). Other items: PGS-82 staging schedule + **diff tool threshold calibration** (two signals needed: hard SEO floor vs. softer persona-targeting signal — who proposes initial threshold values, how validated with real content?), PGS-139 UX meeting status, AI Tool Responsibility 3 gaps (Slack channel/override doc/United Robots scope), format/persona decoupling, PRD automation levels, Gary API loop-in for Susannah.
 2. [ ] **Julia Tortoriello meeting — Thursday 2026-04-10 at 2 PM EST** — El Nuevo translation process + selection criteria + CSA instrumentation scope. Prep notes: `sessions/meeting-2026-04-10-julia-tortoriello.md`
-3. [ ] **Receive SEMrush API email chain from Sarah Price** — she confirmed forwarding; CC Sara Vallone. Then confirm: credit burn rate + recycling schedule before building anything automated.
+3. [ ] **Confirm SEMrush credit burn rate with Rocky/Julio** — Rocky Rhodes (SEMrush admin) reached out to rep Julio for endpoint-level rates. Live ~10 units/line, historical ~50 units/line; need exact per-endpoint numbers before building automation. Also confirm with Stephanie Zandecki whether keyword-to-article data already in Sigma.
 4. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
 4.5 [ ] **Attend Amplitude/Amanda Hamilton meeting** — Sarah Price adding Pierce; she manages Amplitude. Key question: Amplitude + Claude integration issues Sarah Price is hitting.
 
@@ -130,7 +130,9 @@ For session history: see [sessions/](sessions/)
 - Rollout: staging (inform-only) → QA → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
 
 **Waiting on others (no action needed):**
-- Sarah Price: SEMrush API email chain (confirmed forwarding, CC Sara Vallone); SEMrush credit burn rate/recycling confirmation; cluster/Amplitude pulse data; Amplitude/Amanda Hamilton meeting invite for Pierce; headline grader feedback (reviewing); El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra)
+- Rocky Rhodes (rrhodes@mcclatchy.com): credit burn rate per SEMrush endpoint — he's querying rep Julio; must have before writing any automation
+- Stephanie Zandecki (szandecki@mcclatchy.com): confirm whether keyword-to-article data already exists in Sigma dashboard before Pierce builds it from scratch
+- Sarah Price: cluster/Amplitude pulse data; Amplitude/Amanda Hamilton meeting invite for Pierce; headline grader feedback (reviewing); El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra)
 - Chris Palo: PRD V0.4 review (automation levels = his open question); clustering stats → Eric Nelson + Kathy Veter; Rasheed re: Bitbucket + Cloudflare team environment; LTV meeting scheduling
 - Sara Vallone: review AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (passed 2026-04-08); Apple News/SmartNews templates (Andy 2 emails, no response — submit ticket if no reply); Alex Meta contact (El Nuevo); content creator using external Claude (investigating)
 - Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); CUE/Q send-to estimate (after standup)
