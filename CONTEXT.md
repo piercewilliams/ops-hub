@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-09 — Standup: Rajiv on vacation; Emil Penalo + Oliver Felix now handling production merges; PR review backlog being cleared before new work; Jonathan Gonzalvo expanding QA to content quality (using Claude for variant eval); Marcelo needs Snowflake trend agent table keys (Kat escalating to Brad); Upstatement wrap-up handoff next week (optional for all); Confluence space being created (Saner Keles). Slack: WordPress send-to WP LIVE for UsW/WW/SOD/Bargain Hunter (Kat Sheplavy 7:30am). Content standards: L&E/UsW dropping word length before first H2 (per Susannah + Stephanie Zandecki/TEO) — csa-content-standards v1.6.3 updated. Tarrow shared 2026 sheet with service account — weekly ingest fully unblocked.
+**Last session:** 2026-04-09d — Condensed all 16 project panel tiles in data/projects.js (−61 lines net). Fixed three Up Next panel problems: P1+P2 Chad Bruton duplicate (removed from P2), P8 caution-as-task (replaced with actual task description), P10 "Document Gary functionality" removed (done; added to COMPLETED_TASKS). Resolved merge conflict in sessions/2026-04.md.
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky/Julio credit rate confirmation. Gary unblocked 2026-04-08. PGS-148 SEO keywords resolved 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
