@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-09 — Headline standards full cross-repo audit (13 conflicts found + fixed): grader char count corrected, WTK hardened to objective check (p=3.0e-6), question detection added, featured exception removed from standards (0% featuring rate), push notifications section added. data-keywords repo created (P14 implementation repo).
+**Last session:** 2026-04-09 — Headline standards full cross-repo audit (13 conflicts found + fixed): grader char count corrected, WTK hardened to objective check (p=3.0e-6), question detection added, featured exception removed from standards (0% featuring rate), push notifications section added. data-keywords repo created (P14 implementation repo). Weekly auto-ingest pipeline built for data-headlines: download_tarrow.py + weekly_ingest.yml (Monday 8pm CDT cron, change-detection) + build_summary.json + weekly_snapshots.json longitudinal store. 19/19 smoke tests pass. Pending: Tarrow must share 2026 sheet with pierce-tools-service-account@pierce-tools.iam.gserviceaccount.com (message sent).
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky/Julio credit rate confirmation. Gary unblocked 2026-04-08. PGS-148 SEO keywords resolved 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -75,7 +75,7 @@ For session history: see [sessions/](sessions/)
 |---|---------|------|--------|---------------------|
 | 1 | Platform Access & Training | 1 | In progress | SEMrush + Amplitude confirmed. Marfeel unclear. Gary API key received 2026-04-08. |
 | 2 | Dashboard Instrumentation | 4 | In progress | PTECH-7641 DONE: Platform Tech team shipped csa_canonical_article_id/variant_type/variant_id to window.dataLayer. PGS-140 → IN PROGRESS. Amanda Hamilton Amplitude meeting pending. p-tagging bug still blocks reliable Amplitude data. |
-| 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, author playbooks, experiments, governor, Headline Grader (GitHub Actions, daily). 2026-04-08c: nature/wildlife dual-headline, 0% featuring confirmed content-type constraint, full Sarah Price alignment. 16/16 tests pass. SEMrush layer next. |
+| 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, 15 grader criteria, author playbooks, experiments, governor, Headline Grader (GitHub Actions, daily), weekly auto-ingest pipeline (Monday 8pm CDT; change-detection; longitudinal snapshots). 19/19 tests pass. Pending: Tarrow share 2026 sheet with service account. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Vallone format guide in hand (10 corrections needed). Andy review pending for 2 personas. |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7. Discover Persona test sheet exists in tracker (empty). |
