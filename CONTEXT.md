@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-08 EOD — Claude Code permissions setup (Rajiv Pant template). Global ~/.claude/settings.json + .claude/settings.json in all 6 repos + ~/.zshrc auto-setup hook. Prior: auto-sync 22:16 UTC captured grader/tile sessions (2026-04-08a/b). Gap recovered: data-headlines 2026-04-08c (author playbooks, SmartNews channel data, nature/wildlife guidance, full Sarah Price alignment).
+**Last session:** 2026-04-08 late EOD — Jira + meeting sync. SEMrush 3-way meeting happened (scope defined, credit concern, API chain incoming). PGS-140 → IN PROGRESS. PTECH-7641 DONE (Platform Tech data layer). Amanda Hamilton Amplitude meeting: Pierce being added. UsWeekly/L&E dropping intro word length before first H2. Claude Code permissions setup also this session.
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, 3-way SEMrush meeting, Andy template sign-off, LTV meeting (Chris scheduling). Gary unblocked 2026-04-08. PGS-148 SEO keywords resolved 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -74,7 +74,7 @@ For session history: see [sessions/](sessions/)
 | # | Project | Tier | Status | Key Blocker / State |
 |---|---------|------|--------|---------------------|
 | 1 | Platform Access & Training | 1 | In progress | SEMrush + Amplitude confirmed. Marfeel unclear. Gary API key received 2026-04-08. |
-| 2 | Dashboard Instrumentation | 4 | In progress | Google Sheets creds from Chad = first live adapter. Amplitude p-tagging bug (eng fix). PGS-140 analytics data will feed this once live. |
+| 2 | Dashboard Instrumentation | 4 | In progress | PTECH-7641 DONE: Platform Tech team shipped csa_canonical_article_id/variant_type/variant_id to window.dataLayer. PGS-140 → IN PROGRESS. Amanda Hamilton Amplitude meeting pending. p-tagging bug still blocks reliable Amplitude data. |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, author playbooks, experiments, governor, Headline Grader (GitHub Actions, daily). 2026-04-08c: nature/wildlife dual-headline, 0% featuring confirmed content-type constraint, full Sarah Price alignment. 16/16 tests pass. SEMrush layer next. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Vallone format guide in hand (10 corrections needed). Andy review pending for 2 personas. |
@@ -87,7 +87,7 @@ For session history: see [sessions/](sessions/)
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
-| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | API key + 3-way alignment meeting needed before building. Sarah Price scheduling meeting. |
+| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | 3-way meeting DONE 2026-04-08. Credits are 250K to L&E (not CSA). API chain being forwarded by Sarah Price. Need to confirm credit burn rate before building. |
 | 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live this week. AI policy for AI-sourced content now active. Reuters still blocked. **New sub-scope: fact-checking inbound partner content (Athlon Sports ~1M stories/year). Legal question: data vs. content (analyzable vs. contractually forbidden). Low priority.** |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff this week (Sara, Sarah Price, Pierce, Kathy). Statistical input from Pierce needed. |
 
@@ -96,19 +96,20 @@ For session history: see [sessions/](sessions/)
 **#1 — THIS WEEK:**
 1. [ ] **CSA Weekly — Chris Palo, Sara Vallone, Susannah Locke** — Agenda prepped (2026-04-08). Key decision needed before meeting: draft a one-sentence proposal on how Sara's 2-tier verdict taxonomy maps onto Chris's 5-verdict set (verdict taxonomy is #1 agenda item and highest-leverage). Other items: PGS-82 staging schedule + **diff tool threshold calibration** (two signals needed: hard SEO floor vs. softer persona-targeting signal — who proposes initial threshold values, how validated with real content?), PGS-139 UX meeting status, AI Tool Responsibility 3 gaps (Slack channel/override doc/United Robots scope), format/persona decoupling, PRD automation levels, Gary API loop-in for Susannah.
 2. [ ] **Julia Tortoriello meeting — Thursday 2026-04-10 at 2 PM EST** — El Nuevo translation process + selection criteria + CSA instrumentation scope. Prep notes: `sessions/meeting-2026-04-10-julia-tortoriello.md`
-3. [ ] **Get SEMrush API key + 250K credits from Sarah Price** — she confirmed she'll forward it; follow up if not received.
+3. [ ] **Receive SEMrush API email chain from Sarah Price** — she confirmed forwarding; CC Sara Vallone. Then confirm: credit burn rate + recycling schedule before building anything automated.
 4. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
+4.5 [ ] **Attend Amplitude/Amanda Hamilton meeting** — Sarah Price adding Pierce; she manages Amplitude. Key question: Amplitude + Claude integration issues Sarah Price is hitting.
 
 **#2 — NEXT WEEK:**
 7. [ ] **Document Gary fact-checker desired functionality** — Pierce writing: hierarchy of escalation paths, desired behavior/responses for each scenario, internal logic. Susannah confirmed this is the right approach to set dev expectations upfront. Do this before running first-test sequence.
 7.5 [ ] **Run first-test sequence against Gary API** — health → scrape → meta → content-structure → unanswered-questions → brands/mcclatchy/readiness → citations → poll. McClatchy key in hand. Gary's intended workflow: copy API doc into Claude, run markdown article through it.
 8. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset. Draft already in her hands.
-8. [ ] **3-way SEMrush meeting** (Pierce, Sarah Price, Sara Vallone) — Sarah Price scheduling. Align on: signals/trends to track, presentation format, weekly vs monthly cadence, what to toggle by. This scopes P14 build.
+8. [x] ~~**3-way SEMrush meeting**~~ — DONE 2026-04-08. Scope defined. API chain incoming from Sarah Price.
 8. [ ] **Andy review on Apple News + SmartNews distribution templates** — Sara sent 2 emails, no response. Chris (2026-04-07): wait a few more days, then submit ticket; eng turnaround = few days. Do not block on Andy indefinitely.
 **#3 — AFTER NEXT WEEK'S MEETINGS:**
 8. [ ] **When format/persona decoupling lands: migrate Apple News + SmartNews best practices from persona → format section** — Sara already frames these as format; dev ticket in queue (15/18 in code review as of 2026-04-03). Do this review as soon as the decoupling ticket closes.
 9. [ ] **Get final Vallone format guide + codify into csa-content-standards** — DO NOT FORGET. Confirm Vallone produces final version with T1 findings incorporated, then codify. 10 corrections to verify: remove WTK from SmartNews recs, add questions-hurt-both rule, add push notifications section, refine char targets (SN: 70–90 / Apple: 90–120).
-10. [ ] **Build SEMrush layer (P14)** — after 3-way meeting defines scope. Point-and-click interface for Sarah Price on top of API.
+10. [ ] **Build SEMrush layer (P14)** — meeting done; wait for API chain + confirm credit burn rate, then build. Point-and-click interface for Sarah Price.
 11. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data. (Sarah Price also reaching out to Dedra 2026-04-06 to coordinate.)
 12. [ ] **Finalize Science-Curious persona definitions** — Retiree + Casual Reader need canonical definitions before Susannah saves as shared custom personas.
 13. [ ] **Extend AGENT-AUDIENCE routing annotations beyond §1** — §1 fully confirmed live (2026-04-08). Susannah is tagging; next: audit §2+ sections and add AGENT-AUDIENCE tags where applicable.
@@ -125,15 +126,15 @@ For session history: see [sessions/](sessions/)
 - [ ] Final evaluation: **January 2027**
 
 **PGS-82/139/140 rollout — Susannah is driving, Pierce is tagged:**
-- [ ] Await PGS-82 staging notification (Pierce/Sara/Kat invited; real Sara Vallone drafts). Monitor PGS-140 Amplitude event names when ticket moves to build.
+- [ ] Await PGS-82 staging notification (Pierce/Sara/Kat invited; real Sara Vallone drafts). PGS-140 now IN PROGRESS — monitor Amplitude event names when ticket nears build.
 - Rollout: staging (inform-only) → QA → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
 
 **Waiting on others (no action needed):**
-- Sarah Price: SEMrush API key + 250K credits; cluster/Amplitude pulse data; 3-way SEMrush meeting scheduling; El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra)
+- Sarah Price: SEMrush API email chain (confirmed forwarding, CC Sara Vallone); SEMrush credit burn rate/recycling confirmation; cluster/Amplitude pulse data; Amplitude/Amanda Hamilton meeting invite for Pierce; headline grader feedback (reviewing); El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra)
 - Chris Palo: PRD V0.4 review (automation levels = his open question); clustering stats → Eric Nelson + Kathy Veter; Rasheed re: Bitbucket + Cloudflare team environment; LTV meeting scheduling
 - Sara Vallone: review AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (passed 2026-04-08); Apple News/SmartNews templates (Andy 2 emails, no response — submit ticket if no reply); Alex Meta contact (El Nuevo); content creator using external Claude (investigating)
-- Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135)
-- Dev team: EGS-127 (variant origin tracking); PGS-133/134/135; p-tagging bug (Amplitude blocker); WordPress send-to + CUE/Q estimates
+- Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); CUE/Q send-to estimate (after standup)
+- Dev team: EGS-127 (variant origin tracking); PGS-133/134/135; p-tagging bug (Amplitude blocker); WordPress send-to nearly done; PGS-140 IN PROGRESS (Marcelo)
 - Marfeel: access status unclear — verify. Tarrow: ANP March drop.
 
 
