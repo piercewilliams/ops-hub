@@ -40,7 +40,9 @@
       "Bash(launchctl load:*)",
       "Bash(launchctl list:*)",
       "Bash(ls /Users/pierce/Desktop/*.pdf)",
-      "Bash(pbcopy)"
+      "Bash(pbcopy)",
+      "Bash(/usr/local/bin/gh --version)",
+      "Bash(/opt/homebrew/bin/gh --version)"
     ]
   }
 }
