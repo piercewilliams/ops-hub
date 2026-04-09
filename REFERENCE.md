@@ -116,10 +116,10 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | Kathy Veter | On Eric Nelson's side ("new side of the aisle"). Chris sending her clustering success stats (with Eric Nelson) 2026-04-07. | Distinct from both Kathy above and Kathryn Sheplavy |
 | Brody | US Weekly team lead. Chris spoke to Brody about needing an avenue for the team to report tool usage issues (e.g., roundup practice). Chris will surface briefly at CSSE meeting. | — |
 | Rasheed | Chris's contact for Bitbucket + Cloudflare JSON access. Chris pinging him 2026-04-07 to see if he can set up a team environment for Pierce's tools (Bitbucket bucket, Cloudflare JSON). | May or may not be within M-Lache environment |
-| Stephanie Zandecki | Internal SEO; reviewing Gary's toolkit | — |
+| Stephanie Zandecki | Senior SEO/TEO Lead, Platform Services; reviewing Gary's toolkit; noted Pierce may be getting keyword-to-article data via Sigma dashboard already | szandecki@mcclatchy.com |
 | Patrick / Dar | Engineering (dev standup contacts for Amplitude event names) | — |
 | Regina | WordPress contact — needed for WordPress integration | — |
-| Rocky Rhodes | Snowflake/SEO data warehouse permissions contact | — |
+| Rocky Rhodes | Snowflake/SEO data warehouse permissions contact; SEMrush API admin (allocated 250K credits to L&E; key sent to Sarah Price via Slack); reached out to SEMrush rep Julio re: credit consumption rates; also offered DataForSEO API as alternative | rrhodes@mcclatchy.com |
 | Eric | (with Chris) assessing United Robots business feasibility | — |
 
 ## Repositories
