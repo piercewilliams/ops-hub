@@ -1,5 +1,11 @@
 [
   {
+    "id": "sync-20260409T224145",
+    "filename": "sync-20260409T224145.json",
+    "timestamp": "2026-04-09T22:41:45.259Z",
+    "label": "Apr 9, 5:41 PM"
+  },
+  {
     "id": "sync-20260409T170813",
     "filename": "sync-20260409T170813.json",
     "timestamp": "2026-04-09T17:08:13.446Z",
@@ -22,11 +28,5 @@
     "filename": "sync-20260408T175428.json",
     "timestamp": "2026-04-08T17:54:28.946Z",
     "label": "Apr 8, 12:54 PM"
-  },
-  {
-    "id": "sync-20260407T221621",
-    "filename": "sync-20260407T221621.json",
-    "timestamp": "2026-04-07T22:16:21.597Z",
-    "label": "Apr 7, 5:16 PM"
   }
 ]
