@@ -78,7 +78,7 @@ For session history: see [sessions/](sessions/)
 
 | # | Project | Tier | Status | Key Blocker / State |
 |---|---------|------|--------|---------------------|
-| 1 | Platform Access & Training | 1 | In progress | SEMrush + Amplitude confirmed. Marfeel unclear. Gary API key received 2026-04-08. |
+| 1 | Platform Access & Training | 1 | In progress | All access confirmed except Sigma scope verification. Marfeel confirmed 2026-04-09. Gary API key received 2026-04-08. Pending: Chad Bruton walkthrough to confirm Sigma access is complete. |
 | 2 | Dashboard Instrumentation | 4 | In progress | PTECH-7641 DONE. **WordPress send-to WP LIVE 2026-04-09** (UsW/WW/SOD/Bargain Hunter). PGS-140 → IN PROGRESS. Amanda Hamilton Amplitude meeting pending. p-tagging bug still blocks reliable Amplitude data. |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, 15 grader criteria, author playbooks, experiments, governor, Headline Grader (GitHub Actions, daily), weekly auto-ingest pipeline (Monday 8pm CDT; change-detection; longitudinal snapshots). 19/19 tests pass. **Fully operational** — Tarrow shared 2026 sheet 2026-04-09. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
@@ -142,7 +142,7 @@ For session history: see [sessions/](sessions/)
 - Sara Vallone: review AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (passed 2026-04-08); Apple News/SmartNews templates (Andy 2 emails, no response — submit ticket if no reply); Alex Meta contact (El Nuevo); content creator using external Claude (investigating)
 - Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); CUE/Q send-to estimate (after standup)
 - Dev team: EGS-127 (variant origin tracking); PGS-133/134/135; p-tagging bug (Amplitude blocker); rq-send-to-cue (date TBD — Kat to announce); PGS-140 IN PROGRESS (Marcelo); Emil/Oliver clearing PR review backlog
-- Marfeel: access status unclear — verify.
+- Sigma: confirm full scope of access within growth_and_strategy_role (Chad Bruton walkthrough needed)
 - Kat Sheplavy: Snowflake trend agent table keys for Marcelo (escalating to Brad); CUE send-to date announcement TBD
 
 
