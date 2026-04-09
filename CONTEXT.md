@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-08 22:16 UTC — Automated sync. Added COMPLETED_TASKS: T1 Headlines GitHub Actions grader + Sarah Price tile feedback (2026-04-08a/b). No status changes. Prior session (human): standup sync — PGS-40 WON'T DO → EGS-127; PGS-148 unblocked; PGS-141/134/147 → CODE REVIEW; PGS-150 → IN PROGRESS; csa-content-standards v1.6.2 shipped.
+**Last session:** 2026-04-08 EOD — Claude Code permissions setup (Rajiv Pant template). Global ~/.claude/settings.json + .claude/settings.json in all 6 repos + ~/.zshrc auto-setup hook. Prior: auto-sync 22:16 UTC captured grader/tile sessions (2026-04-08a/b). Gap recovered: data-headlines 2026-04-08c (author playbooks, SmartNews channel data, nature/wildlife guidance, full Sarah Price alignment).
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, 3-way SEMrush meeting, Andy template sign-off, LTV meeting (Chris scheduling). Gary unblocked 2026-04-08. PGS-148 SEO keywords resolved 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -75,7 +75,7 @@ For session history: see [sessions/](sessions/)
 |---|---------|------|--------|---------------------|
 | 1 | Platform Access & Training | 1 | In progress | SEMrush + Amplitude confirmed. Marfeel unclear. Gary API key received 2026-04-08. |
 | 2 | Dashboard Instrumentation | 4 | In progress | Google Sheets creds from Chad = first live adapter. Amplitude p-tagging bug (eng fix). PGS-140 analytics data will feed this once live. |
-| 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, experiments page, governor, Headline Grader built + delivered (2026-04-06). **Grader stalled — M-Lache org blocks OAuth/API keys; sandbox doc needed first.** SEMrush layer next. |
+| 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, author playbooks, experiments, governor, Headline Grader (GitHub Actions, daily). 2026-04-08c: nature/wildlife dual-headline, 0% featuring confirmed content-type constraint, full Sarah Price alignment. 16/16 tests pass. SEMrush layer next. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Vallone format guide in hand (10 corrections needed). Andy review pending for 2 personas. |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7. Discover Persona test sheet exists in tracker (empty). |
