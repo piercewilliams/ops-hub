@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-08 EOD — SEMrush email chain: Rocky Rhodes looped Pierce in (credit model clarified, DataForSEO alternative flagged, Stephanie Zandecki/Sigma noted). Claude Code permissions (global + all repos). Jira sync (PTECH-7641 done, PGS-140 in-progress). Full SEMrush API docs now in Pierce's hands.
+**Last session:** 2026-04-09 — Headline standards full cross-repo audit (13 conflicts found + fixed): grader char count corrected, WTK hardened to objective check (p=3.0e-6), question detection added, featured exception removed from standards (0% featuring rate), push notifications section added. data-keywords repo created (P14 implementation repo).
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky/Julio credit rate confirmation. Gary unblocked 2026-04-08. PGS-148 SEO keywords resolved 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -87,7 +87,7 @@ For session history: see [sessions/](sessions/)
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
-| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | 3-way meeting DONE. Pierce looped into email chain via Rocky Rhodes (SEMrush admin). Credit model: ~10 units/line live, ~50/line historical. Rocky → Julio for exact rates. DataForSEO API + Stephanie Zandecki/Sigma as alternatives. Pierce has full API docs. |
+| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | data-keywords repo created 2026-04-09. Blocked: Rocky/Julio per-endpoint rates + Stephanie/Sigma check. Credit: ~10 units/line live, ~50/line historical; 250K ≈ 50 full runs. DataForSEO as alternative. Full API docs in hand. |
 | 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live this week. AI policy for AI-sourced content now active. Reuters still blocked. **New sub-scope: fact-checking inbound partner content (Athlon Sports ~1M stories/year). Legal question: data vs. content (analyzable vs. contractually forbidden). Low priority.** |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff this week (Sara, Sarah Price, Pierce, Kathy). Statistical input from Pierce needed. |
 
@@ -109,7 +109,7 @@ For session history: see [sessions/](sessions/)
 **#3 — AFTER NEXT WEEK'S MEETINGS:**
 8. [ ] **When format/persona decoupling lands: migrate Apple News + SmartNews best practices from persona → format section** — Sara already frames these as format; dev ticket in queue (15/18 in code review as of 2026-04-03). Do this review as soon as the decoupling ticket closes.
 9. [ ] **Get final Vallone format guide + codify into csa-content-standards** — DO NOT FORGET. Confirm Vallone produces final version with T1 findings incorporated, then codify. 10 corrections to verify: remove WTK from SmartNews recs, add questions-hurt-both rule, add push notifications section, refine char targets (SN: 70–90 / Apple: 90–120).
-10. [ ] **Build SEMrush layer (P14)** — meeting done; wait for API chain + confirm credit burn rate, then build. Point-and-click interface for Sarah Price.
+10. [ ] **Build SEMrush keyword layer (P14)** — `data-keywords` repo created and seeded. Blocked: wait for Rocky/Julio credit rate confirmation + check Stephanie Zandecki's Sigma for existing data. Then evaluate DataForSEO vs SEMrush before building. Point-and-click interface for Sarah Price.
 11. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data. (Sarah Price also reaching out to Dedra 2026-04-06 to coordinate.)
 12. [ ] **Finalize Science-Curious persona definitions** — Retiree + Casual Reader need canonical definitions before Susannah saves as shared custom personas.
 13. [ ] **Extend AGENT-AUDIENCE routing annotations beyond §1** — §1 fully confirmed live (2026-04-08). Susannah is tagging; next: audit §2+ sections and add AGENT-AUDIENCE tags where applicable.
