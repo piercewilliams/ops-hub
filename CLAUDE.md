@@ -72,6 +72,17 @@ Read `CONTEXT.md` at the start of every session. Update it at the end. Archive c
 
 **Critical sync rule — git log is the source of truth:** When running `/sync-repos`, the very first action must be `git log --oneline -20` and `git status` for every repo. CONTEXT.md and session logs can be stale; git history cannot lie. Any commit not described in that repo's session log and not captured in ops-hub COMPLETED_TASKS is a gap that must be fixed. Never declare "no gaps found" without having checked git log for all five repos.
 
+## WINS.md Update Rules
+
+`WINS.md` is a cumulative accomplishments register. It must be kept current. These rules are **non-negotiable and require no prompting from Pierce:**
+
+1. **Update on every significant completion.** Any time a task is added to `COMPLETED_TASKS` in `projects.js`, the same work must be reflected in `WINS.md` under the appropriate tier. Do not defer this to a future sync.
+2. **Update during every sync.** `/sync-repos` and any session-close update must include a WINS.md audit — add anything not yet captured, update performance metrics, refresh the "Last updated" line.
+3. **Commit and push WINS.md** as part of the same commit as any ops-hub sync. Never leave WINS.md updated locally but uncommitted.
+4. **WINS.md is tracked by git.** It is committed to the repo and pushed to GitHub. This is intentional — it is the preservation mechanism. Do not gitignore it.
+
+---
+
 ## projects.js Staleness Rules
 
 Any time `data/projects.js` is updated — including during sync — audit every project's `nextActions` and `blockers` arrays against the following rules. Do not wait for the user to flag stale entries:
