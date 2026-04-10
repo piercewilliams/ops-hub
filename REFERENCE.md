@@ -67,6 +67,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | CSA Dashboard | https://piercewilliams.github.io/csa-dashboard/ |
 | CSA Staging | https://staging.trendhunteragents.ai/csa |
 | Sigma TH-CSA Dashboard | Workbook ID: `NkXYNE5ANMr9eMcXI11uP` — Story count, avg/median PVs, market breakdown |
+| TBTV | Future distribution channel mentioned by Chris Palo (2026-04-10) — no further details yet; watch for scope definition |
 | Sigma Site Dashboard - Audience | Workbook: `Site Dashboard - Audience` (Deedra Lawhead, shared 2026-04-10) — Editor dashboard: 735 stories, 3.74M PVs, 352K SubPVs for CLT newsroom March 2026. Article-level: Headline / Story ID / Pub Date / PVs / SubPVs. Filterable by date/newsroom/site/section. Goes back to March 2023. **This is the template for the planned CSA version** — "upgraded CSA dash limited to those working on CSA content." Two tabs: Headlines + Topic Exam. SubPV = subscriber page views (key revenue signal). |
 | CSA Content Standards | https://csa-content-standards.netlify.app |
 | T1 Headlines site | `/Users/pierce/Documents/GitHub/data-headlines/docs/index.html` |

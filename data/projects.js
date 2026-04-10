@@ -6,6 +6,7 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-10', task: 'PRD discussion with Chris Palo complete (2026-04-10, 3:24PM EDT). Major architecture clarifications: (1) CSA = pipeline container with purpose-driven pipes categorized by touch level (high/low/medium) — people still misunderstand it as a magic all-in-one tool. (2) Inclination Engine confirmed as named concept — the sole future input for automated signals and trend unit brief generation; needs explicit PRD section. (3) New pipelines under investigation: infographics pipeline (trend research → branded infographic, e.g. HSA rates rising → Trend Hunter graphic); licensed partner content pipeline (licensed influencer video/transcript → CSA → multiple articles + tangential content → Trend Hunter app + Pier1 sites). (4) Monetization reframed: syndication is an avenue, not the focus. Distribution channels = O&O, Trend Hunter app, Syndication, TBTV (future); value calculation differs per pipeline. (5) Gary tools = "nodes" — cross-pipeline tools that every pipeline touches; need full roster from Gary. (6) Data loop = keep open-ended in PRD; data sources for optimization expand daily. (7) CPA/cost language over-specified — loosen to directional frameworks, not pre-specified formulas. Action items: [Pierce] contact Gary for full tool roster (copy Chris); [Pierce] schedule Snowflake walkthrough with Chad; [Pierce] add Inclination Engine to PRD; [Sarah Price + Sarah Voluone] define SEO keyword scope; [Sarah Price] follow up with Deedra for team vs. org comparison dashboard.', project: '#9 PRD Revisions' },
   { date: '2026-04-10', task: 'PGS-114 DONE: Automatic AI disclaimer removed from Discovery Content Format. Writers now add disclaimer manually if needed. Scope: Discovery Content Format only. Existing saved drafts unaffected.', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-10', task: 'PGS-93 ON HOLD: "Create Research Draft" from URL import flow put on hold at Pierce\'s request. Ticket came from Ryan directly — Susannah had ticketed without consulting Sara\'s team. Sara says the feature needs to be reworked before building. Pierce commented on ticket: "Sara says this needs to be reworked; please do not prioritize."', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-10', task: 'Julia Tortoriello discovery meeting complete — scoped El Nuevo Spanish translation workflow. Key findings: (1) Toolchain: CMS-integrated Google Translate + GPT-3 ("ChTBD"); GPT-3 far superior to Elbex for Spanish nuance; Google Translate alone insufficient. (2) Error correction via custom models + temperature-adjusted prompts — handles exclusive terms ("ae"), Spanish capitalization, quotation punctuation rules. (3) External standalone GPT ("dog translator") for Us Weekly en Español handles fluency edge cases and Spanish→English reverse translation for high-profile Argentina/Costa Rica reporter stories (CMS has no S→E button). (4) Dialect: US Hispanic audience → Colombian Spanish register; specifying "US Hispanic, United States" to the AI is sufficient — no exhaustive rule list needed. (5) Julia sent CMS prompt (6 editorial rules) + GPT link (chatgpt.com/g/g-0SsURCxh4); offered to test CSA in Spanish and identify adjustments. Chris Palo + Rajiv considering dedicated Spanish CSA pipeline — this meeting establishes baseline for scoping that work.', project: 'CSA Spanish Pipeline (discovery)' },
@@ -91,7 +92,7 @@ export const PROJECTS = {
       'Sigma: confirm workbook scope with Chad Bruton; get OAuth2 credentials for dashboard adapter',
     ],
     nextActions: [
-      'Schedule Chad Bruton walkthrough — confirm Sigma access scope, then get OAuth2 creds',
+      'Schedule Chad Bruton walkthrough — confirm Sigma access scope and get OAuth2 creds',
     ],
     dependsOn: [],
   },
@@ -119,6 +120,7 @@ export const PROJECTS = {
       'Sara Vallone parameter session (next week) — walk 15 test articles, finalize verdict taxonomy',
     ],
     nextActions: [
+      'Contact Gary Kirwan for full roster of all tools he has built — copy Chris Palo on the communication',
       'Run first API test sequence: health → scrape → meta → content-structure → unanswered-questions → citations',
       'Sara Vallone session next week — iterate on v0.1 ruleset',
     ],
@@ -135,13 +137,18 @@ export const PROJECTS = {
     id: 'p9-prd', num: '9', tier: 3, type: 'project', status: 'in-progress',
     name: 'PRD Revisions',
     owner: 'Pierce',
-    description: 'V0.4 with Chris Palo. He left substantial feedback directly in the doc (2026-04-10) — "really great stuff." Discussion needed before Pierce implements any of it.',
+    description: 'V0.4 discussed with Chris Palo 2026-04-10 — major architecture clarifications received. Revision items identified. Do not implement until dedicated PRD revision pass with Claude.',
     blockers: [
-      'Do not implement PRD feedback until discussion with Chris happens',
+      'PRD revision items identified but not yet implemented — schedule revision pass',
     ],
     nextActions: [
-      'Schedule / attend PRD discussion with Chris — he will initiate',
-      'After discussion: implement his feedback in doc',
+      'Add Inclination Engine section — sole future input for automated signal/trend unit brief generation',
+      'Loosen CPA/cost language — directional frameworks only; remove pre-specified formulas',
+      'Reframe monetization as avenue: O&O, Trend Hunter app, Syndication, TBTV (future) — calculation varies by pipeline',
+      'Add purpose-driven pipelines framing with per-pipeline OKRs (acquisition vs. engagement vs. revenue)',
+      'Add infographics pipeline (under investigation) and licensed partner content pipeline (video → articles)',
+      'Reframe Gary tools and cross-pipeline tools as "nodes" that every pipeline touches',
+      'Open up data loop language — do not over-specify; data sources for optimization expand daily',
     ],
     dependsOn: [],
   },
@@ -186,6 +193,7 @@ export const PROJECTS = {
       'Monitor p-tagging fix → activate Amplitude adapter',
       'Monitor PGS-82 merge (today) → unblocks PGS-140',
       'Attend Amplitude/Amanda Hamilton meeting (Sarah Price adding Pierce)',
+      'Sarah Price to follow up with Deedra — need revised comparison dashboard showing team content production volume + PVs vs. whole org output (current dashboard aggregates but does not allow this comparison)',
     ],
     dependsOn: ['p1-access'],
   },
@@ -268,7 +276,9 @@ export const PROJECTS = {
       'Stephanie Zandecki: confirm if keyword-to-article data already exists in Sigma',
     ],
     nextActions: [
-      'Wait for Rocky/Julio credit rate confirmation',
+      'Contact Rocky Rhodes — he has existing keyword performance reports for T1 sites and US Weekly; get those reports and use them to define data-keywords repo scope and eventual analysis site feature set',
+      'Sarah Price + Sarah Voluone to define SEO keyword research scope from Rocky\'s data — they determine how many keywords to select per piece',
+      'Wait for Rocky/Julio credit burn rate confirmation per endpoint before building automation',
       'Confirm Sigma coverage with Stephanie Zandecki — avoid duplicate build',
       'Evaluate DataForSEO vs SEMrush for batch use before committing credits',
     ],
@@ -365,7 +375,7 @@ export const PROJECTS = {
     id: 'p11-recipes', num: '11', tier: 5, type: 'project', status: 'not-started',
     name: 'Recipes',
     owner: 'Pierce',
-    description: 'A recipe is the operating spec for one T3 sub-pipeline: canonical content type, format variants, markets, distribution channels, persona/keyword profile, editorial standards. ~10 verticals total (financial services, fashion, tech, etc.). Build on-demand — one at a time as data infrastructure is in place to track and optimize that vertical. No pre-specification of all 10 required.',
+    description: 'A recipe is the operating spec for one T3 sub-pipeline: canonical content type, format variants, markets, distribution channels, persona/keyword profile, editorial standards. ~10 verticals total (financial services, fashion, tech, etc.). Build on-demand — one at a time as data infrastructure is in place to track and optimize. Two new pipeline types under investigation as additions: (1) infographics pipeline — trend/research piece → branded infographic (e.g. HSA rates rising → Trend Hunter graphic); (2) licensed partner content pipeline — licensed influencer video/transcript → CSA → multiple articles + tangential content distributed to Trend Hunter app + Pier1 sites. Chris Palo confirmed interest in exploring both (2026-04-10).',
     blockers: [
       'P4 persona governance must finalize the controlled format/persona set (P9 PRD complete — recipes concept defined as T3 pipeline layer)',
     ],

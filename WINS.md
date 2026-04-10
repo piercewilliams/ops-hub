@@ -49,6 +49,9 @@ Evaluated Gary Kirwan's toolkit against internal alternatives. Determined Gary's
 
 ## Tier 3 — Strategy & Schema
 
+**2026-04-10 — PRD discussion with Chris Palo complete**
+46-minute architecture session. Chris confirmed: CSA = purpose-driven pipeline container (not magic tool); Inclination Engine = named concept for automated brief generation; two new pipelines under investigation (infographics, licensed partner content); Gary tools reframed as cross-pipeline "nodes." Major corrections to PRD framing: loosen CPA/cost language, reframe monetization as avenue not focus, open up data loop. Revision items now queued. Establishes shared language for PRD V0.5.
+
 **2026-04-08 — PGS-82/139/140 strategic framing approved by stakeholders**
 Reframed the differentiation score from "Google SEO compliance guardrail" to "quality signal for whether the variant system is working." Chris Palo + Susannah Locke approved. Key insight: if variants aren't differentiated, personas/formats aren't doing their job — Google penalty is a downstream consequence, not the core problem. Analytics layer (PGS-140) turns scores into a feedback loop on prompt/definition quality over time. This framing is now the canonical way to discuss PGS-82/139/140 with stakeholders.
 
@@ -176,5 +179,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-10*
+*Last updated: 2026-04-10 (afternoon)*
 *Maintained by Claude. Updated proactively as work completes.*
