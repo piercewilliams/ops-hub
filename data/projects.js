@@ -6,6 +6,8 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-10', task: 'PGS-114 DONE: Automatic AI disclaimer removed from Discovery Content Format. Writers now add disclaimer manually if needed. Scope: Discovery Content Format only. Existing saved drafts unaffected.', project: '#4 Article Format + Persona + Keyword Governance' },
+  { date: '2026-04-10', task: 'PGS-93 ON HOLD: "Create Research Draft" from URL import flow put on hold at Pierce\'s request. Ticket came from Ryan directly — Susannah had ticketed without consulting Sara\'s team. Sara says the feature needs to be reworked before building. Pierce commented on ticket: "Sara says this needs to be reworked; please do not prioritize."', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-10', task: 'Julia Tortoriello discovery meeting complete — scoped El Nuevo Spanish translation workflow. Key findings: (1) Toolchain: CMS-integrated Google Translate + GPT-3 ("ChTBD"); GPT-3 far superior to Elbex for Spanish nuance; Google Translate alone insufficient. (2) Error correction via custom models + temperature-adjusted prompts — handles exclusive terms ("ae"), Spanish capitalization, quotation punctuation rules. (3) External standalone GPT ("dog translator") for Us Weekly en Español handles fluency edge cases and Spanish→English reverse translation for high-profile Argentina/Costa Rica reporter stories (CMS has no S→E button). (4) Dialect: US Hispanic audience → Colombian Spanish register; specifying "US Hispanic, United States" to the AI is sufficient — no exhaustive rule list needed. (5) Julia sent CMS prompt (6 editorial rules) + GPT link (chatgpt.com/g/g-0SsURCxh4); offered to test CSA in Spanish and identify adjustments. Chris Palo + Rajiv considering dedicated Spanish CSA pipeline — this meeting establishes baseline for scoping that work.', project: 'CSA Spanish Pipeline (discovery)' },
   { date: '2026-04-09', task: 'Gary Tools: Documented desired functionality — escalation paths, Needs Clarification vs. Needs Correction behavior, internal logic. Passed to Sara Vallone with v0.1 ruleset.', project: '#10 Gary Tools Integration' },
   { date: '2026-04-09', task: 'WordPress send-to WP is now LIVE for Us Weekly, Woman\'s World, Soap Opera Digest, and Bargain Hunter. Content creators can send CSA drafts directly to WordPress as drafts via the CSA UI. Built by Saner Keles, Emil Penalo, Daury Caba, Susannah Locke, Regina Faler, and sasha_levchuk. CUE send-to still in progress (date TBD from Kat Sheplavy). Satisfies rq-send-to-wp prerequisite for P12.', project: '#12 United Robots Inbound Pipeline' },
@@ -212,10 +214,12 @@ export const PROJECTS = {
       'Format guide: 10 evidence-report corrections needed before codifying in csa-content-standards',
     ],
     nextActions: [
+      'PGS-134 READY FOR PRODUCTION — when it ships, migrate Apple News + SmartNews best practices from persona → format section in csa-content-standards',
       'Andy: submit ticket if no response soon (Sara\'s version is good enough per Chris)',
       'Extend AGENT-AUDIENCE routing annotations to §2+ sections',
       'Codify SmartNews/Apple News guidance once format guide corrections are confirmed',
-      'Monitor PGS-150 (plagiarism detection spike) — scope integration at Audience Variants stage when recommendation lands',
+      'Monitor PGS-150 (plagiarism detection spike, now Product Review) — review recommendation and scope integration at Audience Variants stage',
+      'PGS-93 ON HOLD: work with Sara to define what "rework" means before it goes back to dev',
       'Consolidate TH/TH B2C persona variants with Sara + Sarah Price',
     ],
     dependsOn: ['p6-taxonomy'],
