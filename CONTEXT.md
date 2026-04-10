@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-09d — Condensed all 16 project panel tiles in data/projects.js (−61 lines net). Fixed three Up Next panel problems: P1+P2 Chad Bruton duplicate (removed from P2), P8 caution-as-task (replaced with actual task description), P10 "Document Gary functionality" removed (done; added to COMPLETED_TASKS). Resolved merge conflict in sessions/2026-04.md.
+**Last session:** 2026-04-10 — Morning sync. Julia Tortoriello meeting DONE (El Nuevo translation workflow scoped). COMPLETED_TASKS entry added. Potential P17 Spanish CSA Pipeline noted. data-headlines cluster section work committed.
 **Status:** P9 complete. 15 active projects + P16 not-started. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky/Julio credit rate confirmation. Gary unblocked 2026-04-08. PGS-148 SEO keywords resolved 2026-04-08.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -59,7 +59,8 @@ For session history: see [sessions/](sessions/)
 - **CSA fact-checking ruleset v0.1:** Completed draft passed to Sara Vallone 2026-04-08 — awaiting her review + validation against 15 test articles. 4 open items for Rajiv/Susannah: United Robots scope, module access by role, verdict confidence scores, audit trail/storage.
 - **§9 Claims Validation (csa-content-standards):** Spec complete (v1.4.2, 2026-04-08) — docs/claims-validation.md live. Five verdicts; content-type rules (health/legal/financial/real estate/travel/entertainment); source authority tiers; escalation table. Gary API integration details to follow Sara parameter session.
 - **§10 Platform Formats (csa-content-standards):** Live (v1.6.0, 2026-04-08) — SmartNews §10.1 + Apple News §10.2 standalone pages. v1.6.1 consistency audit complete — all stale headline ranges corrected against validated data-headlines findings; data-validated labels throughout.
-- **Julia Tortoriello meeting:** Thursday 2026-04-10 2PM EST — El Nuevo Spanish translation process. Prep: `sessions/meeting-2026-04-10-julia-tortoriello.md`
+- **Julia Tortoriello meeting DONE (2026-04-10):** El Nuevo uses CMS-integrated Google Translate + GPT-3 ("ChTBD"); GPT-3 far better than Elbex for Spanish nuance. Custom models + temperature-adjusted prompts fix recurrent errors (e.g., exclusive "ae" term, capitalization, quotation punctuation). Separate standalone GPT ("dog translator") for Us Weekly en Español (chatgpt.com/g/g-0SsURCxh4) handles fluency edge cases + Spanish→English for Argentina/Costa Rica reporter stories. Dialect: US Hispanic = Colombian Spanish register; telling AI "US Hispanic, United States" is sufficient. Julia delivered CMS prompt (6 rules) + GPT link; offered to test CSA in Spanish. Chris + Rajiv considering dedicated Spanish CSA pipeline — this meeting establishes baseline. Full notes: `sessions/meeting-2026-04-10-julia-tortoriello.md`
+- **Potential P17 — Spanish CSA Pipeline:** Chris Palo + Rajiv considering dedicated Spanish pipeline. Julia Tortoriello meeting (2026-04-10) establishes baseline: current stack is GPT-3 + custom prompts + standalone "dog translator" GPT. Dialect = Colombian Spanish register for US Hispanic audience. Julia willing to test CSA in Spanish. No scope or timeline yet — watch for Chris/Rajiv direction.
 - Sync: **Manual** — update `data/projects.js` in a Claude Code session, commit, and push. Pill reads last commit time via GitHub public API (green <3d, yellow 3–7d, red >7d).
 
 ## Features Live
@@ -100,7 +101,7 @@ For session history: see [sessions/](sessions/)
 
 **#1 — THIS WEEK:**
 1. [ ] **CSA Weekly — Chris Palo, Sara Vallone, Susannah Locke** — Agenda prepped (2026-04-08). Key decision needed before meeting: draft a one-sentence proposal on how Sara's 2-tier verdict taxonomy maps onto Chris's 5-verdict set (verdict taxonomy is #1 agenda item and highest-leverage). Other items: PGS-82 staging schedule + **diff tool threshold calibration** (two signals needed: hard SEO floor vs. softer persona-targeting signal — who proposes initial threshold values, how validated with real content?), PGS-139 UX meeting status, AI Tool Responsibility 3 gaps (Slack channel/override doc/United Robots scope), format/persona decoupling, PRD automation levels, Gary API loop-in for Susannah.
-2. [ ] **Julia Tortoriello meeting — Thursday 2026-04-10 at 2 PM EST** — El Nuevo translation process + selection criteria + CSA instrumentation scope. Prep notes: `sessions/meeting-2026-04-10-julia-tortoriello.md`
+2. [x] ~~**Julia Tortoriello meeting**~~ — DONE 2026-04-10. Notes + resources in `sessions/meeting-2026-04-10-julia-tortoriello.md`.
 3. [ ] **Confirm SEMrush credit burn rate with Rocky/Julio** — Rocky Rhodes (SEMrush admin) reached out to rep Julio for endpoint-level rates. Live ~10 units/line, historical ~50 units/line; need exact per-endpoint numbers before building automation. Also confirm with Stephanie Zandecki whether keyword-to-article data already in Sigma.
 4. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
 4.5 [ ] **Attend Amplitude/Amanda Hamilton meeting** — Sarah Price adding Pierce; she manages Amplitude. Key question: Amplitude + Claude integration issues Sarah Price is hitting.
