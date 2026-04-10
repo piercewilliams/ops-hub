@@ -132,13 +132,16 @@ export const PROJECTS = {
   // ── TIER 3 ────────────────────────────────────────────────────────────────
 
   'p9-prd': {
-    id: 'p9-prd', num: '9', tier: 3, type: 'project', status: 'complete',
+    id: 'p9-prd', num: '9', tier: 3, type: 'project', status: 'in-progress',
     name: 'PRD Revisions',
     owner: 'Pierce',
-    description: 'COMPLETE. V0.4 delivered to Chris Palo 2026-04-06. One open question: automation levels in middle pipeline categories — Chris\'s call.',
-    blockers: [],
+    description: 'V0.4 with Chris Palo. He left substantial feedback directly in the doc (2026-04-10) — "really great stuff." Discussion needed before Pierce implements any of it.',
+    blockers: [
+      'Do not implement PRD feedback until discussion with Chris happens',
+    ],
     nextActions: [
-      'Await Chris Palo feedback on automation levels',
+      'Schedule / attend PRD discussion with Chris — he will initiate',
+      'After discussion: implement his feedback in doc',
     ],
     dependsOn: [],
   },
@@ -165,7 +168,7 @@ export const PROJECTS = {
     id: 'p2-dashboard', num: '2', tier: 4, type: 'project', status: 'in-progress',
     name: 'Dashboard Instrumentation',
     owner: 'Pierce',
-    description: 'Live data ingestion layer for csa-dashboard. Manual bridge active. PTECH-7641 done (data layer properties). PGS-140 (differentiation analytics) in progress (Marcelo). Three adapters pending credentials.',
+    description: 'Live data ingestion layer for csa-dashboard. Manual bridge active. PTECH-7641 done. Sigma CSA dash: Deedra building simple PV/SubPV version first (almost done) — scope additional dimensions (variant type, cluster ID, diff score) after simple version ships. PGS-140 blocked on PGS-82 merge.',
     adapters: [
       { name: 'Google Sheets (manual)', status: 'done', note: 'Edit data/manual-metrics.js to update numbers.' },
       { name: 'Sigma', status: 'pending-creds', note: 'Stories/week, batting average. Needs OAuth2 from Chad.' },
