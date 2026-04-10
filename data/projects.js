@@ -365,13 +365,13 @@ export const PROJECTS = {
     id: 'p11-recipes', num: '11', tier: 5, type: 'project', status: 'not-started',
     name: 'Recipes',
     owner: 'Pierce',
-    description: 'Define how to prep/scope "recipes" — the template/keyword/persona/outlet/timing framework Chris is after. What a recipe is, how it\'s structured, and how it integrates into the CSA workflow. Definition unclear until PRD and persona governance are squared away.',
+    description: 'A recipe is the operating spec for one T3 sub-pipeline: canonical content type, format variants, markets, distribution channels, persona/keyword profile, editorial standards. ~10 verticals total (financial services, fashion, tech, etc.). Build on-demand — one at a time as data infrastructure is in place to track and optimize that vertical. No pre-specification of all 10 required.',
     blockers: [
       'P4 persona governance must finalize the controlled format/persona set (P9 PRD complete — recipes concept defined as T3 pipeline layer)',
     ],
     nextActions: [
-      'Complete P4 first',
-      'Schedule scoping meeting with Chris to define what "recipes" means operationally',
+      'Build recipes on-demand — one at a time as data infrastructure (EGS-127, PGS-82/140, Sigma CSA dash) is in place to track and optimize that vertical',
+      'First recipe: identify which T3 vertical has the most pieces ready, build that one first to prove the model',
     ],
     dependsOn: ['p9-prd', 'p4-governance'],
   },
