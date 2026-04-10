@@ -92,7 +92,7 @@ For session history: see [sessions/](sessions/)
 | 2 | Dashboard Instrumentation | 4 | In progress | PTECH-7641 DONE. **WordPress send-to WP LIVE 2026-04-09** (UsW/WW/SOD/Bargain Hunter). PGS-140 → IN PROGRESS. Amanda Hamilton Amplitude meeting pending. p-tagging bug still blocks reliable Amplitude data. |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, 15 grader criteria, author playbooks, experiments, governor, Headline Grader (GitHub Actions, daily), weekly auto-ingest pipeline (Monday 8pm CDT; change-detection; longitudinal snapshots). 19/19 tests pass. **Fully operational** — Tarrow shared 2026 sheet 2026-04-09. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
-| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | Vallone format guide in hand (10 corrections needed). Andy review pending for 2 personas. |
+| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | **PGS-134 READY FOR PRODUCTION** (2026-04-10). Vallone format guide in hand (10 corrections needed). Andy review pending for 2 personas. |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7. Discover Persona test sheet exists in tracker (empty). |
 | 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | **PGS-40 → WON'T DO (2026-04-08).** Work restructured into EGS-127 (epic, 4 subtasks, Marcelo assigned) — tracks which variants came from which canonical article. 700+ stories/month tracked manually by one editor; this automates it. |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris. Testing tracker is manual evidence of demand. |
@@ -100,7 +100,7 @@ For session history: see [sessions/](sessions/)
 | 9 | PRD Revisions | 3 | **In progress** | Discussion with Chris DONE 2026-04-10. Revision items identified: Inclination Engine, purpose-driven framing, new pipelines, Gary nodes, loosen CPA language. Revision pass with Claude pending. |
 | 10 | Gary Tools Integration | 2 | **In progress** | **UNBLOCKED 2026-04-08.** Gary sent full API docs to Chris: base URL, McClatchy API key (`uak_...`), all live endpoints. Key fact-checking endpoint: `POST /api/v1/research/data-validity`. First-test sequence ready to run. Sara Vallone parameter session still next week. |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
-| 12 | United Robots Inbound Pipeline | 4 | In progress | Working group not yet defined. **rq-send-to-wp ✅ DONE 2026-04-09.** Remaining prerequisites: EGS-127 (Cluster ID), rq-send-to-cue (in progress), PGS-80 analytics. |
+| 12 | United Robots Inbound Pipeline | 4 | In progress | **CRITICAL BUG (2026-04-10):** Send-to-WP headline includes variant name + date → corrupts URL slug. Daury Caba investigating. rq-send-to-wp ✅ DONE 2026-04-09 but unreliable until bug fixed. |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
 | 14 | SEMrush / Keyword Signal Layer | 4 | In progress | data-keywords repo created 2026-04-09. Blocked: Rocky/Julio per-endpoint rates + Stephanie/Sigma check. Credit: ~10 units/line live, ~50/line historical; 250K ≈ 50 full runs. DataForSEO as alternative. Full API docs in hand. |
 | 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live this week. AI policy for AI-sourced content now active. Reuters still blocked. **New sub-scope: fact-checking inbound partner content (Athlon Sports ~1M stories/year). Legal question: data vs. content (analyzable vs. contractually forbidden). Low priority.** |
