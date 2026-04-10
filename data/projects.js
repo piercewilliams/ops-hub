@@ -149,6 +149,7 @@ export const PROJECTS = {
       'Add infographics pipeline (under investigation) and licensed partner content pipeline (video → articles)',
       'Reframe Gary tools and cross-pipeline tools as "nodes" that every pipeline touches',
       'Open up data loop language — do not over-specify; data sources for optimization expand daily',
+      'Retain and elevate author persona framing — Chris confirmed Pierce had underplayed it; it belongs prominently in the PRD',
     ],
     dependsOn: [],
   },
