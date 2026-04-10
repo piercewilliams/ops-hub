@@ -167,6 +167,9 @@ Quantitative signals attributed to Pierce's projects, analysis, or contributions
 
 ---
 
+**2026-04-10 — WordPress send-to-WP bug catch**
+Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yesterday) is sending the audience variant name + date as the headline, which populates the URL slug — potential SEO damage and manual publishing rework. Pierce has this captured and gated P12 progress on the fix. Daury Caba assigned.
+
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 

@@ -176,10 +176,12 @@ export const PROJECTS = {
       'Sigma OAuth2 credentials (Chad Bruton)',
       'Marfeel API key',
       'Amplitude: CSA eng p-tagging bug must be fixed first',
+      'PGS-140 (differentiation analytics): blocked on PGS-82 merge — Marcelo confirmed in standup 2026-04-10',
     ],
     nextActions: [
       'Get Marfeel API key → activate adapter',
       'Monitor p-tagging fix → activate Amplitude adapter',
+      'Monitor PGS-82 merge (today) → unblocks PGS-140',
       'Attend Amplitude/Amanda Hamilton meeting (Sarah Price adding Pierce)',
     ],
     dependsOn: ['p1-access'],
@@ -231,10 +233,12 @@ export const PROJECTS = {
     owner: 'Pierce · Sara Vallone · Sarah Price',
     description: 'Use CSA to capture United Robots\' 50% revenue share. Scope: scrape public alert feeds, generate factual stories with disclaimer, human-in-the-loop monitoring. Send-to-WP ✅ live. Remaining prerequisites: EGS-127 (cluster ID), rq-send-to-cue, PGS-80 analytics.',
     blockers: [
+      'CRITICAL BUG: Send-to-WP headline includes audience variant name + date → populates URL slug incorrectly; harms SEO + requires manual publishing rework. Daury Caba investigating (2026-04-10). Must be fixed before P12 is reliable.',
       'Working group not defined',
       'EGS-127, rq-send-to-cue, and PGS-80 must land before build starts',
     ],
     nextActions: [
+      'Monitor WordPress headline bug fix (Daury) — gate P12 progress on this resolving',
       'Monitor prerequisites — no Pierce build action until all three land',
       'Define working group and alert feed scope with Sara Vallone',
     ],
