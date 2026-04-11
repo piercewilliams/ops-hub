@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-11 — Comprehensive sync. Julia Tortoriello meeting fully documented (verbatim transcript + resources). Jira audit: PGS-98 DONE, PGS-87 DONE, PTECH-7730 new (p-tagging fix, TO DO), PGS-150 spike complete (Copyscape recommended, Pierce asked for team input). csa-dashboard ROADMAP.md created. All repos updated.
+**Last session:** 2026-04-11 — Two sessions. (1) Julia Tortoriello meeting documented; Jira audit: PGS-98 DONE, PGS-87 DONE, PTECH-7730 new, PGS-150 spike complete; csa-dashboard ROADMAP.md created. (2) Amanda Hamilton Amplitude session (2026-04-09) documented — El Nuevo author bug filed, Claude budget exhaustion team-wide (Chris → Travis Farrar), Pierce needs to connect Amplitude connector. Cross-repo sync: all 5 repos clean and current.
 **Status:** 15 active projects + P16 not-started. PRD V0.5 done. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Gary tool roster (awaiting response), PGS-150 tool preference (Pierce input needed).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
