@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-10 evening — PRD V0.5 revision pass complete (all 10 Chris Palo items implemented + T3 sub-pipes). Gary Kirwan tool roster email drafted. Session closed.
-**Status:** 15 active projects + P16 not-started. PRD V0.5 done. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Gary tool roster (email drafted, not yet sent).
+**Last session:** 2026-04-11 — Comprehensive sync. Julia Tortoriello meeting fully documented (verbatim transcript + resources). Jira audit: PGS-98 DONE, PGS-87 DONE, PTECH-7730 new (p-tagging fix, TO DO), PGS-150 spike complete (Copyscape recommended, Pierce asked for team input). csa-dashboard ROADMAP.md created. All repos updated.
+**Status:** 15 active projects + P16 not-started. PRD V0.5 done. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Gary tool roster (awaiting response), PGS-150 tool preference (Pierce input needed).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -45,9 +45,11 @@ For session history: see [sessions/](sessions/)
 - **PGS-135 (CODE REVIEW as of 2026-04-10):** Moved from Selected for Dev. H1 headline length enforcement (80–100 chars) for National Team now in PR.
 - **PGS-134 (READY FOR PRODUCTION as of 2026-04-10):** "Everything to Know" + "FAQ / Service Journalism" formats passed code review. Ready to ship. When live: migrate Apple News + SmartNews best practices from persona → format section in csa-content-standards.
 - **PGS-114 (DONE as of 2026-04-10):** AI disclaimer removal from Discovery Content Format confirmed live.
-- **PGS-98 (PRODUCT REVIEW as of 2026-04-10):** "Additional Context and Editorial Notes" bug moved from In QA → Product Review.
+- **PGS-98 (DONE as of 2026-04-11):** "Additional Context and Editorial Notes" bug resolved — user-provided context now influences generated output.
 - **PGS-96 (IN QA as of 2026-04-10):** Discover Browser saved target audience moved from Code Review → In QA.
-- **PGS-87 (PRODUCT REVIEW as of 2026-04-10):** Target Audience label missing from Google Doc export moved from In QA → Product Review.
+- **PGS-87 (DONE as of 2026-04-11):** Target Audience label now included in Google Doc exports for platform variants. Data-passing bug between Target Audience step and Platform Distribution export step fixed.
+- **PTECH-7730 (TO DO, new):** "Update category tag derived property" — Platform Technology team [PT] Delta, unassigned. Amplitude work to make L&E CSA property = CUE CSA property. "From CSA" checkbox in WordPress. When done: enables Amplitude adapter AND Deedra's unified Sigma dashboard of all CSA content. Parent: PTECH-7005. Reporter: Julia Kim. Susannah CC'd Pierce.
+- **PGS-150 spike COMPLETE:** Victor Suarez recommends Copyscape Premium API (~$72/month, pay-as-you-go). Originality.ai as fallback. Internal tooling: not feasible. Susannah asking Pierce: "any strong preferences on tools from your team?" Pierce to review Google Doc and respond.
 - **PGS-150 (PRODUCT REVIEW as of 2026-04-10):** Plagiarism detection spike complete — recommendation in product review.
 - **PGS-93 (ON HOLD as of 2026-04-10):** "Create Research Draft" from URL import flow put on hold. Susannah ticketed from Ryan's request without consulting Sara's team. Pierce commented: "Sara says this needs to be reworked; please do not prioritize."
 - **PGS-150 (IN PROGRESS as of 2026-04-08):** Plagiarism Detection spike — off-the-shelf APIs (Copyscape, CopyLeaks, Turnitin, iThenticate) + internal tooling. Surface at Audience Variants stage alongside PGS-82 diff score. PGS-150 = output vs. third-party web (distinct from PGS-82 = internal variant-to-variant). National team first. Pierce CC'd; eng produces recommendation.
@@ -68,7 +70,7 @@ For session history: see [sessions/](sessions/)
 - **CSA fact-checking ruleset v0.1:** Completed draft passed to Sara Vallone 2026-04-08 — awaiting her review + validation against 15 test articles. 4 open items for Rajiv/Susannah: United Robots scope, module access by role, verdict confidence scores, audit trail/storage.
 - **§9 Claims Validation (csa-content-standards):** Spec complete (v1.4.2, 2026-04-08) — docs/claims-validation.md live. Five verdicts; content-type rules (health/legal/financial/real estate/travel/entertainment); source authority tiers; escalation table. Gary API integration details to follow Sara parameter session.
 - **§10 Platform Formats (csa-content-standards):** Live (v1.6.0, 2026-04-08) — SmartNews §10.1 + Apple News §10.2 standalone pages. v1.6.1 consistency audit complete — all stale headline ranges corrected against validated data-headlines findings; data-validated labels throughout.
-- **Julia Tortoriello meeting DONE (2026-04-10):** El Nuevo uses CMS-integrated Google Translate + GPT-3 ("ChTBD"); GPT-3 far better than Elbex for Spanish nuance. Custom models + temperature-adjusted prompts fix recurrent errors (e.g., exclusive "ae" term, capitalization, quotation punctuation). Separate standalone GPT ("dog translator") for Us Weekly en Español (chatgpt.com/g/g-0SsURCxh4) handles fluency edge cases + Spanish→English for Argentina/Costa Rica reporter stories. Dialect: US Hispanic = Colombian Spanish register; telling AI "US Hispanic, United States" is sufficient. Julia delivered CMS prompt (6 rules) + GPT link; offered to test CSA in Spanish. Chris + Rajiv considering dedicated Spanish CSA pipeline — this meeting establishes baseline. Full notes: `sessions/meeting-2026-04-10-julia-tortoriello.md`
+- **Julia Tortoriello meeting DONE (2026-04-09, 12:59 CDT):** El Nuevo uses CMS-integrated Google Translate + GPT-3; GPT-3 far better than Elbex for Spanish nuance. CMS prompt (6 verbatim rules) + standalone "dog translator" GPT (chatgpt.com/g/g-0SsURCxh4) both received. Standalone GPT = bilingual auto-detect, preserves tone, SEO-aware, doesn't translate proper names — Julia says it's even better than the CMS integration. Dialect: US Hispanic = Colombian Spanish register; "US Hispanic, United States" is sufficient prompt context. Julia confirmed in follow-up: willing to test CSA in Spanish, try any platforms/models. Chris + Rajiv considering dedicated Spanish CSA pipeline. Full notes + verbatim resources: `sessions/meeting-2026-04-09-julia-tortoriello.md`
 - **Sigma CSA dash (Deedra, 2026-04-10):** Deedra's team building it. Simple version (site PV/SubPV performance only) almost done. Chris explicitly: get simple version done before scope creep — additional dimensions (variant type, cluster ID, diff score, CSA user) are a phase 2 scope conversation. Pierce waiting. No action until simple version ships and Pierce reviews it.
 - **Potential P17 — Spanish CSA Pipeline:** Chris Palo + Rajiv considering dedicated Spanish pipeline. Julia Tortoriello meeting (2026-04-10) establishes baseline: current stack is GPT-3 + custom prompts + standalone "dog translator" GPT. Dialect = Colombian Spanish register for US Hispanic audience. Julia willing to test CSA in Spanish. No scope or timeline yet — watch for Chris/Rajiv direction.
 - Sync: **Manual** — update `data/projects.js` in a Claude Code session, commit, and push. Pill reads last commit time via GitHub public API (green <3d, yellow 3–7d, red >7d).
@@ -90,10 +92,10 @@ For session history: see [sessions/](sessions/)
 | # | Project | Tier | Status | Key Blocker / State |
 |---|---------|------|--------|---------------------|
 | 1 | Platform Access & Training | 1 | In progress | All access confirmed except Sigma scope verification. Marfeel confirmed 2026-04-09. Gary API key received 2026-04-08. Pending: Chad Bruton walkthrough to confirm Sigma access is complete. |
-| 2 | Dashboard Instrumentation | 4 | In progress | PTECH-7641 DONE. **WordPress send-to WP LIVE 2026-04-09** (UsW/WW/SOD/Bargain Hunter). PGS-140 → IN PROGRESS. Amanda Hamilton Amplitude meeting pending. p-tagging bug still blocks reliable Amplitude data. |
+| 2 | Dashboard Instrumentation | 4 | In progress | PTECH-7641 DONE. **WordPress send-to WP LIVE 2026-04-09** (UsW/WW/SOD/Bargain Hunter). PGS-140 → IN PROGRESS. **PTECH-7730 (TO DO, Platform Technology [PT] Delta, unassigned)** = the p-tagging fix — when done enables Amplitude adapter + unified Sigma dashboard of all CSA content. Amanda Hamilton Amplitude meeting pending. |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, 15 grader criteria, author playbooks, experiments, governor, Headline Grader (GitHub Actions, daily), weekly auto-ingest pipeline (Monday 8pm CDT; change-detection; longitudinal snapshots). 19/19 tests pass. **Fully operational** — Tarrow shared 2026 sheet 2026-04-09. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
-| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | **PGS-134 READY FOR PRODUCTION** (2026-04-10). Vallone format guide in hand (10 corrections needed). Andy review pending for 2 personas. |
+| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | **PGS-134 READY FOR PRODUCTION**. **PGS-98 DONE** (2026-04-11) — Additional Context/Editorial Notes now influence output. **PGS-87 DONE** (2026-04-11) — Target Audience label in platform variant exports fixed. **PGS-150 spike complete** — Copyscape Premium API recommended; Susannah asking Pierce for team input. PGS-93 BACKLOG. |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7. Discover Persona test sheet exists in tracker (empty). |
 | 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | **PGS-40 → WON'T DO (2026-04-08).** Work restructured into EGS-127 (epic, 4 subtasks, Marcelo assigned) — tracks which variants came from which canonical article. 700+ stories/month tracked manually by one editor; this automates it. |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris. Testing tracker is manual evidence of demand. |
@@ -110,8 +112,9 @@ For session history: see [sessions/](sessions/)
 ## What's Next
 
 **#1 — THIS WEEK:**
+0. [ ] **Respond to Susannah Locke on PGS-150 plagiarism detection tool** — Victor recommends Copyscape Premium API (~$72/month). Susannah asked: "any strong preferences on tools from your team?" Review spike Google Doc before responding.
 1. [ ] **CSA Weekly — Chris Palo, Sara Vallone, Susannah Locke** — Agenda prepped. Key items: diff tool threshold calibration, PGS-82 staging schedule, AI Tool Responsibility gaps, format/persona decoupling, Gary API loop-in for Susannah.
-2. [x] ~~**Julia Tortoriello meeting**~~ — DONE 2026-04-10.
+2. [x] ~~**Julia Tortoriello meeting**~~ — DONE 2026-04-09. CMS prompt + standalone GPT config received verbatim. Julia willing to test CSA in Spanish.
 3. [x] ~~**PRD discussion with Chris**~~ — DONE 2026-04-10. Revision items queued — see P9.
 4. [x] ~~**PRD revision pass**~~ — DONE 2026-04-10 evening. V0.5 complete and delivered.
 5. [x] ~~**Contact Gary Kirwan for full tool roster**~~ — DONE 2026-04-10. Email sent, CC Chris Palo. Awaiting Gary's response.

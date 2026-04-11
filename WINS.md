@@ -30,8 +30,11 @@ CUE CMS, WordPress (full access 2026-03-28), McClatchy GitHub, Sigma basic, Ampl
 
 ## Tier 2 — Understanding
 
+**2026-04-11 — El Nuevo Spanish translation workflow fully documented**
+Verbatim Gemini transcript (25 min, 00:00:00–00:25:02) captured and saved. Verbatim resources received and stored: CMS prompt (6 editorial rules), standalone GPT config (name, bilingual description, full instructions, 4 conversation starters, link: chatgpt.com/g/g-0SsURCxh4). Meeting date corrected to April 9. Julia confirmed willingness to test CSA in Spanish and help with any platforms/models. Establishes complete, queryable baseline for P17 Spanish CSA Pipeline scoping whenever Chris + Rajiv are ready to move.
+
 **2026-04-10 — El Nuevo Spanish translation workflow scoped**
-Discovery meeting with Julia Tortoriello. Documented current stack (CMS-integrated GPT-3 + Google Translate + standalone "dog translator" GPT), error correction approach (custom models + temperature-adjusted prompts), dialect spec (Colombian Spanish register; "US Hispanic, United States" sufficient), and CSA integration readiness. Julia delivered CMS prompt (6 editorial rules) and GPT link; offered to test CSA in Spanish. Establishes baseline for potential P17 Spanish CSA Pipeline (Chris Palo + Rajiv considering).
+Initial discovery meeting with Julia Tortoriello. Documented current stack (CMS-integrated GPT-3 + Google Translate + standalone "dog translator" GPT), error correction approach (custom models + temperature-adjusted prompts), dialect spec (Colombian Spanish register; "US Hispanic, United States" sufficient). CSA integration readiness confirmed. Establishes baseline for potential P17 Spanish CSA Pipeline (Chris Palo + Rajiv considering).
 
 **2026-04-08 — Gary Tools integration unblocked**
 Full Gary Kirwan API docs and McClatchy key received (base URL + `POST /api/v1/research/data-validity`). CSA Fact-Checking Ruleset v0.1 drafted and passed to Sara Vallone: 5-verdict taxonomy mapped to Sara's 2-tier action system, source authority tiers, content-type-specific rules (health/legal/financial/real estate/travel/entertainment), escalation logic. 15 test articles in Sara's hands for parameter walk.
@@ -176,11 +179,17 @@ Quantitative signals attributed to Pierce's projects, analysis, or contributions
 **2026-04-10 — PRD V0.4 validated by Chris Palo**
 Chris reviewed PRD V0.4 and left "a lot of feedback" directly in the doc, calling it "really great stuff." He got sidetracked wrapping up the whole document — indicating he engaged deeply enough to work on the structure, not just comment. Wants a discussion before Pierce implements. Strong signal the PRD landed well at the decision-maker level.
 
+**2026-04-11 — PGS-98 and PGS-87 resolved (tracked and captured)**
+Two significant CSA bugs closed: (1) PGS-98 — Additional Context and Editorial Notes fields now influence generated output; this is the primary mechanism for editorial direction injection into the pipeline. (2) PGS-87 — Target Audience label now included in platform variant Google Doc exports; eliminates the manual re-labeling burden for every syndicated variant. Both tracked in csa-dashboard request register.
+
+**2026-04-11 — PTECH-7730 identified and documented**
+p-tagging fix now formally ticketed (Platform Technology [PT] Delta, TO DO). When this lands: Amplitude adapter activates and Deedra can build unified Sigma dashboard of all CSA content (L&E + CUE). The single most important upstream unlocker for the dashboard instrumentation layer.
+
 **2026-04-10 — WordPress send-to-WP bug catch**
 Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yesterday) is sending the audience variant name + date as the headline, which populates the URL slug — potential SEO damage and manual publishing rework. Pierce has this captured and gated P12 progress on the fix. Daury Caba assigned.
 
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-10 (evening)*
+*Last updated: 2026-04-11*
 *Maintained by Claude. Updated proactively as work completes.*
