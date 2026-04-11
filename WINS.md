@@ -49,6 +49,9 @@ Evaluated Gary Kirwan's toolkit against internal alternatives. Determined Gary's
 
 ## Tier 3 — Strategy & Schema
 
+**2026-04-10 — PRD V0.5 complete**
+Full revision pass implementing all Chris Palo architecture input: Inclination Engine named and defined as T1/T2 auto-brief component; CSA reframed as pipeline container; purpose-driven pipeline framing with per-pipeline OKRs added as Universal Principle; author profiles elevated to full principle with compounding-value argument; Gary tools reframed as cross-pipeline nodes; two new pipelines under investigation (infographics, licensed partner content) added; CPA language loosened to directional frameworks; monetization reframed as avenue with per-channel value calculation; TBTV added as named future channel; data loop opened up. T3 sub-pipes (~10 by content vertical) added. Document ready for Google Docs.
+
 **2026-04-10 — PRD discussion with Chris Palo complete**
 46-minute architecture session. Chris confirmed: CSA = purpose-driven pipeline container (not magic tool); Inclination Engine = named concept for automated brief generation; two new pipelines under investigation (infographics, licensed partner content); Gary tools reframed as cross-pipeline "nodes." Major corrections to PRD framing: loosen CPA/cost language, reframe monetization as avenue not focus, open up data loop. Revision items now queued. Establishes shared language for PRD V0.5.
 
@@ -179,5 +182,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-10 (afternoon)*
+*Last updated: 2026-04-10 (evening)*
 *Maintained by Claude. Updated proactively as work completes.*
