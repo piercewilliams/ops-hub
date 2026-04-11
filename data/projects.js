@@ -6,6 +6,7 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-11', task: 'Amanda Hamilton Amplitude session (April 9) fully documented — verbatim Gemini transcript + full analysis. Key findings: (1) El Nuevo author attribution bug filed: Samantha Agate\'s content shows content source as "US Weekly" not her as author; Amanda submitted technical request to analytics team. (2) Claude budget exhaustion is team-wide — Sarah Price confirmed out of ~$100/month; Pierce noted 3/5 people out; Amanda: Chris must contact Travis Farrar (infrastructure) to request additional budget. (3) Pierce needs to connect Amplitude via Claude Settings → Connectors → Amplitude (Sarah already connected; Amanda confirmed it is pre-listed and approved). (4) Tips: reference chart with filters applied for context; build context file over time; use Amplitude native AI (free) first for dashboards, then Claude for co-work. (5) Dedra Lawhead oversees news analytics; Amanda meets Amplitude monthly; Sarah accepted Slack channel invite. Saved to sessions/meeting-2026-04-09-amanda-hamilton-amplitude.md.', project: '#2 Dashboard Instrumentation' },
   { date: '2026-04-11', task: 'PGS-98 DONE: Additional Context and Editorial Notes fields now influence generated output. Substantive bug resolved — user-provided context (e.g. "focus on an Instagram post") was previously being ignored entirely. Fix affects the editorial direction workflow broadly, since this is how editors inject intelligence into the pipeline.', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-11', task: 'PGS-87 DONE: Target Audience label now appears in Google Doc exports for platform variants. Previously dropped at the Platform Distribution step — users had to manually re-label each variant (significant time + error risk). Now each variant section is labeled with its audience (e.g. "Trend Hunter — Apple News").', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-11', task: 'Julia Tortoriello meeting fully documented: verbatim Gemini transcript (25 min, 00:00:00–00:25:02), verbatim CMS prompt (6 rules), verbatim standalone GPT config (name, description, bilingual instructions, 4 conversation starters, link). Saved to sessions/meeting-2026-04-09-julia-tortoriello.md. Meeting date corrected to April 9 (was logged as April 10). Old file redirected.', project: 'CSA Spanish Pipeline (discovery)' },
@@ -176,9 +177,10 @@ export const PROJECTS = {
       'Amplitude: PTECH-7730 (TO DO, unassigned, Platform Technology [PT] Delta) — must land before Amplitude adapter is reliable',
     ],
     nextActions: [
-      'Attend Amplitude/Amanda Hamilton meeting (Sarah Price adding Pierce)',
+      'Pierce: connect Amplitude via Claude Settings → Connectors → Amplitude (pre-listed, approved; Sarah already connected)',
       'Get Marfeel API key → activate adapter',
       'Monitor PTECH-7730 (p-tagging fix) → activate Amplitude adapter once done',
+      'Chris: contact Travis Farrar (infrastructure) to request additional Claude budget for team (Sarah Price out, ~3/5 members exhausted)',
       'Sarah Price to follow up with Deedra — need revised comparison dashboard (team vs. whole org)',
     ],
     dependsOn: ['p1-access'],

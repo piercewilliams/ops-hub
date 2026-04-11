@@ -30,6 +30,9 @@ CUE CMS, WordPress (full access 2026-03-28), McClatchy GitHub, Sigma basic, Ampl
 
 ## Tier 2 — Understanding
 
+**2026-04-11 — Amplitude platform session with Amanda Hamilton fully documented**
+Verbatim Gemini transcript (00:00:00–00:28:48) and full Gemini summary captured. Key outcomes identified and filed: El Nuevo author attribution bug (Amanda filed technical request with analytics team — Samantha Agate's content shows "US Weekly" as source, blocking El Nuevo dashboard); Claude budget exhaustion confirmed as team-wide issue (~3/5 members out); Claude + Amplitude connector instructions confirmed (Claude Settings → Connectors → Amplitude); Amplitude native AI recommended as free first step for dashboard building. Travis Farrar identified as infrastructure contact for budget requests. Saved to `sessions/meeting-2026-04-09-amanda-hamilton-amplitude.md`.
+
 **2026-04-11 — El Nuevo Spanish translation workflow fully documented**
 Verbatim Gemini transcript (25 min, 00:00:00–00:25:02) captured and saved. Verbatim resources received and stored: CMS prompt (6 editorial rules), standalone GPT config (name, bilingual description, full instructions, 4 conversation starters, link: chatgpt.com/g/g-0SsURCxh4). Meeting date corrected to April 9. Julia confirmed willingness to test CSA in Spanish and help with any platforms/models. Establishes complete, queryable baseline for P17 Spanish CSA Pipeline scoping whenever Chris + Rajiv are ready to move.
 

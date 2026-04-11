@@ -103,13 +103,14 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | Victor Suarez | Engineer/analytics; Amplitude tasks complete, starting PGS-104 (Keywords Input Field) | Met at standup 2026-03-30 |
 | Ana Laura Volkman | Product; owns onboarding docs for CSA | Met at standup 2026-03-30 |
 | Efren Castillo | Engineer on CSA dev team | Met at standup 2026-04-02 |
-| Amanda Hamilton | Content leadership (McClatchy side); adds new members to CSA project in BitBucket | Met at standup 2026-03-30 |
+| Amanda Hamilton | Amplitude super admin (McClatchy); adds new members to CSA project in BitBucket; meets with Amplitude vendor monthly; manages Amplitude access requests + budget questions | Met at standup 2026-03-30; Amplitude session 2026-04-09 |
 | Gary Kirwan | Gary Tools developer | gary@kirwandigital.com |
+| Travis Farrar | Infrastructure — handles Claude budget requests; supervisor must contact Travis to request and validate additional Claude budget (not self-service) | Referenced by Amanda Hamilton 2026-04-09 |
 | Eric Nelson | Approved United Robots inbound initiative 2026-03-30; greenlit using CSA to capture UR revenue share | — |
 | Julia Tortoriello | CSA translation contact | — |
 | Andy | Reviews Smart News, Apple News, MSN personas before they go live | — |
 | Britney | Uses the update document (executive accountability) | — |
-| Dedra | Sigma access/dashboards contact (Sarah Price's contact) | — |
+| Dedra Lawhead | Oversees news analytics in Amplitude; has public dashboards useful as starting points for engagement metrics (time on page, scroll depth, pages per session); also building simple CSA Sigma dashboard (PV/SubPV version first) | Sarah Price's contact; also referenced by Amanda Hamilton in 2026-04-09 Amplitude session |
 | Melissa Angle | Owns period calendar; McClatchy uses 4-4-5 financial periods (Period 4 started 2026-03-30) | — |
 | Jim Robinson | Engineering; built cosine similarity diff tool; internal SEO tool; has novelty concern about Gary | — |
 | Jason Smith | External; building similar AI pipeline tools; Chris mentioned as parallel case — also struggling to communicate ideal end state to dev team | — |
