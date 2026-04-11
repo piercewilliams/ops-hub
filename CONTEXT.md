@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-10 afternoon — PRD discussion with Chris Palo complete. Major architecture clarifications received. Revision items queued. Reuters category mapping delivered to Kathy Sheldon.
-**Status:** 15 active projects + P16 not-started. PRD discussion done; revision pass next. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Gary tool roster. Gary unblocked 2026-04-08.
+**Last session:** 2026-04-10 evening — PRD V0.5 revision pass complete (all 10 Chris Palo items implemented + T3 sub-pipes). Gary Kirwan tool roster email drafted. Session closed.
+**Status:** 15 active projects + P16 not-started. PRD V0.5 done. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Gary tool roster (email drafted, not yet sent).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -13,8 +13,8 @@ For session history: see [sessions/](sessions/)
 
 - Live at `https://piercewilliams.github.io/ops-hub`
 - 15 active projects across 5 dependency tiers + 1 hold (P13 closed) — P14 SEMrush added 2026-04-04, P15 Partner Content now in-progress (Lindy's going live, AI policy active), P16 LTV Model added 2026-04-06 (not-started)
-- **P9 (PRD) — discussion with Chris DONE (2026-04-10).** Revision items identified. Key additions needed: Inclination Engine section, purpose-driven pipelines framing, infographics + licensed partner content pipelines, Gary tools as "nodes," loosen CPA/monetization language. Do not implement until PRD revision pass with Claude scheduled.
-- **Inclination Engine** — new named concept confirmed by Chris. Sole future input for automated signals and trend unit content brief generation. Needs explicit PRD section. Not currently in any doc.
+- **P9 (PRD) — V0.5 COMPLETE (2026-04-10 evening).** All 10 Chris Palo revision items implemented: Inclination Engine named + defined, purpose-driven pipeline framing, new pipelines under investigation, Gary tools as nodes, CPA language loosened, monetization as avenue, TBTV added, data loop opened up, author profiles elevated, CSA = pipeline container. T3 sub-pipes (~10 by content vertical) also added. Document ready for Google Docs.
+- **Inclination Engine** — named and defined in PRD V0.5. Sole future input for automated signals and T1/T2 brief generation. Now in Signal & Brief Creation, CSA section, Strategic Pipeline Elements, and Open Questions.
 - **New pipelines under investigation (Chris 2026-04-10):** (1) Infographics pipeline — trend research → branded infographic (e.g. HSA rates → Trend Hunter graphic); (2) Licensed partner content pipeline — licensed influencer video/transcript → CSA → multiple articles + tangential content → Trend Hunter + Pier1 sites.
 - **Gary tools = "nodes"** — cross-pipeline tools (Gary SEO, fact-checking) that every pipeline touches. Need to specify which tools impact each pipeline. Action: contact Gary for full tool roster, copy Chris.
 - **Editorial responsibility reiterated (Chris, 2026-04-10):** Chris met with editorial team — they own the content the tool produces regardless of system output. Team should tag Slack issues as "bug" (unexpected behavior) or "feature request" (new idea) to help Susanna prioritize.
@@ -112,7 +112,7 @@ For session history: see [sessions/](sessions/)
 1. [ ] **CSA Weekly — Chris Palo, Sara Vallone, Susannah Locke** — Agenda prepped. Key items: diff tool threshold calibration, PGS-82 staging schedule, AI Tool Responsibility gaps, format/persona decoupling, Gary API loop-in for Susannah.
 2. [x] ~~**Julia Tortoriello meeting**~~ — DONE 2026-04-10.
 3. [x] ~~**PRD discussion with Chris**~~ — DONE 2026-04-10. Revision items queued — see P9.
-4. [ ] **PRD revision pass** — run revision session with Claude using meeting notes. Items: Inclination Engine, purpose-driven framing, new pipelines, Gary nodes, loosen CPA/monetization language.
+4. [x] ~~**PRD revision pass**~~ — DONE 2026-04-10 evening. V0.5 complete. Paste into Google Docs.
 5. [ ] **Contact Gary Kirwan for full tool roster** — email Gary, copy Chris Palo. He likely has tools beyond fact-checking that touch other pipelines.
 6. [ ] **Contact Rocky Rhodes re: existing keyword reports** — he has reports for T1 sites and US Weekly. Get them; use to define data-keywords repo scope and eventual analysis site.
 7. [ ] **Schedule Chad Bruton Snowflake walkthrough** — confirm access scope + OAuth2 creds.
