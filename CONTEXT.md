@@ -13,8 +13,9 @@ For session history: see [sessions/](sessions/)
 
 - Live at `https://piercewilliams.github.io/ops-hub`
 - 15 active projects across 5 dependency tiers + 1 hold (P13 closed) — P14 SEMrush added 2026-04-04, P15 Partner Content now in-progress (Lindy's going live, AI policy active), P16 LTV Model added 2026-04-06 (not-started)
-- **P9 (PRD) — V0.5 COMPLETE (2026-04-10 evening).** All 10 Chris Palo revision items implemented: Inclination Engine named + defined, purpose-driven pipeline framing, new pipelines under investigation, Gary tools as nodes, CPA language loosened, monetization as avenue, TBTV added, data loop opened up, author profiles elevated, CSA = pipeline container. T3 sub-pipes (~10 by content vertical) also added. Document ready for Google Docs.
-- **Inclination Engine** — named and defined in PRD V0.5. Sole future input for automated signals and T1/T2 brief generation. Now in Signal & Brief Creation, CSA section, Strategic Pipeline Elements, and Open Questions.
+- **P9 (PRD) — CLOSED.** V0.5 complete and delivered 2026-04-10. Removed from dependency map. P15, P16, P11 dependencies satisfied.
+- **Inclination Engine** — named and defined in PRD V0.5. Sole future input for automated signals and T1/T2 brief generation. In Signal & Brief Creation, CSA section, Strategic Pipeline Elements, and Open Questions.
+- **Gary tool roster email sent (2026-04-10).** Email to Gary Kirwan, CC Chris Palo — asking for full suite description beyond Content Audit API. Framed as cross-pipeline node evaluation. Awaiting Gary's response.
 - **New pipelines under investigation (Chris 2026-04-10):** (1) Infographics pipeline — trend research → branded infographic (e.g. HSA rates → Trend Hunter graphic); (2) Licensed partner content pipeline — licensed influencer video/transcript → CSA → multiple articles + tangential content → Trend Hunter + Pier1 sites.
 - **Gary tools = "nodes"** — cross-pipeline tools (Gary SEO, fact-checking) that every pipeline touches. Need to specify which tools impact each pipeline. Action: contact Gary for full tool roster, copy Chris.
 - **Editorial responsibility reiterated (Chris, 2026-04-10):** Chris met with editorial team — they own the content the tool produces regardless of system output. Team should tag Slack issues as "bug" (unexpected behavior) or "feature request" (new idea) to help Susanna prioritize.
@@ -97,7 +98,7 @@ For session history: see [sessions/](sessions/)
 | 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | **PGS-40 → WON'T DO (2026-04-08).** Work restructured into EGS-127 (epic, 4 subtasks, Marcelo assigned) — tracks which variants came from which canonical article. 700+ stories/month tracked manually by one editor; this automates it. |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris. Testing tracker is manual evidence of demand. |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking anything. |
-| 9 | PRD Revisions | 3 | **In progress** | Discussion with Chris DONE 2026-04-10. Revision items identified: Inclination Engine, purpose-driven framing, new pipelines, Gary nodes, loosen CPA language. Revision pass with Claude pending. |
+| 9 | ~~PRD Revisions~~ | — | **Complete** | V0.5 complete 2026-04-10 evening. All 10 Chris Palo items + T3 sub-pipes implemented. Pasted into Google Docs. |
 | 10 | Gary Tools Integration | 2 | **In progress** | **UNBLOCKED 2026-04-08.** Gary sent full API docs to Chris: base URL, McClatchy API key (`uak_...`), all live endpoints. Key fact-checking endpoint: `POST /api/v1/research/data-validity`. First-test sequence ready to run. Sara Vallone parameter session still next week. |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | **CRITICAL BUG (2026-04-10):** Send-to-WP headline includes variant name + date → corrupts URL slug. Daury Caba investigating. rq-send-to-wp ✅ DONE 2026-04-09 but unreliable until bug fixed. |
@@ -112,8 +113,8 @@ For session history: see [sessions/](sessions/)
 1. [ ] **CSA Weekly — Chris Palo, Sara Vallone, Susannah Locke** — Agenda prepped. Key items: diff tool threshold calibration, PGS-82 staging schedule, AI Tool Responsibility gaps, format/persona decoupling, Gary API loop-in for Susannah.
 2. [x] ~~**Julia Tortoriello meeting**~~ — DONE 2026-04-10.
 3. [x] ~~**PRD discussion with Chris**~~ — DONE 2026-04-10. Revision items queued — see P9.
-4. [x] ~~**PRD revision pass**~~ — DONE 2026-04-10 evening. V0.5 complete. Paste into Google Docs.
-5. [ ] **Contact Gary Kirwan for full tool roster** — email Gary, copy Chris Palo. He likely has tools beyond fact-checking that touch other pipelines.
+4. [x] ~~**PRD revision pass**~~ — DONE 2026-04-10 evening. V0.5 complete and delivered.
+5. [x] ~~**Contact Gary Kirwan for full tool roster**~~ — DONE 2026-04-10. Email sent, CC Chris Palo. Awaiting Gary's response.
 6. [ ] **Contact Rocky Rhodes re: existing keyword reports** — he has reports for T1 sites and US Weekly. Get them; use to define data-keywords repo scope and eventual analysis site.
 7. [ ] **Schedule Chad Bruton Snowflake walkthrough** — confirm access scope + OAuth2 creds.
 8. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
@@ -153,7 +154,7 @@ For session history: see [sessions/](sessions/)
 - Stephanie Zandecki (szandecki@mcclatchy.com): confirm whether keyword-to-article data already exists in Sigma dashboard before Pierce builds it from scratch
 - Sarah Price: cluster/Amplitude pulse data; Amplitude/Amanda Hamilton meeting invite for Pierce; headline grader feedback (reviewing); El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra)
 - Chris Palo: LTV meeting scheduling; clustering stats → Eric Nelson + Kathy Veter; Rasheed re: Bitbucket + Cloudflare team environment
-- Gary Kirwan: full tool roster (Pierce to request, copy Chris)
+- Gary Kirwan: full tool roster response — email sent 2026-04-10, awaiting reply
 - Rocky Rhodes: existing keyword reports for T1 sites + US Weekly (Pierce to request)
 - Sarah Price: follow up with Deedra for team vs. org comparison dashboard
 - Sara Vallone: review AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (passed 2026-04-08); Apple News/SmartNews templates (Andy 2 emails, no response — submit ticket if no reply); Alex Meta contact (El Nuevo); content creator using external Claude (investigating)

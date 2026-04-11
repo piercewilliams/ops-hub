@@ -6,6 +6,7 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-10', task: 'Gary Kirwan tool roster email sent (CC: Chris Palo). Asked for full suite beyond Content Audit API: what tools exist, what each takes as input and returns, which are in development vs. production-ready, and how Gary sees them relating to each other as a suite. Framed as cross-pipeline node evaluation, not just fact-checking integration. Awaiting Gary\'s response.', project: '#10 Gary Tools Integration' },
   { date: '2026-04-10', task: 'PRD V0.5 revision pass complete. All 10 Chris Palo items implemented: (1) CSA reframed as pipeline container, not magic tool; (2) Inclination Engine named and defined as T1/T2 auto-brief component in Signal & Brief Creation, CSA section, Strategic Pipeline Elements, and Open Questions; (3) Purpose-driven pipeline framing + per-pipeline OKR distinction added as Universal Principle + purpose statement on each pipeline; (4) Author profiles elevated to full Universal Principle with compounding-value framing; (5) Gary tools reframed as cross-pipeline nodes in CSA section, Quality Enrichment, and Strategic Pipeline Elements; (6) TBTV added to distribution channel lists; (7) Two new pipelines under investigation added as dedicated subsection (infographics + licensed partner content); (8) CPA language loosened throughout — directional frameworks only, "decrease monotonically" removed; (9) Monetization reframed as avenue with per-channel value calculation; (10) Data loop opened up — signal sources described as expanding, no hard spec. Also added: T3 sub-pipes (~10 by content vertical). Gary Kirwan tool roster email drafted (copy Chris Palo). Document ready for Google Docs.', project: '#9 PRD Revisions' },
   { date: '2026-04-10', task: 'PRD discussion with Chris Palo complete (2026-04-10, 3:24PM EDT). Major architecture clarifications: (1) CSA = pipeline container with purpose-driven pipes categorized by touch level (high/low/medium) — people still misunderstand it as a magic all-in-one tool. (2) Inclination Engine confirmed as named concept — the sole future input for automated signals and trend unit brief generation; needs explicit PRD section. (3) New pipelines under investigation: infographics pipeline (trend research → branded infographic, e.g. HSA rates rising → Trend Hunter graphic); licensed partner content pipeline (licensed influencer video/transcript → CSA → multiple articles + tangential content → Trend Hunter app + Pier1 sites). (4) Monetization reframed: syndication is an avenue, not the focus. Distribution channels = O&O, Trend Hunter app, Syndication, TBTV (future); value calculation differs per pipeline. (5) Gary tools = "nodes" — cross-pipeline tools that every pipeline touches; need full roster from Gary. (6) Data loop = keep open-ended in PRD; data sources for optimization expand daily. (7) CPA/cost language over-specified — loosen to directional frameworks, not pre-specified formulas. Action items: [Pierce] contact Gary for full tool roster (copy Chris); [Pierce] schedule Snowflake walkthrough with Chad; [Pierce] add Inclination Engine to PRD; [Sarah Price + Sarah Voluone] define SEO keyword scope; [Sarah Price] follow up with Deedra for team vs. org comparison dashboard.', project: '#9 PRD Revisions' },
   { date: '2026-04-10', task: 'PGS-114 DONE: Automatic AI disclaimer removed from Discovery Content Format. Writers now add disclaimer manually if needed. Scope: Discovery Content Format only. Existing saved drafts unaffected.', project: '#4 Article Format + Persona + Keyword Governance' },
@@ -117,14 +118,15 @@ export const PROJECTS = {
     id: 'p10-gary', num: '10', tier: 2, type: 'project', status: 'in-progress',
     name: 'Gary Tools Integration',
     owner: 'Pierce (lead) · Susannah Locke · Chris Palo',
-    description: 'Gary Kirwan\'s fact-checking API — unblocked 2026-04-08. Key endpoint: POST /api/v1/research/data-validity. Use case: claims validation post-CSA, before editor\'s desk. v0.1 ruleset sent to Sara Vallone 2026-04-08. Framed as internal CSA module (no external attribution per Chris).',
+    description: 'Gary Kirwan\'s toolkit — reframed as cross-pipeline nodes (2026-04-10). Tools touch multiple pipelines at different stages, not just fact-checking. Full tool roster email sent to Gary (CC: Chris Palo) 2026-04-10. Awaiting response. API key + endpoint docs in hand; Sara Vallone parameter session next week.',
     blockers: [
+      'Gary full tool roster — email sent 2026-04-10, awaiting response',
       'Sara Vallone parameter session (next week) — walk 15 test articles, finalize verdict taxonomy',
     ],
     nextActions: [
-      'Contact Gary Kirwan for full roster of all tools he has built — copy Chris Palo on the communication',
       'Run first API test sequence: health → scrape → meta → content-structure → unanswered-questions → citations',
       'Sara Vallone session next week — iterate on v0.1 ruleset',
+      'Once Gary responds: map full tool roster to pipeline phases',
     ],
     dependsOn: ['p1-access'],
     contacts: [
@@ -134,18 +136,6 @@ export const PROJECTS = {
   },
 
   // ── TIER 3 ────────────────────────────────────────────────────────────────
-
-  'p9-prd': {
-    id: 'p9-prd', num: '9', tier: 3, type: 'project', status: 'in-progress',
-    name: 'PRD Revisions',
-    owner: 'Pierce',
-    description: 'V0.5 COMPLETE (2026-04-10 evening). All 10 Chris Palo revision items implemented + T3 sub-pipes. Ready to paste into Google Docs.',
-    blockers: [],
-    nextActions: [
-      'Paste V0.5 into Google Docs and share with Chris Palo',
-    ],
-    dependsOn: [],
-  },
 
   'p6-taxonomy': {
     id: 'p6-taxonomy', num: '6', tier: 3, type: 'project', status: 'in-progress',
@@ -342,7 +332,7 @@ export const PROJECTS = {
       'Monitor Lindy\'s + Reuters activation',
       'Low priority: once legal question resolves, cost out partner content fact-checker',
     ],
-    dependsOn: ['p9-prd'],
+    dependsOn: [],
     contacts: [
       { name: 'Kathryn Sheldon', role: 'Feeds/programming; owns Arena Group relationship' },
       { name: 'Kathy', role: 'Partner content relationship; needed for inventory scope' },
@@ -362,7 +352,7 @@ export const PROJECTS = {
       'Attend kickoff — Chris scheduling with Sara Vallone, Sarah Price, Kathy, Pierce',
       'Provide statistical input on evergreen/transient weighting',
     ],
-    dependsOn: ['p9-prd'],
+    dependsOn: [],
   },
 
   'p11-recipes': {
@@ -377,7 +367,7 @@ export const PROJECTS = {
       'Build recipes on-demand — one at a time as data infrastructure (EGS-127, PGS-82/140, Sigma CSA dash) is in place to track and optimize that vertical',
       'First recipe: identify which T3 vertical has the most pieces ready, build that one first to prove the model',
     ],
-    dependsOn: ['p9-prd', 'p4-governance'],
+    dependsOn: ['p4-governance'],
   },
 
 };
