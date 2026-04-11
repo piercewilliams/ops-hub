@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-11 — Two sessions. (1) Julia Tortoriello meeting documented; Jira audit: PGS-98 DONE, PGS-87 DONE, PTECH-7730 new, PGS-150 spike complete; csa-dashboard ROADMAP.md created. (2) Amanda Hamilton Amplitude session (2026-04-09) documented — El Nuevo author bug filed, Claude budget exhaustion team-wide (Chris → Travis Farrar), Pierce needs to connect Amplitude connector. Cross-repo sync: all 5 repos clean and current.
+**Last session:** 2026-04-11 — (3) Connected Claude connectors: Amplitude, Google Drive, Gmail, GitHub, Atlassian/Jira/Compass, Google Calendar, Slack. Verified live Jira statuses (all match). Gmail: no Gary or Rocky replies yet. Calendar: no LTV meeting yet; CSA Weekly confirmed Tue 4/14 3pm CDT; Pierce<>Chris 1:1 confirmed Tue 4/14 12:30pm CDT; Q1 Financials with Tony Berg on 4/27. Prior: (1) Julia Tortoriello meeting documented; Jira audit: PGS-98 DONE, PGS-87 DONE, PTECH-7730 new, PGS-150 spike complete; csa-dashboard ROADMAP.md created. (2) Amanda Hamilton Amplitude session documented — El Nuevo author bug filed, Claude budget exhaustion team-wide (Chris → Travis Farrar). Cross-repo sync: all 5 repos clean and current.
 **Status:** 15 active projects + P16 not-started. PRD V0.5 done. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Gary tool roster (awaiting response), PGS-150 tool preference (Pierce input needed).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -92,8 +92,8 @@ For session history: see [sessions/](sessions/)
 
 | # | Project | Tier | Status | Key Blocker / State |
 |---|---------|------|--------|---------------------|
-| 1 | Platform Access & Training | 1 | In progress | All access confirmed except Sigma scope verification. Marfeel confirmed 2026-04-09. Gary API key received 2026-04-08. Pending: Chad Bruton walkthrough to confirm Sigma access is complete. |
-| 2 | Dashboard Instrumentation | 4 | In progress | PTECH-7641 DONE. **WordPress send-to WP LIVE 2026-04-09** (UsW/WW/SOD/Bargain Hunter). PGS-140 → IN PROGRESS. **PTECH-7730 (TO DO, Platform Technology [PT] Delta, unassigned)** = the p-tagging fix — when done enables Amplitude adapter + unified Sigma dashboard. **Amplitude session DONE 2026-04-09** — El Nuevo author bug filed; Pierce needs to connect Amplitude connector (Claude Settings → Connectors → Amplitude); Chris → Travis Farrar for team Claude budget. |
+| 1 | Platform Access & Training | 1 | In progress | All access confirmed except Sigma scope verification. Marfeel confirmed 2026-04-09. Gary API key received 2026-04-08. **Claude connectors connected 2026-04-11** (Amplitude, Google Drive, Gmail, GitHub, Atlassian, Google Calendar, Slack). Pending: Chad Bruton walkthrough to confirm Sigma access is complete. |
+| 2 | Dashboard Instrumentation | 4 | In progress | PTECH-7641 DONE. **WordPress send-to WP LIVE 2026-04-09** (UsW/WW/SOD/Bargain Hunter). PGS-140 → IN PROGRESS. **PTECH-7730 (TO DO, Platform Technology [PT] Delta, unassigned)** = the p-tagging fix — when done enables Amplitude adapter + unified Sigma dashboard. **Amplitude session DONE 2026-04-09** — El Nuevo author bug filed; **Amplitude connector connected 2026-04-11.** Also connected: Google Drive, Gmail, GitHub, Atlassian/Jira/Compass, Google Calendar, Slack. Chris → Travis Farrar for team Claude budget. |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, 15 grader criteria, author playbooks, experiments, governor, Headline Grader (GitHub Actions, daily), weekly auto-ingest pipeline (Monday 8pm CDT; change-detection; longitudinal snapshots). 19/19 tests pass. **Fully operational** — Tarrow shared 2026 sheet 2026-04-09. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | **PGS-134 READY FOR PRODUCTION**. **PGS-98 DONE** (2026-04-11) — Additional Context/Editorial Notes now influence output. **PGS-87 DONE** (2026-04-11) — Target Audience label in platform variant exports fixed. **PGS-150 spike complete** — Copyscape Premium API recommended; Susannah asking Pierce for team input. PGS-93 BACKLOG. |
@@ -114,7 +114,7 @@ For session history: see [sessions/](sessions/)
 
 **#1 — THIS WEEK:**
 0. [ ] **Respond to Susannah Locke on PGS-150 plagiarism detection tool** — Victor recommends Copyscape Premium API (~$72/month). Susannah asked: "any strong preferences on tools from your team?" Review spike Google Doc before responding.
-1. [ ] **CSA Weekly — Chris Palo, Sara Vallone, Susannah Locke** — Agenda prepped. Key items: diff tool threshold calibration, PGS-82 staging schedule, AI Tool Responsibility gaps, format/persona decoupling, Gary API loop-in for Susannah.
+1. [ ] **CSA Weekly — Tue 4/14 3pm CDT** (Pierce<>Chris 1:1 same day at 12:30pm CDT). Agenda prepped. Key items: diff tool threshold calibration, PGS-82 staging schedule, AI Tool Responsibility gaps, format/persona decoupling, Gary API loop-in for Susannah.
 2. [x] ~~**Julia Tortoriello meeting**~~ — DONE 2026-04-09. CMS prompt + standalone GPT config received verbatim. Julia willing to test CSA in Spanish.
 3. [x] ~~**PRD discussion with Chris**~~ — DONE 2026-04-10. Revision items queued — see P9.
 4. [x] ~~**PRD revision pass**~~ — DONE 2026-04-10 evening. V0.5 complete and delivered.
@@ -122,7 +122,8 @@ For session history: see [sessions/](sessions/)
 6. [ ] **Contact Rocky Rhodes re: existing keyword reports** — he has reports for T1 sites and US Weekly. Get them; use to define data-keywords repo scope and eventual analysis site.
 7. [ ] **Schedule Chad Bruton Snowflake walkthrough** — confirm access scope + OAuth2 creds.
 8. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
-9. [x] ~~**Attend Amplitude/Amanda Hamilton meeting**~~ — DONE 2026-04-09. El Nuevo author bug filed. Claude budget → Chris/Travis Farrar. Pierce needs to connect Amplitude connector. Notes: `sessions/meeting-2026-04-09-amanda-hamilton-amplitude.md`
+9. [x] ~~**Attend Amplitude/Amanda Hamilton meeting**~~ — DONE 2026-04-09. El Nuevo author bug filed. Claude budget → Chris/Travis Farrar. Notes: `sessions/meeting-2026-04-09-amanda-hamilton-amplitude.md`
+10. [x] ~~**Connect Amplitude connector**~~ — DONE 2026-04-11. Also connected: Google Drive, Gmail, GitHub, Atlassian/Jira/Compass, Google Calendar, Slack.
 
 **#2 — NEXT WEEK:**
 7. [ ] **Document Gary fact-checker desired functionality** — Pierce writing: hierarchy of escalation paths, desired behavior/responses for each scenario, internal logic. Susannah confirmed this is the right approach to set dev expectations upfront. Do this before running first-test sequence.
@@ -154,11 +155,11 @@ For session history: see [sessions/](sessions/)
 - Rollout: staging (inform-only) → QA → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
 
 **Waiting on others (no action needed):**
-- Rocky Rhodes (rrhodes@mcclatchy.com): credit burn rate per SEMrush endpoint — he's querying rep Julio; must have before writing any automation
+- Rocky Rhodes (rrhodes@mcclatchy.com): credit burn rate per SEMrush endpoint — querying Julio; no reply as of 2026-04-11 (confirmed via Gmail); must have before writing any automation
 - Stephanie Zandecki (szandecki@mcclatchy.com): confirm whether keyword-to-article data already exists in Sigma dashboard before Pierce builds it from scratch
 - Sarah Price: cluster/Amplitude pulse data; headline grader feedback (reviewing); El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra); follow up with Deedra on team vs. org comparison dashboard
-- Chris Palo: LTV meeting scheduling; clustering stats → Eric Nelson + Kathy Veter; Rasheed re: Bitbucket + Cloudflare team environment
-- Gary Kirwan: full tool roster response — email sent 2026-04-10, awaiting reply
+- Chris Palo: LTV meeting scheduling (not yet on calendar as of 2026-04-11); clustering stats → Eric Nelson + Kathy Veter; Rasheed re: Bitbucket + Cloudflare team environment
+- Gary Kirwan: full tool roster response — email sent 2026-04-10, no reply as of 2026-04-11 (confirmed via Gmail)
 - Rocky Rhodes: existing keyword reports for T1 sites + US Weekly (Pierce to request)
 - Sarah Price: follow up with Deedra for team vs. org comparison dashboard
 - Sara Vallone: review AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (passed 2026-04-08); Apple News/SmartNews templates (Andy 2 emails, no response — submit ticket if no reply); Alex Meta contact (El Nuevo); content creator using external Claude (investigating)
