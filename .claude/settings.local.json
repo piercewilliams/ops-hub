@@ -42,7 +42,16 @@
       "Bash(ls /Users/pierce/Desktop/*.pdf)",
       "Bash(pbcopy)",
       "Bash(/usr/local/bin/gh --version)",
-      "Bash(/opt/homebrew/bin/gh --version)"
+      "Bash(/opt/homebrew/bin/gh --version)",
+      "mcp__claude_ai_Atlassian__getAccessibleAtlassianResources",
+      "mcp__claude_ai_Gmail__gmail_search_messages",
+      "mcp__claude_ai_Google_Calendar__gcal_list_events",
+      "mcp__claude_ai_Slack__slack_search_public_and_private",
+      "mcp__claude_ai_Atlassian__searchJiraIssuesUsingJql",
+      "Bash(mkdir -p /Users/pierce/Documents/github/data-keywords/data)",
+      "Bash(cp \"/Users/pierce/Downloads/US Weekly _ Competitor KW Analysis _ 3.20.2026.xlsx\" \"/Users/pierce/Documents/github/data-keywords/data/US Weekly _ Competitor KW Analysis _ 3.20.2026.xlsx\")",
+      "Bash(mkdir -p /Users/pierce/Documents/github/data-keywords/docs/css /Users/pierce/Documents/github/data-keywords/docs/js /Users/pierce/Documents/github/data-keywords/docs/data)",
+      "Bash(touch /Users/pierce/Documents/github/data-keywords/docs/.nojekyll)"
     ]
   }
 }
