@@ -63,6 +63,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 
 | Resource | Location |
 |----------|----------|
+| **The Recipe System** | [`RECIPE.md`](RECIPE.md) — Creator × Format × Topic × Market → Return; cluster definition; vertical signal profiles; current vs. future state |
 | Dashboard (this repo) | `index.html` — open in browser |
 | CSA Dashboard | https://piercewilliams.github.io/csa-dashboard/ |
 | CSA Staging | https://staging.trendhunteragents.ai/csa |
