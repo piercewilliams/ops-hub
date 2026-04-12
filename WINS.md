@@ -55,6 +55,9 @@ Evaluated Gary Kirwan's toolkit against internal alternatives. Determined Gary's
 
 ## Tier 3 — Strategy & Schema
 
+**2026-04-12 — Recipe system documented (RECIPE.md)**
+Canonical cross-repo reference for Chris Palo's Recipe system: Creator × Format × Topic × Market → Predictable Return. Documents four dimensions, return type by pipeline purpose, cluster precise definition (canonical article + analytically-determined variants — NOT a synonym for topic), data repo by dimension, vertical signal profiles by monetization model (entertainment = traffic play, financial services = revenue per visitor, food = display at scale), current vs. future state. Pointers in REFERENCE.md. This is the architecture frame for all data intelligence work going forward.
+
 **2026-04-10 — PRD V0.5 complete**
 Full revision pass implementing all Chris Palo architecture input: Inclination Engine named and defined as T1/T2 auto-brief component; CSA reframed as pipeline container; purpose-driven pipeline framing with per-pipeline OKRs added as Universal Principle; author profiles elevated to full principle with compounding-value argument; Gary tools reframed as cross-pipeline nodes; two new pipelines under investigation (infographics, licensed partner content) added; CPA language loosened to directional frameworks; monetization reframed as avenue with per-channel value calculation; TBTV added as named future channel; data loop opened up. T3 sub-pipes (~10 by content vertical) added. Document ready for Google Docs.
 
@@ -85,6 +88,9 @@ Added `_cluster_production_section()` to `generate_site.py`: 422 clusters tracke
 
 **2026-04-09 — Weekly auto-ingest pipeline operational**
 `download_tarrow.py` + `.github/workflows/weekly_ingest.yml` (Monday 8pm CDT): downloads live 2026 Google Sheet via Drive API, runs change-detection, commits xlsx + docs/ + data/, writes `data/build_summary.json` (8 tracked metrics) + `data/weekly_snapshots.json` (longitudinal store). Tarrow shared 2026 sheet with service account 2026-04-09 — fully operational.
+
+**2026-04-12 — data-keywords keyword intelligence prototype MVP**
+Full keyword intelligence dashboard built from scratch in `piercewilliams/data-keywords`. 14 briefs across 4 content verticals (Entertainment: 7, Financial Services: 3, Food & Recipes: 3, Health & Wellness: 1 Skip). Priority sort by `impactScore = totalVolume × avgCPC` — normalizes editorial return across verticals with fundamentally different monetization profiles. Skip verdict demonstrated with weight loss generic terms (KD 100 — YMYL space owned by WebMD/Healthline) vs. celebrity weight loss (KD 33 — People.com as competitor, Go Hard). Celebrity weight loss brief discovered from SEMrush CSV analysis (557K vol, avg KD 33, 8 celebrity keywords). Summary bar excludes Skips. Data currency indicator ("Data as of Apr 2026") derived automatically from brief dataSource fields. Full documentation: TECHNICAL.md (architecture reference) + EXECUTIVE-BRIEF.md (non-technical, written for Chris). Ready to present to Chris at 4/14 1:1.
 
 **2026-04-09 — data-keywords repo seeded**
 `piercewilliams/data-keywords` created for P14 SEMrush / Keyword Signal Layer. Full context architecture: CONTEXT.md (blockers, prioritized tasks, scope decisions), REFERENCE.md (team/contacts, credit model, DataForSEO alternative, 3 confirmed use cases, related Jira tickets).
@@ -194,5 +200,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-11*
+*Last updated: 2026-04-12*
 *Maintained by Claude. Updated proactively as work completes.*

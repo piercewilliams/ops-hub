@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-11 — Read April 10 Pierce<>Chris meeting transcript (Gemini PDF). Identified and codified what Chris means by "Recipes" (P11): signal-driven lever configuration — creator profile × content category performance × market ECPM → optimal persona/format/topic/distribution target with predictable return. Updated P11 description in data/projects.js to reflect this (was vaguely "operating spec for T3 sub-pipeline"; now accurately describes lever-pulling concept with Ryan Brennan/creature features/Sacramento as anchor example). Prior: (3) Connected Claude connectors: Amplitude, Google Drive, Gmail, GitHub, Atlassian/Jira/Compass, Google Calendar, Slack. Verified live Jira statuses (all match). Gmail: no Gary or Rocky replies yet. Calendar: no LTV meeting yet; CSA Weekly confirmed Tue 4/14 3pm CDT; Pierce<>Chris 1:1 confirmed Tue 4/14 12:30pm CDT; Q1 Financials with Tony Berg on 4/27. Prior: (1) Julia Tortoriello meeting documented; Jira audit: PGS-98 DONE, PGS-87 DONE, PTECH-7730 new, PGS-150 spike complete; csa-dashboard ROADMAP.md created. (2) Amanda Hamilton Amplitude session documented — El Nuevo author bug filed, Claude budget exhaustion team-wide (Chris → Travis Farrar). Cross-repo sync: all 5 repos clean and current.
+**Last session:** 2026-04-12 — data-keywords prototype hardened and documented for Chris presentation (Tue 4/14 12:30pm CDT). 14 briefs (4 verticals), priority sort (volume × CPC impact score), Skip verdict (weight loss generic KD 100 vs. celebrity KD 33 — best demo of tool's analytical value), TECHNICAL.md + EXECUTIVE-BRIEF.md written. RECIPE.md created in ops-hub as cross-repo Recipe system reference. Data currency indicator added to summary bar. Presentation prep saved to ops-hub memory. Cross-repo sync complete.
 **Status:** 15 active projects + P16 not-started. PRD V0.5 done. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Gary tool roster (awaiting response), PGS-150 tool preference (Pierce input needed).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -106,7 +106,7 @@ For session history: see [sessions/](sessions/)
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | **CRITICAL BUG (2026-04-10):** Send-to-WP headline includes variant name + date → corrupts URL slug. Daury Caba investigating. rq-send-to-wp ✅ DONE 2026-04-09 but unreliable until bug fixed. |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
-| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | data-keywords repo created 2026-04-09. Blocked: Rocky/Julio per-endpoint rates + Stephanie/Sigma check. Credit: ~10 units/line live, ~50/line historical; 250K ≈ 50 full runs. DataForSEO as alternative. Full API docs in hand. |
+| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | **Prototype complete** — 14 briefs, 4 verticals, priority sort (volume × CPC), Skip verdict, TECHNICAL.md + EXECUTIVE-BRIEF.md. Presenting to Chris at 1:1 **Tue 4/14 12:30pm CDT**. After: pull next verticals per Chris feedback (Sara V priorities: sleep/recovery, HSAs). Rocky reports still needed for position data. |
 | 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live this week. AI policy for AI-sourced content now active. Reuters still blocked. **New sub-scope: fact-checking inbound partner content (Athlon Sports ~1M stories/year). Legal question: data vs. content (analyzable vs. contractually forbidden). Low priority.** |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff this week (Sara, Sarah Price, Pierce, Kathy). Statistical input from Pierce needed. |
 
@@ -134,7 +134,7 @@ For session history: see [sessions/](sessions/)
 **#3 — AFTER NEXT WEEK'S MEETINGS:**
 8. [ ] **When format/persona decoupling lands: migrate Apple News + SmartNews best practices from persona → format section** — Sara already frames these as format; dev ticket in queue (15/18 in code review as of 2026-04-03). Do this review as soon as the decoupling ticket closes.
 9. [ ] **Get final Vallone format guide + codify into csa-content-standards** — DO NOT FORGET. Confirm Vallone produces final version with T1 findings incorporated, then codify. 10 corrections to verify: remove WTK from SmartNews recs, add questions-hurt-both rule, add push notifications section, refine char targets (SN: 70–90 / Apple: 90–120).
-10. [ ] **Build SEMrush keyword layer (P14)** — `data-keywords` repo created and seeded. Blocked: wait for Rocky/Julio credit rate confirmation + check Stephanie Zandecki's Sigma for existing data. Then evaluate DataForSEO vs SEMrush before building. Point-and-click interface for Sarah Price.
+10. [x] ~~**Build SEMrush keyword layer (P14)**~~ — DONE. Prototype complete: 14 briefs, 4 verticals, impact-score sort, Skip verdict, TECHNICAL.md + EXECUTIVE-BRIEF.md. **Next: present to Chris at 1:1 Tue 4/14 12:30pm CDT.**
 11. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data. (Sarah Price also reaching out to Dedra 2026-04-06 to coordinate.)
 12. [ ] **Finalize Science-Curious persona definitions** — Retiree + Casual Reader need canonical definitions before Susannah saves as shared custom personas.
 13. [ ] **Extend AGENT-AUDIENCE routing annotations beyond §1** — §1 fully confirmed live (2026-04-08). Susannah is tagging; next: audit §2+ sections and add AGENT-AUDIENCE tags where applicable.
@@ -180,6 +180,8 @@ For session history: see [sessions/](sessions/)
 **Distribution channels (2026-04-10):** O&O, Trend Hunter app, Syndication, TBTV (future). Each has a different value calculation. Syndication = avenue, not focus.
 **Inclination Engine (2026-04-10):** Named concept — sole future input for automated signals and trend unit brief generation. Feeds T1/T2 pipelines without human initiation. Not yet built. Needs PRD section.
 **CPA breakeven reference (2026-04-10):** ~$85 asset cost → 6,156 PVs to cover cost (ECPM data from Chris). Reference only — do not specify in PRD.
+**Recipe system (2026-04-12):** Creator × Format × Topic × Market → Predictable Return. Before committing pipeline capacity, configure the four dimensions. data-keywords = Topic layer (keyword signal; is the opportunity there?). CSA = Format layer. Inclination Engine = Creator layer (future). Snowflake/Sigma = Market layer (eCPM by site). Full canonical reference: `RECIPE.md` in ops-hub.
+**Cluster (precise definition, 2026-04-12):** Canonical article + analytically-determined variants. Predictive output of the analytics signal. NOT synonymous with topic, vertical, or keyword group. Cluster ID = Canonical ID.
 
 ---
 

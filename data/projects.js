@@ -6,6 +6,9 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-12', task: 'data-keywords prototype: data currency indicator added to summary bar. latestDataDate() parses "Mon YYYY" from all briefs\' dataSource fields, finds most recent, renders "· Data as of Apr 2026" inline in summary bar. CSS .data-currency rule uses --text-muted italic. Auto-updates when new briefs with more recent pulls are added.', project: '#14 SEMrush / Keyword Signal Layer' },
+  { date: '2026-04-12', task: 'RECIPE.md created in ops-hub — canonical cross-repo reference for the Recipe system (Creator × Format × Topic × Market → Predictable Return). Documents four dimensions, return type by pipeline purpose, cluster precise definition (canonical article + analytically-determined variants — NOT a synonym for topic), data repos by dimension, vertical signal profiles, current vs. future state. Added pointer in REFERENCE.md. This is the architecture frame for all data intelligence work.', project: '#11 Recipes' },
+  { date: '2026-04-12', task: 'data-keywords prototype MVP complete and hardened for Chris Palo presentation. 14 briefs (10 Go Hard, 2 Test Small, 1 Skip, 1 celebrity transformations Go Hard) across 4 content verticals. Priority sort: impactScore = totalVolume × avgCPC (normalizes entertainment/food high-volume vs. financial services high-CPC). Skip verdict: weight loss generic terms (KD 100 — YMYL, owned by WebMD/Healthline) vs. celebrity weight loss (KD 33 — People.com competes, Go Hard). Summary bar excludes Skips. topCompetitors filled for all financial/food briefs. Celebrity weight loss transformations brief discovered from SEMrush CSV (557K vol, avg KD 33). TECHNICAL.md (full architecture reference) + EXECUTIVE-BRIEF.md (non-technical, written for Chris) created. Presentation prep notes saved to ops-hub memory.', project: '#14 SEMrush / Keyword Signal Layer' },
   { date: '2026-04-11', task: 'Amanda Hamilton Amplitude session (April 9) fully documented — verbatim Gemini transcript + full analysis. Key findings: (1) El Nuevo author attribution bug filed: Samantha Agate\'s content shows content source as "US Weekly" not her as author; Amanda submitted technical request to analytics team. (2) Claude budget exhaustion is team-wide — Sarah Price confirmed out of ~$100/month; Pierce noted 3/5 people out; Amanda: Chris must contact Travis Farrar (infrastructure) to request additional budget. (3) Pierce needs to connect Amplitude via Claude Settings → Connectors → Amplitude (Sarah already connected; Amanda confirmed it is pre-listed and approved). (4) Tips: reference chart with filters applied for context; build context file over time; use Amplitude native AI (free) first for dashboards, then Claude for co-work. (5) Dedra Lawhead oversees news analytics; Amanda meets Amplitude monthly; Sarah accepted Slack channel invite. Saved to sessions/meeting-2026-04-09-amanda-hamilton-amplitude.md.', project: '#2 Dashboard Instrumentation' },
   { date: '2026-04-11', task: 'PGS-98 DONE: Additional Context and Editorial Notes fields now influence generated output. Substantive bug resolved — user-provided context (e.g. "focus on an Instagram post") was previously being ignored entirely. Fix affects the editorial direction workflow broadly, since this is how editors inject intelligence into the pipeline.', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-11', task: 'PGS-87 DONE: Target Audience label now appears in Google Doc exports for platform variants. Previously dropped at the Platform Distribution step — users had to manually re-label each variant (significant time + error risk). Now each variant section is labeled with its audience (e.g. "Trend Hunter — Apple News").', project: '#4 Article Format + Persona + Keyword Governance' },
@@ -258,26 +261,26 @@ export const PROJECTS = {
     id: 'p14-semrush', num: '14', tier: 4, type: 'project', status: 'in-progress',
     name: 'SEMrush / Keyword Signal Layer',
     owner: 'Pierce · Sarah Price · Sara Vallone',
-    description: 'Keyword signal layer for CSA. Scope: (1) analyze article keywords + suggest alternatives; (2) evergreen backlinking (~25 URLs). 250K credits held by Sarah Price. data-keywords repo seeded. Blocked on per-endpoint credit rates.',
+    description: 'Keyword intelligence prototype (data-keywords repo) built and ready to present to Chris Palo. 14 briefs across 4 verticals (Entertainment, Financial Services, Food & Recipes, Health & Wellness). Priority sort by impact score (volume × CPC). Skip verdict. TECHNICAL.md + EXECUTIVE-BRIEF.md + data currency indicator complete. Presenting at 1:1 Tue 4/14 12:30pm CDT — question: "Are these the sorts of signals you\'re after at the keyword layer?"',
     blockers: [
-      'Rocky/Julio credit rate per endpoint not confirmed — required before any automation',
-      'Stephanie Zandecki: confirm if keyword-to-article data already exists in Sigma',
+      'Pending Chris feedback on verdict system, CPC proxy, and which verticals to pull next',
+      'Rocky/Julio credit rate per endpoint not confirmed — required before any automation (manual pulls OK)',
     ],
     nextActions: [
-      'Contact Rocky Rhodes — he has existing keyword performance reports for T1 sites and US Weekly; get those reports and use them to define data-keywords repo scope and eventual analysis site feature set',
-      'Sarah Price + Sarah Voluone to define SEO keyword research scope from Rocky\'s data — they determine how many keywords to select per piece',
-      'Wait for Rocky/Julio credit burn rate confirmation per endpoint before building automation',
-      'Confirm Sigma coverage with Stephanie Zandecki — avoid duplicate build',
-      'Evaluate DataForSEO vs SEMrush for batch use before committing credits',
+      'Present prototype to Chris at 1:1 Tue 4/14 12:30pm CDT — ask: verdict system? CPC as proxy? which verticals next?',
+      'After Chris meeting: pull next verticals (Sara Vallone priorities: sleep/recovery, financial services/HSAs)',
+      'Contact Rocky Rhodes — get existing T1 site keyword reports to upgrade entertainment briefs with real position data',
+      'Confirm Sigma coverage with Stephanie Zandecki — avoid duplicate keyword-to-article build',
+      'Bridge data-headlines: connect keyword gap findings to T1 headline performance data (what format wins in a space)',
     ],
     dependsOn: ['p1-access', 'p3-headlines'],
     systems: [
-      { name: 'data-keywords repo', status: 'done', note: 'piercewilliams/data-keywords — implementation repo' },
-      { name: 'SEMrush API', status: 'pending', note: 'Key held by Sarah Price. No automation until credit rates confirmed.' },
-      { name: 'DataForSEO API', status: 'pending', note: 'Cheaper alternative flagged by Rocky — evaluate first.' },
+      { name: 'data-keywords prototype', status: 'done', note: 'piercewilliams/data-keywords — 14 briefs, 4 verticals; serve: python3 -m http.server 8080 → http://localhost:8080/docs/' },
+      { name: 'SEMrush API', status: 'pending', note: 'Manual pulls done. No automation until credit rates confirmed (Rocky/Julio).' },
+      { name: 'DataForSEO API', status: 'pending', note: 'Cheaper alternative flagged by Rocky — evaluate for batch use.' },
     ],
     contacts: [
-      { name: 'Rocky Rhodes', role: 'SEMrush admin; liaising with rep Julio on credit rates' },
+      { name: 'Rocky Rhodes', role: 'SEMrush admin; has existing T1 site keyword reports; liaising with rep Julio on credit rates' },
       { name: 'Stephanie Zandecki', role: 'May have keyword-to-article data in Sigma already' },
     ],
   },
