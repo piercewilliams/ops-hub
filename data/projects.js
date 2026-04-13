@@ -180,7 +180,6 @@ export const PROJECTS = {
       'Amplitude: PTECH-7730 (TO DO, unassigned, Platform Technology [PT] Delta) — must land before Amplitude adapter is reliable',
     ],
     nextActions: [
-      'Pierce: connect Amplitude via Claude Settings → Connectors → Amplitude (pre-listed, approved; Sarah already connected)',
       'Get Marfeel API key → activate adapter',
       'Monitor PTECH-7730 (p-tagging fix) → activate Amplitude adapter once done',
       'Chris: contact Travis Farrar (infrastructure) to request additional Claude budget for team (Sarah Price out, ~3/5 members exhausted)',

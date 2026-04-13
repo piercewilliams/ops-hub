@@ -162,7 +162,6 @@ For session history: see [sessions/](sessions/)
 - Gary Kirwan: full tool roster response — email sent 2026-04-10, no reply as of 2026-04-11 (confirmed via Gmail)
 - Rocky Rhodes: existing keyword reports for T1 sites + US Weekly (Pierce to request)
 - Sarah Price: follow up with Deedra for team vs. org comparison dashboard
-- Sara Vallone: review AI Tool Responsibility page + CSA fact-checking ruleset v0.1 (passed 2026-04-08); Apple News/SmartNews templates (Andy 2 emails, no response — submit ticket if no reply); Alex Meta contact (El Nuevo); content creator using external Claude (investigating)
 - Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); CUE/Q send-to estimate (after standup)
 - Dev team: EGS-127 (variant origin tracking); PGS-133/134/135; p-tagging bug (Amplitude blocker); rq-send-to-cue (date TBD — Kat to announce); PGS-140 IN PROGRESS (Marcelo); Emil/Oliver clearing PR review backlog
 - Sigma: confirm full scope of access within growth_and_strategy_role (Chad Bruton walkthrough needed)
