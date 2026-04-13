@@ -285,7 +285,7 @@ export const PROJECTS = {
       'Present prototype to Chris at 1:1 Tue 4/14 12:30pm CDT — ask: verdict system? CPC as proxy? which verticals next?',
       'Await Sara Vallone hot take on output (Slacked 2026-04-13)',
       'Await Rocky: existing KW reports for National team pubs, API key direct, Julio credit rate, DataForSEO evaluation',
-      'After Chris meeting: pull next verticals (Sara priorities: sleep/recovery, HSAs — confirm with Chris)',
+      'After Chris meeting: pull next verticals — Sara confirmed 4 topic areas (2026-04-13): financial services (Chris priority), food+celeb, sleep, creature features. Bring to Rocky+Chad Wed 4/15 as pull queue.',
       'Sigma keyword-to-article question — get answer from Chad in Rocky+Chad walkthrough meeting',
       'Bridge data-headlines: connect keyword gap findings to T1 headline performance data (what format wins in a space)',
     ],
