@@ -361,6 +361,28 @@ export const PROJECTS = {
     dependsOn: [],
   },
 
+  'p9-prd': {
+    id: 'p9-prd', num: '9', tier: 3, type: 'project', status: 'done',
+    name: 'PRD Revisions',
+    completedDate: '2026-04-10',
+    owner: 'Pierce',
+    description: 'V0.5 complete and delivered 2026-04-10. All 10 Chris Palo items + T3 sub-pipes implemented. Inclination Engine defined.',
+    blockers: [],
+    nextActions: [],
+    dependsOn: [],
+  },
+
+  'p13-sysprompts': {
+    id: 'p13-sysprompts', num: '13', tier: 2, type: 'project', status: 'done',
+    name: 'System Prompts / Mode 1 & Mode 2',
+    completedDate: '2026-04-03',
+    owner: 'Pierce',
+    description: 'Closed 2026-04-03.',
+    blockers: [],
+    nextActions: [],
+    dependsOn: [],
+  },
+
   'p11-recipes': {
     id: 'p11-recipes', num: '11', tier: 5, type: 'project', status: 'not-started',
     name: 'Recipes',

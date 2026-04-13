@@ -41,7 +41,7 @@ export function renderDiagram(projects, onCardClick) {
 
   // Render each tier row in tier order
   for (const tier of TIERS) {
-    const tierProjects = Object.values(projects).filter(p => p.tier === tier.id);
+    const tierProjects = Object.values(projects).filter(p => p.tier === tier.id && p.status !== 'done');
     if (!tierProjects.length) continue;
 
     const row = document.createElement('div');
