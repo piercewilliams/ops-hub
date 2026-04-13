@@ -72,6 +72,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | TBTV | Future distribution channel mentioned by Chris Palo (2026-04-10) — no further details yet; watch for scope definition |
 | Sigma Site Dashboard - Audience | Workbook: `Site Dashboard - Audience` (Deedra Lawhead, shared 2026-04-10) — Editor dashboard: 735 stories, 3.74M PVs, 352K SubPVs for CLT newsroom March 2026. Article-level: Headline / Story ID / Pub Date / PVs / SubPVs. Filterable by date/newsroom/site/section. Goes back to March 2023. **This is the template for the planned CSA version** — "upgraded CSA dash limited to those working on CSA content." Two tabs: Headlines + Topic Exam. SubPV = subscriber page views (key revenue signal). |
 | CSA Content Standards | https://csa-content-standards.netlify.app |
+| Keyword Intelligence (data-keywords) | https://piercewilliams.github.io/data-keywords/ — 14 briefs, 4 verticals (Entertainment ×7, Financial ×3, Food ×3, Health ×1 Skip); verdict: Go Hard / Test Small / Skip; sort: volume × CPC impact score. Single source of truth: `docs/data/briefs.js`. Local dev: `python3 -m http.server 8080` → http://localhost:8080/docs/. Sara Vallone asked for hot take 2026-04-13; Chris 1:1 2026-04-14 12:30pm CDT. No CLAUDE.md yet. |
 | T1 Headlines site | `/Users/pierce/Documents/GitHub/data-headlines/docs/index.html` |
 | Alignment meeting agenda | https://docs.google.com/document/d/1MtVlBJeh_k9X7dnrpRmEQ9jefrbdWwY2/edit |
 | CSA Pipeline Concerns: First Two Weeks (Pierce, April 2026) | Strategic assessment of 9 structural CSA pipeline problems + 2 operational concerns (no shared product vision, no delivery commitments). At: docs.google.com/document/d/105XK60PgJnLUo7tHZ_jdRb_R11J-OsutFXvs8o8K_XY |
@@ -135,6 +136,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | `csa-dashboard` | CSA pipeline health monitoring + request register | https://piercewilliams.github.io/csa-dashboard/ |
 | `csa-content-standards` | CSA style/format documentation site | https://csa-content-standards.netlify.app |
 | `data-headlines` | T1 headline performance analysis (monthly) | local `docs/index.html` |
+| `data-keywords` | Keyword signal intelligence — 14 briefs across 4 verticals; verdict + impact sort; seed data from Rocky Rhodes US Weekly gap analysis | https://piercewilliams.github.io/data-keywords/ |
 | `data-cmstracker` | CMS automation planning (pre-build) | local |
 | `gary-tools` | Gary API integration planning | local |
 

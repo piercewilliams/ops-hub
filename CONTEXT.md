@@ -107,7 +107,7 @@ For session history: see [sessions/](sessions/)
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | **CRITICAL BUG (2026-04-10):** Send-to-WP headline includes variant name + date → corrupts URL slug. Daury Caba investigating. rq-send-to-wp ✅ DONE 2026-04-09 but unreliable until bug fixed. |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
-| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | **Prototype complete** — 14 briefs, 4 verticals, priority sort (volume × CPC), Skip verdict, TECHNICAL.md + EXECUTIVE-BRIEF.md. Presenting to Chris at 1:1 **Tue 4/14 12:30pm CDT**. After: pull next verticals per Chris feedback (Sara V priorities: sleep/recovery, HSAs). Rocky reports still needed for position data. |
+| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | **Prototype complete** — 14 briefs, 4 verticals, priority sort (volume × CPC), Skip verdict, TECHNICAL.md + EXECUTIVE-BRIEF.md. Live: https://piercewilliams.github.io/data-keywords/. Repo: `data-keywords` (piercewilliams/data-keywords). **Sara Vallone asked for hot take 2026-04-13** — Slacked link; awaiting her read before Chris 1:1 Tue 4/14 12:30pm CDT. After: pull next verticals per Chris feedback (Sara V priorities: sleep/recovery, HSAs). Rocky reports still needed for position data. No CLAUDE.md in repo yet. |
 | 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live this week. AI policy for AI-sourced content now active. Reuters still blocked. **New sub-scope: fact-checking inbound partner content (Athlon Sports ~1M stories/year). Legal question: data vs. content (analyzable vs. contractually forbidden). Low priority.** |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff this week (Sara, Sarah Price, Pierce, Kathy). Statistical input from Pierce needed. |
 
@@ -156,6 +156,7 @@ For session history: see [sessions/](sessions/)
 - Rollout: staging (inform-only) → QA → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
 
 **Waiting on others (no action needed):**
+- Sara Vallone: hot take on SEMrush keyword output — Slacked link to data-keywords site 2026-04-13 9:16am; asking whether output is on/off target before Chris 1:1 Tue 4/14 12:30pm
 - Rocky Rhodes (rrhodes@mcclatchy.com): credit burn rate per SEMrush endpoint — querying Julio; no reply as of 2026-04-11 (confirmed via Gmail); must have before writing any automation
 - Stephanie Zandecki (szandecki@mcclatchy.com): confirm whether keyword-to-article data already exists in Sigma dashboard before Pierce builds it from scratch — message drafted 2026-04-13, not yet sent
 - Sarah Price: cluster/Amplitude pulse data; headline grader feedback (reviewing); El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra); follow up with Deedra on team vs. org comparison dashboard
