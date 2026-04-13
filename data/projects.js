@@ -7,6 +7,7 @@
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
   { date: '2026-04-13', task: 'Compass 2026 performance goals submitted. 5 goals, 100% weight (25/25/20/20/10): (1) Product Liaison & Pipeline Request Management — Operational Excellence + Innovation at Scale; (2) Editorial Standards & Voice Guidelines — Performance-Driven Content + Innovation at Scale; (3) Quality Framework & Testing Protocols — Operational Excellence + Performance-Driven Content; (4) Pipeline Documentation & Operational Knowledge — Operational Excellence + Innovation at Scale; (5) Professional Development: Technical & Editorial Fluency — Talent Development + Innovation at Scale. Goals finalized against Chris Palo\'s Content & Programming 2026 team goals. compass-goals.md written and committed. Manager approval (Jeremy Gockel) pending by April 30.', project: 'Compass Performance Management' },
+  { date: '2026-04-13', task: 'Gary Kirwan live meeting (Google Meet mnk-ezrq-jkx, ~15 min). Key findings: (1) Gary confirmed NO plagiarism detection built internally — uses Originality.ai + Winston AI as external reference tools only. Copyscape/Originality.ai recommendation from PGS-150 spike stands. (2) Confidence scoring = claim-level: individual claims assessed + categorized → overall confidence aggregate. Mechanism is deterministic — Gary scrapes actual source markdown for hard proof comparison. (3) Priority bucket calibration possible per content type/domain — mechanism not yet fully defined by Gary. (4) All API endpoints confirmed live. (5) Code access: Gary discussing with Jason Smith + Rajiv; committed to Slack response. Next: Pierce runs 15-article fact-checking test for Sara(h) Balone evaluation.', project: '#10 Gary Tools Integration' },
   { date: '2026-04-13', task: 'ops-hub completed projects pill fixed. P9 (PRD Revisions, completed 2026-04-10) and P13 (System Prompts, completed 2026-04-03) added back to PROJECTS with status: "done" and completedDate — were incorrectly deleted rather than marked complete. diagram.js updated to filter status === "done" projects from diagram rendering (drawArrows already handles missing cards gracefully). Completed Projects pill now correctly shows closed projects.', project: 'ops-hub Infrastructure' },
   { date: '2026-04-12', task: 'data-keywords prototype: data currency indicator added to summary bar. latestDataDate() parses "Mon YYYY" from all briefs\' dataSource fields, finds most recent, renders "· Data as of Apr 2026" inline in summary bar. CSS .data-currency rule uses --text-muted italic. Auto-updates when new briefs with more recent pulls are added.', project: '#14 SEMrush / Keyword Signal Layer' },
   { date: '2026-04-12', task: 'RECIPE.md created in ops-hub — canonical cross-repo reference for the Recipe system (Creator × Format × Topic × Market → Predictable Return). Documents four dimensions, return type by pipeline purpose, cluster precise definition (canonical article + analytically-determined variants — NOT a synonym for topic), data repos by dimension, vertical signal profiles, current vs. future state. Added pointer in REFERENCE.md. This is the architecture frame for all data intelligence work.', project: '#11 Recipes' },
@@ -131,16 +132,18 @@ export const PROJECTS = {
     name: 'Gary Tools Integration',
     owner: 'Pierce (lead) · Susannah Locke · Chris Palo',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Gary Kirwan\'s toolkit — reframed as cross-pipeline nodes (2026-04-10). Tools touch multiple pipelines at different stages, not just fact-checking. Full tool roster email sent to Gary (CC: Chris Palo) 2026-04-10. Follow-up sent 2026-04-13 specifically asking about plagiarism/originality detection capability — time-sensitive, Chris Palo flagged Gary may have already built this; CSA Weekly 4/14 3pm CDT is the gate. API key + endpoint docs in hand; Sara Vallone parameter session TBD.',
+    description: 'Gary Kirwan\'s toolkit — reframed as cross-pipeline nodes (2026-04-10). Meeting held 2026-04-13 (~15 min, Google Meet). KEY: Gary confirmed NO plagiarism detection built internally — uses Originality.ai + Winston AI as external reference tools. Copyscape recommendation stands. Confidence scoring = claim-level (individual claims categorized → overall score); deterministic mechanism (scrapes actual source markdown for hard proof). Code access pending Jason Smith + Rajiv discussion. Pierce\'s next step: run 15-article fact-check test for Sara(h) Balone. Gary\'s next step: determine code access method.',
     blockers: [
-      'Gary full tool roster + plagiarism detection capability — follow-up sent 2026-04-13. Response needed before CSA Weekly 4/14 3pm CDT.',
+      'Sara(h) Balone 15-article test — Pierce must run fact-checking on 15 articles; coordinate with Sara B for article selection.',
+      'Code access — Gary discussing with Jason Smith + Rajiv; committed to Slack response on method.',
       'Sara Vallone parameter session — walk 15 test articles, finalize verdict taxonomy. Timing TBD.',
     ],
     nextActions: [
-      'Await Gary response on plagiarism/originality detection — report at CSA Weekly 4/14 whether Gary has this already (gates Copyscape recommendation in P4)',
+      'Run 15-article fact-checking test for Sara(h) Balone evaluation — use data-validity endpoint; Pierce owns execution',
       'Run first API test sequence: health → scrape → meta → content-structure → unanswered-questions → citations',
-      'Sara Vallone session TBD — iterate on v0.1 ruleset with 15 test articles',
-      'Once Gary responds: map full tool roster to pipeline phases',
+      'Await Gary Slack response on code access method (Jason Smith + Rajiv discussion)',
+      'Sara Vallone session TBD — iterate on v0.1 ruleset with 15 test articles after Sara B test complete',
+      'Map full tool roster to pipeline phases once code access resolved',
     ],
     dependsOn: ['p1-access'],
     contacts: [
