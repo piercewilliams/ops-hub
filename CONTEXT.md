@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-12 — data-keywords prototype hardened and documented for Chris presentation (Tue 4/14 12:30pm CDT). 14 briefs (4 verticals), priority sort (volume × CPC impact score), Skip verdict (weight loss generic KD 100 vs. celebrity KD 33 — best demo of tool's analytical value), TECHNICAL.md + EXECUTIVE-BRIEF.md written. RECIPE.md created in ops-hub as cross-repo Recipe system reference. Data currency indicator added to summary bar. Presentation prep saved to ops-hub memory. Cross-repo sync complete.
+**Last session:** 2026-04-13 — Compass 2026 goals submitted (5 goals, 100% weight, Jeremy Gockel approval pending). compass-goals.md written with full SMART statements, org alignments, milestones. Completed projects pill fixed (P9/P13 restored with status: done; diagram.js filters done projects from map). Sara Vallone removed from waiting list (feedback received). Amplitude connector confirmed done. Compass goal-alignment rule enforced in memory — all future priorities must trace to G1–G5.
 **Status:** 15 active projects + P16 not-started. PRD V0.5 done. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Gary tool roster (awaiting response), PGS-150 tool preference (Pierce input needed).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -142,13 +142,12 @@ For session history: see [sessions/](sessions/)
 15. [ ] **Investigate Bitbucket shared repo provisioning** — can Pierce provision a shared repo space for the team? Chris implied this is needed for collaboration on analysis code. Check access level.
 16. [ ] **T1 ecosystem taxonomy audit** — validate that cross-platform comparisons in current analysis respect ecosystem boundaries (app-based captured: Apple News, SmartNews, Newsbreak vs. web-based competitive: Yahoo, O&O). Flag any findings that commingle these groups; note in governor.
 **Compass (HR — performance management):**
-- [ ] **Draft goals with Jeremy Gockel** in Compass — due **April 26, 2026**
-- [ ] **Goals must total 100%**, each aligned to a division org objective
-- [ ] **Save finalized goals** to `compass-goals.md` in ops-hub (feeds weekly progress trigger)
+- [x] ~~**Draft and submit goals**~~ — DONE 2026-04-13. 5 goals submitted in Compass. compass-goals.md written and committed.
 - [ ] **Upload photo** to Compass profile
-- [ ] Manager approval by **April 30, 2026**
+- [ ] **Jeremy Gockel approval** — must reach "Track Goals" status by **April 30, 2026**
 - [ ] Mid-year check-in: **July 2026** (mandatory)
 - [ ] Final evaluation: **January 2027**
+- [ ] **Every Friday:** request Compass progress notes from Claude (per-goal, based on WINS.md + session work)
 
 **PGS-82/139/140 rollout — Susannah is driving, Pierce is tagged:**
 - [ ] Await PGS-82 staging notification (Pierce/Sara/Kat invited; real Sara Vallone drafts). PGS-140 now IN PROGRESS — monitor Amplitude event names when ticket nears build.

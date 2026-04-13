@@ -8,6 +8,9 @@ Organized by ops-hub tier, reverse-chronological within each.
 
 ## Tier 1 — Foundation
 
+**2026-04-13 — Compass 2026 performance goals submitted**
+5 goals drafted and submitted in Compass against Chris Palo's Content & Programming 2026 team goals framework. Goals: (1) Product Liaison & Pipeline Request Management 25%; (2) Editorial Standards & Voice Guidelines 25%; (3) Quality Framework & Testing Protocols 20%; (4) Pipeline Documentation & Operational Knowledge 20%; (5) Professional Development: Technical & Editorial Fluency 10%. All aligned to McClatchy Marketing organizational objectives. SMART statements, measures, and quarterly milestones written. compass-goals.md committed to ops-hub as source of truth for weekly Friday progress note generation. Jeremy Gockel approval pending by April 30.
+
 **2026-04-08 — Claude Code permission system deployed across all repos**
 Implemented full permission layer: `~/.claude/settings.json` (global, 80+ curated operations, Rajiv Pant's template), `.claude/settings.json` (project scope, all 6 repos), `~/.claude/project-settings-template.json` as canonical template, `_claude_auto_setup` chpwd hook in `~/.zshrc` to auto-install project settings on every new repo. Eliminates permission interruptions for all read/reversible operations across CLI, desktop app, and IDE extensions.
 
@@ -200,5 +203,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-12*
+*Last updated: 2026-04-13*
 *Maintained by Claude. Updated proactively as work completes.*
