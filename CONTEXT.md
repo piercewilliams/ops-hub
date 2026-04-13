@@ -2,7 +2,7 @@
 
 **Phase:** Build / Active
 **Last session:** 2026-04-13 — Compass 2026 goals submitted (5 goals, 100% weight, Jeremy Gockel approval pending). compass-goals.md written with full SMART statements, org alignments, milestones. Completed projects pill fixed (P9/P13 restored with status: done; diagram.js filters done projects from map). Sara Vallone removed from waiting list (feedback received). Amplitude connector confirmed done. Compass goal-alignment rule enforced in memory — all future priorities must trace to G1–G5.
-**Status:** 15 active projects + P16 not-started. PRD V0.5 done. Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Gary tool roster (awaiting response), PGS-150 tool preference (Pierce input needed).
+**Status:** 15 active projects + P16 not-started. PRD V0.5 done. Compass goals submitted 2026-04-13 (Jeremy approval pending by Apr 30). Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Gary tool roster (awaiting response).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -135,7 +135,6 @@ For session history: see [sessions/](sessions/)
 8. [ ] **When format/persona decoupling lands: migrate Apple News + SmartNews best practices from persona → format section** — Sara already frames these as format; dev ticket in queue (15/18 in code review as of 2026-04-03). Do this review as soon as the decoupling ticket closes.
 9. [ ] **Get final Vallone format guide + codify into csa-content-standards** — DO NOT FORGET. Confirm Vallone produces final version with T1 findings incorporated, then codify. 10 corrections to verify: remove WTK from SmartNews recs, add questions-hurt-both rule, add push notifications section, refine char targets (SN: 70–90 / Apple: 90–120).
 10. [x] ~~**Build SEMrush keyword layer (P14)**~~ — DONE. Prototype complete: 14 briefs, 4 verticals, impact-score sort, Skip verdict, TECHNICAL.md + EXECUTIVE-BRIEF.md. **Next: present to Chris at 1:1 Tue 4/14 12:30pm CDT.**
-11. [ ] **Schedule Chad Bruton walkthrough** of growth_and_strategy_role Snowflake data. (Sarah Price also reaching out to Dedra 2026-04-06 to coordinate.)
 12. [ ] **Finalize Science-Curious persona definitions** — Retiree + Casual Reader need canonical definitions before Susannah saves as shared custom personas.
 13. [ ] **Extend AGENT-AUDIENCE routing annotations beyond §1** — §1 fully confirmed live (2026-04-08). Susannah is tagging; next: audit §2+ sections and add AGENT-AUDIENCE tags where applicable.
 14. [ ] **Document sandbox base build** — Chris explicitly asked (2026-04-07). Document the toolkit, guardrails, and access info so Chris Palo and Sarah Price can create their own specialized builds (e.g., analytics, partner content). Repo is public; package it. This supersedes the earlier "20-step environment" framing — focus is on repeatability for non-Pierce users, not just setup documentation.
@@ -155,7 +154,7 @@ For session history: see [sessions/](sessions/)
 
 **Waiting on others (no action needed):**
 - Rocky Rhodes (rrhodes@mcclatchy.com): credit burn rate per SEMrush endpoint — querying Julio; no reply as of 2026-04-11 (confirmed via Gmail); must have before writing any automation
-- Stephanie Zandecki (szandecki@mcclatchy.com): confirm whether keyword-to-article data already exists in Sigma dashboard before Pierce builds it from scratch
+- Stephanie Zandecki (szandecki@mcclatchy.com): confirm whether keyword-to-article data already exists in Sigma dashboard before Pierce builds it from scratch — message drafted 2026-04-13, not yet sent
 - Sarah Price: cluster/Amplitude pulse data; headline grader feedback (reviewing); El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra); follow up with Deedra on team vs. org comparison dashboard
 - Chris Palo: LTV meeting scheduling (not yet on calendar as of 2026-04-11); clustering stats → Eric Nelson + Kathy Veter; Rasheed re: Bitbucket + Cloudflare team environment
 - Gary Kirwan: full tool roster response — email sent 2026-04-10, no reply as of 2026-04-11 (confirmed via Gmail)
