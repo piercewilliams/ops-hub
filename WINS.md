@@ -33,6 +33,9 @@ CUE CMS, WordPress (full access 2026-03-28), McClatchy GitHub, Sigma basic, Ampl
 
 ## Tier 2 — Understanding
 
+**2026-04-13 — Gary API 15-article batch test complete — parameter session ready**
+15 Sara Vallone articles processed through Gary's `data-validity` API, 0 errors, ~107 claims evaluated. All 15 articles: MOSTLY_TRUE at article level. 21 claims flagged at claim level (FALSE: 1, MISLEADING: 8, MIXED: 9, INSUFFICIENT_EVIDENCE: 3). Specific verifiable errors caught: Alcatraz/America the Beautiful pass (FALSE per NPS); Statue of Liberty height-not-age error in 3 articles (same syndicated piece, MISLEADING); 2022 fungi study presented as new research (MISLEADING). Full claim-level DOCX report + session agenda generated. Slack sent to Chris Palo + Sara Vallone with reports and link to claims-validation spec. Parameter session now the gate before any CSA dev integration work begins. Cost: ~$5.50 total.
+
 **2026-04-13 — Gary Kirwan API meeting — fact-checking architecture confirmed**
 Live Gary Kirwan meeting completed. Key confirmed findings: (1) Gary has NO built-in plagiarism detection — Copyscape decision stands; (2) confidence scoring is claim-level, not article-level — each individual claim gets its own confidence score (0–1); (3) Gary uses a deterministic mechanism, scraping actual source markdown for hard proof rather than pattern-matching; (4) Gary confirmed ability to share code and possibly provide a McClatchy-scoped endpoint (pending). Verdict taxonomy differs from Sara's 2-tier spec: Gary returns MOSTLY_TRUE and MIXED in addition to TRUE/FALSE/MISLEADING — vocabulary alignment needed before Sara meeting. First article tested: mouth breathing / blood pressure (MOSTLY_TRUE, 0.78 confidence, 9 claims evaluated, $0.38/article). Batch test of Sara Vallone's 15 articles now running.
 
@@ -91,6 +94,9 @@ Clarified full cluster data model (Canonical ID = Cluster ID; articles are sibli
 ---
 
 ## Tier 4 — Build
+
+**2026-04-13 — Rocky gap analysis queue confirmed + prototype integration complete**
+Sara Vallone confirmed 4 topic categories for Rocky Rhodes' next SEMrush pull: financial services (Chris priority, highest CPC), food+celeb, sleep, creature features. All 8 National Team sites combined per pull. Rocky queued. `fromRocky: true` field and orange "Rocky Gap" badge added to data-keywords data model and UI — prototype now visually distinguishes Rocky-sourced vs. SEMrush-direct briefs.
 
 **2026-04-13 — Rocky-derived briefs added to data-keywords prototype**
 Us Weekly competitor gap analysis (Rocky Rhodes / SEMrush, Mar 2026 — 373 keywords >5K vol) integrated into data-keywords prototype as Layer 1 signal. Key brief added: Taylor Swift / Travis Kelce cluster — 19 keywords, 92,910 monthly searches, avg KD 35, 18/19 keywords with no Us Weekly ranking → Go Hard verdict. Entertainment generic cluster (KD 100, unwinnable) added as Skip example. `fromRocky: true` boolean field added to brief data model; orange "Rocky Gap" badge rendered in card UI; `rocky-note` attribution block added. Bianca Censori brief updated to reflect Rocky source. Prototype now visually distinguishes Rocky-derived vs. SEMrush-direct briefs — ready for Chris 1:1 presentation 2026-04-14.
@@ -212,5 +218,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-13 (evening)*
+*Last updated: 2026-04-13 (end of session)*
 *Maintained by Claude. Updated proactively as work completes.*

@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-13 — Gary Kirwan live meeting (plagiarism confirmed external; Copyscape stands; confidence = claim-level; code access pending); compassGoal field added to all 17 projects and rendered in sidebar; project dependency map comprehensively overhauled; P17 (Spanish CSA Pipeline) added; Rocky+Chad meeting confirmed Wed 4/15 1:30pm CDT. Automated sync 2026-04-13 17:28 UTC: no project status changes; csa-links.js updated (p2 +rq-ptech-7641/rq-ptech-7730; p4 +rq-editorial-guidance/rq-platform-variant-audience-label; p15-partner + p17-spanish added).
-**Status:** 17 active/tracked projects. PRD V0.5 done. Compass goals submitted 2026-04-13 (Jeremy approval pending by Apr 30). Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Sara(h) Balone 15-article Gary test, code access method from Gary.
+**Last session:** 2026-04-13 (evening) — Gary 15-article batch test completed (15/15, 0 errors, all MOSTLY_TRUE, 21 flagged claims). Full claim-level report + session agenda DOCX generated. Slack sent to Chris Palo + Sara Vallone with reports and link to claims-validation spec. Session agenda frames 4 decisions needed before CSA dev work begins.
+**Status:** 17 active/tracked projects. PRD V0.5 done. Compass goals submitted 2026-04-13 (Jeremy approval pending by Apr 30). Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Sara Vallone Gary parameter session (Slack sent; awaiting scheduling), code access method from Gary.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -15,7 +15,7 @@ For session history: see [sessions/](sessions/)
 - 15 active projects across 5 dependency tiers + 1 hold (P13 closed) — P14 SEMrush added 2026-04-04, P15 Partner Content now in-progress (Lindy's going live, AI policy active), P16 LTV Model added 2026-04-06 (not-started)
 - **P9 (PRD) — CLOSED.** V0.5 complete and delivered 2026-04-10. Removed from dependency map. P15, P16, P11 dependencies satisfied.
 - **Inclination Engine** — named and defined in PRD V0.5. Sole future input for automated signals and T1/T2 brief generation. In Signal & Brief Creation, CSA section, Strategic Pipeline Elements, and Open Questions.
-- **Gary Kirwan meeting held 2026-04-13** (~15 min, Google Meet). Key result: NO plagiarism detection built internally — Gary uses Originality.ai + Winston AI externally. Copyscape recommendation stands for CSA Weekly 4/14. Confidence = claim-level + deterministic source markdown scraping. Code access: Gary discussing with Jason Smith + Rajiv. Pierce next: 15-article test for Sara(h) Balone.
+- **Gary Kirwan meeting held + batch test complete (2026-04-13):** NO plagiarism detection built internally — Copyscape stands. Confidence = claim-level, deterministic. Batch test: 15/15 Sara Vallone articles, 0 errors, all MOSTLY_TRUE (conf 0.78–0.88), 21 flagged claims. DOCX report + session agenda sent to Chris + Sara Vallone via Slack. Parameter session TBD.
 - **New pipelines under investigation (Chris 2026-04-10):** (1) Infographics pipeline — trend research → branded infographic (e.g. HSA rates → Trend Hunter graphic); (2) Licensed partner content pipeline — licensed influencer video/transcript → CSA → multiple articles + tangential content → Trend Hunter + Pier1 sites.
 - **Gary tools = "nodes"** — cross-pipeline tools (Gary SEO, fact-checking) that every pipeline touches. Need to specify which tools impact each pipeline. Action: contact Gary for full tool roster, copy Chris.
 - **Editorial responsibility reiterated (Chris, 2026-04-10):** Chris met with editorial team — they own the content the tool produces regardless of system output. Team should tag Slack issues as "bug" (unexpected behavior) or "feature request" (new idea) to help Susanna prioritize.
@@ -117,7 +117,7 @@ For session history: see [sessions/](sessions/)
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris. Testing tracker is manual evidence of demand. |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking anything. |
 | 9 | ~~PRD Revisions~~ | — | **Complete** | V0.5 complete 2026-04-10 evening. All 10 Chris Palo items + T3 sub-pipes implemented. Pasted into Google Docs. |
-| 10 | Gary Tools Integration | 2 | **In progress** | **Meeting held 2026-04-13** (Google Meet, ~15 min). Gary confirmed NO plagiarism detection built internally — Copyscape/Originality.ai recommendation stands. Confidence = claim-level, deterministic (scrapes source markdown). Code access pending Jason Smith + Rajiv discussion. Pierce's next step: 15-article fact-check test for Sara(h) Balone. |
+| 10 | Gary Tools Integration | 2 | **In progress** | **Batch test complete 2026-04-13:** 15/15 articles, 0 errors, all MOSTLY_TRUE (conf 0.78–0.88), 21 flagged claims. DOCX report + session agenda sent to Chris + Sara Vallone. Parameter session TBD — 4 decisions needed before CSA dev work begins. Code access still pending (Jason Smith + Rajiv). |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | **Send-to-WP headline bug (2026-04-10):** variant name + date corrupting URL slug — Daury Caba investigating. **Q/Cue integration (Daury) IN CODE REVIEW 2026-04-13** — 31 files; changes required because all sections now on staging. rq-send-to-wp ✅ DONE but unreliable until headline bug fixed. |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
