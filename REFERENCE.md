@@ -63,6 +63,7 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 
 | Resource | Location |
 |----------|----------|
+| **National Team Portfolio** | [`data/national-portfolio.js`](data/national-portfolio.js) — canonical publication list (13 brands, domains, verticals, authors, syndication platforms). Live URL: `https://piercewilliams.github.io/ops-hub/data/national-portfolio.js`. Import from here for all SEMrush/Amplitude/Marfeel/API work. Source: Sara Vallone tracker, extracted 2026-04-13. Excludes Life & Style + Mod Moms Club. |
 | **The Recipe System** | [`RECIPE.md`](RECIPE.md) — Creator × Format × Topic × Market → Return; cluster definition; vertical signal profiles; current vs. future state |
 | Dashboard (this repo) | `index.html` — open in browser |
 | CSA Dashboard | https://piercewilliams.github.io/csa-dashboard/ |

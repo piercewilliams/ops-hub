@@ -74,6 +74,7 @@ For session history: see [sessions/](sessions/)
 - **Julia Tortoriello meeting DONE (2026-04-09, 12:59 CDT):** El Nuevo uses CMS-integrated Google Translate + GPT-3; GPT-3 far better than Elbex for Spanish nuance. CMS prompt (6 verbatim rules) + standalone "dog translator" GPT (chatgpt.com/g/g-0SsURCxh4) both received. Standalone GPT = bilingual auto-detect, preserves tone, SEO-aware, doesn't translate proper names — Julia says it's even better than the CMS integration. Dialect: US Hispanic = Colombian Spanish register; "US Hispanic, United States" is sufficient prompt context. Julia confirmed in follow-up: willing to test CSA in Spanish, try any platforms/models. Chris + Rajiv considering dedicated Spanish CSA pipeline. Full notes + verbatim resources: `sessions/meeting-2026-04-09-julia-tortoriello.md`
 - **Sigma CSA dash (Deedra, 2026-04-10):** Deedra's team building it. Simple version (site PV/SubPV performance only) almost done. Chris explicitly: get simple version done before scope creep — additional dimensions (variant type, cluster ID, diff score, CSA user) are a phase 2 scope conversation. Pierce waiting. No action until simple version ships and Pierce reviews it.
 - **Potential P17 — Spanish CSA Pipeline:** Chris Palo + Rajiv considering dedicated Spanish pipeline. Julia Tortoriello meeting (2026-04-10) establishes baseline: current stack is GPT-3 + custom prompts + standalone "dog translator" GPT. Dialect = Colombian Spanish register for US Hispanic audience. Julia willing to test CSA in Spanish. No scope or timeline yet — watch for Chris/Rajiv direction.
+- **National portfolio canonical file:** `data/national-portfolio.js` — 13 brands, domains, authors, verticals, syndication platforms. Live URL: `https://piercewilliams.github.io/ops-hub/data/national-portfolio.js`. Single source of truth for all API scoping (SEMrush, Amplitude, Marfeel, Gary, etc.). Source: Sara Vallone tracker 2026-04-13. Excludes Life & Style + Mod Moms Club.
 - Sync: **Manual** — update `data/projects.js` in a Claude Code session, commit, and push. Pill reads last commit time via GitHub public API (green <3d, yellow 3–7d, red >7d).
 
 ## Features Live
@@ -114,6 +115,8 @@ For session history: see [sessions/](sessions/)
 
 **#1 — THIS WEEK:**
 0. [x] ~~**Respond to Susannah Locke on PGS-150 plagiarism detection tool**~~ — DONE 2026-04-11. Endorsed Copyscape as primary; flagged 10%/25% thresholds need editorial calibration against real drafts; noted Originality.ai as potential complement if paraphrase detection gaps emerge. Looped in Chris Palo + Sara Vallone via email — awaiting their input before Tuesday CSA Weekly. Spike doc: https://mcclatchy.atlassian.net/wiki/spaces/CU2DAK/pages/1861648385/Spike+Plagiarism+Detection+Options+for+CSA-Generated+Content
+   - **Chris Palo response (2026-04-13 7:50am):** Five points: (1) Escalate Jira access for Chris (and Sara?). (2) Placement challenge: check should happen BEFORE variants are created (at source/research input stage) — if CSA is a proper RAG model it shouldn't pull outside content; end-check matters only for pipelines open to the wider web. (3) Gary's tool — Chris flagged Gary may have already built plagiarism detection; McClatchy owns that code; investigate before recommending a 3rd party. (4) Copyscape usage tracking — how do we monitor usage, report issues? (5) CPA impact — need cost estimates from the team as services are built out. **Key open question before CSA Weekly: has Gary's tool been investigated for plagiarism detection?**
+   - **Jira response sent to Susannah (2026-04-13):** Covered all five Chris points — Gary tool investigation as gate on Copyscape recommendation, placement question (source input vs. output stage, RAG-closed vs. open-web distinction), Jira access escalation request, CPA tracking flag.
 1. [ ] **CSA Weekly — Tue 4/14 3pm CDT** (Pierce<>Chris 1:1 same day at 12:30pm CDT). Agenda prepped. Key items: diff tool threshold calibration (PGS-150 Copyscape decision), PGS-82 staging schedule, AI Tool Responsibility gaps, format/persona decoupling, Gary API loop-in for Susannah.
 2. [x] ~~**Julia Tortoriello meeting**~~ — DONE 2026-04-09. CMS prompt + standalone GPT config received verbatim. Julia willing to test CSA in Spanish.
 3. [x] ~~**PRD discussion with Chris**~~ — DONE 2026-04-10. Revision items queued — see P9.
@@ -142,7 +145,7 @@ For session history: see [sessions/](sessions/)
 16. [ ] **T1 ecosystem taxonomy audit** — validate that cross-platform comparisons in current analysis respect ecosystem boundaries (app-based captured: Apple News, SmartNews, Newsbreak vs. web-based competitive: Yahoo, O&O). Flag any findings that commingle these groups; note in governor.
 **Compass (HR — performance management):**
 - [x] ~~**Draft and submit goals**~~ — DONE 2026-04-13. 5 goals submitted in Compass. compass-goals.md written and committed.
-- [ ] **Upload photo** to Compass profile
+- [x] ~~**Upload photo** to Compass profile~~ — DONE 2026-04-13
 - [ ] **Jeremy Gockel approval** — must reach "Track Goals" status by **April 30, 2026**
 - [ ] Mid-year check-in: **July 2026** (mandatory)
 - [ ] Final evaluation: **January 2027**
@@ -157,7 +160,7 @@ For session history: see [sessions/](sessions/)
 - Stephanie Zandecki (szandecki@mcclatchy.com): confirm whether keyword-to-article data already exists in Sigma dashboard before Pierce builds it from scratch — message drafted 2026-04-13, not yet sent
 - Sarah Price: cluster/Amplitude pulse data; headline grader feedback (reviewing); El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra); follow up with Deedra on team vs. org comparison dashboard
 - Chris Palo: LTV meeting scheduling (not yet on calendar as of 2026-04-11); clustering stats → Eric Nelson + Kathy Veter; Rasheed re: Bitbucket + Cloudflare team environment
-- Gary Kirwan: full tool roster response — email sent 2026-04-10, no reply as of 2026-04-11 (confirmed via Gmail)
+- Gary Kirwan: full tool roster response — email sent 2026-04-10, no reply as of 2026-04-11; follow-up sent 2026-04-13 specifically asking about plagiarism/originality detection capability (time-sensitive ahead of CSA Weekly 4/14)
 - Rocky Rhodes: existing keyword reports for T1 sites + US Weekly (Pierce to request)
 - Sarah Price: follow up with Deedra for team vs. org comparison dashboard
 - Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135); CUE/Q send-to estimate (after standup)
