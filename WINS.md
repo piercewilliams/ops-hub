@@ -33,6 +33,9 @@ CUE CMS, WordPress (full access 2026-03-28), McClatchy GitHub, Sigma basic, Ampl
 
 ## Tier 2 — Understanding
 
+**2026-04-13 — Gary Kirwan API meeting — fact-checking architecture confirmed**
+Live Gary Kirwan meeting completed. Key confirmed findings: (1) Gary has NO built-in plagiarism detection — Copyscape decision stands; (2) confidence scoring is claim-level, not article-level — each individual claim gets its own confidence score (0–1); (3) Gary uses a deterministic mechanism, scraping actual source markdown for hard proof rather than pattern-matching; (4) Gary confirmed ability to share code and possibly provide a McClatchy-scoped endpoint (pending). Verdict taxonomy differs from Sara's 2-tier spec: Gary returns MOSTLY_TRUE and MIXED in addition to TRUE/FALSE/MISLEADING — vocabulary alignment needed before Sara meeting. First article tested: mouth breathing / blood pressure (MOSTLY_TRUE, 0.78 confidence, 9 claims evaluated, $0.38/article). Batch test of Sara Vallone's 15 articles now running.
+
 **2026-04-11 — Amplitude platform session with Amanda Hamilton fully documented**
 Verbatim Gemini transcript (00:00:00–00:28:48) and full Gemini summary captured. Key outcomes identified and filed: El Nuevo author attribution bug (Amanda filed technical request with analytics team — Samantha Agate's content shows "US Weekly" as source, blocking El Nuevo dashboard); Claude budget exhaustion confirmed as team-wide issue (~3/5 members out); Claude + Amplitude connector instructions confirmed (Claude Settings → Connectors → Amplitude); Amplitude native AI recommended as free first step for dashboard building. Travis Farrar identified as infrastructure contact for budget requests. Saved to `sessions/meeting-2026-04-09-amanda-hamilton-amplitude.md`.
 
@@ -57,6 +60,9 @@ Evaluated Gary Kirwan's toolkit against internal alternatives. Determined Gary's
 ---
 
 ## Tier 3 — Strategy & Schema
+
+**2026-04-13 — Two-layer keyword intelligence framing established**
+Chris Palo directive and Rocky's existing work formally framed as two distinct, sequential layers. Layer 1: Rocky's domain-level SEMrush competitor gap analysis — raw keyword candidates, competitor-driven, reactive (already done for Us Weekly). Layer 2: data-keywords prototype — editorial decision layer adding Go Hard / Test Small / Skip verdicts, volume × CPC impact scoring, and context a journalist needs to act. Integration workflow: Rocky gap → candidates → data-keywords verdicts → cluster decisions → Recipe system. Framing added to data-keywords REFERENCE.md and CONTEXT.md. Sara Vallone confirmed next four topic areas for Rocky's pull queue: financial services (Chris priority), food+celeb, sleep, creature features. Us Weekly gap analysis flagged for re-run (original was full domain sweep, not topic-filtered — CPC missing).
 
 **2026-04-12 — Recipe system documented (RECIPE.md)**
 Canonical cross-repo reference for Chris Palo's Recipe system: Creator × Format × Topic × Market → Predictable Return. Documents four dimensions, return type by pipeline purpose, cluster precise definition (canonical article + analytically-determined variants — NOT a synonym for topic), data repo by dimension, vertical signal profiles by monetization model (entertainment = traffic play, financial services = revenue per visitor, food = display at scale), current vs. future state. Pointers in REFERENCE.md. This is the architecture frame for all data intelligence work going forward.
@@ -85,6 +91,9 @@ Clarified full cluster data model (Canonical ID = Cluster ID; articles are sibli
 ---
 
 ## Tier 4 — Build
+
+**2026-04-13 — Rocky-derived briefs added to data-keywords prototype**
+Us Weekly competitor gap analysis (Rocky Rhodes / SEMrush, Mar 2026 — 373 keywords >5K vol) integrated into data-keywords prototype as Layer 1 signal. Key brief added: Taylor Swift / Travis Kelce cluster — 19 keywords, 92,910 monthly searches, avg KD 35, 18/19 keywords with no Us Weekly ranking → Go Hard verdict. Entertainment generic cluster (KD 100, unwinnable) added as Skip example. `fromRocky: true` boolean field added to brief data model; orange "Rocky Gap" badge rendered in card UI; `rocky-note` attribution block added. Bianca Censori brief updated to reflect Rocky source. Prototype now visually distinguishes Rocky-derived vs. SEMrush-direct briefs — ready for Chris 1:1 presentation 2026-04-14.
 
 **2026-04-10 — data-headlines cluster/variant production section**
 Added `_cluster_production_section()` to `generate_site.py`: 422 clusters tracked, 94% with ≥2 articles, per-author breakdown, distribution table, cluster_id propagated through full pipeline. Three new column tooltips. 19/19 smoke tests pass.
@@ -203,5 +212,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-13*
+*Last updated: 2026-04-13 (evening)*
 *Maintained by Claude. Updated proactively as work completes.*
