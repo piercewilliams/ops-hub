@@ -226,6 +226,10 @@ function buildSidebarHTML(p) {
     return rows.length ? `<div class="sb-section"><div class="sb-section-title">CSA Dashboard</div>${rows.join('')}</div>` : '';
   })();
 
+  const compassHTML = p.compassGoal
+    ? `<div class="sb-compass-goal">🧭 ${sanitize(p.compassGoal)}</div>`
+    : '';
+
   return `
     <div class="sb-header">
       <div class="sb-num">#${sanitize(p.num)}</div>
@@ -235,6 +239,7 @@ function buildSidebarHTML(p) {
         <span class="sb-tier">${sanitize(TIER_NAMES[p.tier] ?? '')}</span>
       </div>
       <div class="sb-owner">👤 ${sanitize(p.owner)}</div>
+      ${compassHTML}
     </div>
     <div class="sb-description">${sanitize(p.description)}</div>
     ${p.status_detail ? `<div class="sb-status-detail">ℹ ${sanitize(p.status_detail)}</div>` : ''}

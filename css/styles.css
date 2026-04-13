@@ -461,6 +461,13 @@ html, body {
   margin-bottom: 2px;
 }
 
+.sb-compass-goal {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+
 .sb-description {
   font-size: 12.5px;
   color: var(--text-secondary);

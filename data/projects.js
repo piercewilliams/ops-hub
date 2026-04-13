@@ -88,6 +88,7 @@ export const PROJECTS = {
     id: 'p1-access', num: '1', tier: 1, type: 'project', status: 'in-progress',
     name: 'Platform Access & Training',
     owner: 'Pierce',
+    compassGoal: 'G5 — Professional Development: Technical & Editorial Fluency',
     description: 'API access for all platforms. One gap remaining: confirm Sigma scope.',
     systems: [
       { name: 'Snowflake / Sigma', status: 'pending', note: 'Access confirmed — need to verify growth_and_strategy_role workbooks are all accessible. OAuth2 creds for dashboard adapter still needed.' },
@@ -97,15 +98,15 @@ export const PROJECTS = {
       { name: 'Amplitude', status: 'done', note: 'Access confirmed. Adapter blocked on CSA eng p-tagging bug (CUE/WP mismatch) — their fix.' },
       { name: 'Marfeel', status: 'done', note: 'Access confirmed 2026-04-09. Apple filter removed from main UI — Sarah Price\'s custom dashboard is the accurate Apple view. El Nuevo numbers may be inflated; verify before analysis.' },
       { name: 'Gary API', status: 'done', note: 'Full API docs + McClatchy key in hand. See gary-tools repo.' },
-      { name: 'SEMrush', status: 'done', note: 'API key held by Sarah Price (250K credits).' },
+      { name: 'SEMrush', status: 'done', note: '250K credits in L&E workspace. Requested key directly from Rocky Rhodes 2026-04-13 (Sarah Price had it). Automation blocked until Julio credit rate confirmed.' },
       { name: 'MAIA', status: 'done', note: '' },
       { name: 'BitBucket', status: 'done', note: '' },
     ],
     blockers: [
-      'Sigma: confirm workbook scope with Chad Bruton; get OAuth2 credentials for dashboard adapter',
+      'Sigma: confirm workbook scope with Chad Bruton; get OAuth2 credentials for dashboard adapter. Walkthrough meeting requested with Rocky + Chad 2026-04-13 — awaiting availability.',
     ],
     nextActions: [
-      'Schedule Chad Bruton walkthrough — confirm Sigma access scope and get OAuth2 creds',
+      'Await Rocky + Chad meeting response — agenda: Snowflake/Sigma access scope for National team, SEMrush starting point + credit strategy, DataForSEO (already in Snowflake?), keyword-to-article data in Sigma?',
     ],
     dependsOn: [],
   },
@@ -116,6 +117,7 @@ export const PROJECTS = {
     id: 'p8-mapping', num: '8', tier: 2, type: 'project', status: 'in-progress',
     name: 'Rajiv CSA Mapping',
     owner: 'Pierce',
+    compassGoal: 'G4 — Pipeline Documentation & Operational Knowledge',
     description: 'Map CSA transformations via BitBucket. Low priority — not blocking anything.',
     blockers: [],
     nextActions: [
@@ -128,14 +130,16 @@ export const PROJECTS = {
     id: 'p10-gary', num: '10', tier: 2, type: 'project', status: 'in-progress',
     name: 'Gary Tools Integration',
     owner: 'Pierce (lead) · Susannah Locke · Chris Palo',
-    description: 'Gary Kirwan\'s toolkit — reframed as cross-pipeline nodes (2026-04-10). Tools touch multiple pipelines at different stages, not just fact-checking. Full tool roster email sent to Gary (CC: Chris Palo) 2026-04-10. Awaiting response. API key + endpoint docs in hand; Sara Vallone parameter session next week.',
+    compassGoal: 'G3 — Quality Framework & Testing Protocols',
+    description: 'Gary Kirwan\'s toolkit — reframed as cross-pipeline nodes (2026-04-10). Tools touch multiple pipelines at different stages, not just fact-checking. Full tool roster email sent to Gary (CC: Chris Palo) 2026-04-10. Follow-up sent 2026-04-13 specifically asking about plagiarism/originality detection capability — time-sensitive, Chris Palo flagged Gary may have already built this; CSA Weekly 4/14 3pm CDT is the gate. API key + endpoint docs in hand; Sara Vallone parameter session TBD.',
     blockers: [
-      'Gary full tool roster — email sent 2026-04-10, awaiting response',
-      'Sara Vallone parameter session (next week) — walk 15 test articles, finalize verdict taxonomy',
+      'Gary full tool roster + plagiarism detection capability — follow-up sent 2026-04-13. Response needed before CSA Weekly 4/14 3pm CDT.',
+      'Sara Vallone parameter session — walk 15 test articles, finalize verdict taxonomy. Timing TBD.',
     ],
     nextActions: [
+      'Await Gary response on plagiarism/originality detection — report at CSA Weekly 4/14 whether Gary has this already (gates Copyscape recommendation in P4)',
       'Run first API test sequence: health → scrape → meta → content-structure → unanswered-questions → citations',
-      'Sara Vallone session next week — iterate on v0.1 ruleset',
+      'Sara Vallone session TBD — iterate on v0.1 ruleset with 15 test articles',
       'Once Gary responds: map full tool roster to pipeline phases',
     ],
     dependsOn: ['p1-access'],
@@ -151,6 +155,7 @@ export const PROJECTS = {
     id: 'p6-taxonomy', num: '6', tier: 3, type: 'project', status: 'in-progress',
     name: 'Content Cluster / Tagging Taxonomy',
     owner: 'Pierce · Susannah Locke · Chris Palo · Sara Vallone',
+    compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
     description: 'Strategy settled: Canonical ID = Cluster ID; articles are siblings. EGS-127 (Marcelo, 4 subtasks) replaces PGS-40. Ticket 12828 (first of 4) moved to Selected for Development 2026-04-13 — Marcelo offering guidance (did the planning, has engineering mods). Susannah\'s #1 analytics priority (one editor manually tracking 700+ stories/month).',
     blockers: [],
     nextActions: [
@@ -169,7 +174,8 @@ export const PROJECTS = {
     id: 'p2-dashboard', num: '2', tier: 4, type: 'project', status: 'in-progress',
     name: 'Dashboard Instrumentation',
     owner: 'Pierce',
-    description: 'Live data ingestion layer for csa-dashboard. Manual bridge active. PTECH-7641 done. PGS-82 fixes pushed 2026-04-13 (Marcelo); Oliver integrating to production. PGS-140 further along — implemented on top of PGS-82; bug found/fixed; needs Amplitude data test + push for review. PTECH-7730 (TO DO, Platform Technology team, unassigned) = p-tagging fix — when done enables Amplitude adapter AND unified Sigma dashboard. Release schedule (staging + production dates) being created by Susannah/Oliver/Saner → coming to Pierce.',
+    compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
+    description: 'Live data ingestion layer for csa-dashboard. Manual bridge active. PTECH-7641 done. PGS-82 IN QA (2026-04-13, Marcelo Freitas, transitioned by Saner Keles). PGS-104 IN QA (2026-04-13, Jonathan Gonzalvo doing QA; Victor Suarez did dev). PGS-140 further along — implemented on top of PGS-82; bug found/fixed; needs Amplitude data test + push for review. PTECH-7730 (TO DO, Platform Technology team, unassigned) = p-tagging fix — when done enables Amplitude adapter AND unified Sigma dashboard. Release schedule incoming from Susannah/Oliver/Saner.',
     adapters: [
       { name: 'Google Sheets (manual)', status: 'done', note: 'Edit data/manual-metrics.js to update numbers.' },
       { name: 'Sigma', status: 'pending-creds', note: 'Stories/week, batting average. Needs OAuth2 from Chad.' },
@@ -194,6 +200,7 @@ export const PROJECTS = {
     id: 'p3-headlines', num: '3', tier: 4, type: 'project', status: 'in-progress',
     name: 'T1 Headlines Analysis (Price)',
     owner: 'Pierce · Sarah Price',
+    compassGoal: 'G3 — Quality Framework & Testing Protocols',
     description: '13 findings, 5-tile playbook, author playbooks, experiments page, Headline Grader (daily, 15 criteria), governor system all live. Weekly auto-ingest pipeline operational — Tarrow 2026 sheet downloads every Monday 8pm CDT.',
     blockers: [
       'Headline Grader: can\'t move to M-Lache org — Chris pinging Rasheed about Bitbucket + Cloudflare team environment',
@@ -201,7 +208,6 @@ export const PROJECTS = {
     ],
     nextActions: [
       'Document sandbox base build for Chris + Sarah Price (Chris explicitly asked)',
-      'Codify SmartNews/Apple News guidance in csa-content-standards — pending Vallone final format guide',
       'Add per-author breakdown to Headline Grader (author field in Sara\'s Tracker)',
       'Notify Tarrow: active time outliers in source Excel (values up to 23,496s — likely ms stored as seconds)',
       'Ecosystem audit: validate cross-platform comparisons stay within ecosystem type (app-based vs web-based)',
@@ -213,17 +219,19 @@ export const PROJECTS = {
     id: 'p4-governance', num: '4', tier: 4, type: 'project', status: 'in-progress',
     name: 'Article Format + Persona + Keyword Governance',
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
-    description: '5 National team personas sent to Susannah (PGS-133 in Code Review). AGENT-AUDIENCE §1 routing live. PGS-98 DONE (2026-04-11): Additional Context/Editorial Notes now influence output. PGS-87 DONE (2026-04-11): Target Audience label in platform variant exports resolved. PGS-150 spike complete: Copyscape Premium API recommended (~$72/month); Susannah asking Pierce for team tool preference. PGS-93 BACKLOG. Active Jira: PGS-134 READY FOR PRODUCTION; PGS-135/141/147/148 in Code Review; PGS-139/140 in progress.',
+    compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
+    description: '5 National team personas sent to Susannah (PGS-133 in Code Review). AGENT-AUDIENCE §1 routing live. PGS-98 DONE. PGS-87 DONE. PGS-150: Copyscape Premium API recommended (~$72/month); Pierce endorsed with caveats (thresholds need editorial calibration; Originality.ai as complement for paraphrase gaps) — Jira comment sent 2026-04-13 covering all 5 Chris Palo points. Key open question before CSA Weekly 4/14 3pm CDT: has Gary already built plagiarism/originality detection? (Chris flagged this — gates finalizing Copyscape rec.) PGS-93 BACKLOG. Active Jira: PGS-134 READY FOR PRODUCTION; PGS-135/141/147/148 in Code Review; PGS-139/140 in progress.',
     blockers: [
       'Andy sign-off on Apple News + SmartNews templates — 2 emails sent, no response. Submit ticket if still silent.',
       'Format guide: 10 evidence-report corrections needed before codifying in csa-content-standards',
     ],
     nextActions: [
-      'Respond to Susannah Locke on PGS-150: any team preferences on plagiarism detection tool? Victor recommends Copyscape Premium API (~$72/month). Review spike Google Doc first.',
+      'CSA Weekly Tue 4/14 3pm CDT: confirm whether Gary has plagiarism/originality detection already built — gates Copyscape recommendation (Chris Palo flagged)',
+      'Finalize Science-Curious Retiree + Casual Reader persona definitions — required before Susannah can save as shared custom personas',
       'PGS-134 READY FOR PRODUCTION — when it ships, migrate Apple News + SmartNews best practices from persona → format section in csa-content-standards',
-      'Andy: submit ticket if no response soon (Sara\'s version is good enough per Chris)',
+      'Codify SmartNews/Apple News guidance once Vallone format guide corrections confirmed (10 evidence-report items)',
+      'Andy: submit ticket if still no response (Sara\'s version is good enough per Chris)',
       'Extend AGENT-AUDIENCE routing annotations to §2+ sections',
-      'Codify SmartNews/Apple News guidance once format guide corrections are confirmed',
       'PGS-93 BACKLOG: work with Sara to define what "rework" means before returning to dev',
       'Consolidate TH/TH B2C persona variants with Sara + Sarah Price',
     ],
@@ -234,6 +242,7 @@ export const PROJECTS = {
     id: 'p12-unitedrobots', num: '12', tier: 4, type: 'project', status: 'in-progress',
     name: 'United Robots Inbound Pipeline',
     owner: 'Pierce · Sara Vallone · Sarah Price',
+    compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
     description: 'Use CSA to capture United Robots\' 50% revenue share. Scope: scrape public alert feeds, generate factual stories with disclaimer, human-in-the-loop monitoring. Send-to-WP ✅ live. Q/Cue Integration (Daury Caba) IN CODE REVIEW 2026-04-13 — 31 files; changes needed because all sections now on staging. Remaining prerequisites: EGS-127 (cluster ID), PGS-80 analytics.',
     blockers: [
       'Send-to-WP headline bug: variant name + date in slug → harms SEO + requires manual rework. Daury Caba investigating (2026-04-10).',
@@ -263,27 +272,29 @@ export const PROJECTS = {
     id: 'p14-semrush', num: '14', tier: 4, type: 'project', status: 'in-progress',
     name: 'SEMrush / Keyword Signal Layer',
     owner: 'Pierce · Sarah Price · Sara Vallone',
-    description: 'Keyword intelligence prototype (data-keywords repo) built and ready to present to Chris Palo. 14 briefs across 4 verticals (Entertainment, Financial Services, Food & Recipes, Health & Wellness). Priority sort by impact score (volume × CPC). Skip verdict. TECHNICAL.md + EXECUTIVE-BRIEF.md + data currency indicator complete. Presenting at 1:1 Tue 4/14 12:30pm CDT — question: "Are these the sorts of signals you\'re after at the keyword layer?"',
+    compassGoal: 'G5 — Professional Development: Technical & Editorial Fluency',
+    description: 'Keyword intelligence prototype (data-keywords repo) built and ready to present to Chris Palo. 14 briefs across 4 verticals (Entertainment, Financial Services, Food & Recipes, Health & Wellness). Priority sort by impact score (volume × CPC). Skip verdict. TECHNICAL.md + EXECUTIVE-BRIEF.md + data currency indicator + CLAUDE.md (added 2026-04-13) complete. Sara Vallone asked for hot take 2026-04-13 — awaiting her read before Chris 1:1 Tue 4/14 12:30pm CDT. Rocky Rhodes contacted 2026-04-13 for: existing KW reports for National team pubs, SEMrush API key directly, Julio credit rates, DataForSEO evaluation.',
     blockers: [
       'Pending Chris feedback on verdict system, CPC proxy, and which verticals to pull next',
       'Rocky/Julio credit rate per endpoint not confirmed — required before any automation (manual pulls OK)',
     ],
     nextActions: [
       'Present prototype to Chris at 1:1 Tue 4/14 12:30pm CDT — ask: verdict system? CPC as proxy? which verticals next?',
-      'After Chris meeting: pull next verticals (Sara Vallone priorities: sleep/recovery, financial services/HSAs)',
-      'Contact Rocky Rhodes — get existing T1 site keyword reports to upgrade entertainment briefs with real position data',
-      'Confirm Sigma coverage with Stephanie Zandecki — avoid duplicate keyword-to-article build',
+      'Await Sara Vallone hot take on output (Slacked 2026-04-13)',
+      'Await Rocky: existing KW reports for National team pubs, API key direct, Julio credit rate, DataForSEO evaluation',
+      'After Chris meeting: pull next verticals (Sara priorities: sleep/recovery, HSAs — confirm with Chris)',
+      'Sigma keyword-to-article question — get answer from Chad in Rocky+Chad walkthrough meeting',
       'Bridge data-headlines: connect keyword gap findings to T1 headline performance data (what format wins in a space)',
     ],
-    dependsOn: ['p1-access', 'p3-headlines'],
+    dependsOn: ['p1-access'],
     systems: [
       { name: 'data-keywords prototype', status: 'done', note: 'piercewilliams/data-keywords — 14 briefs, 4 verticals; serve: python3 -m http.server 8080 → http://localhost:8080/docs/' },
-      { name: 'SEMrush API', status: 'pending', note: 'Manual pulls done. No automation until credit rates confirmed (Rocky/Julio).' },
+      { name: 'SEMrush API', status: 'pending', note: 'Manual pulls done. Requested API key directly from Rocky 2026-04-13. No automation until credit rates confirmed (Rocky/Julio).' },
       { name: 'DataForSEO API', status: 'pending', note: 'Cheaper alternative flagged by Rocky — evaluate for batch use.' },
     ],
     contacts: [
-      { name: 'Rocky Rhodes', role: 'SEMrush admin; has existing T1 site keyword reports; liaising with rep Julio on credit rates' },
-      { name: 'Stephanie Zandecki', role: 'May have keyword-to-article data in Sigma already' },
+      { name: 'Rocky Rhodes', role: 'SEMrush admin; has existing T1 site keyword reports; liaising with rep Julio on credit rates; evaluating DataForSEO as alternative' },
+      { name: 'Chad Bruton', role: 'Snowflake/Sigma — knows if keyword-to-article data already exists in Sigma; walkthrough meeting requested 2026-04-13' },
     ],
   },
 
@@ -293,6 +304,7 @@ export const PROJECTS = {
     id: 'p7-tracker', num: '7', tier: 4, type: 'project', status: 'hold',
     name: 'Vallone Tracker / CMS Automation',
     owner: 'Pierce (dev) · Sara Vallone (stakeholder)',
+    compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
     description: 'Automate Sara Vallone\'s content governance sheet. Deprioritized by Chris — holds until prerequisites land. Send-to-WP ✅ done. Remaining: EGS-127 (cluster ID), rq-send-to-cue, PGS-80 analytics.',
     blockers: [
       'HOLD: EGS-127, rq-send-to-cue, and PGS-80 must land first',
@@ -309,6 +321,7 @@ export const PROJECTS = {
     id: 'p35-narrative', num: '3.5', tier: 5, type: 'project', status: 'not-started',
     name: 'Content Analysis / Narrative Dashboard (Price)',
     owner: 'Pierce · Sarah Price',
+    compassGoal: 'G3 — Quality Framework & Testing Protocols',
     description: 'Ongoing monitoring layer and testing narrative with Sarah Price. Distinct from headline analysis — this is the reporting/narrative layer on top.',
     blockers: ['Needs P3 findings consolidated with Sarah Price first'],
     nextActions: ['Meet with Sarah Price to define monitoring format and cadence'],
@@ -319,6 +332,7 @@ export const PROJECTS = {
     id: 'p5-testing', num: '5', tier: 5, type: 'project', status: 'not-started',
     name: 'Personas & Formats Testing / Optimization',
     owner: 'Pierce',
+    compassGoal: 'G3 — Quality Framework & Testing Protocols',
     description: 'Controlled pairwise experiments (~3 formats × 3 personas). Start with Discover + Trend Hunterland. Discover Persona test sheet exists in Sarah Price\'s tracker (empty).',
     blockers: ['Needs P4 (controlled set) and P7 (cluster tags) first'],
     nextActions: ['Complete P4 + P7, then design pairwise schedule with Sarah Price'],
@@ -329,6 +343,7 @@ export const PROJECTS = {
     id: 'p15-partner', num: '15', tier: 5, type: 'project', status: 'in-progress',
     name: 'Partner Content / Inventory Optimization',
     owner: 'Pierce · Kathryn Sheldon · Chris Palo · Kathy',
+    compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
     description: 'AI policy for inbound partner content + inventory optimization. Lindy\'s (Arena Group sports) going live. Reuters RSS unavailable (salesperson unresponsive). Sub-scope: fact-checking inbound partner content (Athlon ~1M stories/yr) — low priority, legal question on data-vs-content analysis rights unresolved.',
     blockers: [
       'AI vetting policy not drafted yet',
@@ -352,6 +367,7 @@ export const PROJECTS = {
     id: 'p16-ltv', num: '16', tier: 5, type: 'project', status: 'not-started',
     name: 'LTV Model',
     owner: 'Pierce · Chris Palo · Sara Vallone · Sarah Price · Kathy',
+    compassGoal: 'G4 — Pipeline Documentation & Operational Knowledge',
     description: 'LTV model for content assets — cost + value per asset, evergreen vs. transient weighting. Chris Palo Q2 milestone. Build internally first, then integrate data team. Exclude unavailable sources (e.g. MSN) rather than imputing.',
     blockers: [
       'Kickoff meeting not yet scheduled (Chris scheduling)',
@@ -361,7 +377,7 @@ export const PROJECTS = {
       'Attend kickoff — Chris scheduling with Sara Vallone, Sarah Price, Kathy, Pierce',
       'Provide statistical input on evergreen/transient weighting',
     ],
-    dependsOn: [],
+    dependsOn: ['p3-headlines'],
   },
 
   'p9-prd': {
@@ -369,6 +385,7 @@ export const PROJECTS = {
     name: 'PRD Revisions',
     completedDate: '2026-04-10',
     owner: 'Pierce',
+    compassGoal: 'G4 — Pipeline Documentation & Operational Knowledge',
     description: 'V0.5 complete and delivered 2026-04-10. All 10 Chris Palo items + T3 sub-pipes implemented. Inclination Engine defined.',
     blockers: [],
     nextActions: [],
@@ -380,6 +397,7 @@ export const PROJECTS = {
     name: 'System Prompts / Mode 1 & Mode 2',
     completedDate: '2026-04-03',
     owner: 'Pierce',
+    compassGoal: 'G4 — Pipeline Documentation & Operational Knowledge',
     description: 'Closed 2026-04-03.',
     blockers: [],
     nextActions: [],
@@ -390,6 +408,7 @@ export const PROJECTS = {
     id: 'p11-recipes', num: '11', tier: 5, type: 'project', status: 'not-started',
     name: 'Recipes',
     owner: 'Pierce',
+    compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
     description: 'A Recipe is a signal-driven lever configuration: given known inputs — creator profile (who produces what content well), content category performance by market, and site ECPM data — the system pulls the right combination of levers (persona × format × topic × distribution target) to configure content with a predictable expected return. Example: Ryan Brennan × creature features × Sacramento (ECPM 240) → predict cluster story → configure accordingly. Not a static spec; a learned prediction about which configuration maximizes return for a given creator+category+market combination. The "levers" are the controlled set of personas, formats, topics, and distribution destinations defined in P4 and P9. Data inputs come from EGS-127 (variant origin tracking), PGS-82/140 (differentiation + analytics), Sigma CSA dash (market performance), and eventually the LTV model (P16). ~10 verticals total (financial services, fashion, tech, etc.). Two additional pipeline types under investigation: (1) infographics pipeline — trend/research → branded infographic (e.g. HSA rates rising → Trend Hunter graphic); (2) licensed partner content pipeline — licensed influencer video/transcript → CSA → multiple articles + tangential content distributed to Trend Hunter app + Pier1 sites. Chris Palo confirmed interest in both (2026-04-10).',
     blockers: [
       'P4 persona governance must finalize the controlled format/persona set (P9 PRD complete — recipes concept defined as T3 pipeline layer)',
@@ -398,7 +417,25 @@ export const PROJECTS = {
       'Build recipes on-demand — one at a time as data infrastructure (EGS-127, PGS-82/140, Sigma CSA dash) is in place to track and optimize that vertical',
       'First recipe: identify which T3 vertical has the most pieces ready, build that one first to prove the model',
     ],
+    dependsOn: ['p4-governance', 'p2-dashboard', 'p6-taxonomy', 'p14-semrush'],
+  },
+
+  'p17-spanish': {
+    id: 'p17-spanish', num: '17', tier: 5, type: 'project', status: 'not-started',
+    name: 'Spanish CSA Pipeline',
+    owner: 'Pierce · Chris Palo · Rajiv Pant · Julia Tortoriello',
+    description: 'Dedicated Spanish-language CSA pipeline — discovery phase only. Julia Tortoriello meeting (2026-04-09) established baseline: current stack is CMS-integrated Google Translate + GPT-3 + standalone "dog translator" GPT. Dialect: Colombian Spanish register for US Hispanic audience. Julia willing to test CSA in Spanish. Chris + Rajiv considering dedicated pipeline — no scope or timeline yet.',
+    blockers: [
+      'No direction from Chris Palo or Rajiv Pant yet — watching for scope definition',
+      'Needs P4 CSA configuration framework as prerequisite',
+    ],
+    nextActions: [
+      'Wait for Chris/Rajiv direction before any scoping or build work',
+    ],
     dependsOn: ['p4-governance'],
+    contacts: [
+      { name: 'Julia Tortoriello', role: 'El Nuevo translation lead; has CMS prompt + standalone GPT config; willing to test CSA in Spanish' },
+    ],
   },
 
 };

@@ -121,7 +121,7 @@ For session history: see [sessions/](sessions/)
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | **Send-to-WP headline bug (2026-04-10):** variant name + date corrupting URL slug — Daury Caba investigating. **Q/Cue integration (Daury) IN CODE REVIEW 2026-04-13** — 31 files; changes required because all sections now on staging. rq-send-to-wp ✅ DONE but unreliable until headline bug fixed. |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
-| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | **Prototype complete** — 14 briefs, 4 verticals, priority sort (volume × CPC), Skip verdict, TECHNICAL.md + EXECUTIVE-BRIEF.md. Live: https://piercewilliams.github.io/data-keywords/. Repo: `data-keywords` (piercewilliams/data-keywords). **Sara Vallone asked for hot take 2026-04-13** — Slacked link; awaiting her read before Chris 1:1 Tue 4/14 12:30pm CDT. After: pull next verticals per Chris feedback (Sara V priorities: sleep/recovery, HSAs). Rocky reports still needed for position data. No CLAUDE.md in repo yet. |
+| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | **Prototype complete** — 14 briefs, 4 verticals, priority sort (volume × CPC), Skip verdict, TECHNICAL.md + EXECUTIVE-BRIEF.md. Live: https://piercewilliams.github.io/data-keywords/. Repo: `data-keywords` (piercewilliams/data-keywords). **CLAUDE.md added 2026-04-13** — portfolio governance + architecture baked in. **Sara Vallone asked for hot take 2026-04-13** — Slacked link; awaiting her read before Chris 1:1 Tue 4/14 12:30pm CDT. After: pull next verticals per Chris feedback (Sara V priorities: sleep/recovery, HSAs). Rocky reports still needed for position data. |
 | 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live this week. AI policy for AI-sourced content now active. Reuters still blocked. **New sub-scope: fact-checking inbound partner content (Athlon Sports ~1M stories/year). Legal question: data vs. content (analyzable vs. contractually forbidden). Low priority.** |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff this week (Sara, Sarah Price, Pierce, Kathy). Statistical input from Pierce needed. |
 
@@ -136,8 +136,8 @@ For session history: see [sessions/](sessions/)
 3. [x] ~~**PRD discussion with Chris**~~ — DONE 2026-04-10. Revision items queued — see P9.
 4. [x] ~~**PRD revision pass**~~ — DONE 2026-04-10 evening. V0.5 complete and delivered.
 5. [x] ~~**Contact Gary Kirwan for full tool roster**~~ — DONE 2026-04-10. Email sent, CC Chris Palo. Awaiting Gary's response.
-6. [ ] **Contact Rocky Rhodes re: existing keyword reports** — he has reports for T1 sites and US Weekly. Get them; use to define data-keywords repo scope and eventual analysis site.
-7. [ ] **Schedule Chad Bruton Snowflake walkthrough** — confirm access scope + OAuth2 creds.
+6. [x] ~~**Contact Rocky Rhodes re: existing keyword reports**~~ — Slacked 2026-04-13. Also asked for SEMrush API key directly. Awaiting reply.
+7. [x] ~~**Schedule Chad Bruton Snowflake walkthrough**~~ — Slacked Rocky + Chad 2026-04-13 requesting 30–45 min walkthrough (Snowflake/Sigma + SEMrush). Awaiting availability.
 8. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
 9. [x] ~~**Attend Amplitude/Amanda Hamilton meeting**~~ — DONE 2026-04-09. El Nuevo author bug filed. Claude budget → Chris/Travis Farrar. Notes: `sessions/meeting-2026-04-09-amanda-hamilton-amplitude.md`
 10. [x] ~~**Connect Amplitude connector**~~ — DONE 2026-04-11. Also connected: Google Drive, Gmail, GitHub, Atlassian/Jira/Compass, Google Calendar, Slack.
@@ -172,11 +172,12 @@ For session history: see [sessions/](sessions/)
 **Waiting on others (no action needed):**
 - Sara Vallone: hot take on SEMrush keyword output — Slacked link to data-keywords site 2026-04-13 9:16am; asking whether output is on/off target before Chris 1:1 Tue 4/14 12:30pm
 - Rocky Rhodes (rrhodes@mcclatchy.com): credit burn rate per SEMrush endpoint — querying Julio; no reply as of 2026-04-11 (confirmed via Gmail); must have before writing any automation
-- Stephanie Zandecki (szandecki@mcclatchy.com): confirm whether keyword-to-article data already exists in Sigma dashboard before Pierce builds it from scratch — message drafted 2026-04-13, not yet sent
+- Stephanie Zandecki: keyword-to-article Sigma question folded into Rocky+Chad walkthrough meeting — will confirm via Chad; no separate message needed
 - Sarah Price: cluster/Amplitude pulse data; headline grader feedback (reviewing); El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra); follow up with Deedra on team vs. org comparison dashboard
 - Chris Palo: LTV meeting scheduling (not yet on calendar as of 2026-04-11); clustering stats → Eric Nelson + Kathy Veter; Rasheed re: Bitbucket + Cloudflare team environment
 - Gary Kirwan: full tool roster response — email sent 2026-04-10, no reply as of 2026-04-11; follow-up sent 2026-04-13 specifically asking about plagiarism/originality detection capability (time-sensitive ahead of CSA Weekly 4/14)
-- Rocky Rhodes: existing keyword reports for T1 sites + US Weekly (Pierce to request)
+- Rocky Rhodes: (1) existing KW reports for National team pubs + SEMrush API key — Slacked 2026-04-13, awaiting reply; (2) DataForSEO as SEMrush alternative — flagged 2026-04-13, awaiting his take; (3) Julio/credit burn rate status — followed up 2026-04-13, awaiting reply. **For any Rocky or Rocky+Chad meeting agenda: include Julio credit rate update as standing item.**
+- Rocky Rhodes + Chad Bruton: Snowflake/Sigma + SEMrush walkthrough meeting — Slacked 2026-04-13, awaiting availability. Agenda: Snowflake/Sigma access scope for National team, SEMrush starting point + credit strategy, DataForSEO (already in Snowflake?), does keyword-to-article data already exist in Sigma
 - Sarah Price: follow up with Deedra for team vs. org comparison dashboard
 - Susannah Locke + Oliver Felix + Saner Keles: release schedule with staging + production dates → sending to Pierce (2026-04-13 standup action item)
 - Susannah Locke: pinning 5 personas (PGS-133); H1 enforcement fix (PGS-135)
