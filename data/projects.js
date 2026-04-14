@@ -134,16 +134,18 @@ export const PROJECTS = {
     name: 'Gary Tools Integration',
     owner: 'Pierce (lead) · Susannah Locke · Chris Palo',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Gary Kirwan\'s toolkit — reframed as cross-pipeline nodes (2026-04-10). Meeting held 2026-04-13. Gary confirmed NO plagiarism detection built internally — Copyscape stands. BATCH TEST COMPLETE (2026-04-13): 15/15 Sara Vallone articles processed, 0 errors. All 15 = MOSTLY_TRUE (conf 0.78–0.88). Specific errors caught: Alcatraz/America the Beautiful pass error (travel); Statue of Liberty height-not-age error (2 travel articles, same syndicated piece); 2022 fungi study presented as new without age disclosure (2 articles). KEY: Gary returned only MOSTLY_TRUE — never TRUE or FALSE. Verdict vocabulary alignment with Sara\'s 2-tier system is the central parameter session agenda item.',
+    description: 'Gary Kirwan\'s toolkit — reframed as cross-pipeline nodes (2026-04-10). Meeting held 2026-04-13. Gary confirmed NO plagiarism detection built internally — Copyscape stands. BATCH TEST COMPLETE (2026-04-13): 15/15 Sara Vallone articles processed, 0 errors. All 15 = MOSTLY_TRUE (conf 0.78–0.88). Specific errors caught: Alcatraz/America the Beautiful pass error (travel); Statue of Liberty height-not-age error (2 travel articles, same syndicated piece); 2022 fungi study presented as new without age disclosure (2 articles). KEY: Gary returned only MOSTLY_TRUE — never TRUE or FALSE. Verdict vocabulary alignment with Sara\'s 2-tier system is the central parameter session agenda item. C&P WEEKLY (2026-04-13): Chris labeled Gary "unreliable" — 80% confidence score undocumented, Gary can\'t explain validation methodology (vibe coding). Do NOT integrate as QA gate until confidence threshold is formally documented. Chris\'s roadmap: V1 = build internal source ranking library; V2 = vetting user-generated content (Substack, etc.).',
     blockers: [
+      '80% confidence score undocumented — Gary cannot explain validation methodology. Do not integrate as editorial QA gate until resolved.',
       'Code access — Gary discussing with Jason Smith + Rajiv; committed to Slack response.',
       'Sara Vallone parameter session — results compiled; session TBD.',
     ],
     nextActions: [
+      'Hold Gary integration — label unreliable until confidence score formally documented',
       'Schedule Sara Vallone parameter session — results ready in gary-tools/data/test-results-2026-04-13.json',
       'Agenda: (1) all 15 MOSTLY_TRUE — how does Sara\'s 2-tier map to this? (2) specific errors (Alcatraz, Statue of Liberty height, fungi staleness) — act or not? (3) vocabulary alignment',
+      'Build internal source ranking library (Chris V1 goal) — begin scoping',
       'Await Gary Slack response on code access method',
-      'Map full tool roster to pipeline phases once code access resolved',
     ],
     dependsOn: ['p1-access'],
     contacts: [
@@ -223,13 +225,13 @@ export const PROJECTS = {
     name: 'Article Format + Persona + Keyword Governance',
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
-    description: '5 National team personas sent to Susannah (PGS-133 in Code Review). AGENT-AUDIENCE §1 routing live. PGS-98 DONE. PGS-87 DONE. PGS-150: Copyscape Premium API recommended (~$72/month); Pierce endorsed with caveats (thresholds need editorial calibration; Originality.ai as complement for paraphrase gaps) — Jira comment sent 2026-04-13 covering all 5 Chris Palo points. Key open question before CSA Weekly 4/14 3pm CDT: has Gary already built plagiarism/originality detection? (Chris flagged this — gates finalizing Copyscape rec.) PGS-93 BACKLOG. Active Jira: PGS-134 READY FOR PRODUCTION; PGS-135/141/147/148 in Code Review; PGS-139/140 in progress; PGS-115 → PRODUCT REVIEW (2026-04-13); PGS-104 back to IN PROGRESS — Jonathan Gonzalvo QA found keyword enforcement not running on Discover Explainer format at all; 2 bugs confirmed by Victor Suarez.',
+    description: '5 National team personas sent to Susannah (PGS-133 in Code Review). AGENT-AUDIENCE §1 routing live. PGS-98 DONE. PGS-87 DONE. PGS-150: Copyscape Premium API recommended (~$72/month); Pierce endorsed with caveats (thresholds need editorial calibration; Originality.ai as complement for paraphrase gaps) — Jira comment sent 2026-04-13 covering all 5 Chris Palo points. Gary confirmed NOT a plagiarism tool (Copyscape stands). PGS-93 BACKLOG. Active Jira: PGS-134 READY FOR PRODUCTION; PGS-135/141/147/148 in Code Review; PGS-139/140 in progress; PGS-115 → PRODUCT REVIEW (2026-04-13); PGS-104 back to IN PROGRESS — Jonathan Gonzalvo QA found keyword enforcement not running on Discover Explainer format at all; 2 bugs confirmed by Victor Suarez. C&P WEEKLY (2026-04-13): Sara reports Hannah + Ryan not following editorial rules — keyword missing from H2s. Sam Agate delegated to catch all US Weekly drafts from Ryan/Hannah before Emma. Pierce action: raise keyword visual indicator in H2s with CSA product team — Chris proposed keywords pop in green/blue in headlines as easy win.',
     blockers: [
       'Andy sign-off on Apple News + SmartNews templates — 2 emails sent, no response. Submit ticket if still silent.',
       'Format guide: 10 evidence-report corrections needed before codifying in csa-content-standards',
     ],
     nextActions: [
-      'CSA Weekly Tue 4/14 3pm CDT: confirm whether Gary has plagiarism/originality detection already built — gates Copyscape recommendation (Chris Palo flagged)',
+      'Raise keyword visual indicator in H2 headlines with CSA product team (Susannah/Kat) — Chris proposed keywords pop green/blue as easy win; Pierce agreed to bring it up',
       'Finalize Science-Curious Retiree + Casual Reader persona definitions — required before Susannah can save as shared custom personas',
       'PGS-134 READY FOR PRODUCTION — when it ships, migrate Apple News + SmartNews best practices from persona → format section in csa-content-standards',
       'Codify SmartNews/Apple News guidance once Vallone format guide corrections confirmed (10 evidence-report items)',
@@ -346,16 +348,17 @@ export const PROJECTS = {
     name: 'Partner Content / Inventory Optimization',
     owner: 'Pierce · Kathryn Sheldon · Chris Palo · Kathy',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'AI policy for inbound partner content + inventory optimization. Lindy\'s (Arena Group sports) going live. Reuters RSS unavailable (salesperson unresponsive). Sub-scope: fact-checking inbound partner content (Athlon ~1M stories/yr) — low priority, legal question on data-vs-content analysis rights unresolved.',
+    description: 'AI policy for inbound partner content + inventory optimization. Lindy\'s (Arena Group sports) going live. Reuters: Sara Vallone has RSS access as of 2026-04-13. Heavy hard news content — mind/body section viable for national team. Testing Sting/Met Opera content for national distribution; Reuters photos also available to test. Sub-scope: fact-checking inbound partner content (Athlon ~1M stories/yr) — low priority, legal question on data-vs-content analysis rights unresolved.',
     blockers: [
       'AI vetting policy not drafted yet',
-      'Reuters RSS feed unavailable',
       'Legal: can we analyze (not train on) partner content? Unresolved.',
       'Inventory optimization: deferred until Chris green-lights',
     ],
     nextActions: [
+      'Test Reuters mind/body content for national team fit — Sara piloting',
+      'Test Reuters photos for national team use',
       'Co-develop AI vetting policy with Chris + Kathryn Sheldon',
-      'Monitor Lindy\'s + Reuters activation',
+      'Monitor Lindy\'s activation',
       'Low priority: once legal question resolves, cost out partner content fact-checker',
     ],
     dependsOn: [],
@@ -420,6 +423,33 @@ export const PROJECTS = {
       'First recipe: identify which T3 vertical has the most pieces ready, build that one first to prove the model',
     ],
     dependsOn: ['p4-governance', 'p2-dashboard', 'p6-taxonomy', 'p14-semrush'],
+  },
+
+  'p18-agentic-writing': {
+    id: 'p18-agentic-writing', num: '18', tier: 5, type: 'project', status: 'not-started',
+    name: 'Agentic Writing Helpers',
+    owner: 'Pierce · Chris Palo · Sara Vallone · Susannah Locke · Kathryn Sheldon',
+    compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
+    description: 'Agent-in-document workflows for McClatchy editorial teams — PRDs with agent assistance + content creation. Sparked by Chris Palo forwarding Every.to\'s "Proof" podcast (2026-04-13): collaborative doc editor where humans + agents work simultaneously. Chris wants to explore getting Sara\'s team using this way of working; also Susannah + Kat once agents feel trustworthy. Two target workflows: (1) PRDs — agent assists with drafting, reviewing, iterating planning docs; (2) Content creation — agent works alongside human writers in live docs. GitHub repo TBD (Pierce creating tomorrow 2026-04-14).',
+    blockers: [
+      'GitHub repo not yet created — Pierce creating 2026-04-14',
+      'Agent tool selection: need agents "we feel good about" per Chris — not yet defined',
+      'Scope not defined — awaiting 1:1 with Chris to align on priorities and target team',
+    ],
+    nextActions: [
+      'Create GitHub repo (agentic-writing-helpers or similar) — Pierce, 2026-04-14',
+      'Add to ops-hub dependency map with correct tier + deps',
+      'Discuss with Chris at 1:1: which workflow first? Sara\'s team or Susannah/Kat?',
+      'Identify candidate agent tools — Proof (proofeditor.ai) as reference; evaluate against McClatchy use cases',
+    ],
+    dependsOn: ['p4-governance'],
+    contacts: [
+      { name: 'Chris Palo', role: 'Sponsor; forwarded Every.to Proof podcast 2026-04-13' },
+      { name: 'Sara Vallone', role: 'Primary target team (content creation workflow)' },
+    ],
+    links: [
+      { label: 'Every.to Proof podcast (overcast)', url: 'https://overcast.fm/+ABFpy8Pupn4' },
+    ],
   },
 
   'p17-spanish': {
