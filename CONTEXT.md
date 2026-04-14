@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-13 (evening) — Gary 15-article batch test completed (15/15, 0 errors, all MOSTLY_TRUE, 21 flagged claims). Full claim-level report + session agenda DOCX generated. Slack sent to Chris Palo + Sara Vallone with reports and link to claims-validation spec. Session agenda frames 4 decisions needed before CSA dev work begins.
-**Status:** 17 active/tracked projects. PRD V0.5 done. Compass goals submitted 2026-04-13 (Jeremy approval pending by Apr 30). Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Sara Vallone Gary parameter session (Slack sent; awaiting scheduling), code access method from Gary.
+**Last session:** 2026-04-13 (late night) — Settings.json upgraded to Rajiv v2 (dontAsk + Bash(*)) across ~/.claude and all 7 repo .claude/settings.json files; Slack gated to read-only, Gmail read-only. Data-headlines weekly ingest pipeline verified (scripts sound; first scheduled run pending — check Actions tab morning 4/14). EOD Jira sync from board screenshot: PGS-171 new (Publication Dropdown Not Scrollable, IN PROGRESS); PGS-115 Code Review → Product Review; PGS-104 back to In Progress — Jonathan Gonzalvo QA found keyword enforcement not running on Discover Explainer format at all (systemic), Victor Suarez confirmed 2 bugs. ops-hub + csa-dashboard committed and pushed.
+**Status:** 17 active/tracked projects. PRD V0.5 done. Compass goals submitted 2026-04-13 (Jeremy approval pending by Apr 30). Primary gates: Vallone format guide, Andy template sign-off, LTV meeting (Chris scheduling), Rocky keyword reports, Sara Vallone Gary parameter session (Slack sent; awaiting scheduling), code access method from Gary. **Tomorrow: Pierce<>Chris 1:1 12:30pm CDT (data-keywords), CSA Weekly 3pm CDT (Copyscape, PGS-82 staging, PGS-104 regression).**
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
