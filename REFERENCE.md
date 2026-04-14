@@ -139,6 +139,8 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | `data-keywords` | Keyword signal intelligence — 14 briefs across 4 verticals; verdict + impact sort; seed data from Rocky Rhodes US Weekly gap analysis | https://piercewilliams.github.io/data-keywords/ |
 | `data-cmstracker` | CMS automation planning (pre-build) | local |
 | `gary-tools` | Gary API integration planning | local |
+| `csa-prd` | CSA PRD verbatim + context, gaps, action items | local |
+| `write-assist` | P18 — agent-in-document workflows (PRDs + content creation) | local |
 
 ## Key Open Tickets / Pending Items
 
