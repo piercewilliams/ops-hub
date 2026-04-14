@@ -117,6 +117,7 @@ export const CSA_LINKS = {
       { id:'p-persona-consistency', label:'Persona auto-generation inconsistency', priority:false, text:'Auto-generated personas were creating inconsistency and may have hurt traffic — now benchmarked but not fully resolved.' },
       { id:'p-keyword-sequencing',    label:'Keyword input sequencing',              priority:false, text:'Target keywords must be provided before generation begins — current workflow sequences keyword input after content is already shaped, resulting in keywords absent from H1, meta title, meta description, dek, and lede.' },
       { id:'p-keyword-h2-visibility', label:'No keyword visibility in H2 headings',  priority:false, text:'Writers cannot see whether target keywords are present in H2 headings during or after generation — no visual indicator and no pre-publish compliance check. Violations currently caught manually by Sam Agate. Not scalable. (Sara Vallone, C&P Weekly 2026-04-13.)' },
+      { id:'p-hallucination',         label:'CSA hallucinates facts not in source',   priority:false, text:'CSA generates factual claims not present in source material. Idaho Statesman editor Chadd Cripe reported a variant paragraph about Ada County neighborhood utilities with no basis in the source article. News-side CSA. Forwarded to Chris Palo by Kat Sheldon; Pierce added to thread 2026-04-14. No Jira ticket yet.' },
     ],
     metrics: [
       { id:'m-general-usage',    label:'General Audience usage rate',  group:'Variant generation' },
