@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-14 — csa-prd + write-assist repos bootstrapped with full context/reference; PRD V0.5 stored verbatim; projects.js descriptions tightened + nextActions reprioritized; Sara Vallone keyword site feedback logged; Tarrow automation confirmed functional.
-**Status:** 18 active/tracked projects. PRD V0.5 done. Compass goals submitted (Jeremy approval pending Apr 30). Rocky+Chad walkthrough Wed 4/15 1:30pm CDT. Open actions: keyword visual indicator → CSA product team (CSA Weekly 4/14), Sara Vallone Gary parameter session (TBD).
+**Last session:** 2026-04-14 — CSA Weekly held; PRD distributed; Gary evaluation aligned (off QA gate, IP concern raised, author profile replication greenlit); keyword field mandatory decision; PGS-96 → Ready for Production; release batches defined.
+**Status:** 18 active/tracked projects. Compass goals submitted (Jeremy approval pending Apr 30). Rocky+Chad walkthrough Wed 4/15 1:30pm CDT. 35-item dev backlog clearing this week (top 10 national team items).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -114,16 +114,16 @@ For session history: see [sessions/](sessions/)
 | # | Project | Tier | Status | Key Blocker / State |
 |---|---------|------|--------|---------------------|
 | 1 | Platform Access & Training | 1 | In progress | All access confirmed except Sigma scope verification. Marfeel confirmed 2026-04-09. Gary API key received 2026-04-08. **Claude connectors connected 2026-04-11** (Amplitude, Google Drive, Gmail, GitHub, Atlassian, Google Calendar, Slack). **Amplitude connected in Claude settings 2026-04-14.** Pending: Chad Bruton walkthrough to confirm Sigma access is complete. |
-| 2 | Dashboard Instrumentation | 4 | In progress | **PGS-82 merged to staging, IN QA.** PGS-104 IN PROGRESS — Victor Suarez fixing 2 bugs (keyword enforcement not running on Discover Explainer; downstream dependency flagged by Susannah). **PGS-140 IN PROGRESS** — Marcelo needs Amplitude data test before starting PGS-139. **PGS-139 SELECTED FOR DEV.** PGS-115 + PGS-134 → PRODUCT REVIEW. PGS-171 IN PROGRESS (Publication Dropdown). PTECH-7730 TO DO. **New release process (2026-04-14 standup):** same-day smaller batch deploys from staging — don't wait for full batch. |
+| 2 | Dashboard Instrumentation | 4 | In progress | **Release batches defined (Susannah Slack 2026-04-14):** Batch 1 staging: PGS-115, PGS-96 (→ **READY FOR PRODUCTION**), PGS-134. Batch 2: **PGS-82 top priority (in QA)**, PGS-104 (code updates). Batch 3: PGS-133, PGS-111, PGS-147, PGS-141. PGS-140 IN PROGRESS. PGS-139 SELECTED FOR DEV. PTECH-7730 TO DO. 35-item backlog: Flatiron→MCP migration + Travis Frell approval + dual code review. Clearing this week. Weekly release reporting to Pierce/Chris (Kathryn committed). |
 | 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, 15 grader criteria, author playbooks, experiments, governor, Headline Grader (GitHub Actions, daily), weekly auto-ingest pipeline (Monday 8pm CDT; change-detection; longitudinal snapshots). **21/21 tests pass.** **Fully operational + hardened 2026-04-14:** 9 CI bugs fixed, CI fast-fail step (py_compile + pytest before data download), ANP-guard inventory, f-string safety scanner. **Tarrow weekly data run now functional (2026-04-14).** Check next Tuesday morning to confirm automation held. Quality suite: `python3.11 -m pytest tests/ -v` + `python3 generate_site.py --skip-main-archive`. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
-| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | **PGS-134 back to PRODUCT REVIEW** (downstream keyword dependency — same as PGS-104). **PGS-133 scope expanded** — admins can create target audiences for any org they view; Patrick testing, CODE REVIEW. PGS-111/135/141/147/148 CODE REVIEW. PGS-115 PRODUCT REVIEW. PGS-104 IN PROGRESS (Victor fixing 2 bugs). PGS-150 PRODUCT REVIEW. **PGS-149 ON HOLD** (search query, low priority; Kathryn documenting). PGS-93 BACKLOG. |
+| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | **PGS-96 → READY FOR PRODUCTION.** PGS-104 getting code updates (all custom Content Formats); **keyword field mandatory** (Chris decision; Sara confirmed; Susannah updating ticket) — coming this week. PGS-134 + PGS-115 in staging. PGS-133/111/147/141 CODE REVIEW. PGS-150 PRODUCT REVIEW (Copyscape). **NEW: keyword color overlay** (4-color headline breakdown; toggle/overlay; Kathryn: must not affect markdown/CMS export; separate ticket needed). **NEW: author profile replication** dev ticket to create (Gary's methodology; test internally). PGS-149 ON HOLD. PGS-93 BACKLOG. |
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7. Discover Persona test sheet exists in tracker (empty). |
 | 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | **PGS-40 → WON'T DO (2026-04-08).** Work restructured into EGS-127 (epic, 4 subtasks, Marcelo assigned). **Ticket 12828 (first of 4) selected for development 2026-04-13.** Marcelo offering guidance (did the planning). Has engineering mods. 700+ stories/month currently tracked manually. |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris. Testing tracker is manual evidence of demand. |
 | 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking anything. |
 | 9 | ~~PRD Revisions~~ | — | **Complete** | V0.5 complete 2026-04-10 evening. All 10 Chris Palo items + T3 sub-pipes implemented. Pasted into Google Docs. |
-| 10 | Gary Tools Integration | 2 | **In progress** | **Batch test done.** Chris verdict (C&P Weekly 2026-04-13): Gary = **unreliable** — 80% confidence score undocumented, vibe coding on validation methodology. Do not integrate as QA gate. Chris roadmap: V1 source ranking library, V2 user-content vetting (Substack). Sara Vallone parameter session still TBD. |
+| 10 | Gary Tools Integration | 2 | **In progress** | **Evaluation complete (CSA Weekly 2026-04-14).** Gary off QA gate roadmap: black-box, not deterministic, no plagiarism tool (uses Originality.ai). Gary value = commerce/SEO for Andy only. **IP/contract concern:** Kathryn discussing with Jason — McClatchy may not own Gary's code; tools live on Gary's personal API. Chris to tell Jason team has failed to get code. **Author profile replication greenlit:** Gary built Sara's voice from ~100 articles; replicable in-house; create dev ticket; test internally (Sara/Pierce/Susannah). Sara parameter session still TBD. |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
 | 12 | United Robots Inbound Pipeline | 4 | In progress | **Send-to-WP headline bug (2026-04-10):** variant name + date corrupting URL slug — Daury Caba investigating. **Q/Cue integration (Daury) IN CODE REVIEW 2026-04-13** — 31 files; changes required because all sections now on staging. rq-send-to-wp ✅ DONE but unreliable until headline bug fixed. |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
@@ -136,10 +136,12 @@ For session history: see [sessions/](sessions/)
 ## What's Next
 
 **#1 — THIS WEEK:**
-1. [ ] **CSA Weekly — Tue 4/14 3pm CDT** (Pierce<>Chris 1:1 same day at 12:30pm CDT). Key items: PGS-150 Copyscape decision (Gary confirmed no plagiarism tool → stands), PGS-82 staging schedule, PGS-104 regression, AI Tool Responsibility gaps.
-   - [ ] Raise **keyword visual indicator in H2 headlines** with Susannah/Kat at CSA Weekly — Chris proposed keywords pop green/blue; easy win.
-1.5. [x] ~~**Check data-headlines Actions tab**~~ — DONE 2026-04-14. Ingest ran and succeeded after 5 CI fixes. Pipeline fully operational.
-1.6. [x] ~~**Create P18 repo (agentic writing helpers)**~~ — DONE. write-assist repo created 2026-04-14 with full CONTEXT.md + REFERENCE.md. Scope to be confirmed at 1:1.
+1. [x] ~~**CSA Weekly — Tue 4/14 3pm CDT**~~ — DONE. PRD distributed; Gary evaluation aligned; keyword field mandatory; PGS-96 → Ready for Production; keyword color overlay + author profile replication greenlit.
+   - [ ] **Send Sara details of additional tasks + required meetings** (Pierce action from meeting)
+   - [ ] **Provide weekly release estimates/timeframes to management** (Chris ask — use weekly dates, not "soon")
+   - [ ] **Create dev tickets: (1) keyword color overlay, (2) author profile replication** — both greenlit at CSA Weekly
+1.5. [x] ~~**Check data-headlines Actions tab**~~ — DONE 2026-04-14. Pipeline fully operational.
+1.6. [x] ~~**Create P18 repo (agentic writing helpers)**~~ — DONE. write-assist repo created 2026-04-14.
 2. [x] ~~**Julia Tortoriello meeting**~~ — DONE 2026-04-09. CMS prompt + standalone GPT config received verbatim. Julia willing to test CSA in Spanish.
 3. [x] ~~**PRD discussion with Chris**~~ — DONE 2026-04-10. Revision items queued — see P9.
 4. [x] ~~**PRD revision pass**~~ — DONE 2026-04-10 evening. V0.5 complete and delivered.

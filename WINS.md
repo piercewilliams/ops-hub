@@ -33,6 +33,12 @@ CUE CMS, WordPress (full access 2026-03-28), McClatchy GitHub, Sigma basic, Ampl
 
 ## Tier 2 — Understanding
 
+**2026-04-14 — PRD distributed at CSA Weekly; Gary evaluation aligned; keyword milestone**
+Three outcomes at CSA Weekly 2026-04-14: (1) PRD V0.5 distributed as foundational context document for all future feature requests — Chris framed architecture as vertical pipes + horizontal cross-cutting elements; visualizations requested for eng team. (2) Gary evaluation aligned across team: black-box methodology confirmed, off QA gate roadmap, IP/contract concern flagged, author profile replication greenlit for in-house dev. (3) Keyword field mandatory decision — Chris overruled Sara's preference to wait; primary + secondary keyword field shipping this week as mandatory. Keyword color overlay (4-color headline breakdown) greenlit; separate dev ticket needed.
+
+**2026-04-14 — PGS-96 shipped to Ready for Production**
+"Add Discover Browser as saved target audience for National team" passed all QA (Susannah Locke approved): variant creation, admin create/save, session persistence, National team visibility, cross-org isolation all verified. First of the national team batch to reach production-ready status.
+
 **2026-04-13 — Gary API 15-article batch test complete — parameter session ready**
 15 Sara Vallone articles processed through Gary's `data-validity` API, 0 errors, ~107 claims evaluated. All 15 articles: MOSTLY_TRUE at article level. 21 claims flagged at claim level (FALSE: 1, MISLEADING: 8, MIXED: 9, INSUFFICIENT_EVIDENCE: 3). Specific verifiable errors caught: Alcatraz/America the Beautiful pass (FALSE per NPS); Statue of Liberty height-not-age error in 3 articles (same syndicated piece, MISLEADING); 2022 fungi study presented as new research (MISLEADING). Full claim-level DOCX report + session agenda generated. Slack sent to Chris Palo + Sara Vallone with reports and link to claims-validation spec. Parameter session now the gate before any CSA dev integration work begins. Cost: ~$5.50 total.
 
@@ -218,5 +224,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-13 (end of session)*
+*Last updated: 2026-04-14 (CSA Weekly sync)*
 *Maintained by Claude. Updated proactively as work completes.*

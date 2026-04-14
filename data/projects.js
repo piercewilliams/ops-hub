@@ -6,6 +6,8 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-14', task: 'PGS-96 READY FOR PRODUCTION: Add "The Discover Browser" as a Saved Target Audience for all National team users. Susannah Locke approved — all QA tests passed: variant creation works, admin can create + save new target audiences, persists across sessions, visible to National team members via "view as," correctly hidden from Miami team members. Susannah note: will add the Discover Browser audience itself after production release.', project: '#4 Article Format + Persona + Keyword Governance' },
+  { date: '2026-04-14', task: 'CSA Weekly 2026-04-14 — four outcomes: (1) PRD V0.5 distributed as foundational context doc for all future feature requests — Chris framed as "goalpost" document, described architecture as vertical pipes + horizontal cross-cutting elements; wants visualizations. (2) Gary evaluation complete and aligned: Gary ruled out as QA gate — black-box methodology (confidence scores undocumented, not deterministic despite claims); IP/contract concern raised (Kathryn to discuss with Jason about McClatchy ownership of Gary\'s code; Chris to mention to Jason that team has failed to obtain code). Gary value = commerce/SEO for Andy only. Author profile replication greenlit — Gary built Sara\'s voice from ~100 articles; replicable in-house; create dev ticket; test internally with Sara/Pierce/Susannah before wider rollout. (3) Keyword field: primary + secondary keywords with placement instructions coming this week. Chris overruled Sara\'s preference to wait — keyword field will be mandatory, not optional. Susannah updating ticket. (4) Keyword color overlay greenlit: Pierce proposed color-coding keyword placement in CSA output; Chris expanded to 4-color headline breakdown (subject/lead, keyword, active verb + fourth); Kathryn: toggle/overlay only, must not affect markdown or CMS export. Start with keyword color, then headline success criteria colors. Separate ticket needed.', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-13', task: 'Compass 2026 performance goals submitted. 5 goals, 100% weight (25/25/20/20/10): (1) Product Liaison & Pipeline Request Management — Operational Excellence + Innovation at Scale; (2) Editorial Standards & Voice Guidelines — Performance-Driven Content + Innovation at Scale; (3) Quality Framework & Testing Protocols — Operational Excellence + Performance-Driven Content; (4) Pipeline Documentation & Operational Knowledge — Operational Excellence + Innovation at Scale; (5) Professional Development: Technical & Editorial Fluency — Talent Development + Innovation at Scale. Goals finalized against Chris Palo\'s Content & Programming 2026 team goals. compass-goals.md written and committed. Manager approval (Jeremy Gockel) pending by April 30.', project: 'Compass Performance Management' },
   { date: '2026-04-13', task: 'Gary batch test complete. 15/15 Sara Vallone articles processed via POST /api/v1/research/data-validity, 0 API errors. ~107 claims evaluated total. All 15 articles: MOSTLY_TRUE at article level (conf 0.78–0.88). 21 claims flagged at claim level: FALSE (1), MISLEADING (8), MIXED (9), INSUFFICIENT_EVIDENCE (3). Specific verifiable errors: (1) Alcatraz/America the Beautiful pass — NPS contradicts directly, verdict FALSE; (2) Statue of Liberty crown age-vs-height error in 3 travel articles (same syndicated piece), verdict MISLEADING; (3) 2022 fungi study presented as new research without age disclosure in 2 articles, verdict MISLEADING; (4) Mouth breathing cardiovascular link conflates OSA evidence with general mouth breathing, verdict MIXED/MISLEADING. Full claim-level report + DOCX generated (gary-tools/data/full-report-2026-04-13.docx). Session agenda for Sara Vallone parameter session generated (gary-tools/data/session-agenda-vallone.docx). Slack sent to Chris Palo + Sara Vallone 2026-04-13 with both reports and link to claims-validation spec. Cost: ~$5.50 total (~$0.38/article). Key API learnings documented in gary-tools/docs/api-reference.md.', project: '#10 Gary Tools Integration' },
   { date: '2026-04-13', task: 'Rocky Gap Analysis briefs added to data-keywords prototype. Sara Vallone confirmed 4 topic categories for Rocky\'s next SEMrush pull: financial services (Chris priority + highest CPC), food+celeb, sleep, creature features. All 8 National Team sites combined per pull. Rocky queued; awaiting results. `fromRocky: true` boolean field + orange "Rocky Gap" badge added to data model and UI. Bianca Censori brief updated to reflect Rocky source. Prototype now visually distinguishes Rocky-derived vs. SEMrush-direct briefs.', project: '#14 SEMrush / Keyword Signal Layer' },
@@ -134,15 +136,16 @@ export const PROJECTS = {
     name: 'Gary Tools Integration',
     owner: 'Pierce (lead) · Susannah Locke · Chris Palo',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Gary Kirwan\'s toolkit as cross-pipeline nodes. Chris verdict (C&P Weekly 2026-04-13): Gary = unreliable — undocumented 80% confidence score, vibe-coded validation. Do NOT integrate as QA gate. Batch test done (2026-04-13): 15/15 Sara Vallone articles, all MOSTLY_TRUE (conf 0.78–0.88), 21 flagged claims, 0 errors. Gary confirmed NO plagiarism detection (Copyscape stands). Chris roadmap: V1 = internal source ranking library, V2 = user-generated content vetting (Substack). Sara Vallone parameter session pending.',
+    description: 'Gary Kirwan\'s toolkit evaluation complete (CSA Weekly 2026-04-14). Verdict: Gary is off the QA gate roadmap — confidence scores undocumented, methodology black-box, not deterministic despite claims. Gary has no plagiarism detection (uses Originality.ai — Copyscape stands). Gary value = commerce/SEO for Andy only; general tools: use as template only. New IP/contract concern raised by Kathryn Sheplavy: Gary\'s contract may not give McClatchy ownership of code built under it; tools live on Gary\'s personal API. Kathryn to discuss with Jason. Chris to tell Jason that team has failed to obtain Gary\'s code. Author profile replication greenlit: Gary built Sara Vallone\'s voice profile from ~100 articles — replicable in-house; dev ticket to be created; test internally (Sara/Pierce/Susannah) before wider rollout due to news sensitivity. Chris roadmap: V1 = internal source ranking library, V2 = user-generated content vetting (Substack).',
     blockers: [
-      'Confidence threshold undocumented — Gary cannot explain validation methodology',
+      'Gary IP/contract: Kathryn Sheplavy discussing with Jason — McClatchy ownership of Gary\'s code unclear',
       'Sara Vallone parameter session not yet scheduled',
     ],
     nextActions: [
-      'Schedule Sara Vallone parameter session — agenda ready (session-agenda-vallone.docx); 4 decisions: verdict→action mapping, content-type thresholds, acceptance tracking design, reporting cadence',
-      'Begin scoping V1 internal source ranking library (Chris ask)',
-      'Await Gary Slack response on code access method',
+      'Create dev ticket: replicate author profile voice customization in-house (Gary\'s methodology known; Kathryn confirmed replicable)',
+      'Schedule Sara Vallone parameter session — agenda ready (session-agenda-vallone.docx); 4 decisions needed',
+      'Monitor Kathryn/Jason conversation on Gary contract + code access',
+      'Begin scoping V1 internal source ranking library (Chris ask; after parameter session)',
     ],
     dependsOn: ['p1-access'],
     contacts: [
@@ -177,7 +180,7 @@ export const PROJECTS = {
     name: 'Dashboard Instrumentation',
     owner: 'Pierce',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'Live data ingestion layer for csa-dashboard. Manual bridge active. PGS-82 merged to staging, IN QA. PGS-104 IN PROGRESS — keyword enforcement not running on Discover Explainer; Victor Suarez fixing 2 bugs (downstream dependency flagged by Susannah, blocking PGS-134 too). PGS-140 IN PROGRESS — Marcelo needs Amplitude data test before starting PGS-139. PGS-139 SELECTED FOR DEV. PGS-115 + PGS-134 → PRODUCT REVIEW. PGS-171 IN PROGRESS (Publication Dropdown, medium). PTECH-7730 (p-tagging fix, PT Delta, TO DO). Release process updated: same-day smaller batch deploys — don\'t wait for full staging batch.',
+    description: 'Live data ingestion layer for csa-dashboard. Manual bridge active. Release batches defined (Susannah Slack 2026-04-14): Batch 1 in staging (PGS-115, PGS-96, PGS-134) — PGS-96 → READY FOR PRODUCTION (all tests passed). Batch 2: PGS-82 (top priority, in QA) + PGS-104 (getting code updates for all custom Content Formats). Batch 3: PGS-133, PGS-111, PGS-147, PGS-141. PGS-82 still #1 priority. PGS-140 IN PROGRESS — Marcelo needs Amplitude data test. PGS-139 SELECTED FOR DEV. PGS-171 IN PROGRESS. PTECH-7730 (p-tagging fix, PT Delta, TO DO). 35-item backlog context: Flatiron→MCP migration + Travis Frell approval requirement + dual code review = backlog. Clearing this week. New process: weekly release lists to Pierce/Chris (Kathryn committed).',
     adapters: [
       { name: 'Google Sheets (manual)', status: 'done', note: 'Edit data/manual-metrics.js to update numbers.' },
       { name: 'Sigma', status: 'pending-creds', note: 'Stories/week, batting average. Needs OAuth2 from Chad.' },
@@ -192,7 +195,8 @@ export const PROJECTS = {
     nextActions: [
       'Get Marfeel API key → activate adapter',
       'Monitor PTECH-7730 (p-tagging fix) — activates Amplitude adapter when done',
-      'Await release schedule from Susannah/Oliver/Saner',
+      'Provide weekly release estimates/timeframes to management (Chris ask — use weekly dates, not "soon")',
+      'Monitor PGS-82 QA progress — top priority this week per Susannah',
       'Sarah Price: follow up with Deedra on team vs. org comparison dashboard',
     ],
     dependsOn: ['p1-access'],
@@ -222,16 +226,15 @@ export const PROJECTS = {
     name: 'Article Format + Persona + Keyword Governance',
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
-    description: '5 National team personas sent to Susannah (PGS-133 CODE REVIEW — scope expanded: admins can now create target audiences for any org they\'re viewing, not just their own). AGENT-AUDIENCE §1 routing live. PGS-98 + PGS-87 DONE. PGS-134 back to PRODUCT REVIEW (keyword downstream dependency). PGS-111/133/135/141/147/148 CODE REVIEW. PGS-115 PRODUCT REVIEW. PGS-104 IN PROGRESS — keyword enforcement not running on Discover Explainer; 2 bugs, Victor fixing. PGS-150 PRODUCT REVIEW (Copyscape endorsed). PGS-149 ON HOLD (search query — low priority; Kathryn documenting). PGS-93 BACKLOG. C&P Weekly: Hannah+Ryan missing keywords in H2s; Sam Agate delegated.',
+    description: '5 National team personas sent to Susannah. AGENT-AUDIENCE §1 routing live. PGS-96 → READY FOR PRODUCTION (2026-04-14). PGS-104 (keyword enforcement) getting code updates to work with all custom Content Formats — keyword field coming this week, mandatory (Chris decided; Sara confirmed; Susannah updating ticket). PGS-134 + PGS-115 in staging. PGS-133/111/147/141 in code review. PGS-150 PRODUCT REVIEW (Copyscape endorsed; Victor recommendation). PGS-149 ON HOLD. PGS-93 BACKLOG. NEW: keyword color overlay greenlit at CSA Weekly — 4-color headline breakdown (subject/lead, keyword, active verb + 4th); Kathryn: toggle/overlay, must not affect markdown/CMS export; Chris: start with keyword color, then add headline success criteria; separate ticket needed. NEW: author profile replication — dev ticket to be created (replicate Gary\'s methodology in-house; test internally Sara/Pierce/Susannah).',
     blockers: [
       'Andy sign-off on Apple News + SmartNews templates — 2 emails sent, no response. Submit ticket if still silent.',
-      'Format guide: 10 evidence-report corrections needed before codifying in csa-content-standards',
     ],
     nextActions: [
-      'Raise keyword visual indicator in H2s with Susannah/Kat at CSA Weekly — Chris proposed green/blue pop; easy win',
+      'Create dev ticket: keyword color overlay (4-color headline breakdown — separate from keyword field ticket)',
+      'Create dev ticket: author profile voice replication (Gary\'s methodology; test internally first)',
       'Finalize Science-Curious Retiree + Casual Reader persona definitions — required before Susannah saves as shared custom personas',
-      'When PGS-134 ships (back in product review — keyword dependency): migrate Apple News + SmartNews best practices from persona → format section in csa-content-standards',
-      'Codify SmartNews/Apple News guidance once Vallone format guide 10 corrections confirmed',
+      'When PGS-134 ships: migrate Apple News + SmartNews best practices from persona → format section in csa-content-standards',
       'Andy: submit ticket if still no response on distribution templates',
       'Extend AGENT-AUDIENCE routing annotations to §2+ sections',
       'Consolidate TH/TH B2C persona variants with Sara + Sarah Price',
@@ -384,7 +387,7 @@ export const PROJECTS = {
     completedDate: '2026-04-10',
     owner: 'Pierce',
     compassGoal: 'G4 — Pipeline Documentation & Operational Knowledge',
-    description: 'V0.5 complete and delivered 2026-04-10. All 10 Chris Palo items + T3 sub-pipes implemented. Inclination Engine defined.',
+    description: 'V0.5 complete, delivered 2026-04-10, distributed at CSA Weekly 2026-04-14. Chris framed as "goalpost" document and "archive" — snapshot context for all feature requests; not a live operational roadmap. Architecture: vertical pipes (T1–T5) + horizontal cross-cutting elements (publish-to-queue, Gary tools/nodes). Visualizations needed for eng team clarity (Chris explicitly requested; Pierce to build standalone HTML diagrams).',
     blockers: [],
     nextActions: [],
     dependsOn: [],
