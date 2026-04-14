@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-14 (extended) — data-headlines CI debugging + integrity pass. Fixed 9 consecutive failures across 2 CI runs: 5 Python 3.11 / pandas bugs (f-string same-quote nesting, backslash-in-expression ×2, `UndefinedVariableError: n_total`, `KeyError: ANP_FAIL_MAIN_BOT_PCT`, `git pull --rebase` unstaged) then 3 author playbooks regressions introduced by over-broad guards (`df_author_profiles.empty` gating whole block → "No tracker data"; `KeyError: formula` because `team_combined["formula"]` only classified inside ANP block). Final integrity pass: CI fast-fail step (py_compile + pytest before data download), TestFStringSafety scan, ANP-dependency inventory comment in generate_site.py, Python 3.11 + ANP-guard rules documented in CLAUDE.md. Pipeline fully hardened.
+**Last session:** 2026-04-14 — data-headlines CI debugging + integrity pass (extended session); csa-links.js updated with p18-agentic-writing (auto-sync 13:10 UTC). No project status changes detected.
 **Status:** 18 active/tracked projects. PRD V0.5 done. Compass goals submitted (Jeremy approval pending Apr 30). Rocky+Chad walkthrough Wed 4/15 1:30pm CDT. Open actions: keyword visual indicator → CSA product team, P18 GitHub repo (TBD), Sara Vallone Gary parameter session (TBD).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
