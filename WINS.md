@@ -8,6 +8,9 @@ Organized by ops-hub tier, reverse-chronological within each.
 
 ## Tier 1 — Foundation
 
+**2026-04-15 — CSA Admin role granted + Team Target Audiences entered**
+Susannah Locke granted Pierce CSA Admin role in production (2026-04-15). Susannah entered 2 of 5 National Team personas as Team Target Audiences in CSA — The Discover Browser and The Wonder-Driven Science Enthusiast — making them available as shared audiences across all National team accounts. Pierce to enter remaining 3 (The Curious Optimizer, The Curious Explorer, The Watercooler Insider) using the same admin workflow. Feature is admin-only, environment-isolated, and replaces PGS-133 (code-change ticket put ON HOLD). Full workflow documented in projects.js P4, csa-content-standards CONTEXT.md, and Confluence Tango capture.
+
 **2026-04-14 — Cross-repo code quality audit: 5 bug fixes, 3 READMEs written, CLAUDE.md created**
 Comprehensive code quality pass across all 5 repos. data-headlines: 5 targeted hardening fixes — guarded json.loads() crash on malformed service account env var, protected lift:.2f format against None, narrowed two silent except clauses to typed exceptions with stderr warnings, surfaced silent opportunity-map errors, fixed pyproject.toml target-version py312→py311 (mismatch was hiding 3.11 CI failures from ruff). csa-dashboard: CLAUDE.md created from scratch (architecture, invariants, quality commands, context budget); README quality gate section added. gary-tools and write-assist: fully written READMEs from one-line stubs. ops-hub: removed dead errEl2 variable in attemptRestore(). All 6 repos committed and pushed; ops-hub 28 checks pass; data-headlines 21 tests pass under Python 3.11.
 
@@ -239,5 +242,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-15 (CSA persona definition system + keyword threshold meeting)*
+*Last updated: 2026-04-15 (CSA Admin role granted + Team Target Audiences; Snowflake/Sigma walkthrough)*
 *Maintained by Claude. Updated proactively as work completes.*
