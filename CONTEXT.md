@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-15 — csa-content-standards v1.7.0–v1.8.0: CSA Target Audience Definitions built for all 5 personas (full descriptions, core drivers, What They Respond To specifics, csa-target-audience tag). 3 format pages scaffolded then removed at Sara's direction (personas+formats now decoupled). Keyword threshold meeting invite sent; Rocky + Sarah confirmed. Meetings 2–4 (Sarah Price, Sara agentic, Ryan weekly) still pending scheduling. Rocky+Chad Snowflake walkthrough held 1:30pm CDT — update P1+P14 with findings.
-**Status:** 18 active/tracked projects. Compass goals submitted (Jeremy approval pending Apr 30). Rocky+Chad walkthrough today 1:30pm CDT. PGS-104 in code review; PGS-96 ready for production.
+**Last session:** 2026-04-15 — Snowflake/Sigma walkthrough complete (Rocky+Chad). Key Snowflake tables identified: story_traffic_main (O&O PV) + dynamic_story_metadata (author, SEO, keywords). Amplitude data in Snowflake (Amplitude events prod). No Sigma OAuth2 needed — GitHub→Snowflake direct (Chad setting up). eCPM → Ryan Spalding. PTECH-7730 → Joe Vitali. Rocky confirmed per-pub SEMrush model. All context stored across P1/P2/P3/P14 + subsidiary repos.
+**Status:** 18 active/tracked projects. Compass goals submitted (Jeremy approval pending Apr 30). Meetings 2–4 (Sara agentic, Ryan weekly) still pending scheduling.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)

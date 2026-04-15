@@ -32,8 +32,54 @@ Get navigation cues for Snowflake data — understand what author-level and keyw
 - What does the CSA Sigma dashboard scope look like from Chad's side?
 
 ## Desired Outcomes
-- [ ] Know what author-level data is available in Snowflake and whether it's actionable for playbooks
-- [ ] Know SEMrush credit cost per endpoint → unblock automation decision
-- [ ] Decision on DataForSEO: evaluate or skip for now
-- [ ] Confirm whether keyword-to-article Sigma data exists
-- [ ] Next verticals timing confirmed with Rocky
+- [x] Know what author-level data is available in Snowflake and whether it's actionable for playbooks
+- [ ] Know SEMrush credit cost per endpoint → Rocky pinging Julio; pending
+- [ ] Decision on DataForSEO: evaluate or skip for now — Rocky's take: Amplitude (via Snowflake) better for multi-channel; DataForSEO useful for organic/rank tracking if needed
+- [x] Confirm whether keyword-to-article Sigma data exists — Rocky: no existing CSA Sigma workbook
+- [ ] Next verticals timing confirmed with Rocky — financial services confirmed as priority, pub not locked
+
+---
+
+## Outcomes (2026-04-15)
+
+### Snowflake structure confirmed
+- Three layers: Raw → Clean → Presentation
+- Amplitude = direct connection to Snowflake; its data lives in `Amplitude events prod` table (presentation/amplitude schema)
+- Most useful data is in Presentation
+
+### Key tables
+| Table | Schema path | Contents |
+|-------|-------------|----------|
+| `story_traffic_main` | MCC presentation → Tableau reporting | Story ID, event date, page views, visits — by market and date for every story |
+| `dynamic_story_metadata` | MCC presentation | Author name (`author_name`), URL, SEO metadata, keywords, taxonomies — join on story ID |
+| `Amplitude events prod` | presentation/amplitude | Full Amplitude event data in Snowflake — use this instead of direct Amplitude API |
+
+- Google Search Console data: MCC RAW → Google Search Console schema — Pierce confirmed access at end of meeting
+- Dynamic table schema access: granted live by Chad during meeting
+- SEO metadata and keywords already in story table — no separate build needed
+
+### Sigma / OAuth2 clarification
+Sigma OAuth2 is NOT needed. Sigma is just a reporting UI on top of Snowflake. Connect GitHub directly to Snowflake instead. Chad confirmed this is possible and offered to help set it up (GitHub preferred over Bitbucket — Chad doesn't use Bitbucket).
+
+### Ad yield / eCPM
+Not available at article level. Tracked at page level and rolled up by traffic. Chad deferred to Ryan Spalding ("ad expert") for anything yield/eCPM related. Ryan has something built but noted it's imperfect science.
+
+### PTECH-7730
+Rocky: it's a PE ticket. Joe Vitali is best contact — may not own it but will know who does.
+
+### No existing CSA Sigma workbook
+Rocky was unaware of any. Rocky offered to pitch in on CSA data work going forward.
+
+### SEMrush / Rocky
+- Per-publication model confirmed — Rocky will rerun competitor data pull per pub, not aggregated
+- Rocky has not heard from Julio on credit rates; pinging again same day
+- 250K = Pierce's L&E allocation; Rocky's total pool = 2M/month (overage possible if needed, not standing)
+- Rocky's "data for SEO" internal service = organic metadata + keyword rank tracking tool; separate from DataForSEO API
+
+### Action items
+- [Pierce] Contact Chad Bruton to set up GitHub → Snowflake direct connection
+- [Pierce] Contact Ryan Spalding about ad yield/eCPM data
+- [Pierce] Contact Joe Vitali about PTECH-7730 ownership
+- [Pierce] Explore story_traffic_main + dynamic_story_metadata — run test queries
+- [Rocky] Ping Julio on per-endpoint credit rates
+- [Rocky] Rerun competitor data pull per publication (financial services first, pub TBD)
