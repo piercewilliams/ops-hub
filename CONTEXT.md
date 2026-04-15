@@ -142,7 +142,7 @@ For session history: see [sessions/](sessions/)
 
 **#1 — TODAY (2026-04-15):**
 **Step 1 — Schedule meetings today (before or after Snowflake call):**
-0. [ ] **Schedule: Keyword Threshold session** — Rocky ✓ Sarah ✓ Chris free whenever (2026-04-15 Slack). Send calendar invite for next week. Agenda in `meetings/2026-04-xx-keyword-thresholds.md`
+0. [x] ~~**Schedule: Keyword Threshold session**~~ — Invite sent 2026-04-15. Rocky ✓ Sarah ✓ Chris free whenever. Agenda in `meetings/2026-04-xx-keyword-thresholds.md`
 0. [ ] **Schedule: Sarah Price weekly report format coord** — for 2026-04-17 when she returns; agenda in `meetings/2026-04-17-price-weekly-report.md`
 0. [ ] **Schedule: Sara Vallone agentic writing intro** — confirm with Sara on framing before finalizing; agenda in `meetings/2026-04-xx-sara-agentic-intro.md`
 0. [ ] **Schedule: Ryan weekly check-in** — standing recurring; agenda in `meetings/2026-04-xx-ryan-weekly-checkin.md`

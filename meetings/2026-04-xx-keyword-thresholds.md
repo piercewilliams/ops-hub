@@ -1,7 +1,7 @@
 # Keyword Threshold Definition Session
-**Date:** TBD next week — send calendar invite
+**Date:** TBD next week
 **Attendees:** Pierce Williams, Rocky Rhodes, Sarah Price, Chris Palo
-**Status:** Rocky + Sarah confirmed (2026-04-15 Slack). Chris is free whenever (per Sarah). Needs calendar invite.
+**Status:** Invite sent 2026-04-15. Rocky + Sarah confirmed via Slack. Chris free whenever (per Sarah).
 
 ---
 
