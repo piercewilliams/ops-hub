@@ -209,13 +209,14 @@ export const PROJECTS = {
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
     description: '13 findings, 5-tile playbook, author playbooks, Headline Grader (daily, 15 criteria), weekly auto-ingest (Mon 8pm CDT). 21/21 tests pass. Fully hardened 2026-04-14: 9 CI bugs fixed. Tarrow weekly run now functional — verify automation held next Tuesday.',
     blockers: [
-      'Headline Grader: can\'t move to M-Lache org — Chris pinging Rasheed about Bitbucket + Cloudflare team environment',
+      'Headline Grader: can\'t move to McClatchy org — Chris pinging Rasheed about Bitbucket + Cloudflare team environment',
+      'Author playbooks: Tarrow data has small per-author sample sizes — Chris prefers Snowflake as authoritative source; wait for Snowflake navigation meeting before treating playbooks as actionable',
     ],
     nextActions: [
       'Check Tuesday morning that Tarrow automation ran clean (first verification after fix)',
       'Document sandbox base build for Chris + Sarah Price (Chris explicitly asked)',
       'Notify Tarrow: active time outliers in source Excel (values up to 23,496s — likely ms stored as seconds)',
-      'Add per-author breakdown to Headline Grader',
+      'After Snowflake meeting (2026-04-15): assess what author-level data is available to upgrade playbooks beyond directional',
       'Ecosystem audit: validate cross-platform comparisons stay within ecosystem type (app-based vs web-based)',
     ],
     dependsOn: ['p1-access'],
