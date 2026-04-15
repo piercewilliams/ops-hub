@@ -426,25 +426,26 @@ export const PROJECTS = {
   },
 
   'p18-agentic-writing': {
-    id: 'p18-agentic-writing', num: '18', tier: 5, type: 'project', status: 'not-started',
+    id: 'p18-agentic-writing', num: '18', tier: 5, type: 'project', status: 'in-progress',
     name: 'Agentic Writing Helpers',
-    owner: 'Pierce · Chris Palo · Sara Vallone · Susannah Locke · Kathryn Sheldon',
+    owner: 'Pierce · Chris Palo · Sara Vallone',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
-    description: 'Agent-in-document workflows for McClatchy editorial teams. Sparked by Chris Palo forwarding Every.to "Proof" podcast (2026-04-13). The pattern matters, not the product. Two distinct workflows: (1) PRDs — agent co-drafts planning docs, colleague\'s agent reviews, human approves; (2) Content creation — record thoughts (Monologue or text), agent builds running note + outline, human writes in. Agent trust prerequisite: must identify which agents are reliable for McClatchy use cases before deploying to teams. Repo: write-assist.',
+    description: 'Skills library + orchestrator model for editorial writing workflows — NOT a generalized UI. Philosophy/infrastructure question first; no tooling decisions until that\'s settled. Voice tracker framing: agent that knows a writer\'s voice well enough to co-pilot drafts (~40% time savings goal). CSA fundamental problem: doesn\'t log what it does, can\'t self-improve — Chris built his own personalized agent on Rajiv\'s monitor setup that does log. CSA backend unknown (no one — Rajiv, Jason — could answer what the core agent is). Author fine-tuning technically ~1 day of work; blocked by news labor concerns, not engineering. Start with Sara Vallone + weekly Ryan check-ins. Do NOT introduce to Susannah/Kat yet. Full context: write-assist/CONTEXT.md.',
     blockers: [
-      'Agent trust gate: must establish which agents are reliable for McClatchy editorial use before deploying to Sara\'s team or Susannah/Kat',
-      'Scope not yet defined — awaiting Chris 1:1 direction on which workflow first',
+      'News labor concerns: author fine-tuning on individual writer data requires union agreement — not an engineering problem',
+      'CSA backend unknown: core agent identity (Claude? LangChain?) unresolved — no one could answer; blocks CSA-integrated approach',
     ],
     nextActions: [
-      'Discuss with Chris at 1:1: which workflow first (PRDs or content creation)? Sara\'s team or Susannah/Kat?',
-      'Define agent trust criteria — what makes an agent reliable enough for McClatchy editorial use?',
-      'Map PRD workflow: plan → agent review → human approve → agent execute',
-      'Map content creation workflow: Monologue/text → running note → outline → human writes in',
+      'Draft philosophy doc — establish why and how before any tooling decisions',
+      'Open conversation with Sara Vallone: what does she find hardest about her current writing workflow?',
+      'Set up weekly Ryan keyword/writing tool check-in',
+      'Define what "voice tracker" means concretely for Sara\'s workflow',
+      'Map skills library: what discrete skills does the orchestrator need first?',
     ],
     dependsOn: ['p4-governance'],
     contacts: [
-      { name: 'Chris Palo', role: 'Sponsor; forwarded Every.to Proof podcast 2026-04-13' },
-      { name: 'Sara Vallone', role: 'Primary target team (content creation workflow)' },
+      { name: 'Chris Palo', role: 'Sponsor; philosophy-first directive; has trained voice model on Sara\'s content externally' },
+      { name: 'Sara Vallone', role: 'Primary pilot target — content creation workflow' },
     ],
     links: [
       { label: 'Every.to Proof podcast (overcast)', url: 'https://overcast.fm/+ABFpy8Pupn4' },
