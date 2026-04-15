@@ -783,11 +783,12 @@ document.addEventListener('click', (e) => {
 // ── Keyboard shortcuts ────────────────────────────────────────────────────────
 
 document.addEventListener('keydown', (e) => {
-  // Escape: close modal first, then sidebar
+  // Escape: close modal first, then sidebar and progress panel
   if (e.key === 'Escape') {
     const modal = document.getElementById('snap-restore-modal');
     if (modal?.classList.contains('visible')) { modal.classList.remove('visible'); return; }
     closeSidebar();
+    closeProgressPanel();
   }
   // Enter while passkey field is focused triggers restore attempt
   // Guard: only fire if the restore modal is actually open (visible class present)

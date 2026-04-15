@@ -6,6 +6,8 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-15', task: 'v0.88 shipped to production. Three National team features live: (1) PGS-134 — "Everything to Know" + "FAQ / Service Journalism" content formats now available for National team; (2) PGS-115 — Google Discover Explainer format now visible to all users, not National team only; (3) PGS-96 — "The Discover Browser" saved as shared target audience for all National team accounts. PGS-133 placed ON HOLD — Susannah using new admin feature to create target audiences directly, making the code-change ticket unnecessary. Docker resource bug found post-deploy (Oliver Felix + Marcelo patching).', project: '#4 Article Format + Persona + Keyword Governance' },
+  { date: '2026-04-15', task: 'Daily standup 2026-04-15: PGS-82 confirmed high-priority with PyTorch performance issue identified — Marcelo fixing directly in branch before rebase. PGS-140 PR pushed (CODE REVIEW). PGS-139 IN PROGRESS (Marcelo). PGS-104 strategy: merge PR as-is, future issues = hotfix. Jason Adkins role confirmed: Insights Agent / Trend Hunter action plan — Kathryn scheduling call with Jason + Marcelo today. Guilherme Gomes Caires assigned to new epic (Marcelo\'s), requesting Snowflake access. Daury Caba created non-expiring tokens ticket for Q integration testing.', project: '#2 Dashboard Instrumentation' },
   { date: '2026-04-14', task: 'SN channel × formula analysis complete (T1 Headlines new finding). Analyzed 2025 SmartNews full-year data (38,251 rows). Question format underperforms in Top, Entertainment, Lifestyle channels (p<0.0001, p=0.012, p=0.027). WTK underperforms in Top channel (p=0.008). Number lead has large U.S.-channel penalty (Δ=−0.245, p<0.0001, n=83). Callout added to data-headlines formula trap panel. Experiment suggestion added: replicate in 2026 per-article data for causal validation. Longitudinal weekly snapshot data surfaced on main page and experiments page — trend table renders automatically after ≥2 more weekly runs.', project: '#3 T1 Headline Analysis' },
   { date: '2026-04-14', task: 'Distilled 25+ open CSA Jira tickets into executive bullet points for Chris Palo. Synthesized pending dev requests, bug status, and strategic items into a briefing-ready summary covering national team priorities, pipeline blockers, and in-progress/code-review queue.', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-14', task: 'PGS-96 READY FOR PRODUCTION: Add "The Discover Browser" as a Saved Target Audience for all National team users. Susannah Locke approved — all QA tests passed: variant creation works, admin can create + save new target audiences, persists across sessions, visible to National team members via "view as," correctly hidden from Miami team members. Susannah note: will add the Discover Browser audience itself after production release.', project: '#4 Article Format + Persona + Keyword Governance' },
@@ -144,8 +146,8 @@ export const PROJECTS = {
       'Sara Vallone parameter session not yet scheduled',
     ],
     nextActions: [
-      'Create dev ticket: replicate author profile voice customization in-house (Gary\'s methodology known; Kathryn confirmed replicable)',
       'Schedule Sara Vallone parameter session — agenda ready (session-agenda-vallone.docx); 4 decisions needed',
+      'Flag author profile replication to Susannah — greenlit at CSA Weekly; Gary methodology known; test internally (Sara/Pierce/Susannah) before wider rollout',
       'Monitor Kathryn/Jason conversation on Gary contract + code access',
       'Begin scoping V1 internal source ranking library (Chris ask; after parameter session)',
     ],
@@ -182,7 +184,7 @@ export const PROJECTS = {
     name: 'Dashboard Instrumentation',
     owner: 'Pierce',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'Live data ingestion layer for csa-dashboard. Manual bridge active. Release batches defined (Susannah Slack 2026-04-14): Batch 1 in staging (PGS-115, PGS-96, PGS-134) — PGS-96 → READY FOR PRODUCTION (all tests passed). Batch 2: PGS-82 (top priority, in QA) + PGS-104 (getting code updates for all custom Content Formats). Batch 3: PGS-133, PGS-111, PGS-147, PGS-141. PGS-82 still #1 priority. PGS-140 IN PROGRESS — Marcelo needs Amplitude data test. PGS-139 SELECTED FOR DEV. PGS-171 IN PROGRESS. PTECH-7730 (p-tagging fix, PT Delta, TO DO). 35-item backlog context: Flatiron→MCP migration + Travis Frell approval requirement + dual code review = backlog. Clearing this week. New process: weekly release lists to Pierce/Chris (Kathryn committed).',
+    description: 'Live data ingestion layer for csa-dashboard. Manual bridge active (edit data/manual-metrics.js). v0.88 shipped — PGS-115, PGS-96, PGS-134 all done. PGS-82 in QA (#1 priority, PyTorch fix in progress). PGS-104 and PGS-111 in progress. PGS-140/139 in progress/code review. Adapters planned: Sigma (OAuth2 needed), Marfeel (API key needed), Amplitude (blocked on PTECH-7730 p-tagging fix).',
     adapters: [
       { name: 'Google Sheets (manual)', status: 'done', note: 'Edit data/manual-metrics.js to update numbers.' },
       { name: 'Sigma', status: 'pending-creds', note: 'Stories/week, batting average. Needs OAuth2 from Chad.' },
@@ -230,16 +232,16 @@ export const PROJECTS = {
     name: 'Article Format + Persona + Keyword Governance',
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
-    description: '5 National team personas sent to Susannah. AGENT-AUDIENCE §1 routing live. PGS-96 → READY FOR PRODUCTION (2026-04-14). PGS-104 (keyword enforcement) getting code updates to work with all custom Content Formats — keyword field coming this week, mandatory (Chris decided; Sara confirmed; Susannah updating ticket). PGS-134 + PGS-115 in staging. PGS-133/111/147/141 in code review. PGS-150 PRODUCT REVIEW (Copyscape endorsed; Victor recommendation). PGS-149 ON HOLD. PGS-93 BACKLOG. NEW: keyword color overlay greenlit at CSA Weekly — 4-color headline breakdown (subject/lead, keyword, active verb + 4th); Kathryn: toggle/overlay, must not affect markdown/CMS export; Chris: start with keyword color, then add headline success criteria; separate ticket needed. NEW: author profile replication — dev ticket to be created (replicate Gary\'s methodology in-house; test internally Sara/Pierce/Susannah).',
+    description: 'Governs what the CSA produces for the National team: 5 personas, a growing content format library, keyword enforcement, and SEO standards. ETK + FAQ formats + Discover Browser audience shipped in v0.88. Keyword input field in progress (PGS-104). Keyword color overlay and author profile replication greenlit at CSA Weekly. Apple/SmartNews best practices ready to migrate to format section.',
     blockers: [
-      'Andy sign-off on Apple News + SmartNews templates — 2 emails sent, no response. Submit ticket if still silent.',
+      'Andy sign-off on Apple News + SmartNews distribution templates — 2 emails sent, no response',
     ],
     nextActions: [
-      'Create dev ticket: keyword color overlay (4-color headline breakdown — separate from keyword field ticket)',
-      'Create dev ticket: author profile voice replication (Gary\'s methodology; test internally first)',
+      'Migrate Apple News + SmartNews best practices from persona → format section in csa-content-standards (PGS-134 is now DONE)',
+      'Follow up with Susannah on keyword color overlay — greenlit at CSA Weekly; awaiting team ticket',
+      'Follow up with Susannah on author profile replication — greenlit at CSA Weekly; Gary methodology known',
       'Finalize Science-Curious Retiree + Casual Reader persona definitions — required before Susannah saves as shared custom personas',
-      'When PGS-134 ships: migrate Apple News + SmartNews best practices from persona → format section in csa-content-standards',
-      'Andy: submit ticket if still no response on distribution templates',
+      'Andy: follow up on Apple News + SmartNews distribution templates if still no response',
       'Extend AGENT-AUDIENCE routing annotations to §2+ sections',
       'Consolidate TH/TH B2C persona variants with Sara + Sarah Price',
     ],
@@ -247,11 +249,11 @@ export const PROJECTS = {
   },
 
   'p12-unitedrobots': {
-    id: 'p12-unitedrobots', num: '12', tier: 4, type: 'project', status: 'in-progress',
+    id: 'p12-unitedrobots', num: '12', tier: 4, type: 'project', status: 'hold',
     name: 'United Robots Inbound Pipeline',
     owner: 'Pierce · Sara Vallone · Sarah Price',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'Use CSA to capture United Robots\' 50% revenue share. Q/Cue integration (Daury Caba) IN CODE REVIEW 2026-04-13 (31 files). Send-to-WP ✅ live but headline bug active — variant name + date corrupting URL slug, harms SEO. Daury investigating both. Build prerequisites still outstanding: EGS-127 (cluster ID), PGS-80 analytics.',
+    description: 'Use CSA to wrap and enrich United Robots\' automated wire content (sports, weather, elections) for McClatchy sites. Send-to-WP integration live but unreliable until headline URL slug bug fixed. Q/Cue integration in code review. On hold — EGS-127 (cluster tagging) and PGS-80 analytics must land before pipeline build can begin.',
     blockers: [
       'Send-to-WP headline bug: variant name + date in slug → harms SEO. Daury Caba investigating.',
       'EGS-127 and PGS-80 must land before build starts',
@@ -324,12 +326,12 @@ export const PROJECTS = {
   // ── TIER 5 ────────────────────────────────────────────────────────────────
 
   'p35-narrative': {
-    id: 'p35-narrative', num: '3.5', tier: 5, type: 'project', status: 'not-started',
+    id: 'p35-narrative', num: '3.5', tier: 5, type: 'project', status: 'in-progress',
     name: 'Content Analysis / Narrative Dashboard (Price)',
     owner: 'Pierce · Sarah Price',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
     description: 'Ongoing monitoring layer and reporting narrative with Sarah Price. Distinct from headline analysis — this is the reporting layer on top. Standing governance item: Sarah sends weekly exec note on content performance; Pierce adds CSA operations piece (wins + priorities — not a ticket dump, per Chris). Combined = one weekly update for stakeholders. Framing: constructive progress, not a complaint about velocity.',
-    blockers: ['Sarah Price out until 2026-04-17 — coordinate format on her return'],
+    blockers: ['Format not yet formalized — coordinate with Sarah Price when she returns 2026-04-17'],
     nextActions: [
       'When Sarah Price returns (2026-04-17): arrange meeting to coordinate format for combined weekly update',
       'Build Pierce\'s operations piece — CSA wins + priorities; keep it brief and constructive',
@@ -339,22 +341,22 @@ export const PROJECTS = {
   },
 
   'p5-testing': {
-    id: 'p5-testing', num: '5', tier: 5, type: 'project', status: 'not-started',
+    id: 'p5-testing', num: '5', tier: 5, type: 'project', status: 'in-progress',
     name: 'Personas & Formats Testing / Optimization',
     owner: 'Pierce',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Controlled pairwise experiments (~3 formats × 3 personas). Start with Discover + Trend Hunterland. Discover Persona test sheet exists in Sarah Price\'s tracker (empty).',
-    blockers: ['Needs P4 (controlled set) and P7 (cluster tags) first'],
-    nextActions: ['Complete P4 + P7, then design pairwise schedule with Sarah Price'],
+    description: 'Controlled pairwise experiments testing persona × format combinations to identify what actually drives performance. Starting with Discover + Trend Hunter personas. Discover Persona test sheet exists in Sarah Price\'s tracker (early stage). Depends on P4 format library stabilizing and EGS-127 cluster tagging for outcome measurement.',
+    blockers: ['Needs P4 format library stable + EGS-127 cluster tagging before controlled experiments can run'],
+    nextActions: ['Design pairwise test schedule with Sarah Price — Discover × Curious Explorer as first candidate pair'],
     dependsOn: ['p4-governance', 'p7-tracker'],
   },
 
   'p15-partner': {
-    id: 'p15-partner', num: '15', tier: 5, type: 'project', status: 'in-progress',
+    id: 'p15-partner', num: '15', tier: 5, type: 'project', status: 'hold',
     name: 'Partner Content / Inventory Optimization',
     owner: 'Pierce · Kathryn Sheldon · Chris Palo · Kathy',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'MRSS feed optimization — 20-30 partner content vendors (Athlon, UPI, Reuters, Minute Media, Field Level Media, Tribune, Andrews McMeel, NYT, Arena) currently smashed together with no optimization layer; selection logic is recency or hard-coded priority. No ad-decision-engine equivalent exists. Feed-level subsection data available (e.g. Newsweek sports, Tribune opinion, Tribune national) — can inform placement decisions per site. Field Level Media ~1/3 higher PV/story vs Minute Media for sports feeds — meaningful placement lever. Two-lane approach greenlit by Chris: (1) quick — top 5 partners, optimize MRSS feeds with Kathy; (2) larger — full feed indexing + placement optimization. Pierce\'s role: awareness + orientation; Chris/Kathy executing. AI vetting policy + legal question (analyze-not-train rights) remain open. Sub-scope (Reuters wire, exploratory): Reuters Connect wire content (health, national) could augment Trend Hunter Mindbody content calendars via IPA pipeline — contract constraint means Reuters content cannot go to CSA, only IPA. Low-stakes test once provisioning completes. SENSITIVE: Reuters relationship + Joe Vitali contact are internal only.',
+    description: 'Optimize how McClatchy selects and places 20-30 partner content feeds (Reuters, Athlon, Field Level Media, UPI, and others). Current system uses recency or hard-coded priority with no performance layer. Field Level Media drives ~1/3 higher PV/story than Minute Media for sports. Two lanes: quick — top 5 feeds MRSS optimization with Kathy; larger — full feed indexing + placement optimization. Waiting on Chris/Kathy kickoff. Sub-scope (internal only): Reuters Connect wire could augment Trend Hunter Mindbody via IPA pipeline — contract prevents CSA use.',
     blockers: [
       'Reuters still provisioning (~1 week) — waiting on access before testing',
       'AI vetting policy not drafted yet',
