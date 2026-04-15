@@ -107,7 +107,7 @@ export const PROJECTS = {
       { name: 'Amplitude', status: 'done', note: 'Access confirmed. Adapter blocked on CSA eng p-tagging bug (CUE/WP mismatch) — their fix.' },
       { name: 'Marfeel', status: 'done', note: 'Access confirmed 2026-04-09. Apple filter removed from main UI — Sarah Price\'s custom dashboard is the accurate Apple view. El Nuevo numbers may be inflated; verify before analysis.' },
       { name: 'Gary API', status: 'done', note: 'Full API docs + McClatchy key in hand. See gary-tools repo.' },
-      { name: 'SEMrush', status: 'done', note: '250K credits in L&E workspace. Requested key directly from Rocky Rhodes 2026-04-13 (Sarah Price had it). Automation blocked until Julio credit rate confirmed.' },
+      { name: 'SEMrush', status: 'done', note: '250K credits in L&E workspace. Key from Rocky Rhodes 2026-04-13. Automation blocked until Julio credit rate confirmed. Pull request paused 2026-04-15 — Chris flagged logic flaw; Pierce to revise ask after Snowflake walkthrough.' },
       { name: 'MAIA', status: 'done', note: '' },
       { name: 'BitBucket', status: 'done', note: '' },
     ],

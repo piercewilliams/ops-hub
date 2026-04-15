@@ -98,6 +98,7 @@ For session history: see [sessions/](sessions/)
   - **Bold formatting bug** — One report ever (Shelby), very low impact. Susannah treating as outlier. Jonathan Gonzalvo investigating as low priority.
   - **Jason Adkins** — Appeared in standup invite list (strikethrough = did not attend). Role unknown; watch for future appearances.
 - **Potential P17 — Spanish CSA Pipeline:** Chris Palo + Rajiv considering dedicated Spanish pipeline. Julia Tortoriello meeting (2026-04-10) establishes baseline: current stack is GPT-3 + custom prompts + standalone "dog translator" GPT. Dialect = Colombian Spanish register for US Hispanic audience. Julia willing to test CSA in Spanish. No scope or timeline yet — watch for Chris/Rajiv direction.
+- **SEMrush pull request PAUSED (2026-04-15):** Pierce asked Rocky to pause the pull request. Chris flagged a logic flaw that limits use value of the current SEMrush ask. Rocky confirmed pulls hadn't started yet — no loss. Pierce to return with revised ask after Snowflake walkthrough.
 - **National portfolio canonical file:** `data/national-portfolio.js` — 13 brands, domains, authors, verticals, syndication platforms. Live URL: `https://piercewilliams.github.io/ops-hub/data/national-portfolio.js`. Single source of truth for all API scoping (SEMrush, Amplitude, Marfeel, Gary, etc.). Source: Sara Vallone tracker 2026-04-13. Excludes Life & Style + Mod Moms Club.
 - Sync: **Manual** — update `data/projects.js` in a Claude Code session, commit, and push. Pill reads last commit time via GitHub public API (green <3d, yellow 3–7d, red >7d).
 
@@ -125,7 +126,7 @@ For session history: see [sessions/](sessions/)
 | 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7. Discover Persona test sheet exists in tracker (empty). |
 | 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | **PGS-40 → WON'T DO (2026-04-08).** Work restructured into EGS-127 (epic, 4 subtasks, Marcelo assigned). **Ticket 12828 (first of 4) selected for development 2026-04-13.** Marcelo offering guidance (did the planning). Has engineering mods. 700+ stories/month currently tracked manually. |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris. Testing tracker is manual evidence of demand. |
-| 8 | Rajiv CSA Mapping | 2 | In progress | Low priority; not blocking anything. |
+| 8 | Rajiv CSA Mapping | 2 | Not started | Low priority opportunistic work; not blocking anything. |
 | 9 | ~~PRD Revisions~~ | — | **Complete** | V0.5 complete 2026-04-10 evening. All 10 Chris Palo items + T3 sub-pipes implemented. Pasted into Google Docs. |
 | 10 | Gary Tools Integration | 2 | **In progress** | **Evaluation complete (CSA Weekly 2026-04-14).** Gary off QA gate roadmap: black-box, not deterministic, no plagiarism tool (uses Originality.ai). Gary value = commerce/SEO for Andy only. **IP/contract concern:** Kathryn discussing with Jason — McClatchy may not own Gary's code; tools live on Gary's personal API. Chris to tell Jason team has failed to get code. **Author profile replication greenlit:** Gary built Sara's voice from ~100 articles; replicable in-house; create dev ticket; test internally (Sara/Pierce/Susannah). Sara parameter session still TBD. |
 | 11 | Recipes | 5 | Not started | Needs P9 + P4 |
@@ -141,7 +142,7 @@ For session history: see [sessions/](sessions/)
 
 **#1 — TODAY (2026-04-15):**
 **Step 1 — Schedule meetings today (before or after Snowflake call):**
-0. [ ] **Schedule: Keyword Threshold session** — Rocky + Sarah + Chris; agenda in `meetings/2026-04-xx-keyword-thresholds.md`
+0. [ ] **Schedule: Keyword Threshold session** — Rocky ✓ Sarah ✓ Chris free whenever (2026-04-15 Slack). Send calendar invite for next week. Agenda in `meetings/2026-04-xx-keyword-thresholds.md`
 0. [ ] **Schedule: Sarah Price weekly report format coord** — for 2026-04-17 when she returns; agenda in `meetings/2026-04-17-price-weekly-report.md`
 0. [ ] **Schedule: Sara Vallone agentic writing intro** — confirm with Sara on framing before finalizing; agenda in `meetings/2026-04-xx-sara-agentic-intro.md`
 0. [ ] **Schedule: Ryan weekly check-in** — standing recurring; agenda in `meetings/2026-04-xx-ryan-weekly-checkin.md`
