@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-15 — Snowflake/Sigma walkthrough complete (Rocky+Chad). Key Snowflake tables: story_traffic_main (O&O PV) + dynamic_story_metadata (author/SEO/keywords). Amplitude in Snowflake (Amplitude events prod). No Sigma OAuth2 — GitHub→Snowflake direct (Chad). eCPM → Ryan Spalding. Rocky per-pub SEMrush confirmed. Pierce granted CSA Admin by Susannah — Susannah entered 2 of 5 personas as Team Target Audiences (Discover Browser + Science Enthusiast); Pierce to enter remaining 3 (Curious Optimizer, Curious Explorer, Watercooler Insider).
-**Status:** 18 active/tracked projects. Compass goals submitted (Jeremy approval pending Apr 30). Sara Vallone agentic intro still pending scheduling.
+**Last session:** 2026-04-15 22:17 UTC — Automated sync. Human session earlier today: Snowflake/Sigma orientation (Rocky+Chad, 1:30pm CDT). All 5 personas live in CSA production. v0.88 deployed. MAIA 14-day test started.
+**Status:** 19 active/tracked projects. Compass goals submitted (Jeremy approval pending Apr 30).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -11,96 +11,21 @@ For session history: see [sessions/](sessions/)
 
 ## Current State
 
-- Live at `https://piercewilliams.github.io/ops-hub`
-- 15 active projects across 5 dependency tiers + 1 hold (P13 closed) — P14 SEMrush added 2026-04-04, P15 Partner Content now in-progress (Lindy's going live, AI policy active), P16 LTV Model added 2026-04-06 (not-started)
-- **P9 (PRD) — CLOSED.** V0.5 complete and delivered 2026-04-10. Removed from dependency map. P15, P16, P11 dependencies satisfied.
-- **Inclination Engine** — named and defined in PRD V0.5. Sole future input for automated signals and T1/T2 brief generation. In Signal & Brief Creation, CSA section, Strategic Pipeline Elements, and Open Questions.
-- **Gary Kirwan meeting held + batch test complete (2026-04-13):** NO plagiarism detection built internally — Copyscape stands. Confidence = claim-level, deterministic. Batch test: 15/15 Sara Vallone articles, 0 errors, all MOSTLY_TRUE (conf 0.78–0.88), 21 flagged claims. DOCX report + session agenda sent to Chris + Sara Vallone via Slack. Parameter session TBD.
-- **New pipelines under investigation (Chris 2026-04-10):** (1) Infographics pipeline — trend research → branded infographic (e.g. HSA rates → Trend Hunter graphic); (2) Licensed partner content pipeline — licensed influencer video/transcript → CSA → multiple articles + tangential content → Trend Hunter + Pier1 sites.
-- **Gary tools = "nodes"** — cross-pipeline tools (Gary SEO, fact-checking) that every pipeline touches. Need to specify which tools impact each pipeline. Action: contact Gary for full tool roster, copy Chris.
-- **Editorial responsibility reiterated (Chris, 2026-04-10):** Chris met with editorial team — they own the content the tool produces regardless of system output. Team should tag Slack issues as "bug" (unexpected behavior) or "feature request" (new idea) to help Susanna prioritize.
-- **Deedra comparison dashboard gap:** Current dashboard aggregates data but doesn't allow team vs. whole-org comparison. Chris needs this. Sarah Price following up with Deedra.
-- **Distribution framing (Chris, 2026-04-10):** Channels = O&O, Trend Hunter app, Syndication, TBTV (future). Syndication is an avenue not the focus. Value calculation differs per pipeline (RPM vs RPS vs deal economics). PRD was over-indexed on syndication monetization.
-- **$85 CPA → 6,156 PV breakeven** — ECPM data Chris shared. Reference data point; do NOT specify in PRD (too prescriptive). Stored in REFERENCE.md.
-- SEMrush + Amplitude access confirmed 2026-04-04. Marfeel status unclear.
-- **CSA architectural refactor (Rajiv, 2026-04-06 weekend):** YAML style guide structure removed; style guides now in Markdown stored in PostgreSQL via PG vector plugin. Two-tier hierarchy: local/admin guides in PG vector; constitutional guides bundled with source code. CSA can now validate uploaded style guides. Fixes: LLM token exhaustion from conflicting content-length vs. source-quality rules.
-- **New CSA features (2026-04-06):** "Thinking feature" — CSA displays its reasoning to users (aids debugging, rule tracking). Progress bar replaced spinning circle ("elevator mirror" analogy). One known hang bug remains (Rajiv investigating — possibly Claude overload or hung connection).
-- **CSA performance improvement (2026-04-07):** Rajiv replaced thinking tokens for trivial tasks (char counting, text sizing) with code + targeted LLM call to shorten headlines when too brief. Result: 8.5 min → 1 min 18 sec on test runs, with equal or better content quality.
-- **Rajiv on vacation (as of 2026-04-09):** Emil Penalo + Oliver Felix delegated production merge authority until Rajiv returns. Saner Keles getting them push-to-production access (from Emmanuel or Gabe Baraga). PR review backlog being prioritized before new dev tasks. Release notes to be organized by theme (national team, e-commerce, admin). Upstatement wrap-up handoff happening next week — all team added as optional attendees.
-- **WordPress send-to WP LIVE (2026-04-09) — CRITICAL BUG FOUND (2026-04-10):** Send-to-WP feature is including the audience variant name + date in the headline, which then populates the URL slug. This requires manual rework by publishing team and could harm SEO. Kathryn Sheplavy flagged in standup; Daury Caba assigned to investigate and use SEO headline instead. Bug is active — P12 reliability affected until fixed.
-- **Snowflake for Marcelo Freitas:** Marcelo needs trend agent table keys (not personal access). Kat Sheplavy escalating to Brad after standup.
-- **Jonathan Gonzalvo QA scope expanding:** Now looking for content quality issues (not just tech/product bugs) — using Claude to evaluate generated variants against expectations. Susannah + Kat closely coordinating.
-- **Confluence space:** Saner Keles creating a Confluence space for doc consolidation (Victor Suarez's request). Victor building the page. May need Amanda for admin access.
-- **2-PR process (new, effective after this week):** All non-emergency code changes require 2 PRs. Rajiv established before leaving for vacation. Emergency hotfixes excepted.
-- **Own voice feature:** Discussed in standup — Susannah interested, Rajiv open to it. Emil flagged privacy + plagiarism risk if generated voice is used elsewhere. No decision; Rajiv says implement thoughtfully or not at all.
-- **Mobile app (Trend Hunter prototype):** Rodrigo demo'd search screen, profile screen (mocked data), feed with videos/predictions/images in 2026-04-10 standup. TestFlight internal testing coming soon — Kat coordinating access with Eric Goodwin; Rajiv creating Slack thread for iCloud emails. Figma mocks being sent to Rodrigo. Strong demo; real timeline emerging.
-- **Release wave (2026-04-10 standup):** Saner + Oliver merging 9–10 tickets to staging today; targeting 14–15 items ready for production release Monday 2026-04-13. Oliver offering daily morning releases. Monitor closely — large surface area.
-- **New board process (2026-04-10):** Developers must tag Kathryn Sheplavy or Susannah Locke when moving a ticket to Product Review column. This is new — required for change management before Monday release.
-- **Ticket 146 (new):** Susannah Locke creating implementation ticket from Victor Suarez's spike suggestions, immediately after standup. Content unknown to Pierce yet.
-- **Amazon API Epic (new):** Saner Keles creating Epic for Amazon API features (Guilherme's work). Patrick Al Khouri confirmed all 4 features achievable: sort by relevance, price, average review rating; filter reviews. Star data requires business case separately.
-- **Synthesis merge improvement (2026-04-10):** Rajiv updated synthesis merge process to give full primary credit to the submitter of the merge request (open-source "merge then refine" pattern). Rajiv posting reinstall instructions for synthesis skills — may affect Pierce's Claude Code setup.
-- **PGS-144 (screen jump fix):** Guilherme Gomes Caires fixed "weird screen jumps" when creating drafts using HTML object references for smooth scroll. Multi-browser testing requested.
-- **PGS-148 (IN PROGRESS, unblocked 2026-04-08):** Oliver working on conditional rules (general set + national-team-specific set). SEO keywords gap resolved — **National team spec (Pierce's decision):** 1–5 keywords (not 3–5), single words OK (TEO requires multi-word phrases), all lowercase, comma-separated, include location names for local stories. Example: "travel, supplements, Jason Kelce, dca plane crash, reagan airport crash". Susannah confirmed Oliver is using Pierce's requirements. No further action needed.
-- **Standup 2026-04-15 key findings:** v0.88 successfully deployed to production. Docker resource consumption bug affecting Patrick Al Khouri + Emil Penalo locally — Oliver Felix + Marcelo Freitas patching. v0.89 target: pushing 6 items to staging today (2 don't require testing). Jason Adkins role confirmed: Insights Agent/Trend Hunter action plan — Kathryn Sheplavy scheduling call with Jason + Marcelo today. Guilherme Gomes Caires: finished PGS-171, assigned to new epic (Marcelo created), requesting Snowflake access via Amanda Hamilton in Grow Squatch Slack. Daury Caba: created non-expiring tokens ticket for Q integration testing; Josh signed off. PGS-133 ON HOLD: Susannah using new admin feature to create all national team audiences directly — no code change needed.
-- **PGS-171 (CODE REVIEW as of 2026-04-15):** "Publication Dropdown Not Scrollable" — Guilherme Gomes Caires completed and addressed code review feedback. Now available for new task.
-- **PGS-115 (DONE as of 2026-04-15):** Google Discover Explainer format visibility fix (all users, not national team only) shipped in v0.88.
-- **PGS-111 (CODE REVIEW, All Teams):** SEO metadata fields (seo title, meta description, seo keywords) not visible at Step 3 when a Content Format is selected. Confirmed missing: Discovery, What to Know. Other Content Formats to be checked during investigation. Root cause: PGS-88 (v0.82.0) didn't extend to Content Format variant types. Blocks PGS-104 QA (one AC: "keywords reflected in seo keywords field at Step 3"). Victor Suarez resuming full PGS-104 work after PGS-111 complete.
-- **PGS-184 (BACKLOG, new 2026-04-15):** "National Team: Make Keywords Input Field Mandatory" — new ticket on National CSA board.
-- **PGS-174 (BACKLOG epic):** "National Keywords" — BACKLOG epic on National CSA board. Separate from PGS-111.
-- **PGS-104 (IN PROGRESS as of 2026-04-15 standup):** Strategy: merge PR #107 as-is; any further issues = separate hotfix (avoids scope creep). Oliver Felix helping Victor test + deploy. Susannah + Jonathan to retest after deployment. Victor resumes full PGS-104 work after PGS-111 complete. Blocked AC: "Keywords reflected in seo keywords field at Step 3" — depends on PGS-111. Fix: keywords now propagate through entire pipeline including `_generate_content_format_variant` path. 6 regression tests added. Field is optional, never blocks generation.
-- **C&P Weekly (2026-04-13, 4:28pm EDT):** Attendees: Chris Palo, Kathryn Sheldon, Pierce, Sara Vallone (Sarah Price absent). Key findings: (1) Gary = "unreliable" per Chris — 80% confidence score undocumented, Gary can't explain validation methodology. Do NOT integrate as QA gate. Chris roadmap: V1 = internal source ranking library, V2 = vetting user-generated content (Substack). (2) Reuters: Sara has RSS access; heavy hard news; mind/body section viable; testing Sting/Met Opera for national team; Reuters photos also available. (3) Keyword H2 compliance: Hannah + Ryan not following editorial rules — keyword missing from H2s. Sam Agate now delegated to catch all US Weekly drafts from Ryan/Hannah before Emma. Pierce action: raise keyword visual indicator in H2s with CSA product team (Chris proposed keywords pop in green/blue — easy win). (4) Trend Hunter development moving in-house from Upstatement — app + site experience; human writers = "experts" needing author profile pages; content bridging for SEO. (5) CSA/CMS separation: Chris strongly against co-mingling — Pierce + Kathryn hold the line; WordPress → Q discussion is internal only.
-- **Chris Palo: Every.to Proof podcast / agent-in-document workflows (2026-04-13):** Chris forwarded podcast on Every.to's "Proof" product — collaborative doc editor for humans + agents simultaneously. Interested in two workflows: (1) PRDs with agent assistance, (2) content creation. Wants Sara's team using this way of working; also Susannah + Kat with agents they feel confident about. Pierce + Chris to discuss at 1:1. New project (P18) needed — repo TBD.
-- **Sara Vallone parameter session (still pending):** 4 decisions needed: (1) verdict→action mapping (FALSE/MISLEADING/MIXED/INSUFFICIENT_EVIDENCE → editorial action); (2) content-type thresholds; (3) acceptance tracking design; (4) reporting cadence. Agenda (session-agenda-vallone.docx) ready — awaiting scheduling.
-- **PGS-141 (CODE REVIEW):** Patrick Al Khouri put H1 headline rules for National Team in PR.
-- **PGS-135 (CODE REVIEW as of 2026-04-10):** Moved from Selected for Dev. H1 headline length enforcement (80–100 chars) for National Team now in PR.
-- **PGS-134 (DONE as of 2026-04-15):** "Everything to Know" + "FAQ / Service Journalism" formats shipped in v0.88. **Action remaining:** migrate Apple News + SmartNews best practices from persona → format section in csa-content-standards.
-- **PGS-114 (DONE as of 2026-04-10):** AI disclaimer removal from Discovery Content Format confirmed live.
-- **PGS-98 (DONE as of 2026-04-11):** "Additional Context and Editorial Notes" bug resolved — user-provided context now influences generated output.
-- **PGS-96 (DONE as of 2026-04-15):** "The Discover Browser" saved target audience shipped in v0.88.
-- **PGS-87 (DONE as of 2026-04-11):** Target Audience label now included in Google Doc exports for platform variants. Data-passing bug between Target Audience step and Platform Distribution export step fixed.
-- **PTECH-7730 (TO DO, new):** "Update category tag derived property" — Platform Technology team [PT] Delta, unassigned. Amplitude work to make L&E CSA property = CUE CSA property. "From CSA" checkbox in WordPress. When done: enables Amplitude adapter AND Deedra's unified Sigma dashboard of all CSA content. Parent: PTECH-7005. Reporter: Julia Kim. Susannah CC'd Pierce.
-- **PGS-150 (HOLD as of 2026-04-15):** Susannah placed on hold to clarify implementation criteria (cc Pierce). Spike complete (Victor Suarez) — Copyscape Premium API recommended (~$72/month); Originality.ai as fallback. Gary confirmed: uses Originality.ai API, no internal tool. Susannah Mode 2 rationale: "Upload from Research Draft" uses Mode 2 prompt adding contextual background from knowledge base — plagiarism risk extends beyond user's source URL to CSA's own knowledge-base expansion. Open question: Mode 2 knowledge base vs. web search/RAG (Oliver confirmed knowledge base in March; Susannah following up). Full details in csa-dashboard rq-plagiarism-check.
-- **PGS-93 (ON HOLD as of 2026-04-10):** "Create Research Draft" from URL import flow put on hold. Susannah ticketed from Ryan's request without consulting Sara's team. Pierce commented: "Sara says this needs to be reworked; please do not prioritize."
-- **PGS-150 (IN PROGRESS as of 2026-04-08):** Plagiarism Detection spike — off-the-shelf APIs (Copyscape, CopyLeaks, Turnitin, iThenticate) + internal tooling. Surface at Audience Variants stage alongside PGS-82 diff score. PGS-150 = output vs. third-party web (distinct from PGS-82 = internal variant-to-variant). National team first. Pierce CC'd; eng produces recommendation.
-- **AGENT-AUDIENCE routing — §1 status (2026-04-08):** §1.1 Voice & Tone → general-style (Susannah UI upload, done). §1.2 Headline Best Practices → headline (PGS-141, selected for dev). §1.2 SEO fields → seo (PGS-148, selected for dev). §1.3 Explicit Language → general-style (Susannah UI upload, done). §1.4 link count + anchor text → general-style (Susannah UI upload, done). §1.4 What to Link To → human-only (no action needed). §1.5–1.9 → human-only (no action needed). Susannah using Claude to fetch content by tag during uploads.
-- **PGS-140 (CODE REVIEW as of 2026-04-15):** Marcelo Freitas pushed PR. Must rebase after PGS-82 PyTorch fix (Marcelo doing today). Analytics for pass/fail rates, failing variant IDs, reanalysis clicks, auto-regen events. Feeds P2 Amplitude once live.
-- **PGS-139 (IN PROGRESS as of 2026-04-15):** Marcelo working today. CSA internally tests variants, auto-regenerates if fail, notifies user if still fails. Critical discussion needed with Jason Adkins re: Insights Agent/Trend Hunter action plan — blocked on defining next items to build (Kathryn scheduling call today).
-- **Standup 2026-04-08 key findings (archived):** EGS-127 created (Marcelo — variant origin tracking, replaces PGS-40); CEO validation (Tony Hunter + Berg told Rajiv CSA is a competitive edge vs. AI cos); Kathryn version-limit insight (too many variants from short source = CSA failure signal → EGS-127 analytics first). Full details in sessions/2026-04.md.
-- **PGS-80 DONE (2026-04-06):** Amplitude event tracking implemented. Remaining P2 blocker: p-tagging bug (CUE/WP format mismatch) — CSA eng fix.
-- **PGS-82 (2026-04-07 CSA Weekly):** Waiting to enter staging. First version = inform only: run all variants through CSA, flag concerning similarity pairs, tell user to edit/deselect those pairs, then reanalyze. Second version (PGS-139, already ticketed) = CSA resolves internally first. Staging will use real Sara Vallone drafts + real workflows — no dummy content. Susannah has dedicated QA tester now. National team flag ready; no lag expected between staging and production.
-  - **Approved strategic framing (2026-04-08, strong stakeholder approval):** The diff tool is a *quality signal for whether the variant system is working* — not just an SEO compliance guardrail. Google penalty is a downstream consequence; the upstream problem is that without a differentiation baseline, there's no way to know if persona/format targeting is producing genuinely distinct output or just surface-level rewrites. The analytics layer (PGS-140) turns scores into a feedback loop: which persona+format combos consistently fail, whether differentiation improves over time, where prompt/definition fixes are needed vs. where AI self-correction is sufficient. **Use this framing — not "Google compliance" — when discussing PGS-82/139/140 with stakeholders.**
-  - **Chris Palo input (2026-04-08):** Chris flagged that the rollout doc looks too narrowly focused on Google/SEO. He specifically wants testing to cover semantic, tonal, and other differences — not just duplicate content as Google defines it. Key clarification for Chris: vector embeddings (the technology PGS-82 uses) *do* capture semantic and tonal similarity — they measure meaning-level closeness, not surface keyword repetition. The Google framing in the rollout doc is an undersell. The deeper question Chris is raising: are the thresholds and flagging criteria calibrated for audience-targeting quality (semantic/tonal) and not just SEO compliance? This should feed into the staging test design.
-  - **Susannah's doc — current to-do state (2026-04-08):** Pre-staging: ✅ analytics ticket written (PGS-140); 🔴 schedule staging session with TEO + national team (Monday earliest); 🔴 QA test plan; 🔴 draft national team leadership comms re: workflow changes. Staging phase: run QA with real content, analyze with TEO, document mitigation strategies, prepare reporter comms if needed. Future eng: 🟢 backend self-correction ticket written (PGS-139); UX meeting for self-correction TBD.
-- **CSA GitHub access: NOT NEEDED (2026-04-07).** Kathryn Sheplavy confirmed: Bitbucket mirrors GitHub; Bitbucket access is sufficient. Dropped action item.
-- **Dev team expanded (2026-04-07):** 2 new engineers + 1 dedicated QA tester added to Susannah's team.
-- **Cluster performance (2026-04-07 CSA Weekly):** National team at 1-in-3.3 stories-per-cluster ratio. Target was 1-in-4 — already exceeded. Chris showing examples: some clusters land on 2–3 markets (Netflix One Piece: Miami + Kansas City). Tracking still painful because tagging isn't live. Chris sharing sanitized data with Kathy + Eric.
-- **US team listicle + external Claude workflow (flagged 2026-04-07):** Susannah flagged two issues: (1) US team using CSA for listicles (combining info — different work stream, Chris OK'd but directed to Brody for escalation path on author attribution). (2) A content creator using external Claude to extract facts from URLs, then using that as CSA outline — Sara Vallone assigned to investigate. AI Tool Responsibility doc being circulated (Chris + Sara + Pierce).
-- **Reporter terminology (2026-04-07, stays internal):** Chris: do NOT call national team members "reporters." They are "content creators" or "contributors." Labor/union sensitivity — news division members are journalists; national team are not. Susannah acknowledged. Conversation stays internal.
-- **AI Tool Responsibility page (csa-content-standards):** Finalized 2026-04-07 (v1.4.1) — DRAFT banner removed. Escalation contacts resolved: Step 2 = Sara Vallone + #prog-and-growth; supervisor conflict = Sara + Chris; recurring issues/stop-use = #nationalteam-csa-feedback. One open item: override documentation location (TBD, pending CSA team input). Passed to Sara Vallone 2026-04-08 for review.
-- **CSA fact-checking ruleset v0.1:** Completed draft passed to Sara Vallone 2026-04-08 — awaiting her review + validation against 15 test articles. 4 open items for Rajiv/Susannah: United Robots scope, module access by role, verdict confidence scores, audit trail/storage.
-- **§9 Claims Validation (csa-content-standards):** Spec complete (v1.4.2, 2026-04-08) — docs/claims-validation.md live. Five verdicts; content-type rules (health/legal/financial/real estate/travel/entertainment); source authority tiers; escalation table. Gary API integration details to follow Sara parameter session.
-- **§10 Platform Formats (csa-content-standards):** Live (v1.6.0, 2026-04-08) — SmartNews §10.1 + Apple News §10.2 standalone pages. v1.6.1 consistency audit complete — all stale headline ranges corrected against validated data-headlines findings; data-validated labels throughout.
-- **Amanda Hamilton Amplitude session DONE (2026-04-09, 9:55 PDT):** El Nuevo author attribution bug filed (Samantha Agate content source = "US Weekly" not her name; Amanda submitted technical request). Claude budget exhaustion is team-wide — Sarah Price and ~3/5 members out of ~$100/month; Chris must contact Travis Farrar (infrastructure) to request more. **Amplitude connected in Claude settings 2026-04-14.** Usage tips: reference chart with filters applied for context; build a context file over time; use Amplitude native AI (no cost) for dashboards, Claude for co-work tasks. Dedra Lawhead oversees news analytics — start with her dashboards. Amanda meets Amplitude monthly; Sarah accepted Slack channel invite. Full notes: `sessions/meeting-2026-04-09-amanda-hamilton-amplitude.md`
-- **Julia Tortoriello meeting DONE (2026-04-09, 12:59 CDT):** El Nuevo uses CMS-integrated Google Translate + GPT-3; GPT-3 far better than Elbex for Spanish nuance. CMS prompt (6 verbatim rules) + standalone "dog translator" GPT (chatgpt.com/g/g-0SsURCxh4) both received. Standalone GPT = bilingual auto-detect, preserves tone, SEO-aware, doesn't translate proper names — Julia says it's even better than the CMS integration. Dialect: US Hispanic = Colombian Spanish register; "US Hispanic, United States" is sufficient prompt context. Julia confirmed in follow-up: willing to test CSA in Spanish, try any platforms/models. Chris + Rajiv considering dedicated Spanish CSA pipeline. Full notes + verbatim resources: `sessions/meeting-2026-04-09-julia-tortoriello.md`
-- **Sigma CSA dash (Deedra, 2026-04-10):** Deedra's team building it. Simple version (site PV/SubPV performance only) almost done. Chris explicitly: get simple version done before scope creep — additional dimensions (variant type, cluster ID, diff score, CSA user) are a phase 2 scope conversation. Pierce waiting. No action until simple version ships and Pierce reviews it.
-- **Standup 2026-04-13 — key updates:**
-  - **PGS-82 fixes pushed** — Marcelo Freitas pushed fixes morning of 2026-04-13. Oliver Felix integrating into production (first batch of 3 PRs ready to merge).
-  - **PGS-140 further along** — Implemented on top of PGS-82 fixes; Oliver flagged a bug → Marcelo fixed it. Now needs Amplitude data test then push for review. Blocker on PGS-82 now resolved.
-  - **Trend Agent (Marcelo)** — Nearing completion; new development branch created so team doesn't need to wait for Rajiv's return. Oliver Felix incorporating Marcelo + Victor changes into develop branch. Target: 2026-04-14.
-  - **PGS-172 + PGS-173 (NEW)** — Two new PRs from Victor Suarez's spike results. Must be reviewed and merged in order (172 first, then 173 — related). Victor's in-progress column is now clear; Saner assigning new tickets.
-  - **Q/Cue Integration (Daury Caba) — IN CODE REVIEW** — Submitted 2026-04-13; 31 files changed. Changes required because all sections now available on staging environment. Team asked to review the long PR.
-  - **PGS-149** — Guilherme Gomes Caires investigated; search results issue (user searching by exact headline). Kathryn thinks Shelby reported it. Saner checking. Jonathan Gonzalvo also looking.
-  - **Release schedule incoming** — Susannah Locke + Oliver Felix + Saner Keles creating release schedule with staging + production dates → sending to Pierce. Staggering large tickets due to QA volume. Kathryn confirmed several releases this week.
-  - **Acceptance criteria** — Susannah Locke adding acceptance criteria to all new tickets going forward; retroactively adding to existing open tickets today. Acknowledged this should have been standard practice all along.
-  - **EGS-127 ticket 12828** — First of the 4-ticket tagging epic pulled into "Selected for Development" 2026-04-13. Marcelo Freitas offering guidance (did original planning). Has engineering mods.
-  - **Handoff week from Upstatement** — This week = handoff week for Trend Hunter B TOC prototype. All design files + GitHub files being transferred. Kathryn added Marcelo + others to handoff calls; will share transcripts. This is the last week of shared Slack channel with Upstatement — team should ask questions directly now.
-  - **Emil Penalo back** — Returning from time off; catching up on hundreds of messages. Priorities: code reviews (first), Trend Hunter prototype vision meeting, WP e-commerce bug (separate from Victor's ticket), WP config UI to allow admin access to all organizations.
-  - **Bold formatting bug** — One report ever (Shelby), very low impact. Susannah treating as outlier. Jonathan Gonzalvo investigating as low priority.
-  - **Jason Adkins** — Appeared in standup invite list (strikethrough = did not attend). Role unknown; watch for future appearances.
-- **Potential P17 — Spanish CSA Pipeline:** Chris Palo + Rajiv considering dedicated Spanish pipeline. Julia Tortoriello meeting (2026-04-10) establishes baseline: current stack is GPT-3 + custom prompts + standalone "dog translator" GPT. Dialect = Colombian Spanish register for US Hispanic audience. Julia willing to test CSA in Spanish. No scope or timeline yet — watch for Chris/Rajiv direction.
-- **SEMrush pull request PAUSED (2026-04-15):** Pierce asked Rocky to pause the pull request. Chris flagged a logic flaw that limits use value of the current SEMrush ask. Rocky confirmed pulls hadn't started yet — no loss. Pierce to return with revised ask after Snowflake walkthrough.
-- **National portfolio canonical file:** `data/national-portfolio.js` — 13 brands, domains, authors, verticals, syndication platforms. Live URL: `https://piercewilliams.github.io/ops-hub/data/national-portfolio.js`. Single source of truth for all API scoping (SEMrush, Amplitude, Marfeel, Gary, etc.). Source: Sara Vallone tracker 2026-04-13. Excludes Life & Style + Mod Moms Club.
-- Sync: **Manual** — update `data/projects.js` in a Claude Code session, commit, and push. Pill reads last commit time via GitHub public API (green <3d, yellow 3–7d, red >7d).
+- **Live at** `https://piercewilliams.github.io/ops-hub`
+- **v0.88 in production (2026-04-15).** PGS-134 + PGS-96 + PGS-115 DONE. Docker bug patching (Oliver + Marcelo). v0.89 target: 6 items.
+- **All 5 personas live as Team Target Audiences (2026-04-15):** Discover Browser + Science Enthusiast (Susannah); Curious Optimizer + Curious Explorer + Watercooler Insider (Pierce). PGS-133 ON HOLD.
+- **Snowflake orientation complete (2026-04-15):** story_traffic_main (O&O PV by story/market/date) + dynamic_story_metadata (author/URL/SEO/keywords) in MCC presentation schema. Amplitude in Snowflake (events prod). GitHub→Snowflake direct (Chad setting up). eCPM → Ryan Spalding.
+- **MAIA 14-day test started 2026-04-15** (~2026-04-29). Sara's teams log outputs; Pierce monitoring. Access + tracking sheet requested from Derek.
+- **Critical tickets:** PGS-82 IN QA (PyTorch fix — Marcelo); PGS-104 IN PROGRESS (merge PR strategy; Victor resumes after PGS-111); PGS-111 CODE REVIEW (SEO metadata for Content Formats; blocks PGS-104 AC); PTECH-7730 TO DO (p-tagging — Joe Vitali ETA 2026-04-16, activates Amplitude adapter + Deedra unified Sigma dash).
+- **EGS-127 ticket 12828 in dev** (1 of 4-ticket epic). Marcelo leading.
+- **Rajiv on vacation.** Emil Penalo + Oliver Felix have prod merge authority. 2-PR process in effect.
+- **Gary evaluation closed (2026-04-14):** Off QA gate (black-box, not deterministic). Author profile replication greenlit (dev ticket pending). IP/contract concern (Kathryn + Jason). Sara parameter session TBD.
+- **SEMrush pull paused** (Chris flagged logic flaw 2026-04-15). Rocky/Julio credit rate per endpoint pending before any automation.
+- **Q/Cue integration IN CODE REVIEW** (Daury, 31 files, 2026-04-13). WP 301 bug (PGS-170, Lauren Schuster) under investigation.
+- **PGS-150 HOLD** (plagiarism — Copyscape recommended; RAG vs. open-web clarification pending).
+- **Sigma CSA dash (Deedra):** Simple version almost done. Await delivery.
+- **National portfolio canonical file:** `data/national-portfolio.js` — 13 brands, single source of truth for all API scoping.
+- Sync: **Automated** 3×/day (Mon–Fri) via scheduled sync agent.
 
 ## Features Live
 
@@ -110,130 +35,61 @@ For session history: see [sessions/](sessions/)
 - Snapshot version bar (last 5 syncs, passkey-protected restore)
 - CSA Dashboard tag chips (pain / requests / metrics) with popover detail
 - Sync status pill — shows "Last synced X ago" (green <3d, yellow 3–7d, red >7d)
-- Mutual-close behavior: sidebar and progress panel can't both be open
 - Quality gate script at `scripts/check.sh`
-- Snapshot version bars on csa-dashboard, csa-content-standards, data-headlines — weekly auto-snapshot (Mon 8am), passkey `8812`, max 5 per site; trigger `trig_014MR5mJJxFsVYLdVdDU4u1d`
+- Snapshot version bars on csa-dashboard, csa-content-standards, data-headlines — weekly auto-snapshot (Mon 8am), passkey `8812`
 
 ## Project Status Snapshot
 
 | # | Project | Tier | Status | Key Blocker / State |
 |---|---------|------|--------|---------------------|
-| 1 | Platform Access & Training | 1 | In progress | All access confirmed except Sigma scope verification. Marfeel confirmed 2026-04-09. Gary API key received 2026-04-08. **Claude connectors connected 2026-04-11** (Amplitude, Google Drive, Gmail, GitHub, Atlassian, Google Calendar, Slack). **Amplitude connected in Claude settings 2026-04-14.** Pending: Chad Bruton walkthrough to confirm Sigma access is complete. |
-| 2 | Dashboard Instrumentation | 4 | In progress | **v0.88 in production (2026-04-15); Docker bug patching.** v0.89 target: 6 items to staging today. **DONE in v0.88:** PGS-115, PGS-96, PGS-134. **PGS-82 IN QA** (PyTorch fix — Marcelo fixing in branch, then rebase PGS-140). **PGS-104 IN PROGRESS** (merge PR strategy; Victor resumes after PGS-111). **PGS-111 CODE REVIEW** (All Teams; blocks PGS-104 QA AC). PGS-147/141/135/140 CODE REVIEW. PGS-139 IN PROGRESS. PGS-133 ON HOLD. PGS-150 HOLD. PTECH-7730 TO DO. **Sigma CSA dash framing:** "I've seen the Site Dashboard template — the CSA version needs five additional dimensions beyond the base: variant type, canonical article ID (EGS-127), platform, differentiation score, and CSA user. EGS-127 is the bottleneck — without it we can track PVs but we can't connect them back to which cluster or persona combination drove performance." No action until Deedra's simple version ships. |
-| 3 | T1 Headlines Analysis (Price) | 4 | In progress | 13 findings, 15 grader criteria, author playbooks, experiments, governor, Headline Grader (GitHub Actions, daily), weekly auto-ingest pipeline (Monday 8pm CDT; change-detection; longitudinal snapshots). **21/21 tests pass.** **Fully operational + hardened 2026-04-14:** 9 CI bugs fixed, CI fast-fail step (py_compile + pytest before data download), ANP-guard inventory, f-string safety scanner. **Tarrow weekly data run now functional (2026-04-14).** Check next Tuesday morning to confirm automation held. Quality suite: `python3.11 -m pytest tests/ -v` + `python3 generate_site.py --skip-main-archive`. |
-| 3.5 | Content Analysis / Narrative Dashboard | 5 | Not started | Needs P3 → Sarah Price consolidation first |
-| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | **DONE in v0.88:** PGS-96 (Discover Browser), PGS-115 (Explainer all users), PGS-134 (ETK + FAQ — action: migrate Apple News/SmartNews best practices to csa-content-standards). **Pierce CSA Admin as of 2026-04-15** — all 5 personas live as Team Target Audiences (Susannah: Discover Browser + Science Enthusiast; Pierce: Curious Optimizer + Curious Explorer + Watercooler Insider, 2026-04-15). **PGS-104 IN PROGRESS** (merge PR strategy; keyword field mandatory per Chris). **PGS-111 CODE REVIEW** (All Teams; SEO metadata missing at Step 3 for Content Formats; blocks PGS-104 AC). PGS-133 ON HOLD (admin feature). PGS-150 HOLD. PGS-147/141/135 CODE REVIEW. PGS-184 BACKLOG (make keywords mandatory). **Pending tickets:** keyword color overlay (separate ticket needed), author profile replication (dev ticket to create). PGS-149 ON HOLD. PGS-93 BACKLOG. |
-| 5 | Personas & Formats Testing | 5 | Not started | Needs P4 + P7. Discover Persona test sheet exists in tracker (empty). |
-| 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | **PGS-40 → WON'T DO (2026-04-08).** Work restructured into EGS-127 (epic, 4 subtasks, Marcelo assigned). **Ticket 12828 (first of 4) selected for development 2026-04-13.** Marcelo offering guidance (did the planning). Has engineering mods. 700+ stories/month currently tracked manually. |
-| 7 | Vallone Tracker / CMS Automation | 4 | Hold | Deprioritized by Chris. Testing tracker is manual evidence of demand. |
-| 8 | Rajiv CSA Mapping | 2 | Not started | Low priority opportunistic work; not blocking anything. |
-| 9 | ~~PRD Revisions~~ | — | **Complete** | V0.5 complete 2026-04-10 evening. All 10 Chris Palo items + T3 sub-pipes implemented. Pasted into Google Docs. |
-| 10 | Gary Tools Integration | 2 | **In progress** | **Evaluation complete (CSA Weekly 2026-04-14).** Gary off QA gate roadmap: black-box, not deterministic, no plagiarism tool (uses Originality.ai). Gary value = commerce/SEO for Andy only. **IP/contract concern:** Kathryn discussing with Jason — McClatchy may not own Gary's code; tools live on Gary's personal API. Chris to tell Jason team has failed to get code. **Author profile replication greenlit:** Gary built Sara's voice from ~100 articles; replicable in-house; create dev ticket; test internally (Sara/Pierce/Susannah). Sara parameter session still TBD. |
-| 11 | Recipes | 5 | Not started | Needs P9 + P4 |
-| 12 | United Robots Inbound Pipeline | 4 | In progress | **Send-to-WP headline bug (2026-04-10):** variant name + date corrupting URL slug — Daury Caba investigating. **Q/Cue integration (Daury) IN CODE REVIEW 2026-04-13** — 31 files; changes required because all sections now on staging. rq-send-to-wp ✅ DONE but unreliable until headline bug fixed. |
-| 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | **Complete** | Closed 2026-04-03. |
-| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | **Prototype complete** — 14 briefs, 4 verticals, priority sort (volume × CPC), Skip verdict, TECHNICAL.md + EXECUTIVE-BRIEF.md. Live: https://piercewilliams.github.io/data-keywords/. Repo: `data-keywords` (piercewilliams/data-keywords). **CLAUDE.md added 2026-04-13** — portfolio governance + architecture baked in. **Sara Vallone reviewed 2026-04-14:** "great start," likes layout, wants tool to be expansive not prescriptive. **Next: pull next verticals per Chris feedback (Sara V priorities: sleep/recovery, HSAs). Rocky reports still needed for position data.** Open design question (log for future work): calibrate priority scoring — how Go Hard/Skip verdicts are assigned, how volume×CPC ranking weighs quality signals, and how the tool might learn over time from which recommendations the team acts on vs. ignores. |
-| 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live. **Reuters unblocked (2026-04-13): Sara has RSS access.** Heavy hard news; mind/body section viable; testing Sting/Met Opera for national team; Reuters photos available to test. Athlon fact-check sub-scope: low priority, legal question unresolved. |
-| 16 | LTV Model | 5 | Not started | Chris scheduling kickoff this week (Sara, Sarah Price, Pierce, Kathy). Statistical input from Pierce needed. |
-| 17 | Spanish CSA Pipeline | 5 | Not started | Waiting on Chris/Rajiv direction. Julia Tortoriello willing to test. |
-| 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test (2026-04-15 – ~2026-04-29). Pierce monitors feedback, recommends prompt branching. Waiting on MAIA tab access + Sara's tracking sheet. |
-| 18 | Agentic Writing Helpers | 5 | Not started | **New (2026-04-13).** Chris Palo forwarded Every.to Proof podcast — agent-in-doc workflows for Sara's team + Susannah/Kat. Repo: write-assist (created 2026-04-14). Scope: discuss at 1:1 today. |
+| 1 | Platform Access & Training | 1 | In progress | All systems confirmed. **Pending:** GitHub→Snowflake (Chad), PTECH-7730 ETA (2026-04-16), Ryan Spalding eCPM. |
+| 2 | Dashboard Instrumentation | 4 | In progress | v0.88 live. PGS-82 QA. PGS-104/111 in progress. PTECH-7730 blocks Amplitude adapter. |
+| 3 | T1 Headlines Analysis | 4 | In progress | 13 findings, daily grader, weekly ingest operational. Author playbook upgrade blocked on Snowflake setup (Chad). |
+| 3.5 | Content Analysis / Narrative Dashboard | 5 | In progress | Format not formalized — coordinate Sarah Price (returns 2026-04-17). |
+| 4 | Article Format + Persona + Keyword Governance | 4 | In progress | All 5 personas live. PGS-104/111/135 in progress. Andy sign-off on Apple/SN templates still pending. |
+| 5 | Personas & Formats Testing | 5 | In progress | Needs P4 stable + EGS-127. |
+| 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | EGS-127 ticket 12828 in dev (1 of 4). |
+| 7 | Vallone Tracker / CMS Automation | 4 | Hold | EGS-127 + rq-send-to-cue + PGS-80 must land first. |
+| 8 | Rajiv CSA Mapping | 2 | Not started | Low priority opportunistic. |
+| 9 | ~~PRD Revisions~~ | — | Done | V0.5 delivered 2026-04-10, distributed at CSA Weekly 2026-04-14. |
+| 10 | Gary Tools Integration | 2 | In progress | Off QA gate. Author profile replication greenlit. IP/contract concern. Sara parameter session TBD. |
+| 11 | Recipes | 5 | Not started | Needs P4 + P2 + P6 + P14. |
+| 12 | United Robots Inbound Pipeline | 4 | Hold | WP 301 bug (PGS-170). Q/Cue in code review. EGS-127 + PGS-80 must land. |
+| 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | Done | Closed 2026-04-03. |
+| 14 | SEMrush / Keyword Signal Layer | 4 | In progress | Prototype live. Pull paused (Chris logic flaw 2026-04-15). Rocky/Julio credit rate pending. |
+| 15 | Partner Content / Inventory Optimization | 5 | In progress | Reuters RSS confirmed. AI vetting policy not drafted. Legal question unresolved. |
+| 16 | LTV Model | 5 | Not started | Chris scheduling kickoff (Sara, Sarah Price, Pierce, Kathy). |
+| 17 | Spanish CSA Pipeline | 5 | Not started | Waiting on Chris/Rajiv direction. |
+| 18 | Agentic Writing Helpers | 5 | In progress | Meeting Thu 2026-04-16 11am CDT (Sara + Hanna Wickes + Ryan Brennan + 4 more). |
+| 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test 2026-04-15→~2026-04-29. Waiting on MAIA tab access + tracking sheet. |
 
 ## What's Next
 
-**#1 — TODAY (2026-04-15):**
-**Step 1 — Schedule meetings today (before or after Snowflake call):**
-0. [x] ~~**Schedule: Keyword Threshold session**~~ — Invite sent 2026-04-15. Rocky ✓ Sarah ✓ Chris free whenever. Agenda in `meetings/2026-04-xx-keyword-thresholds.md`
-0. [x] ~~**Schedule: Sara Vallone agentic writing intro**~~ — DONE. **Thu 2026-04-16, 11–11:45am CDT.** Sara invited Hanna Wickes, Ryan Brennan, + 4 more. Group spitball on pain points → Pierce + Sara huddle after.
-0. [ ] **Rocky+Chad walkthrough TODAY 1:30pm CDT** *(already on calendar — see `meetings/2026-04-15-snowflake-navigation.md`)*
+**Open (today / this week):**
+- [ ] Keyword data for Sara Vallone — Experiences vertical (4 topics: Landmarks, 5-day travel, Solo dining, Roadtrips). **Committed: tonight or tomorrow morning.**
+- [ ] Attend Thu 2026-04-16 11am CDT — agentic writing group session → Pierce + Sara huddle after to prioritize pain points and pick pilot author
+- [ ] Create CSA pipeline visuals for Britney (Chris ask 2026-04-14) → send to Chris
+- [ ] Send Sara details of additional tasks + required meetings (Pierce action from CSA Weekly)
+- [ ] Provide weekly release estimates/timeframes to management (weekly dates, not "soon")
 
-**TONIGHT / FIRST THING TOMORROW (due before Thu 2026-04-16 11am):**
-0. [ ] **Keyword data for Sara Vallone — Experiences vertical content test** — Sara needs KW data for 4 topics: Landmarks, 5-day travel, Solo dining, Roadtrips with best window views. 2-week test starting ASAP. Committed to delivering tonight or first thing tomorrow morning. Drop results in Slack.
+**Waiting on others:**
+- Joe Vitali: PTECH-7730 ETA — responds 2026-04-16
+- Chad Bruton: GitHub→Snowflake connection setup
+- Rocky/Julio: credit rate per SEMrush endpoint (required before automation)
+- Sarah Price: returns 2026-04-17 (narrative dashboard format coordination)
+- Derek: MAIA tab access + Sara tracking sheet
+- Susannah/Oliver/Saner: release schedule with staging + production dates → Pierce
+- Sara Vallone: Gary parameter session scheduling (agenda ready at gary-tools/data/session-agenda-vallone.docx)
 
-**Step 2 — Also today:**
-0. [x] ~~**Enter remaining 3 Team Target Audiences in CSA production**~~ — DONE 2026-04-15. All 5 personas live as Team Target Audiences.
-0. [ ] **Create CSA pipeline visuals for Britney** — "completed / working / in-transit" diagram; Chris asked 2026-04-14; send to Chris when done (he passes to Britney)
-0. [ ] **Send Sara details of additional tasks + required meetings** (Pierce action from CSA Weekly)
-0. [ ] **Provide weekly release estimates/timeframes to management** (Chris ask — use weekly dates, not "soon")
+**Compass:** 5 goals submitted 2026-04-13. Jeremy Gockel approval due **April 30, 2026**. Mid-year: July 2026.
 
-1. [x] ~~**CSA Weekly — Tue 4/14 3pm CDT**~~ — DONE. PRD distributed; Gary evaluation aligned; keyword field mandatory; PGS-96 → Ready for Production; keyword color overlay + author profile replication greenlit.
-   - [x] ~~**Distill open CSA tickets → exec bullet points**~~ — DONE 2026-04-14. Major items + key dates sent to Chris for Britney.
-1.5. [x] ~~**Check data-headlines Actions tab**~~ — DONE 2026-04-14. Pipeline fully operational.
-1.6. [x] ~~**Create P18 repo (agentic writing helpers)**~~ — DONE. write-assist repo created 2026-04-14.
-2. [x] ~~**Julia Tortoriello meeting**~~ — DONE 2026-04-09. CMS prompt + standalone GPT config received verbatim. Julia willing to test CSA in Spanish.
-3. [x] ~~**PRD discussion with Chris**~~ — DONE 2026-04-10. Revision items queued — see P9.
-4. [x] ~~**PRD revision pass**~~ — DONE 2026-04-10 evening. V0.5 complete and delivered.
-5. [x] ~~**Contact Gary Kirwan for full tool roster**~~ — DONE 2026-04-10. Email sent, CC Chris Palo. Awaiting Gary's response.
-6. [x] ~~**Contact Rocky Rhodes re: existing keyword reports**~~ — Slacked 2026-04-13. Also asked for SEMrush API key directly. Awaiting reply.
-7. [x] ~~**Schedule Chad Bruton Snowflake walkthrough**~~ — Slacked Rocky + Chad 2026-04-13 requesting 30–45 min walkthrough (Snowflake/Sigma + SEMrush). Awaiting availability.
-8. [ ] **Attend LTV model kickoff meeting** — Chris Palo scheduling this week with Sara Vallone, Sarah Price, Kathy, Pierce. No initiation action; wait for calendar invite.
-9. [x] ~~**Attend Amplitude/Amanda Hamilton meeting**~~ — DONE 2026-04-09. El Nuevo author bug filed. Claude budget → Chris/Travis Farrar. Notes: `sessions/meeting-2026-04-09-amanda-hamilton-amplitude.md`
-10. [x] ~~**Connect Amplitude connector**~~ — DONE 2026-04-11. Also connected: Google Drive, Gmail, GitHub, Atlassian/Jira/Compass, Google Calendar, Slack.
+## Strategic Frameworks
 
-**#2 — NEXT WEEK:**
-7. [x] ~~**Weekly report format coordination**~~ — DONE. Pierce sending ops piece to Sarah Price in a shared Google Doc.
-7. [ ] **Sara Vallone Gary parameter session** — 4 decisions: verdict→action mapping, content-type thresholds, acceptance tracking design, reporting cadence. Agenda ready. Awaiting scheduling.
-7.5. [ ] **Internal source ranking library (V1)** — Chris's ask from C&P Weekly. Begin scoping once Gary unreliability is documented and parameter session complete.
-8. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset. Draft already in her hands.
-8. [x] ~~**3-way SEMrush meeting**~~ — DONE 2026-04-08. Scope defined. API chain incoming from Sarah Price.
-8. [ ] **Andy review on Apple News + SmartNews distribution templates** — Sara sent 2 emails, no response. Chris (2026-04-07): wait a few more days, then submit ticket; eng turnaround = few days. Do not block on Andy indefinitely.
-**#3 — AFTER NEXT WEEK'S MEETINGS:**
-8. [x] ~~**Format/persona decoupling (PGS-134)**~~ — DONE in v0.88. **Now action: migrate Apple News + SmartNews best practices from persona → format section in csa-content-standards.**
-9. [ ] **Get final Vallone format guide + codify into csa-content-standards** — DO NOT FORGET. Confirm Vallone produces final version with T1 findings incorporated, then codify. 10 corrections to verify: remove WTK from SmartNews recs, add questions-hurt-both rule, add push notifications section, refine char targets (SN: 70–90 / Apple: 90–120).
-10. [x] ~~**Build SEMrush keyword layer (P14)**~~ — DONE. Prototype complete: 14 briefs, 4 verticals, impact-score sort, Skip verdict, TECHNICAL.md + EXECUTIVE-BRIEF.md. **Next: present to Chris at 1:1 Tue 4/14 12:30pm CDT.**
-10.5. [ ] **P14 scoring calibration** — Design question for future session: how Go Hard/Skip verdicts are assigned, how volume×CPC ranking weighs quality vs. volume, and how the tool might learn over time from which recommendations the team actually acts on (feedback loop). Sara's framing: expansive, not prescriptive — scoring should surface options, not foreclose them.
-12. [ ] **Finalize Science-Curious persona definitions** — Retiree + Casual Reader need canonical definitions before Susannah saves as shared custom personas.
-13. [ ] **Extend AGENT-AUDIENCE routing annotations beyond §1** — §1 fully confirmed live (2026-04-08). Susannah is tagging; next: audit §2+ sections and add AGENT-AUDIENCE tags where applicable.
-14. [ ] **Document sandbox base build** — Chris explicitly asked (2026-04-07). Document the toolkit, guardrails, and access info so Chris Palo and Sarah Price can create their own specialized builds (e.g., analytics, partner content). Repo is public; package it. This supersedes the earlier "20-step environment" framing — focus is on repeatability for non-Pierce users, not just setup documentation.
-15. [ ] **Investigate Bitbucket shared repo provisioning** — can Pierce provision a shared repo space for the team? Chris implied this is needed for collaboration on analysis code. Check access level.
-16. [ ] **T1 ecosystem taxonomy audit** — validate that cross-platform comparisons in current analysis respect ecosystem boundaries (app-based captured: Apple News, SmartNews, Newsbreak vs. web-based competitive: Yahoo, O&O). Flag any findings that commingle these groups; note in governor.
-**Compass (HR — performance management):**
-- [x] ~~**Draft and submit goals**~~ — DONE 2026-04-13. 5 goals submitted in Compass. compass-goals.md written and committed.
-- [x] ~~**Upload photo** to Compass profile~~ — DONE 2026-04-13
-- [ ] **Jeremy Gockel approval** — must reach "Track Goals" status by **April 30, 2026**
-- [ ] Mid-year check-in: **July 2026** (mandatory)
-- [ ] Final evaluation: **January 2027**
-- [ ] **Every Friday:** request Compass progress notes from Claude (per-goal, based on WINS.md + session work)
-
-**PGS-82/139/140 rollout — Susannah is driving, Pierce is tagged:**
-- [ ] Await PGS-82 staging notification (Pierce/Sara/Kat invited; real Sara Vallone drafts). PGS-140 now IN PROGRESS — monitor Amplitude event names when ticket nears build.
-- Rollout: staging (inform-only) → QA → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
-
-**Waiting on others (no action needed):**
-- Derek MAIA test: access to Insights Dashboard MAIA tab + Sara's tracking sheet — requested 2026-04-15. Need both to begin monitoring.
-- Chad Bruton: GitHub→Snowflake direct connection setup — message sent 2026-04-15
-- Ryan Spalding: eCPM/ad yield methodology for Market dimension — message sent 2026-04-15
-- Joe Vitali: PTECH-7730 — confirmed with dev group, Julia Kim is PM. Joe checking ETA, responding tomorrow 2026-04-16.
-- ~~Sara Vallone: agentic writing intro~~ — **confirmed Thu 2026-04-16 11am CDT**
-- **Chris Palo: Reuters Connect link** — Chris said he'd send it (2026-04-14 1:1). Accept/follow up if it doesn't arrive by end of week. See P15.
-- ~~Sara Vallone: hot take on SEMrush keyword output~~ — **DONE 2026-04-14.** Verdict: "great start," info is good, likes the layout. Key framing: wants it **expansive, not prescriptive** — don't pigeon-hole content decisions. Aligned on using Rocky's KW data as the next layer. Ready to start playing around with it.
-- Rocky Rhodes (rrhodes@mcclatchy.com): credit burn rate per SEMrush endpoint — querying Julio; no reply as of 2026-04-11 (confirmed via Gmail); must have before writing any automation
-- Stephanie Zandecki: keyword-to-article Sigma question folded into Rocky+Chad walkthrough meeting — will confirm via Chad; no separate message needed
-- Sarah Price: cluster/Amplitude pulse data; headline grader feedback (reviewing); El Nuevo article count + translation % by author bylines; Chad Snowflake session (coordinating with Dedra); follow up with Deedra on team vs. org comparison dashboard
-- Chris Palo: LTV meeting scheduling (not yet on calendar as of 2026-04-11); clustering stats → Eric Nelson + Kathy Veter; Rasheed re: Bitbucket + Cloudflare team environment
-- Rocky Rhodes: (1) existing KW reports for National team pubs + SEMrush API key — Slacked 2026-04-13, awaiting reply; (2) DataForSEO as SEMrush alternative — flagged 2026-04-13, awaiting his take; (3) Julio/credit burn rate status — followed up 2026-04-13, awaiting reply. **For any Rocky or Rocky+Chad meeting agenda: include Julio credit rate update as standing item.**
-- Rocky Rhodes + Chad Bruton: Snowflake/Sigma + SEMrush walkthrough — **confirmed Wed 2026-04-15 1:30pm CDT**. Agenda: Snowflake/Sigma access scope for National team, SEMrush starting point + credit strategy, DataForSEO (already in Snowflake?), keyword-to-article data in Sigma, Julio credit rate update, Rocky existing KW reports for National team pubs
-- Sarah Price: follow up with Deedra for team vs. org comparison dashboard
-- Susannah Locke + Oliver Felix + Saner Keles: release schedule with staging + production dates → sending to Pierce (2026-04-13 standup action item)
-- Susannah Locke: H1 enforcement fix (PGS-135) — PGS-133 ON HOLD (admin feature replaces it)
-- Dev team: EGS-127 (variant origin tracking); PGS-133/134/135; p-tagging bug (Amplitude blocker); rq-send-to-cue (date TBD — Kat to announce); PGS-140 IN PROGRESS (Marcelo); Emil/Oliver clearing PR review backlog
-- Sigma: confirm full scope of access within growth_and_strategy_role (Chad Bruton walkthrough needed)
-- Kat Sheplavy: Snowflake trend agent table keys for Marcelo (escalating to Brad); CUE send-to date announcement TBD
-
-
-## Strategic Frameworks (from Chris Palo)
-
-**Syndication ecosystems:** App-based captured (Apple News, SmartNews, Newsbreak) — LTV=0, pure PV increment. Web-based competitive (Yahoo, O&O) — standard CTR/PV dynamics. Do NOT commingle in analytics.
-**LTV=0 for syndication:** PV delta only — no subscriber conversion. Every syndication slot = incremental PVs on top of O&O.
-**Cluster batting average:** 1-in-3.3 as of 2026-04-07 (target 1-in-4, before CSA: 1-in-5). Q2 metrics: 3× output; $85/asset cost; 500K PV goal; 5–8% long-term traffic lift.
-**Headline vs. article:** Headline = click acquisition (syndication surface). Article = retention/subscriber conversion. Analytically distinct — do not conflate.
-**Political data:** Justin's/Dedra's macro dashboards are separate from Pierce's CSA statistical testing layer.
-**Purpose-driven pipelines (2026-04-10):** Every pipeline has an explicit purpose — engagement, revenue, acquisition, or other. Purpose may vary at the asset level within a pipeline (e.g. core TH asset = drive app clickthroughs; bottom-tier variants = acquire new readers). CPA is a cost-center signal, not the goal. OKRs differ per pipeline.
-**Distribution channels (2026-04-10):** O&O, Trend Hunter app, Syndication, TBTV (future). Each has a different value calculation. Syndication = avenue, not focus.
-**Inclination Engine (2026-04-10):** Named concept — sole future input for automated signals and trend unit brief generation. Feeds T1/T2 pipelines without human initiation. Not yet built. Needs PRD section.
-**CPA breakeven reference (2026-04-10):** ~$85 asset cost → 6,156 PVs to cover cost (ECPM data from Chris). Reference only — do not specify in PRD.
-**Recipe system (2026-04-12):** Creator × Format × Topic × Market → Predictable Return. Before committing pipeline capacity, configure the four dimensions. data-keywords = Topic layer (keyword signal; is the opportunity there?). CSA = Format layer. Inclination Engine = Creator layer (future). Snowflake/Sigma = Market layer (eCPM by site). Full canonical reference: `RECIPE.md` in ops-hub.
-**Cluster (precise definition, 2026-04-12):** Canonical article + analytically-determined variants. Predictive output of the analytics signal. NOT synonymous with topic, vertical, or keyword group. Cluster ID = Canonical ID.
+**Syndication:** App-based captured (AN, SN, Newsbreak) = LTV=0, pure PV increment. Web-based competitive (Yahoo, O&O) = standard CTR/PV dynamics.
+**Cluster batting average:** 1-in-3.3 (target 1-in-4). Q2 metrics: 3× output; $85 CPA; 500K PV; 5–8% traffic lift.
+**Recipe system:** Creator × Format × Topic × Market → Predictable Return. See `RECIPE.md`.
+**Cluster:** Canonical article + analytically-determined variants. Cluster ID = Canonical ID.
+**Inclination Engine:** Named concept — sole future input for automated signals and T1/T2 brief generation. Not yet built.
 
 ---
 
