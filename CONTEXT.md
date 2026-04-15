@@ -143,7 +143,6 @@ For session history: see [sessions/](sessions/)
 **#1 — TODAY (2026-04-15):**
 **Step 1 — Schedule meetings today (before or after Snowflake call):**
 0. [x] ~~**Schedule: Keyword Threshold session**~~ — Invite sent 2026-04-15. Rocky ✓ Sarah ✓ Chris free whenever. Agenda in `meetings/2026-04-xx-keyword-thresholds.md`
-0. [ ] **Schedule: Sarah Price weekly report format coord** — for 2026-04-17 when she returns; agenda in `meetings/2026-04-17-price-weekly-report.md`
 0. [ ] **Schedule: Sara Vallone agentic writing intro** — confirm with Sara on framing before finalizing; agenda in `meetings/2026-04-xx-sara-agentic-intro.md`
 0. [ ] **Rocky+Chad walkthrough TODAY 1:30pm CDT** *(already on calendar — see `meetings/2026-04-15-snowflake-navigation.md`)*
 
@@ -168,7 +167,7 @@ For session history: see [sessions/](sessions/)
 10. [x] ~~**Connect Amplitude connector**~~ — DONE 2026-04-11. Also connected: Google Drive, Gmail, GitHub, Atlassian/Jira/Compass, Google Calendar, Slack.
 
 **#2 — NEXT WEEK:**
-7. [ ] **When Sarah Price returns (2026-04-17): arrange meet to coordinate combined weekly update** — Pierce adds CSA operations piece (wins + priorities, not a ticket dump) to Sarah's existing content performance note. One weekly report for stakeholders. See P3.5.
+7. [x] ~~**Weekly report format coordination**~~ — DONE. Pierce sending ops piece to Sarah Price in a shared Google Doc.
 7. [ ] **Sara Vallone Gary parameter session** — 4 decisions: verdict→action mapping, content-type thresholds, acceptance tracking design, reporting cadence. Agenda ready. Awaiting scheduling.
 7.5. [ ] **Internal source ranking library (V1)** — Chris's ask from C&P Weekly. Begin scoping once Gary unreliability is documented and parameter session complete.
 8. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset. Draft already in her hands.
