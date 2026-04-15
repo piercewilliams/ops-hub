@@ -1,5 +1,5 @@
 # Sara Vallone — Agentic Writing Intro
-**Date:** TBD — schedule after connecting with Sara
+**Date:** TBD — scheduling message sent to Sara via Slack 2026-04-15
 **Attendees:** Pierce Williams, Sara Vallone
 **Status:** Not yet scheduled
 
