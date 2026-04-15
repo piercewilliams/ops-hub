@@ -115,7 +115,8 @@ export const PROJECTS = {
       'Sigma: confirm workbook scope + OAuth2 creds (Chad Bruton) — walkthrough scheduled Wed 4/15',
     ],
     nextActions: [
-      'Rocky+Chad walkthrough Wed 4/15 1:30pm CDT — Snowflake/Sigma scope, SEMrush credits + DataForSEO, keyword-to-article data in Sigma',
+      'TODAY: Schedule 4 meetings before 1:30pm Snowflake call — Keyword Threshold (Rocky/Sarah/Chris), Sarah Price weekly report coord, Sara agentic writing intro, Ryan Sheridan weekly check-in',
+      'Rocky+Chad walkthrough today 1:30pm CDT — Snowflake/Sigma scope, SEMrush credits + DataForSEO, keyword-to-article data in Sigma',
     ],
     dependsOn: [],
   },
@@ -123,7 +124,7 @@ export const PROJECTS = {
   // ── TIER 2 ────────────────────────────────────────────────────────────────
 
   'p8-mapping': {
-    id: 'p8-mapping', num: '8', tier: 2, type: 'project', status: 'in-progress',
+    id: 'p8-mapping', num: '8', tier: 2, type: 'project', status: 'not-started',
     name: 'Rajiv CSA Mapping',
     owner: 'Pierce',
     compassGoal: 'G4 — Pipeline Documentation & Operational Knowledge',
