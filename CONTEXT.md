@@ -136,6 +136,7 @@ For session history: see [sessions/](sessions/)
 | 15 | Partner Content / Inventory Optimization | 5 | **In progress** | Lindy's going live. **Reuters unblocked (2026-04-13): Sara has RSS access.** Heavy hard news; mind/body section viable; testing Sting/Met Opera for national team; Reuters photos available to test. Athlon fact-check sub-scope: low priority, legal question unresolved. |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff this week (Sara, Sarah Price, Pierce, Kathy). Statistical input from Pierce needed. |
 | 17 | Spanish CSA Pipeline | 5 | Not started | Waiting on Chris/Rajiv direction. Julia Tortoriello willing to test. |
+| 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test (2026-04-15 – ~2026-04-29). Pierce monitors feedback, recommends prompt branching. Waiting on MAIA tab access + Sara's tracking sheet. |
 | 18 | Agentic Writing Helpers | 5 | Not started | **New (2026-04-13).** Chris Palo forwarded Every.to Proof podcast — agent-in-doc workflows for Sara's team + Susannah/Kat. Repo: write-assist (created 2026-04-14). Scope: discuss at 1:1 today. |
 
 ## What's Next
@@ -199,6 +200,7 @@ For session history: see [sessions/](sessions/)
 - Rollout: staging (inform-only) → QA → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
 
 **Waiting on others (no action needed):**
+- Derek MAIA test: access to Insights Dashboard MAIA tab + Sara's tracking sheet — requested 2026-04-15. Need both to begin monitoring.
 - Chad Bruton: GitHub→Snowflake direct connection setup — message sent 2026-04-15
 - Ryan Spalding: eCPM/ad yield methodology for Market dimension — message sent 2026-04-15
 - Joe Vitali: PTECH-7730 — confirmed with dev group, Julia Kim is PM. Joe checking ETA, responding tomorrow 2026-04-16.

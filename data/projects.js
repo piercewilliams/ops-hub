@@ -466,6 +466,28 @@ export const PROJECTS = {
     ],
   },
 
+  'p19-maia-trend-tool': {
+    id: 'p19-maia-trend-tool', num: '19', tier: 4, type: 'project', status: 'in-progress',
+    name: 'MAIA Trend Tool Validation',
+    owner: 'Pierce · Sara Vallone · Derek',
+    compassGoal: 'G3 — Quality Framework & Testing Protocols',
+    description: '14-day validation test of Derek\'s MAIA Trend Tool (Insights Dashboard → Trends Tab → Daily Scan). Tests whether AI-generated daily trend topics are "writeable" for B2C content across National Team + Mind-Body, Experiences, and Everyday Living verticals. Sara\'s teams log all outputs in tracking sheet with rejection reasons (too broad, stale, no B2C angle). Pierce\'s role: monitor feedback, determine if single National prompt is sufficient or if vertical-specific branched prompts are needed. Test window: 2026-04-15 through ~2026-04-29. Success metrics: writeability %, specificity (product/behavior level vs. industry level), traffic performance, and whether prompt branching is needed.',
+    blockers: [
+      'Pending access to Insights Dashboard MAIA tab — requested 2026-04-15',
+      'Pending add to Sara Vallone tracking sheet — requested 2026-04-15',
+    ],
+    nextActions: [
+      'Get access to MAIA tab + tracking sheet — then begin daily monitoring',
+      'At end of 14 days (~2026-04-29): analyze feedback by vertical, categorize failure modes (specificity / directionality / temporal / vertical mismatch)',
+      'Deliver prompt-branching recommendation: one National prompt sufficient, or separate prompts for Mind-Body / Experiences / Everyday Living?',
+    ],
+    contacts: [
+      { name: 'Derek', role: 'Owner of MAIA Trend Tool; initiated 14-day test' },
+      { name: 'Sara Vallone', role: 'Editorial execution; teams doing the testing; owns tracking sheet' },
+      { name: 'Sarah Price', role: 'Reviews success metrics at end of test window' },
+    ],
+  },
+
   'p17-spanish': {
     id: 'p17-spanish', num: '17', tier: 5, type: 'project', status: 'not-started',
     name: 'Spanish CSA Pipeline',
