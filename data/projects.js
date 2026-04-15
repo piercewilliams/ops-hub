@@ -218,6 +218,7 @@ export const PROJECTS = {
       'Notify Tarrow: active time outliers in source Excel (values up to 23,496s — likely ms stored as seconds)',
       'After Snowflake meeting (2026-04-15): assess what author-level data is available to upgrade playbooks beyond directional',
       'Ecosystem audit: validate cross-platform comparisons stay within ecosystem type (app-based vs web-based)',
+      'Long-term: watch for cross-author patterns in headline/keyword/traffic data that may indicate Google author-throttling — Ryan flagged 2026-04-14 (numbers down; could be volume-penalization, Google black box). Chris concerned as broader pattern. As analysis matures, look for signal: declining per-story performance correlated with high publish frequency per author.',
     ],
     dependsOn: ['p1-access'],
   },
