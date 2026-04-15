@@ -135,7 +135,12 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next
 
-**#1 — THIS WEEK:**
+**#1 — THIS WEEK (PRIORITY: SCHEDULE THESE MEETINGS FIRST):**
+0. [ ] **Schedule: Keyword Threshold session** — Rocky + Sarah + Chris; agenda in `meetings/2026-04-xx-keyword-thresholds.md`
+0. [ ] **Schedule: Sarah Price weekly report format coord** — 2026-04-17 when she returns; agenda in `meetings/2026-04-17-price-weekly-report.md`
+0. [ ] **Schedule: Sara Vallone agentic writing intro** — confirm with Sara on framing before finalizing; placeholder agenda in `meetings/2026-04-xx-sara-agentic-intro.md`
+0. [ ] **Schedule: Ryan weekly check-in** — standing recurring; agenda in `meetings/2026-04-xx-ryan-weekly-checkin.md`
+*(Snowflake/SEMrush walkthrough with Rocky + Chad is already on calendar: 2026-04-15 1:30pm CDT — see `meetings/2026-04-15-snowflake-navigation.md`)*
 1. [x] ~~**CSA Weekly — Tue 4/14 3pm CDT**~~ — DONE. PRD distributed; Gary evaluation aligned; keyword field mandatory; PGS-96 → Ready for Production; keyword color overlay + author profile replication greenlit.
    - [ ] **Send Sara details of additional tasks + required meetings** (Pierce action from meeting)
    - [ ] **Provide weekly release estimates/timeframes to management** (Chris ask — use weekly dates, not "soon")

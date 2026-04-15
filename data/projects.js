@@ -284,7 +284,7 @@ export const PROJECTS = {
     ],
     nextActions: [
       'Rocky+Chad walkthrough 2026-04-15 1:30pm CDT — credits, Sigma, DataForSEO, next verticals',
-      'Schedule threshold definition session with Rocky + Sarah',
+      'Schedule threshold definition session with Rocky + Sarah + Chris',
       'Revamp tool per stakeholder feedback — read data-keywords/REFERENCE.md § Stakeholder Feedback first',
       'Add keep/decline + note field + performance feedback loop to tool',
       'Bridge to data-headlines: keyword gap (what to chase) + headline performance (what format wins)',
@@ -441,6 +441,7 @@ export const PROJECTS = {
       'CSA backend unknown: core agent identity (Claude? LangChain?) unresolved — no one could answer; blocks CSA-integrated approach',
     ],
     nextActions: [
+      'Schedule introductory meeting with Sara Vallone — agenda in meetings/2026-04-xx-sara-agentic-intro.md (confirm with Sara before finalizing)',
       'Draft philosophy doc — establish why and how before any tooling decisions',
       'Open conversation with Sara Vallone: what does she find hardest about her current writing workflow?',
       'Set up weekly Ryan keyword/writing tool check-in',
