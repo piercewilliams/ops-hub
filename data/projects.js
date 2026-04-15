@@ -6,6 +6,8 @@
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
 export const COMPLETED_TASKS = [
+  { date: '2026-04-15', task: 'csa-content-standards v1.7.0–v1.8.0: Complete CSA persona definition system built for Susannah Locke. (1) CSA Target Audience Definition sections added to all 5 persona pages — Name, Description, and four focus areas (Discovery / Understanding / Evaluation / Action) formatted for direct CSA UI entry. Sections expanded to include core drivers, full "What They Respond To" specifics, and behavioral engagement data. (2) Three new format pages scaffolded (§3.12 Trend Feature, §3.13 Science & Discovery Feature, §3.14 Entertainment & Trending) then removed at Sara Vallone\'s direction — personas and formats now decoupled in CSA UI, format guidance per persona unnecessary. (3) Tone sections added to §4.2–§4.5 persona pages preserving the only non-duplicate persona-level content from the removed format pages. (4) Dedicated AGENT-AUDIENCE: csa-target-audience tag added — all five persona definitions are machine-greppable from raw Markdown; unique tag appears nowhere else on site. Full infrastructure sync: navigation, admin/config, API (v1.8.0), master-reference, documentation, index, changelog, agent_routing.yml. Susannah and Sara both messaged with final state and raw Markdown links.', project: '#4 Article Format + Persona + Keyword Governance' },
+  { date: '2026-04-15', task: 'Keyword threshold meeting invite sent 2026-04-15. Rocky Rhodes + Sarah Price confirmed via Slack. Chris Palo free whenever per Sarah. Meeting covers: Go Hard/Test Small/Skip threshold criteria, CPC + additional threshold drivers, per-publication calibration. Revised SEMrush pull ask to be discussed: per-publication model (not portfolio-wide), using US Weekly 3.20.2026 report as template.', project: '#14 SEMrush / Keyword Signal Layer' },
   { date: '2026-04-15', task: 'v0.88 shipped to production. Three National team features live: (1) PGS-134 — "Everything to Know" + "FAQ / Service Journalism" content formats now available for National team; (2) PGS-115 — Google Discover Explainer format now visible to all users, not National team only; (3) PGS-96 — "The Discover Browser" saved as shared target audience for all National team accounts. PGS-133 placed ON HOLD — Susannah using new admin feature to create target audiences directly, making the code-change ticket unnecessary. Docker resource bug found post-deploy (Oliver Felix + Marcelo patching).', project: '#4 Article Format + Persona + Keyword Governance' },
   { date: '2026-04-15', task: 'Daily standup 2026-04-15: PGS-82 confirmed high-priority with PyTorch performance issue identified — Marcelo fixing directly in branch before rebase. PGS-140 PR pushed (CODE REVIEW). PGS-139 IN PROGRESS (Marcelo). PGS-104 strategy: merge PR as-is, future issues = hotfix. Jason Adkins role confirmed: Insights Agent / Trend Hunter action plan — Kathryn scheduling call with Jason + Marcelo today. Guilherme Gomes Caires assigned to new epic (Marcelo\'s), requesting Snowflake access. Daury Caba created non-expiring tokens ticket for Q integration testing.', project: '#2 Dashboard Instrumentation' },
   { date: '2026-04-14', task: 'SN channel × formula analysis complete (T1 Headlines new finding). Analyzed 2025 SmartNews full-year data (38,251 rows). Question format underperforms in Top, Entertainment, Lifestyle channels (p<0.0001, p=0.012, p=0.027). WTK underperforms in Top channel (p=0.008). Number lead has large U.S.-channel penalty (Δ=−0.245, p<0.0001, n=83). Callout added to data-headlines formula trap panel. Experiment suggestion added: replicate in 2026 per-article data for causal validation. Longitudinal weekly snapshot data surfaced on main page and experiments page — trend table renders automatically after ≥2 more weekly runs.', project: '#3 T1 Headline Analysis' },
@@ -115,8 +117,10 @@ export const PROJECTS = {
       'Sigma: confirm workbook scope + OAuth2 creds (Chad Bruton) — walkthrough scheduled Wed 4/15',
     ],
     nextActions: [
-      'TODAY: Schedule 4 meetings before 1:30pm Snowflake call — Keyword Threshold (Rocky/Sarah/Chris), Sarah Price weekly report coord, Sara agentic writing intro, Ryan Sheridan weekly check-in',
-      'Rocky+Chad walkthrough today 1:30pm CDT — Snowflake/Sigma scope, SEMrush credits + DataForSEO, keyword-to-article data in Sigma',
+      'Schedule Sarah Price weekly report coordination meeting — April 17 when she returns. Agenda: ops section structure, combined CSA + content performance format. Meetings prep in meetings/2026-04-xx-sarah-price-weekly-report.md.',
+      'Schedule Sara Vallone agentic writing intro — agenda in meetings/2026-04-xx-sara-agentic-intro.md.',
+      'Schedule Ryan Sheridan weekly check-in — agenda in meetings/2026-04-xx-ryan-weekly-checkin.md.',
+      'Update P1 + P14 nextActions with Rocky+Chad Snowflake walkthrough findings (held 2026-04-15 1:30pm CDT — outcome pending).',
     ],
     dependsOn: [],
   },
@@ -233,7 +237,7 @@ export const PROJECTS = {
     name: 'Article Format + Persona + Keyword Governance',
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
-    description: 'Governs what the CSA produces for the National team: 5 personas, a growing content format library, keyword enforcement, and SEO standards. ETK + FAQ formats + Discover Browser audience shipped in v0.88. Keyword input field in progress (PGS-104). Keyword color overlay and author profile replication greenlit at CSA Weekly. Apple/SmartNews best practices ready to migrate to format section.',
+    description: 'Governs what the CSA produces for the National team: 5 personas, a growing content format library, keyword enforcement, and SEO standards. ETK + FAQ formats + Discover Browser audience shipped in v0.88. All 5 persona CSA Target Audience Definitions now complete in csa-content-standards (v1.8.0) — full Name/Description/Focus areas for direct CSA UI entry, with csa-target-audience AGENT-AUDIENCE tag for machine access. Personas and formats confirmed decoupled in CSA UI (Sara Vallone 2026-04-15). Keyword input field in progress (PGS-104). Keyword color overlay and author profile replication greenlit at CSA Weekly. Apple/SmartNews best practices ready to migrate to format section.',
     blockers: [
       'Andy sign-off on Apple News + SmartNews distribution templates — 2 emails sent, no response',
     ],
@@ -288,8 +292,8 @@ export const PROJECTS = {
       'Rocky/Julio credit rate per endpoint not confirmed — required before any automation',
     ],
     nextActions: [
-      'Rocky+Chad walkthrough 2026-04-15 1:30pm CDT — credits, Sigma, DataForSEO, next verticals',
-      'Schedule threshold definition session with Rocky + Sarah + Chris',
+      'Rocky+Chad walkthrough held 2026-04-15 1:30pm CDT — update P1 + P14 nextActions with findings.',
+      'Keyword threshold meeting invite sent 2026-04-15 — Rocky + Sarah confirmed; date TBD. Agenda: threshold criteria, CPC + additional signals, per-publication calibration, revised SEMrush pull ask (per-pub model, US Weekly 3.20.2026 as template).',
       'Revamp tool per stakeholder feedback — read data-keywords/REFERENCE.md § Stakeholder Feedback first',
       'Add keep/decline + note field + performance feedback loop to tool',
       'Bridge to data-headlines: keyword gap (what to chase) + headline performance (what format wins)',

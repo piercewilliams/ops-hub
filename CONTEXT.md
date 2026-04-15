@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-15 17:00 UTC — Automated sync. projects.js: P15 status hold→in-progress (correcting prior sync's snapshot inconsistency). csa-links.js: rq-etk-faq-formats fulfilled (PGS-134 DONE in v0.88); rq-national-audiences text (PGS-133 ON HOLD); rq-keyword-compliance text (IN PROGRESS/merge strategy, 2026-04-15 standup). Prior automated sync 2026-04-15 13:20 UTC. Prior manual session 2026-04-14: full day (1:1, CSA Weekly, code quality audit, sync-repos, PGS-104 in code review).
+**Last session:** 2026-04-15 — csa-content-standards v1.7.0–v1.8.0: CSA Target Audience Definitions built for all 5 personas (full descriptions, core drivers, What They Respond To specifics, csa-target-audience tag). 3 format pages scaffolded then removed at Sara's direction (personas+formats now decoupled). Keyword threshold meeting invite sent; Rocky + Sarah confirmed. Meetings 2–4 (Sarah Price, Sara agentic, Ryan weekly) still pending scheduling. Rocky+Chad Snowflake walkthrough held 1:30pm CDT — update P1+P14 with findings.
 **Status:** 18 active/tracked projects. Compass goals submitted (Jeremy approval pending Apr 30). Rocky+Chad walkthrough today 1:30pm CDT. PGS-104 in code review; PGS-96 ready for production.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)

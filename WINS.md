@@ -113,6 +113,9 @@ Clarified full cluster data model (Canonical ID = Cluster ID; articles are sibli
 
 ## Tier 4 — Build
 
+**2026-04-15 — csa-content-standards v1.8.0: Complete CSA persona definition system**
+All 5 National team persona pages now carry fully populated CSA Target Audience Definition sections formatted for direct entry into the CSA product UI — Name, Description (with core driver + full "What They Respond To" specifics + behavioral engagement data), and four focus areas (Discovery/Understanding/Evaluation/Action). Dedicated `csa-target-audience` AGENT-AUDIENCE tag added — unique identifier allowing programmatic extraction of all five definitions from raw Markdown. Sara Vallone confirmed personas and formats are decoupled in the CSA UI; Tone sections preserved on §4.2–§4.5 pages. Full infrastructure sync across site (v1.8.0). Susannah Locke messaged with access instructions and grep tag.
+
 **2026-04-13 — Rocky gap analysis queue confirmed + prototype integration complete**
 Sara Vallone confirmed 4 topic categories for Rocky Rhodes' next SEMrush pull: financial services (Chris priority, highest CPC), food+celeb, sleep, creature features. All 8 National Team sites combined per pull. Rocky queued. `fromRocky: true` field and orange "Rocky Gap" badge added to data-keywords data model and UI — prototype now visually distinguishes Rocky-sourced vs. SEMrush-direct briefs.
 
@@ -236,5 +239,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-14 (cross-repo sync + code quality audit)*
+*Last updated: 2026-04-15 (CSA persona definition system + keyword threshold meeting)*
 *Maintained by Claude. Updated proactively as work completes.*
