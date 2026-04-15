@@ -143,8 +143,11 @@ For session history: see [sessions/](sessions/)
 **#1 — TODAY (2026-04-15):**
 **Step 1 — Schedule meetings today (before or after Snowflake call):**
 0. [x] ~~**Schedule: Keyword Threshold session**~~ — Invite sent 2026-04-15. Rocky ✓ Sarah ✓ Chris free whenever. Agenda in `meetings/2026-04-xx-keyword-thresholds.md`
-0. [ ] **Schedule: Sara Vallone agentic writing intro** — confirm with Sara on framing before finalizing; agenda in `meetings/2026-04-xx-sara-agentic-intro.md`
+0. [x] ~~**Schedule: Sara Vallone agentic writing intro**~~ — DONE. **Thu 2026-04-16, 11–11:45am CDT.** Sara invited Hanna Wickes, Ryan Brennan, + 4 more. Group spitball on pain points → Pierce + Sara huddle after.
 0. [ ] **Rocky+Chad walkthrough TODAY 1:30pm CDT** *(already on calendar — see `meetings/2026-04-15-snowflake-navigation.md`)*
+
+**TONIGHT / FIRST THING TOMORROW (due before Thu 2026-04-16 11am):**
+0. [ ] **Keyword data for Sara Vallone — Experiences vertical content test** — Sara needs KW data for 4 topics: Landmarks, 5-day travel, Solo dining, Roadtrips with best window views. 2-week test starting ASAP. Committed to delivering tonight or first thing tomorrow morning. Drop results in Slack.
 
 **Step 2 — Also today:**
 0. [x] ~~**Enter remaining 3 Team Target Audiences in CSA production**~~ — DONE 2026-04-15. All 5 personas live as Team Target Audiences.
@@ -199,7 +202,7 @@ For session history: see [sessions/](sessions/)
 - Chad Bruton: GitHub→Snowflake direct connection setup — message sent 2026-04-15
 - Ryan Spalding: eCPM/ad yield methodology for Market dimension — message sent 2026-04-15
 - Joe Vitali: PTECH-7730 owner confirmation — message sent 2026-04-15
-- Sara Vallone: agentic writing intro scheduling — message sent 2026-04-15
+- ~~Sara Vallone: agentic writing intro~~ — **confirmed Thu 2026-04-16 11am CDT**
 - **Chris Palo: Reuters Connect link** — Chris said he'd send it (2026-04-14 1:1). Accept/follow up if it doesn't arrive by end of week. See P15.
 - ~~Sara Vallone: hot take on SEMrush keyword output~~ — **DONE 2026-04-14.** Verdict: "great start," info is good, likes the layout. Key framing: wants it **expansive, not prescriptive** — don't pigeon-hole content decisions. Aligned on using Rocky's KW data as the next layer. Ready to start playing around with it.
 - Rocky Rhodes (rrhodes@mcclatchy.com): credit burn rate per SEMrush endpoint — querying Julio; no reply as of 2026-04-11 (confirmed via Gmail); must have before writing any automation
