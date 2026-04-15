@@ -8,6 +8,9 @@ Organized by ops-hub tier, reverse-chronological within each.
 
 ## Tier 1 — Foundation
 
+**2026-04-14 — Cross-repo code quality audit: 5 bug fixes, 3 READMEs written, CLAUDE.md created**
+Comprehensive code quality pass across all 5 repos. data-headlines: 5 targeted hardening fixes — guarded json.loads() crash on malformed service account env var, protected lift:.2f format against None, narrowed two silent except clauses to typed exceptions with stderr warnings, surfaced silent opportunity-map errors, fixed pyproject.toml target-version py312→py311 (mismatch was hiding 3.11 CI failures from ruff). csa-dashboard: CLAUDE.md created from scratch (architecture, invariants, quality commands, context budget); README quality gate section added. gary-tools and write-assist: fully written READMEs from one-line stubs. ops-hub: removed dead errEl2 variable in attemptRestore(). All 6 repos committed and pushed; ops-hub 28 checks pass; data-headlines 21 tests pass under Python 3.11.
+
 **2026-04-14 — Pierce<>Chris 1:1 fully incorporated across all repos; meeting framework scaffolded**
 Full 1:1 outcomes (2026-04-14 12:30pm CDT) worked through item by item and incorporated into ops-hub, data-keywords, and write-assist. P14 keyword tool direction aligned to per-publication analysis model with authority-progression logic, keep/decline field, and performance feedback loop. P15 partner content reframed around 2-lane MRSS optimization with Reuters sub-scope (IPA-only, sensitive). P18 agentic writing helpers scoped: skills+orchestrator model, Sara/Ryan first, Susannah/Kat gated by labor law + CSA backend unknown constraints. Five meeting prep files created in ops-hub/meetings/ (Snowflake navigation, keyword thresholds, Ryan weekly check-in, Sarah Price weekly report, Sara agentic intro). CONTEXT.md reorganized to surface all scheduling actions as top priority. Write-assist repo seeded with complete philosophy/context from 1:1. Memory governance layer added for Claude cost constraints.
 
@@ -35,6 +38,12 @@ CUE CMS, WordPress (full access 2026-03-28), McClatchy GitHub, Sigma basic, Ampl
 ---
 
 ## Tier 2 — Understanding
+
+**2026-04-14 — SN channel × formula analysis: new finding confirming channel-specific formula penalties**
+Analyzed 2025 SmartNews full-year data (38,251 rows) by channel × formula. Question format significantly underperforms in Top, Entertainment, and Lifestyle channels (p<0.0001, p=0.012, p=0.027). WTK underperforms in Top channel (p=0.008). Number lead carries a U.S.-channel-specific penalty (Δ=−0.245, p<0.0001, n=83). Callout added to data-headlines formula trap panel. Longitudinal weekly snapshot data also surfaced on the main page — trend table auto-renders after 2 more weekly ingest runs, establishing baseline for ongoing headline performance tracking.
+
+**2026-04-14 — 25+ open CSA Jira tickets distilled → executive briefing for Chris Palo**
+Full active Jira backlog synthesized into a concise briefing covering national team dev priorities, pipeline blockers, and in-progress/code-review queue state. Delivered to Chris as actionable exec summary.
 
 **2026-04-14 — PRD distributed at CSA Weekly; Gary evaluation aligned; keyword milestone**
 Three outcomes at CSA Weekly 2026-04-14: (1) PRD V0.5 distributed as foundational context document for all future feature requests — Chris framed architecture as vertical pipes + horizontal cross-cutting elements; visualizations requested for eng team. (2) Gary evaluation aligned across team: black-box methodology confirmed, off QA gate roadmap, IP/contract concern flagged, author profile replication greenlit for in-house dev. (3) Keyword field mandatory decision — Chris overruled Sara's preference to wait; primary + secondary keyword field shipping this week as mandatory. Keyword color overlay (4-color headline breakdown) greenlit; separate dev ticket needed.
@@ -227,5 +236,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-14 (CSA Weekly sync)*
+*Last updated: 2026-04-14 (cross-repo sync + code quality audit)*
 *Maintained by Claude. Updated proactively as work completes.*
