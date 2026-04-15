@@ -34,6 +34,5 @@ Introductory conversation to open the agentic writing assistance work. The goal 
 
 ## Notes
 - Do NOT introduce Susannah Locke or Kat Sheplavy into this conversation or as future targets — Chris's explicit gate; prove with Sara's team first
-- Ryan is Sara's team — his weekly check-in is a separate feedback channel; do not conflate the two
 - Labor law constraint: no fine-tuning on Sara's individual content without union agreement; do not make commitments that require this
 - Full context: write-assist/CONTEXT.md, memory/project_p18_agentic_writing.md

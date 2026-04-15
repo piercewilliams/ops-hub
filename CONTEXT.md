@@ -2,7 +2,7 @@
 
 **Phase:** Build / Active
 **Last session:** 2026-04-15 — Snowflake/Sigma walkthrough complete (Rocky+Chad). Key Snowflake tables: story_traffic_main (O&O PV) + dynamic_story_metadata (author/SEO/keywords). Amplitude in Snowflake (Amplitude events prod). No Sigma OAuth2 — GitHub→Snowflake direct (Chad). eCPM → Ryan Spalding. Rocky per-pub SEMrush confirmed. Pierce granted CSA Admin by Susannah — Susannah entered 2 of 5 personas as Team Target Audiences (Discover Browser + Science Enthusiast); Pierce to enter remaining 3 (Curious Optimizer, Curious Explorer, Watercooler Insider).
-**Status:** 18 active/tracked projects. Compass goals submitted (Jeremy approval pending Apr 30). Meetings 2–4 (Sara agentic, Ryan weekly) still pending scheduling.
+**Status:** 18 active/tracked projects. Compass goals submitted (Jeremy approval pending Apr 30). Sara Vallone agentic intro still pending scheduling.
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -145,7 +145,6 @@ For session history: see [sessions/](sessions/)
 0. [x] ~~**Schedule: Keyword Threshold session**~~ — Invite sent 2026-04-15. Rocky ✓ Sarah ✓ Chris free whenever. Agenda in `meetings/2026-04-xx-keyword-thresholds.md`
 0. [ ] **Schedule: Sarah Price weekly report format coord** — for 2026-04-17 when she returns; agenda in `meetings/2026-04-17-price-weekly-report.md`
 0. [ ] **Schedule: Sara Vallone agentic writing intro** — confirm with Sara on framing before finalizing; agenda in `meetings/2026-04-xx-sara-agentic-intro.md`
-0. [ ] **Schedule: Ryan weekly check-in** — standing recurring; agenda in `meetings/2026-04-xx-ryan-weekly-checkin.md`
 0. [ ] **Rocky+Chad walkthrough TODAY 1:30pm CDT** *(already on calendar — see `meetings/2026-04-15-snowflake-navigation.md`)*
 
 **Step 2 — Also today:**
