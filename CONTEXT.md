@@ -201,7 +201,7 @@ For session history: see [sessions/](sessions/)
 **Waiting on others (no action needed):**
 - Chad Bruton: GitHub→Snowflake direct connection setup — message sent 2026-04-15
 - Ryan Spalding: eCPM/ad yield methodology for Market dimension — message sent 2026-04-15
-- Joe Vitali: PTECH-7730 owner confirmation — message sent 2026-04-15
+- Joe Vitali: PTECH-7730 — confirmed with dev group, Julia Kim is PM. Joe checking ETA, responding tomorrow 2026-04-16.
 - ~~Sara Vallone: agentic writing intro~~ — **confirmed Thu 2026-04-16 11am CDT**
 - **Chris Palo: Reuters Connect link** — Chris said he'd send it (2026-04-14 1:1). Accept/follow up if it doesn't arrive by end of week. See P15.
 - ~~Sara Vallone: hot take on SEMrush keyword output~~ — **DONE 2026-04-14.** Verdict: "great start," info is good, likes the layout. Key framing: wants it **expansive, not prescriptive** — don't pigeon-hole content decisions. Aligned on using Rocky's KW data as the next layer. Ready to start playing around with it.

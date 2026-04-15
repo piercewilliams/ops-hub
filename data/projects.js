@@ -119,7 +119,7 @@ export const PROJECTS = {
     nextActions: [
       'Contact Chad Bruton to set up GitHub → Snowflake direct connection for dashboard adapter.',
       'Contact Ryan Spalding about ad yield/eCPM data — needed for Market dimension of Recipe system. Chad deferred to him; ad yield tracked at page level (not article), rolls up by traffic.',
-      'Contact Joe Vitali about PTECH-7730 (WordPress p-tagging mismatch) — PE ticket; Joe may not own it but will know who does.',
+      'Follow up with Joe Vitali on PTECH-7730 ETA — confirmed with dev group; Julia Kim is PM. Joe checking ETA, responds tomorrow 2026-04-16.',
       'Explore story_traffic_main and dynamic_story_metadata tables — run test queries to validate joins and data quality before building on top of them.',
     ],
     dependsOn: [],
@@ -194,12 +194,12 @@ export const PROJECTS = {
       { name: 'Google Sheets (manual)', status: 'done', note: 'Edit data/manual-metrics.js to update numbers.' },
       { name: 'Snowflake (direct)', status: 'pending-setup', note: 'Replaces Sigma OAuth2 approach. Chad Bruton confirmed: connect GitHub directly to Snowflake — Sigma is just a reporting UI on top. Chad to help set up. Unblocks stories/week, batting average, and O&O PV.' },
       { name: 'Marfeel', status: 'pending-creds', note: 'Discover rate, batting average. Needs API key.' },
-      { name: 'Amplitude', status: 'pending-creds', note: 'Amplitude data is in Snowflake (Amplitude events prod table) — use Snowflake connection for raw event data. CSA-specific unified dashboard still blocked on PTECH-7730 (PE ticket, unassigned — Joe Vitali knows owner).' },
+      { name: 'Amplitude', status: 'pending-creds', note: 'Amplitude data is in Snowflake (Amplitude events prod table) — use Snowflake connection for raw event data. CSA-specific unified dashboard still blocked on PTECH-7730 (PE ticket, dev group assigned, Julia Kim PM — Joe Vitali checking ETA, responds 2026-04-16).' },
     ],
     blockers: [
       'Snowflake direct connection not yet set up — Chad Bruton to assist (GitHub → Snowflake)',
       'Marfeel API key',
-      'PTECH-7730 (WordPress p-tagging fix, PE ticket, unassigned) — contact Joe Vitali for owner',
+      'PTECH-7730 (WordPress p-tagging fix) — dev group assigned, Julia Kim PM. Waiting on ETA from Joe Vitali (2026-04-16).',
     ],
     nextActions: [
       'Get Marfeel API key → activate adapter',
