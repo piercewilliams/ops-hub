@@ -55,8 +55,7 @@ For session history: see [sessions/](sessions/)
 - **PGS-96 (IN QA as of 2026-04-10):** Discover Browser saved target audience moved from Code Review → In QA.
 - **PGS-87 (DONE as of 2026-04-11):** Target Audience label now included in Google Doc exports for platform variants. Data-passing bug between Target Audience step and Platform Distribution export step fixed.
 - **PTECH-7730 (TO DO, new):** "Update category tag derived property" — Platform Technology team [PT] Delta, unassigned. Amplitude work to make L&E CSA property = CUE CSA property. "From CSA" checkbox in WordPress. When done: enables Amplitude adapter AND Deedra's unified Sigma dashboard of all CSA content. Parent: PTECH-7005. Reporter: Julia Kim. Susannah CC'd Pierce.
-- **PGS-150 spike COMPLETE:** Victor Suarez recommends Copyscape Premium API (~$72/month, pay-as-you-go). Originality.ai as fallback. Internal tooling: not feasible. Susannah asking Pierce: "any strong preferences on tools from your team?" Pierce to review Google Doc and respond.
-- **PGS-150 (PRODUCT REVIEW as of 2026-04-10):** Plagiarism detection spike complete — recommendation in product review.
+- **PGS-150 (PRODUCT REVIEW):** Spike complete (Victor Suarez) — Copyscape Premium API recommended (~$72/month, pay-as-you-go). Originality.ai as fallback. Internal tooling not feasible. **Gary confirmed 2026-04-14: no plagiarism tool — uses Originality.ai API; strengthens Originality.ai as secondary option.** Susannah Mode 2 rationale (2026-04-14): "Upload from Research Draft" uses Mode 2 prompt that explicitly adds contextual background ("According to medical experts...") — plagiarism risk isn't only from the user's source URL, it's also from CSA's own Mode 2 expansion, making Audience Variants stage placement important. Open question: whether Mode 2 uses training data (LLM knowledge base) or web search/RAG — Oliver confirmed in March it uses knowledge base; Susannah following up. Full details in csa-dashboard rq-plagiarism-check.
 - **PGS-93 (ON HOLD as of 2026-04-10):** "Create Research Draft" from URL import flow put on hold. Susannah ticketed from Ryan's request without consulting Sara's team. Pierce commented: "Sara says this needs to be reworked; please do not prioritize."
 - **PGS-150 (IN PROGRESS as of 2026-04-08):** Plagiarism Detection spike — off-the-shelf APIs (Copyscape, CopyLeaks, Turnitin, iThenticate) + internal tooling. Surface at Audience Variants stage alongside PGS-82 diff score. PGS-150 = output vs. third-party web (distinct from PGS-82 = internal variant-to-variant). National team first. Pierce CC'd; eng produces recommendation.
 - **AGENT-AUDIENCE routing — §1 status (2026-04-08):** §1.1 Voice & Tone → general-style (Susannah UI upload, done). §1.2 Headline Best Practices → headline (PGS-141, selected for dev). §1.2 SEO fields → seo (PGS-148, selected for dev). §1.3 Explicit Language → general-style (Susannah UI upload, done). §1.4 link count + anchor text → general-style (Susannah UI upload, done). §1.4 What to Link To → human-only (no action needed). §1.5–1.9 → human-only (no action needed). Susannah using Claude to fetch content by tag during uploads.
@@ -145,6 +144,8 @@ For session history: see [sessions/](sessions/)
    - [ ] **Send Sara details of additional tasks + required meetings** (Pierce action from meeting)
    - [ ] **Provide weekly release estimates/timeframes to management** (Chris ask — use weekly dates, not "soon")
    - [ ] **Create dev tickets: (1) keyword color overlay, (2) author profile replication** — both greenlit at CSA Weekly
+   - [ ] **Create CSA pipeline visuals for Britney** — "completed / working / in-transit" diagram; Chris asked for this after CSA meeting 2026-04-14; send to Chris when done
+   - [ ] **Distill open CSA tickets → exec bullet points** — not a full ticket dump; major items + key dates only; send to Chris so he can pass to Britney
 1.5. [x] ~~**Check data-headlines Actions tab**~~ — DONE 2026-04-14. Pipeline fully operational.
 1.6. [x] ~~**Create P18 repo (agentic writing helpers)**~~ — DONE. write-assist repo created 2026-04-14.
 2. [x] ~~**Julia Tortoriello meeting**~~ — DONE 2026-04-09. CMS prompt + standalone GPT config received verbatim. Julia willing to test CSA in Spanish.
@@ -187,6 +188,7 @@ For session history: see [sessions/](sessions/)
 - Rollout: staging (inform-only) → QA → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
 
 **Waiting on others (no action needed):**
+- **Chris Palo: Reuters Connect link** — Chris said he'd send it (2026-04-14 1:1). Accept/follow up if it doesn't arrive by end of week. See P15.
 - ~~Sara Vallone: hot take on SEMrush keyword output~~ — **DONE 2026-04-14.** Verdict: "great start," info is good, likes the layout. Key framing: wants it **expansive, not prescriptive** — don't pigeon-hole content decisions. Aligned on using Rocky's KW data as the next layer. Ready to start playing around with it.
 - Rocky Rhodes (rrhodes@mcclatchy.com): credit burn rate per SEMrush endpoint — querying Julio; no reply as of 2026-04-11 (confirmed via Gmail); must have before writing any automation
 - Stephanie Zandecki: keyword-to-article Sigma question folded into Rocky+Chad walkthrough meeting — will confirm via Chad; no separate message needed
