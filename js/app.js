@@ -617,8 +617,7 @@ function attemptRestore() {
     }
   } else {
     // Snapshot was created before the raw field was added to the sync format
-    const errEl2 = document.getElementById('srm-error');
-    if (errEl2) errEl2.textContent = 'Raw file not in this snapshot. Re-run a sync to generate a restorable version.';
+    if (errEl) errEl.textContent = 'Raw file not in this snapshot. Re-run a sync to generate a restorable version.';
   }
 }
 
