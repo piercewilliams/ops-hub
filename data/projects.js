@@ -326,9 +326,13 @@ export const PROJECTS = {
     name: 'Content Analysis / Narrative Dashboard (Price)',
     owner: 'Pierce · Sarah Price',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Ongoing monitoring layer and testing narrative with Sarah Price. Distinct from headline analysis — this is the reporting/narrative layer on top.',
-    blockers: ['Needs P3 findings consolidated with Sarah Price first'],
-    nextActions: ['Meet with Sarah Price to define monitoring format and cadence'],
+    description: 'Ongoing monitoring layer and reporting narrative with Sarah Price. Distinct from headline analysis — this is the reporting layer on top. Standing governance item: Sarah sends weekly exec note on content performance; Pierce adds CSA operations piece (wins + priorities — not a ticket dump, per Chris). Combined = one weekly update for stakeholders. Framing: constructive progress, not a complaint about velocity.',
+    blockers: ['Sarah Price out until 2026-04-17 — coordinate format on her return'],
+    nextActions: [
+      'When Sarah Price returns (2026-04-17): arrange meeting to coordinate format for combined weekly update',
+      'Build Pierce\'s operations piece — CSA wins + priorities; keep it brief and constructive',
+      'Define monitoring format and cadence with Sarah Price',
+    ],
     dependsOn: ['p3-headlines'],
   },
 

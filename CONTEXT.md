@@ -153,6 +153,7 @@ For session history: see [sessions/](sessions/)
 10. [x] ~~**Connect Amplitude connector**~~ — DONE 2026-04-11. Also connected: Google Drive, Gmail, GitHub, Atlassian/Jira/Compass, Google Calendar, Slack.
 
 **#2 — NEXT WEEK:**
+7. [ ] **When Sarah Price returns (2026-04-17): arrange meet to coordinate combined weekly update** — Pierce adds CSA operations piece (wins + priorities, not a ticket dump) to Sarah's existing content performance note. One weekly report for stakeholders. See P3.5.
 7. [ ] **Sara Vallone Gary parameter session** — 4 decisions: verdict→action mapping, content-type thresholds, acceptance tracking design, reporting cadence. Agenda ready. Awaiting scheduling.
 7.5. [ ] **Internal source ranking library (V1)** — Chris's ask from C&P Weekly. Begin scoping once Gary unreliability is documented and parameter session complete.
 8. [ ] **Gary Tools meeting with Sara Vallone** — walk 15 test articles, iterate on ruleset. Draft already in her hands.
