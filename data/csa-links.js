@@ -64,19 +64,8 @@ export const CSA_LINKS = {
     requests: [
       { id:'rq-apple-news-api', label:'App-based distribution headline data', fulfilled:true, text:'App-based distribution headline data — fulfilled Mar 25. Chris Tarrow maintains a live Google Sheet covering Apple News, SmartNews, MSN headline performance for Tier 1 outlets, updated monthly. 2025 data and Jan 2026–present available. Scope: headline-only. Sheet shared with Pierce and Sarah Price. See rq-apple-news-monitoring for ongoing work.' },
       { id:'rq-apple-news-monitoring', label:'App-based distribution headline monitoring', fulfilled:false, text:'App-based distribution headline monitoring — ongoing workflow to surface performance signals from Apple News, SmartNews, MSN back into pitch and editorial decisions. Raw data feed exists (Tarrow\'s sheet). Remaining work: analyze existing data with Sarah Price to define which signals to track and at what cadence.' },
-      { id:'rq-headline-tool', label:'Headline audit and compliance tool', fulfilled:false, text:'Headline audit and compliance tool — assess and reformat headlines for outlet-specific requirements. Distinct from rq-title-options (multiple choices) and rq-title-length (character limits). Downstream of rq-outlet-style-governance.
-
-Validated performance formulas (Justin Frame, Mar 24 — 1,034 stories, 3.37M PVs, 18 newsrooms):
-• WINNING: [Named entity + concrete action] + [Named place] + \'. Here are X takeaways\' or \'. What to know\'
-• \'Here are X takeaways\' — avg 2,299 PVs; works across business, breaking, crime, food/retail.
-• Lead with number (\'4 businesses closing...\') — avg 4,934 PVs; highest signal for inherently list stories.
-• \'Here\'s a look\' — avg 5,214 PVs; outperforms \'What to know\' on positive/community stories.
-• \'What to know\' — subject specificity matters; named entity doing something concrete performs, vague subject flatlines.
-• \'Did you miss these 3 stories?\' — structural ceiling ~65 PVs; format problem, not a headline problem.
-• Discover formula: \'rare + unexpected + scientific validation + mystery framing.\'' },
-      { id:'rq-title-options', label:'Multi-option title and teaser generation', fulfilled:false, text:'Multi-option title and teaser generation — writers use Claude separately to generate main title, SEO title, meta description, and teaser. CSA should generate multiple options (e.g. 10) for selection. Single-option output is rarely usable as-is. Distinct from rq-headline-tool (outlet compliance) and rq-title-length (character limits).
-
-Options should use validated performance structures: \'[Entity + action]. Here are X takeaways\', \'[Entity + action]. What to know\', \'Here\'s a look at...\', leading-number formats.' }
+      { id:'rq-headline-tool', label:'Headline audit and compliance tool', fulfilled:false, text:'Headline audit and compliance tool — assess and reformat headlines for outlet-specific requirements. Distinct from rq-title-options (multiple choices) and rq-title-length (character limits). Downstream of rq-outlet-style-governance. Validated performance formulas (Justin Frame, Mar 24 — 1,034 stories, 3.37M PVs, 18 newsrooms): WINNING: [Named entity + concrete action] + [Named place] + \'. Here are X takeaways\' or \'. What to know\'. \'Here are X takeaways\' — avg 2,299 PVs. Lead with number — avg 4,934 PVs. \'Here\'s a look\' — avg 5,214 PVs. \'What to know\' — subject specificity matters. Discover formula: \'rare + unexpected + scientific validation + mystery framing.\'' },
+      { id:'rq-title-options', label:'Multi-option title and teaser generation', fulfilled:false, text:'Multi-option title and teaser generation — writers use Claude separately to generate main title, SEO title, meta description, and teaser. CSA should generate multiple options (e.g. 10) for selection. Single-option output is rarely usable as-is. Distinct from rq-headline-tool (outlet compliance) and rq-title-length (character limits). Options should use validated performance structures: \'[Entity + action]. Here are X takeaways\', \'[Entity + action]. What to know\', \'Here\'s a look at...\', leading-number formats.' }
     ],
     pain: [
 
@@ -105,19 +94,8 @@ Options should use validated performance structures: \'[Entity + action]. Here a
 
   'p4-governance': {
     requests: [
-      { id:'rq-headline-tool', label:'Headline audit and compliance tool', fulfilled:false, text:'Headline audit and compliance tool — assess and reformat headlines for outlet-specific requirements. Distinct from rq-title-options (multiple choices) and rq-title-length (character limits). Downstream of rq-outlet-style-governance.
-
-Validated performance formulas (Justin Frame, Mar 24 — 1,034 stories, 3.37M PVs, 18 newsrooms):
-• WINNING: [Named entity + concrete action] + [Named place] + \'. Here are X takeaways\' or \'. What to know\'
-• \'Here are X takeaways\' — avg 2,299 PVs; works across business, breaking, crime, food/retail.
-• Lead with number (\'4 businesses closing...\') — avg 4,934 PVs; highest signal for inherently list stories.
-• \'Here\'s a look\' — avg 5,214 PVs; outperforms \'What to know\' on positive/community stories.
-• \'What to know\' — subject specificity matters; named entity doing something concrete performs, vague subject flatlines.
-• \'Did you miss these 3 stories?\' — structural ceiling ~65 PVs; format problem, not a headline problem.
-• Discover formula: \'rare + unexpected + scientific validation + mystery framing.\'' },
-      { id:'rq-title-options', label:'Multi-option title and teaser generation', fulfilled:false, text:'Multi-option title and teaser generation — writers use Claude separately to generate main title, SEO title, meta description, and teaser. CSA should generate multiple options (e.g. 10) for selection. Single-option output is rarely usable as-is. Distinct from rq-headline-tool (outlet compliance) and rq-title-length (character limits).
-
-Options should use validated performance structures: \'[Entity + action]. Here are X takeaways\', \'[Entity + action]. What to know\', \'Here\'s a look at...\', leading-number formats.' },
+      { id:'rq-headline-tool', label:'Headline audit and compliance tool', fulfilled:false, text:'Headline audit and compliance tool — assess and reformat headlines for outlet-specific requirements. Distinct from rq-title-options (multiple choices) and rq-title-length (character limits). Downstream of rq-outlet-style-governance. Validated performance formulas (Justin Frame, Mar 24 — 1,034 stories, 3.37M PVs, 18 newsrooms): WINNING: [Named entity + concrete action] + [Named place] + \'. Here are X takeaways\' or \'. What to know\'. \'Here are X takeaways\' — avg 2,299 PVs. Lead with number — avg 4,934 PVs. \'Here\'s a look\' — avg 5,214 PVs. \'What to know\' — subject specificity matters. Discover formula: \'rare + unexpected + scientific validation + mystery framing.\'' },
+      { id:'rq-title-options', label:'Multi-option title and teaser generation', fulfilled:false, text:'Multi-option title and teaser generation — writers use Claude separately to generate main title, SEO title, meta description, and teaser. CSA should generate multiple options (e.g. 10) for selection. Single-option output is rarely usable as-is. Distinct from rq-headline-tool (outlet compliance) and rq-title-length (character limits). Options should use validated performance structures: \'[Entity + action]. Here are X takeaways\', \'[Entity + action]. What to know\', \'Here\'s a look at...\', leading-number formats.' },
       { id:'rq-title-length', label:'Title length and quality', fulfilled:false, text:'Title length and quality — generated titles frequently exceed guidelines and are rarely captivating enough to use as-is. Update v0.81.0 (Mar 25): platform-specific headline length guidance now live — news platforms guided to 60–80 characters, lifestyle/entertainment to 80–100. Remaining issue: quality (captivation, usability) is separate from length compliance. Distinct from rq-title-options (multiple choices) and rq-headline-tool (outlet compliance).' },
       { id:'rq-style-compliance', label:'Style guideline compliance', fulfilled:false, text:'Style guideline compliance — CSA doesn\'t consistently follow per-outlet style rules: (1) names should be bolded except on WW; (2) headings in title case except on WW; (3) movies, shows, albums consistently italicized rather than sometimes in quotes.' },
       { id:'rq-outlet-style-governance', label:'Define style guidance and governance per outlet', fulfilled:false, text:'Define style guidance and governance per outlet — document which headline formats, tone conventions, and structural rules apply to each publishing destination. Prerequisite for rq-headline-tool and rq-style-compliance.' },
@@ -323,9 +301,7 @@ Options should use validated performance structures: \'[Entity + action]. Here a
   'p18-agentic-writing': {
     requests: [
       { id:'rq-outline-ai-assist', label:'AI-assisted outline creation', fulfilled:false, text:'AI-assisted outline creation — writers spend ~30 minutes building outlines manually. An AI assist that generates a draft outline from reference articles or URLs would significantly reduce prep time. Note: existing Import from Published URLs and Search workflows produce a Research Draft, which may be a viable starting point.' },
-      { id:'rq-title-options', label:'Multi-option title and teaser generation', fulfilled:false, text:'Multi-option title and teaser generation — writers use Claude separately to generate main title, SEO title, meta description, and teaser. CSA should generate multiple options (e.g. 10) for selection. Single-option output is rarely usable as-is. Distinct from rq-headline-tool (outlet compliance) and rq-title-length (character limits).
-
-Options should use validated performance structures: \'[Entity + action]. Here are X takeaways\', \'[Entity + action]. What to know\', \'Here\'s a look at...\', leading-number formats.' }
+      { id:'rq-title-options', label:'Multi-option title and teaser generation', fulfilled:false, text:'Multi-option title and teaser generation — writers use Claude separately to generate main title, SEO title, meta description, and teaser. CSA should generate multiple options (e.g. 10) for selection. Single-option output is rarely usable as-is. Distinct from rq-headline-tool (outlet compliance) and rq-title-length (character limits). Options should use validated performance structures: \'[Entity + action]. Here are X takeaways\', \'[Entity + action]. What to know\', \'Here\'s a look at...\', leading-number formats.' }
     ],
     pain: [
       { id:'p-research', label:'CSA cannot be used for draft research', priority:false, text:'CSA cannot be used for draft research — all source gathering must be done manually by writers before Step 1, adding significant time to prep' }
