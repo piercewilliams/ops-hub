@@ -134,18 +134,22 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next
 
-**#1 — THIS WEEK (PRIORITY: SCHEDULE THESE MEETINGS FIRST):**
+**#1 — THIS WEEK:**
+**Step 1 — Schedule meetings tomorrow (then pass invites to Chris):**
 0. [ ] **Schedule: Keyword Threshold session** — Rocky + Sarah + Chris; agenda in `meetings/2026-04-xx-keyword-thresholds.md`
 0. [ ] **Schedule: Sarah Price weekly report format coord** — 2026-04-17 when she returns; agenda in `meetings/2026-04-17-price-weekly-report.md`
 0. [ ] **Schedule: Sara Vallone agentic writing intro** — confirm with Sara on framing before finalizing; placeholder agenda in `meetings/2026-04-xx-sara-agentic-intro.md`
 0. [ ] **Schedule: Ryan weekly check-in** — standing recurring; agenda in `meetings/2026-04-xx-ryan-weekly-checkin.md`
 *(Snowflake/SEMrush walkthrough with Rocky + Chad is already on calendar: 2026-04-15 1:30pm CDT — see `meetings/2026-04-15-snowflake-navigation.md`)*
+
+**Step 2 — After meetings scheduled, before or after Snowflake call:**
+0. [ ] **Create CSA pipeline visuals for Britney** — "completed / working / in-transit" diagram; Chris asked for this after CSA meeting 2026-04-14; send to Chris when done (he passes to Britney)
+
 1. [x] ~~**CSA Weekly — Tue 4/14 3pm CDT**~~ — DONE. PRD distributed; Gary evaluation aligned; keyword field mandatory; PGS-96 → Ready for Production; keyword color overlay + author profile replication greenlit.
    - [ ] **Send Sara details of additional tasks + required meetings** (Pierce action from meeting)
    - [ ] **Provide weekly release estimates/timeframes to management** (Chris ask — use weekly dates, not "soon")
    - [ ] **Create dev tickets: (1) keyword color overlay, (2) author profile replication** — both greenlit at CSA Weekly
-   - [ ] **Create CSA pipeline visuals for Britney** — "completed / working / in-transit" diagram; Chris asked for this after CSA meeting 2026-04-14; send to Chris when done
-   - [ ] **Distill open CSA tickets → exec bullet points** — not a full ticket dump; major items + key dates only; send to Chris so he can pass to Britney
+   - [x] ~~**Distill open CSA tickets → exec bullet points**~~ — DONE 2026-04-14. Major items + key dates sent to Chris for Britney.
 1.5. [x] ~~**Check data-headlines Actions tab**~~ — DONE 2026-04-14. Pipeline fully operational.
 1.6. [x] ~~**Create P18 repo (agentic writing helpers)**~~ — DONE. write-assist repo created 2026-04-14.
 2. [x] ~~**Julia Tortoriello meeting**~~ — DONE 2026-04-09. CMS prompt + standalone GPT config received verbatim. Julia willing to test CSA in Spanish.
