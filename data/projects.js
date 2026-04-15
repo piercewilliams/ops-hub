@@ -353,7 +353,7 @@ export const PROJECTS = {
   },
 
   'p15-partner': {
-    id: 'p15-partner', num: '15', tier: 5, type: 'project', status: 'hold',
+    id: 'p15-partner', num: '15', tier: 5, type: 'project', status: 'in-progress',
     name: 'Partner Content / Inventory Optimization',
     owner: 'Pierce · Kathryn Sheldon · Chris Palo · Kathy',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
