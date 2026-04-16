@@ -144,14 +144,21 @@ export const PROJECTS = {
   // ── TIER 2 ────────────────────────────────────────────────────────────────
 
   'p8-mapping': {
-    id: 'p8-mapping', num: '8', tier: 2, type: 'project', status: 'not-started',
-    name: 'Rajiv CSA Mapping',
+    id: 'p8-mapping', num: '8', tier: 2, type: 'project', status: 'in-progress',
+    name: 'CSA Pipeline Architecture Mapping & Gap Analysis',
     owner: 'Pierce',
     compassGoal: 'G4 — Pipeline Documentation & Operational Knowledge',
-    description: 'Map CSA transformations via BitBucket. Low priority — not blocking anything.',
-    blockers: [],
+    description: 'Map the CSA pipeline as it actually exists via Bitbucket, then compare it against the PRD ideal state to produce a prioritized gap analysis. Feeds stakeholder visualizations, the engineering roadmap conversation with Chris, and CSA Weekly planning.',
+    blockers: [
+      'Need Bitbucket access to CSA repo — confirm access or request via Chris/Rajiv',
+    ],
     nextActions: [
-      'Map CSA pipeline transformations via Bitbucket (low priority — do opportunistically)',
+      'Confirm Bitbucket access to CSA repo — if not already provisioned, request via Chris or Rajiv',
+      'Map as-built CSA pipeline via Bitbucket: trace request flow through agents/stages; document inputs, outputs, and transformations at each node',
+      'Apply Sully AI decomposition audit: for each stage, is it doing one focused job or multiple? Flag monolithic stages as architectural debt',
+      'Build as-envisioned map from PRD V0.5: decomposed agent stages for keyword validation, fact-check, brand-fit, format compliance, headline gen, SEO metadata, diff check — each as a discrete node',
+      'Produce delta document: enumerate gaps between as-built and as-envisioned; prioritize by (1) engineering feasibility, (2) impact on output quality, (3) dependency order',
+      'Create visualizations: "completed / working / in-transit" diagram for Britney (Chris ask); full architecture delta for CSA Weekly / eng roadmap conversation',
     ],
     dependsOn: ['p1-access'],
   },

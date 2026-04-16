@@ -51,7 +51,7 @@ For session history: see [sessions/](sessions/)
 | 5 | Personas & Formats Testing | 5 | In progress | Needs P4 stable + EGS-127. |
 | 6 | Content Cluster / Tagging Taxonomy | 3 | In progress | EGS-127 ticket 12828 in dev (1 of 4). |
 | 7 | Vallone Tracker / CMS Automation | 4 | Hold | EGS-127 + rq-send-to-cue + PGS-80 must land first. |
-| 8 | Rajiv CSA Mapping | 2 | Not started | Low priority opportunistic. |
+| 8 | CSA Pipeline Architecture Mapping & Gap Analysis | 2 | In progress | Reframed 2026-04-16: Bitbucket audit → as-built map (Sully AI decomposition lens) → PRD ideal map → prioritized gap delta + stakeholder visualizations. Blocker: confirm Bitbucket access. |
 | 9 | ~~PRD Revisions~~ | — | Done | V0.5 delivered 2026-04-10, distributed at CSA Weekly 2026-04-14. |
 | 10 | Gary Tools Integration | 2 | In progress | Direct API integration dropped (vendor lock-in). Pierce to audit Gary's public resources, obtain code, and propose internal replication to Chris + CSA eng. |
 | 11 | Recipes | 5 | Not started | Needs P4 + P2 + P6 + P14. |
