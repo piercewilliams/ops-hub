@@ -1,8 +1,8 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-15 — Sara Vallone Experiences keyword pull complete. SEMrush API: 4 topics, full phrase_fullsearch + phrase_kdi + phrase_organic pipeline. Verdicts: Landmarks GO HARD, 5-Day Travel GO HARD, Scenic Road Trips GO HARD, Solo Dining SKIP. 4 xlsx files + docx analytical report delivered. Slack sent before Thu 11am meeting.
-**Status:** 19 active/tracked projects. Compass goals submitted (Jeremy approval pending Apr 30).
+**Last session:** 2026-04-15 (session 4) — Quality infrastructure overhaul: check.sh data quality gate, git pre-commit hook, PINNED_ACTIONS mechanism, description audit (10 trimmed), WINS.md + Compass progress notes initialized.
+**Status:** 21 active/tracked projects (P20 + P21 added). Compass goals submitted (Jeremy approval pending Apr 30).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
 For session history: see [sessions/](sessions/)
@@ -35,7 +35,8 @@ For session history: see [sessions/](sessions/)
 - Snapshot version bar (last 5 syncs, passkey-protected restore)
 - CSA Dashboard tag chips (pain / requests / metrics) with popover detail
 - Sync status pill — shows "Last synced X ago" (green <3d, yellow 3–7d, red >7d)
-- Quality gate script at `scripts/check.sh`
+- Quality gate script at `scripts/check.sh` (data quality: description length, ticket numbers, PINNED_ACTIONS count, done card completeness)
+- Git pre-commit hook — check.sh runs automatically on every commit; no manual step required
 - Snapshot version bars on csa-dashboard, csa-content-standards, data-headlines — weekly auto-snapshot (Mon 8am), passkey `8812`
 
 ## Project Status Snapshot
