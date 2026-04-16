@@ -785,7 +785,7 @@ html, body {
 .pp-item:last-child { border-bottom: none; }
 .pp-item--clickable { cursor: pointer; transition: background 0.15s; }
 .pp-item--clickable:hover { background: #f0f4f8; }
-.pp-item--pinned { border-left: 3px solid var(--blue); background: #f0f6ff; }
+.pp-item--pinned { border-left: 3px solid var(--blue); background: rgba(var(--blue-rgb), 0.08); }
 .pp-item--pinned .pp-num { color: var(--blue); font-size: 13px; }
 .pp-pinned-label { color: var(--blue); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
 
