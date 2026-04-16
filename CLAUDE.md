@@ -103,6 +103,17 @@ The `description` field is a **2–3 sentence paragraph** that answers:
 
 **Enforcement — mandatory on every `projects.js` edit:** Before committing, scan every `description` field. Any that contain ticket numbers, specific dates, meeting outcomes, or who-said-what detail must be trimmed. No exceptions, no deferral to a later session.
 
+## Completed Project Card Rules
+
+When a project moves to `status: 'done'`, the sidebar is the only way to see its full history (the diagram card is hidden; only the pill ledger entry remains, and it is clickable). Before marking any project done, ensure the card has:
+
+1. **`completedDate`** — set to the ISO date the project closed (e.g. `'2026-04-03'`)
+2. **`description`** — updated to read as a retrospective: what the project was, what it resolved, what the outcome was. Still 2–3 sentences, but past-tense and conclusive.
+3. **`resolvedBlockers[]`** — at least one entry describing the key blocker(s) that were cleared. Format: `'What was blocked → how it was resolved (who, when)'`. This is Pierce's review-cycle reference.
+4. **`nextActions: []`** and **`blockers: []`** — both empty. Done projects have no open actions.
+
+Do not move a project to `status: 'done'` without filling all four. These fields are what makes the completed pill sidebar useful during review cycles.
+
 ---
 
 ## projects.js Staleness Rules
