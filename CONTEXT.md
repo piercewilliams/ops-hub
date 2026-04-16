@@ -143,8 +143,8 @@ For session history: see [sessions/](sessions/)
 **PGS-82/139/140 rollout — Susannah is driving, Pierce is tagged:**
 - [ ] PGS-82 must-fix items confirmed by Susannah before release: (1) banner states = green/red only, no "Needs Review"; (2) re-analysis loading indicator. Monitor for next engineering pass.
 - [ ] PGS-104 back in Victor's hands — keyword enforcement still failing after Jonathan QA. Monitor for next pass.
-- [ ] **PGS-150 HOLD — Pierce action:** Clarify implementation criteria for Susannah (Copyscape vs. RAG scope). She's waiting.
-- [ ] PGS-189 NEW: Respond to Susannah's mention — confirm Pierce's role in Mode 2 spike (stakeholder input vs. active contributor).
+- [ ] **PGS-150 HOLD — Pierce action:** Schedule criteria session with Sara Vallone + Chris Palo. Susannah is waiting. Full agenda in P21 card.
+- PGS-189: Pierce is a stakeholder/reviewer only — wait for Oliver's findings, then form a take.
 - Rollout: staging → QA → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
 
 **Waiting on others (no action needed):**
