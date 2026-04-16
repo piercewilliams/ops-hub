@@ -8,6 +8,12 @@ Organized by ops-hub tier, reverse-chronological within each.
 
 ## Tier 1 — Foundation
 
+**2026-04-16 — PGS-17 Send-to-Cue hold removed — now in Code Review**
+After 27+ days on hold, the Send-to-Cue ticket moved to Code Review during the 2026-04-16 standup. Daury Caba's PR contains core Send-to-Cue functionality (without Snowflake fields); PGS-67 is the follow-on for Snowflake + feedback loop integration. This removes the single most visible operational gap between what the CSA promises and what it currently delivers — every National team publish cycle has been manual copy-paste into Cue.
+
+**2026-04-16 — Headline quality standards defined and eval tool delivered**
+Collaborated with Sara Vallone and Sarah Price to define headline quality criteria for the National content pipeline. Built and delivered an eval tool both have reviewed and signed off on. Closes the Headline Grader criteria refinement commitment from C&P Weekly.
+
 **2026-04-15 — All 5 National Team personas live as Team Target Audiences in CSA**
 Susannah Locke granted Pierce CSA Admin role. Susannah entered The Discover Browser + The Wonder-Driven Science Enthusiast; Pierce entered The Curious Optimizer, The Curious Explorer, and The Watercooler Insider. All 5 now available as shared team audiences across all National team accounts in production. Admin-only, environment-isolated feature — replaces PGS-133 (code-change ticket ON HOLD). First time the full persona set is accessible to every National team CSA user without individual setup.
 

@@ -10,10 +10,11 @@
 // Remove when done. Keep ≤3 items — this is not a second todo list.
 // Format: { task: 'description', projectId: 'p##-slug' }
 export const PINNED_ACTIONS = [
-  { task: 'Follow up with Kat Sheplavy — get access to her trend analysis agent + TH native tool (P19 three-way comparison)', projectId: 'p19-maia-trend-tool' },
 ];
 
 export const COMPLETED_TASKS = [
+  { date: '2026-04-16', task: 'Daily standup 2026-04-16: PGS-82 full QA complete — 4 bugs + 2 flags identified; Marcelo fixing today (pending Efren/Cat approval); if unresolved, code pulled from production, kept staging for v0.89.1. Binary scoring (okay/high-risk only) confirmed — "needs review" state eliminated. PGS-104 fix deployed to staging by Oliver; Jonathan checking; Susannah: must ship today if PGS-82 can\'t. PGS-17 HOLD REMOVED — now CODE REVIEW; Daury\'s PR has core Send-to-Cue without Snowflake fields; PGS-67 is follow-on. AI hallucination bug flagged by Patrick Al Khouri (CSA added "Ada County" content not in source material); Saner creating ticket. Marcelo: Trend Agent new phases complete, presenting tomorrow, implementation Monday. Victor: full site mobile responsiveness PR ready for review.', project: '#2 Dashboard Instrumentation' },
+  { date: '2026-04-16', task: 'Headline Grader quality standards defined and eval tool built. Pierce worked with Sara Vallone and Sarah Price to establish headline quality criteria; implemented an eval tool both have signed off on. Closes out the Headline Grader criteria refinement commitment from C&P Weekly.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-15', task: 'ops-hub dashboard quality infrastructure overhaul. (1) PINNED_ACTIONS export added to projects.js — global priority override for Up next panel; pinned items always render first with ▲ marker, blue border, and null-safe project reference. (2) getNextTasks() rewritten to prepend pinned items before tier/status sort. (3) check.sh extended with [Data quality] section: PINNED_ACTIONS count ≤3, done project card completeness (completedDate + resolvedBlockers), active project description ≤400 chars, no ticket numbers in descriptions — implemented as node eval of projects.js for accurate parsing. (4) Git pre-commit hook installed — check.sh runs automatically on every commit, no manual step required. (5) CLAUDE.md: three new behavioral enforcement sections added (Project Card Description Rules, PINNED_ACTIONS, Completed Project Card Rules). (6) P20 (Experiences Vertical Content Test) and P21 (Mode 2 Trust & Editorial Risk Spike) project cards added. (7) 10 active descriptions trimmed to ≤400 chars; ticket numbers removed from 3 descriptions. (8) All CSS dark-mode contrast issues fixed (pinned item background → rgba(var(--blue-rgb), 0.08)).', project: 'ops-hub Infrastructure' },
   { date: '2026-04-15', task: 'Jira activity processed: PGS-82 confirmed Product Review with 2 must-fix items (banner states green/red only; re-analysis loading indicator). PGS-104 kicked back from QA — keyword enforcement still failing; Victor + Jonathan on it. PGS-140 In QA (Marcelo). PGS-150 put ON HOLD — Pierce must clarify plagiarism scope/tool with Sara + Chris before Susannah can proceed. PGS-189 new spike selected for development — Mode 2 silently adds "common knowledge" content; Oliver Felix assigned as lead investigator; Pierce tagged as reviewer.', project: '#2 Dashboard Instrumentation' },
   { date: '2026-04-15', task: 'SEMrush API keyword pull for Sara Vallone Experiences vertical content test. Four topics analyzed: Landmarks (GO HARD — 1.5M/mo head term, KD 34, geographic variants KD 12–27), 5-Day Travel / Short Trips (GO HARD — avg KD 15, destination itineraries KD 4–9), Solo Dining (SKIP — volume ceiling 260/mo, $0 CPC), Scenic Road Trips (GO HARD — 8,100/mo, KD 26, no major travel publishers ranking). Full SEMrush pipeline: phrase_fullsearch (multi-seed per topic) + phrase_kdi (batch KD) + phrase_organic (competitor gap check). Deliverables: 4 xlsx files (per-topic, color-coded KD, portfolio gap flags) + 1 docx analytical report (verdict framework, methodology, per-topic analysis). All briefs added to data-keywords briefs.js. Slack message sent to Sara with report attached before 11am Thu meeting.', project: '#20 Experiences Vertical Content Test' },
@@ -129,7 +130,7 @@ export const PROJECTS = {
     blockers: [],
     nextActions: [
       'Contact Chad Bruton to set up GitHub → Snowflake direct connection for dashboard adapter.',
-      'Contact Ryan Spalding about ad yield/eCPM data — needed for Market dimension of Recipe system. Chad deferred to him; ad yield tracked at page level (not article), rolls up by traffic.',
+      'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — review STAR-Automation Sigma dash; primary ask is access to underlying Snowflake tables so revenue data can feed Market dimension of Recipe system.',
       'Monitor PTECH-7730 (p-tagging fix) — dev group assigned, Julia Kim PM; wait for ETA from Joe Vitali',
       'Explore story_traffic_main and dynamic_story_metadata tables — run test queries to validate joins and data quality before building on top of them.',
     ],
@@ -156,16 +157,12 @@ export const PROJECTS = {
     name: 'Gary Tools Integration',
     owner: 'Pierce (lead) · Susannah Locke · Chris Palo',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Evaluation and selective integration of Gary Kirwan\'s AI writing toolkit — specifically author voice profiling, source ranking, and fact-checking capabilities. Gary is off the automated QA gate (non-deterministic), but author profile replication (building a writer\'s voice model from ~100 articles) is greenlit for internal testing.',
-    blockers: [
-      'Gary IP/contract: Kathryn Sheplavy discussing with Jason — McClatchy ownership of Gary\'s code unclear',
-      'Sara Vallone parameter session not yet scheduled',
-    ],
+    description: 'Evaluation of Gary Kirwan\'s AI writing toolkit. Gary is off the automated QA gate (non-deterministic, black-box). Direct API integration is on hold due to vendor lock-in risk. Path forward: audit Gary\'s publicly available resources for anything replicable, obtain the code, then demonstrate a proposal to Chris and the CSA eng team for building the capability internally.',
+    blockers: [],
     nextActions: [
-      'Schedule Sara Vallone parameter session — agenda ready (session-agenda-vallone.docx); 4 decisions needed',
-      'Flag author profile replication to Susannah — greenlit at CSA Weekly; Gary methodology known; test internally (Sara/Pierce/Susannah) before wider rollout',
-      'Monitor Kathryn/Jason conversation on Gary contract + code access',
-      'Begin scoping V1 internal source ranking library (Chris ask; after parameter session)',
+      'Audit Gary\'s publicly available resources (docs, articles, published tools) — identify what can be taken and replicated',
+      'Obtain Gary\'s code (via Kathryn/Jason contract path or direct ask)',
+      'Demonstrate proposal to Chris + CSA eng team: build the capability internally rather than depend on Gary\'s API',
     ],
     dependsOn: ['p1-access'],
     contacts: [
@@ -215,11 +212,12 @@ export const PROJECTS = {
     nextActions: [
       'Ask Chad: is Marfeel (Discover rate, batting average) data in Snowflake? If yes, Snowflake adapter covers it — no API key needed',
       'Monitor PTECH-7730 (p-tagging fix) — activates Amplitude adapter when done',
-      'Provide weekly release estimates/timeframes to management (Chris ask — use weekly dates, not "soon")',
-      'PGS-82 Product Review: Susannah flagged 2 must-fix items — confirm engineering receives fix scope (banner states: green/red only, no "Needs Review"; re-analysis loading indicator) before production release',
-      'PGS-104: back in progress (Victor) after Jonathan QA — keyword enforcement still failing; monitor for next QA pass',
-      'PGS-150: Schedule criteria session with Sara + Chris (see P21 agenda) — Susannah has HOLD on the ticket waiting for this',
-      'Sarah Price: follow up with Deedra on team vs. org comparison dashboard',
+      'PGS-62 Feedback Loop epic (40% done): architecture + Snowflake/Amplitude access + report definitions + queries all DONE. PGS-68/69/72 (Content Graph, Synthesis Engine, Reports UI prototypes) in Code Review. PGS-67 (CSA ID forwarding to Cue — critical content-linking dependency) IN PROGRESS (Daury; unblocked by PGS-17 hold removal today). PGS-66 (WordPress ID forwarding) still Backlog.',
+      'PGS-82: Marcelo fixing 4 bugs + 2 flags today (pending Efren/Cat UI approval). Pierce + Susannah reviewing diff testing items. If bugs not resolved: code removed from production, kept in staging for v0.89.1. Monitor.',
+      'PGS-104: Fix deployed to staging this morning (Oliver); Jonathan checking fix today. Susannah: must ship today if PGS-82 can\'t. IN QA.',
+      'PGS-150: Send Sara email (drafted 2026-04-16) + schedule criteria session with Chris — Susannah on HOLD',
+      'New: AI hallucination bug — Patrick Al Khouri debugging (CSA added "Ada County" content not in source). Saner creating ticket. Monitor.',
+      'Sarah Price: Monitor PGS-82 calibration threshold together — report suspected missed issues to group',
     ],
     dependsOn: ['p1-access'],
   },
@@ -235,12 +233,12 @@ export const PROJECTS = {
       'Author playbooks: Tarrow data thin — Snowflake is the authoritative source. Tables identified 2026-04-15: author_name in dynamic_story_metadata (MCC presentation), joined to story_traffic_main on story ID. Upgrade blocked until GitHub→Snowflake connection set up (Chad Bruton).',
     ],
     nextActions: [
+      'Get GitHub→Snowflake connection set up (Chad) — switch data source from Tarrow pulls to direct Snowflake pipe before circulating findings',
       'Verify Tarrow weekly automation is running clean (check next Monday morning)',
-      'Document sandbox base build for Chris + Sarah Price (Chris explicitly asked)',
-      'Notify Tarrow: active time outliers in source Excel (values up to 23,496s — likely ms stored as seconds)',
-      'Upgrade author playbooks using Snowflake: join dynamic_story_metadata (author_name) to story_traffic_main (PV by story/market/date) on story ID. Requires GitHub→Snowflake connection first (blocked on Chad setup).',
+      'Upgrade author playbooks using Snowflake: join dynamic_story_metadata (author_name) to story_traffic_main (PV by story/market/date) on story ID. Blocked on GitHub→Snowflake setup.',
+      'Once Snowflake piped: share formula × topic interaction findings with editorial leads + SmartNews formula trap with distribution team',
       'Ecosystem audit: validate cross-platform comparisons stay within ecosystem type (app-based vs web-based)',
-      'Long-term: watch for cross-author patterns in headline/keyword/traffic data that may indicate Google author-throttling — Ryan flagged 2026-04-14 (numbers down; could be volume-penalization, Google black box). Chris concerned as broader pattern. As analysis matures, look for signal: declining per-story performance correlated with high publish frequency per author.',
+      'Long-term: watch for cross-author patterns in headline/keyword/traffic data that may indicate Google author-throttling.',
     ],
     dependsOn: ['p1-access'],
   },
@@ -251,16 +249,11 @@ export const PROJECTS = {
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
     description: 'Establishes and maintains the editorial governance layer for National team CSA usage: 5 defined personas, a content format library, mandatory keyword enforcement, and SEO standards. All deliverables live in csa-content-standards and the CSA production UI. Governs what the CSA is configured to produce and how National team editors use it.',
-    blockers: [
-      'Andy sign-off on Apple News + SmartNews distribution templates — 2 emails sent, no response',
-    ],
+    blockers: [],
     nextActions: [
-      'Migrate Apple News + SmartNews best practices from persona → format section in csa-content-standards (PGS-134 is now DONE)',
       'Follow up with Susannah on keyword color overlay — greenlit at CSA Weekly; awaiting team ticket',
       'Follow up with Susannah on author profile replication — greenlit at CSA Weekly; Gary methodology known',
-      'Andy: follow up on Apple News + SmartNews distribution templates if still no response',
       'Extend AGENT-AUDIENCE routing annotations to §2+ sections',
-      'Consolidate TH/TH B2C persona variants with Sara + Sarah Price',
     ],
     dependsOn: ['p6-taxonomy'],
   },
@@ -276,9 +269,9 @@ export const PROJECTS = {
       'EGS-127 and PGS-80 must land before build starts',
     ],
     nextActions: [
-      'Monitor Q/Cue code review (Daury) — when merged, rq-send-to-cue satisfied',
+      'PGS-17 (Send-to-Cue): HOLD REMOVED 2026-04-16 — now CODE REVIEW. Daury\'s PR has core functionality without Snowflake fields. PGS-67 is follow-on for Snowflake + feedback loop. Monitor merge.',
       'Monitor WordPress headline bug fix (Daury)',
-      'When prerequisites land (EGS-127, PGS-80): define working group + alert feed scope with Sara Vallone',
+      'When prerequisites land (EGS-127, PGS-80, PGS-17): define working group + alert feed scope with Sara Vallone',
     ],
     dependsOn: ['p1-access'],
     contacts: [
@@ -320,7 +313,7 @@ export const PROJECTS = {
     contacts: [
       { name: 'Rocky Rhodes', role: 'SEMrush admin; API key source; pinging Julio on per-endpoint credit rates; confirmed per-pub model 2026-04-15' },
       { name: 'Chad Bruton', role: 'Snowflake primary contact ("buck stops with me"). Setting up GitHub→Snowflake connection for dashboard.' },
-      { name: 'Ryan Spalding', role: 'Ad/eCPM expert — contact for Market dimension of Recipe system. Ad yield tracked at page level in Snowflake, rolls up by traffic; Ryan has something built.' },
+      { name: 'Ryan Spalding', role: 'Ad/revenue expert — direct sold (Naviga) + programmatic (GAM) revenue now in Snowflake as of 2026-04-15. Sigma dash: STAR-Automation-3wA6q4da4CrVGCyhIMqk2E. Meeting scheduled next week for Market dimension of Recipe system.' },
       { name: 'Allison Ciaccio', role: 'TH team — financial services expansion target (long-term)' },
     ],
   },
@@ -349,14 +342,13 @@ export const PROJECTS = {
     name: 'Content Analysis / Narrative Dashboard (Price)',
     owner: 'Pierce · Sarah Price',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Ongoing monitoring layer and reporting narrative with Sarah Price. Distinct from headline analysis — this is the reporting layer on top. Deliverable: coordinated weekly ops piece (CSA wins + priorities) that feeds into Sarah\'s combined exec note to Britney and stakeholders.',
-    blockers: ['Format not yet formalized — coordinate with Sarah Price when she returns 2026-04-17'],
+    description: 'Synthesis layer that aggregates outputs from headline analytics, keyword intelligence, CSA dashboard instrumentation, and other tools into narrative reports on pipeline and product performance. Distinct from the individual analysis tools — this is the reporting layer on top, designed to produce insights worth circulating to stakeholders.',
+    blockers: [],
     nextActions: [
-      'When Sarah Price returns (2026-04-17): arrange meeting to coordinate format for combined weekly update',
-      'Build Pierce\'s operations piece — CSA wins + priorities; keep it brief and constructive',
-      'Define monitoring format and cadence with Sarah Price',
+      'Continue iterating on constituent tools (data-headlines, data-keywords, P2 instrumentation)',
+      'Once tooling is stable, define aggregation format and circulation cadence',
     ],
-    dependsOn: ['p3-headlines'],
+    dependsOn: ['p3-headlines', 'p14-semrush', 'p2-dashboard'],
   },
 
   'p5-testing': {
@@ -491,18 +483,16 @@ export const PROJECTS = {
     name: 'MAIA Trend Tool Validation',
     owner: 'Pierce · Sara Vallone · Derek',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Three-way comparison of trend signal tools for the National content pipeline: Derek\'s MAIA tool, Kat Sheplavy\'s trend analysis agent, and TrendHunter native. The 14-day MAIA test is underway with Sara\'s teams logging writeability and rejection reasons. Deliverable: comparative assessment covering signal type, content angle quality, and fit for National vs. vertical needs.',
+    description: 'Validation of trend signal tools for the National content pipeline. The 14-day MAIA test is underway with Sara\'s teams logging writeability and rejection reasons. Originally scoped as a three-way comparison (MAIA vs. Kat Sheplavy\'s agent vs. TH native) — Kat access requested 2026-04-16 but unlikely to be granted; comparison may run as MAIA vs. TH native only.',
     blockers: [
       'Pending access to Insights Dashboard MAIA tab — Sara requested 2026-04-15',
       'Pending add to Sara Vallone tracking sheet — Sara requested 2026-04-15',
-      'Pending access to Kat Sheplavy\'s trend analysis agent — not yet received',
-      'Pending access to TrendHunter native tool — not yet received',
     ],
     nextActions: [
-      'Follow up with Kat Sheplavy — get access to her trend analysis agent + TH native tool for three-way comparison',
       'Get access to MAIA tab + Sara\'s tracking sheet — begin monitoring once live (waiting on Sara/Derek)',
+      'Await Kat Sheplavy response on agent access — if denied, proceed as MAIA vs. TH native two-way comparison',
       'At end of 14 days (~2026-04-29): analyze MAIA feedback by vertical; categorize failure modes (specificity / directionality / temporal / vertical mismatch)',
-      'Produce three-way comparison: MAIA vs. Kat\'s agent vs. TrendHunter native — pluses/minuses, signal type, content angle quality, vertical fit',
+      'Produce comparison: MAIA vs. TH native (+ Kat agent if access granted) — signal type, content angle quality, vertical fit',
       'Deliver prompt-branching recommendation: one National prompt or separate prompts for Mind-Body / Experiences / Everyday Living?',
     ],
     contacts: [
@@ -554,12 +544,13 @@ export const PROJECTS = {
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
     description: 'Formal spike investigating whether Mode 2 (Intermediate) silently adds factual content without user awareness — and the editorial trust and accuracy risks this creates. Deliverable: written findings covering which workflows invoke Mode 2 by default, what it can add, and implications for future QA infrastructure. Investigation only; no implementation changes in scope.',
     blockers: [
-      'PGS-189 in Selected for Development (Backlog) — Oliver Felix assigned; no active sprint yet',
+      'PGS-189 in Selected for Development — Oliver Felix assigned; no active sprint yet',
     ],
     nextActions: [
       'Review Oliver\'s findings when published — form a take; no active contribution needed until deliverable is ready',
       'Schedule PGS-150 criteria session with Sara Vallone + Chris Palo (see agenda below) — Susannah is in HOLD waiting on this',
       'Once PGS-189 findings land: use them to scope PGS-150 (plagiarism) and any Gary fact-checking work (P10)',
+      'Monitor AI hallucination bug (2026-04-16): CSA added "Ada County" content not present in source material (Boise Statesman draft). Patrick Al Khouri debugging; Saner creating ticket. Related to Mode 2 scope question — CSA may be looking beyond immediate source into linked stories.',
     ],
     notes: [
       'PGS-150 SESSION AGENDA — questions Pierce must bring answers to (with Sara + Chris):',
