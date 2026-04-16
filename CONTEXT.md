@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-16 17:14 UTC — Automated sync. Changes: csa-links.js updated — added p20-experiences-test (rq-semrush-api) and p21-mode2-trust-spike (rq-plagiarism-check, rq-import-to-research-draft, p-hallucination, p-plagiarism). No project status changes. Last human session: 2026-04-15 (session 5) — Full integrity pass across all 6 repos: API key exposure remediated, .gitignore files added, READMEs rewritten, pinned-item numbering bug fixed in app.js, check.sh data quality gate fully operational.
+**Last session:** 2026-04-16 (human) — P18 agentic writing wishlist session complete; /sarah-weekly-update skill built + delivered to Sarah Price (Windows PC); PGS-82 → Code Review (bugs 1,2,4 + flags 1,2 fixed); PGS-67 → In Progress; PGS-170 → In QA; Sara Vallone confirmed Experiences data usable; Kat Sheplavy access denied → P19 proceeds as MAIA vs. TH native two-way comparison.
 **Status:** 21 active/tracked projects (P20 + P21 added). Compass goals submitted (Jeremy approval pending Apr 30).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -16,7 +16,7 @@ For session history: see [sessions/](sessions/)
 - **All 5 personas live as Team Target Audiences (2026-04-15):** Discover Browser + Science Enthusiast (Susannah); Curious Optimizer + Curious Explorer + Watercooler Insider (Pierce). PGS-133 ON HOLD.
 - **Snowflake orientation complete (2026-04-15):** story_traffic_main (O&O PV by story/market/date) + dynamic_story_metadata (author/URL/SEO/keywords) in MCC presentation schema. Amplitude in Snowflake (events prod). GitHub→Snowflake direct (Chad setting up). **Revenue now in Snowflake (2026-04-16):** direct sold (Naviga) + programmatic (GAM) — discrepancies resolved by Ryan Spalding's team. Sigma dash: STAR-Automation-3wA6q4da4CrVGCyhIMqk2E. Schedule time with Ryan next week.
 - **MAIA 14-day test started 2026-04-15** (~2026-04-29). Sara's teams log outputs; Pierce monitoring. Access + tracking sheet requested from Derek.
-- **Critical tickets (2026-04-16 standup):** PGS-82 IN PROGRESS (Marcelo fixing 4 bugs + 2 flags today; if not resolved, code pulled from production, kept staging for v0.89.1; Pierce + Susannah reviewing diff testing items post-standup); PGS-104 IN QA (fix deployed to staging by Oliver this morning; Jonathan checking; Susannah: must ship today if PGS-82 can't); **PGS-17 HOLD REMOVED → CODE REVIEW** (Daury's PR has core Send-to-Cue; PGS-67 IN PROGRESS is Cue ID forwarding for feedback loop — directly unblocked by PGS-17); PGS-62 feedback loop epic 40% done (PGS-68/69/72 in Code Review; PGS-67 now active; PGS-66 WordPress path still Backlog); PGS-111 CODE REVIEW; PGS-140 IN QA; PGS-150 ON HOLD; PGS-189 SELECTED FOR DEV; PTECH-7730 TO DO. NEW: AI hallucination bug (Patrick — CSA added "Ada County" not in source; Saner creating ticket).
+- **Ticket status EOD 2026-04-16:** **PGS-82 CODE REVIEW** (Marcelo fixed bugs 1,2,4 + flags 1,2; Bug 3 deferred not a blocker; pending Efren/Cat UI approval); **PGS-104 IN QA** (Victor Suarez; Saner Keles transition confirmed 10:01am); **PGS-17 CODE REVIEW** (Daury PR, high priority); **PGS-67 IN PROGRESS** (Daury; unblocked by PGS-17); **PGS-170 IN QA** (Victor; WordPress 301 bug); PGS-62 epic 40% (PGS-68/69/72 Code Review; PGS-67 now active); PGS-111 CODE REVIEW; PGS-140 IN QA; PGS-150 ON HOLD; PGS-189 SELECTED FOR DEV; PTECH-7730 TO DO.
 - **EGS-127 ticket 12828 in dev** (1 of 4-ticket epic). Marcelo leading.
 - **Rajiv on vacation.** Emil Penalo + Oliver Felix have prod merge authority. 2-PR process in effect.
 - **Gary (2026-04-16):** Off QA gate. Direct API integration dropped (vendor lock-in). Path forward: audit Gary's public resources, obtain code, propose internal replication to Chris + CSA eng.
@@ -61,9 +61,9 @@ For session history: see [sessions/](sessions/)
 | 15 | Partner Content / Inventory Optimization | 5 | In progress | Reuters RSS confirmed. AI vetting policy not drafted. Legal question unresolved. |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff (Sara, Sarah Price, Pierce, Kathy). |
 | 17 | Spanish CSA Pipeline | 5 | Not started | Waiting on Chris/Rajiv direction. |
-| 18 | Agentic Writing Helpers | 5 | In progress | Wishlist session complete 2026-04-16. Top pain points: style guide enforcement (quick win), variant differentiation, Cue upload/H2 automation, keyword gaps. Hard constraint: most writers lack Claude access — no Claude-dependent external tools. |
-| 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test 2026-04-15→~2026-04-29. Waiting on MAIA tab access + tracking sheet. |
-| 20 | Experiences Vertical Content Test | 4 | In progress | Keyword data delivered to Sara 2026-04-15 (xlsx + docx). 3 GO HARD, 1 SKIP. Feedback loop due ~May 2026. |
+| 18 | Agentic Writing Helpers | 5 | In progress | Wishlist session done 2026-04-16 (11 pain points). /sarah-weekly-update skill built + delivered to Sarah Price (Windows). Next: Style Checker build (quick win) + pick pilot author with Sara. |
+| 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test underway. Kat access denied 2026-04-16 — two-way comparison (MAIA vs. TH native) confirmed. Waiting on MAIA tab + tracking sheet. |
+| 20 | Experiences Vertical Content Test | 4 | In progress | Sara confirmed data usable 2026-04-16 — daily use starting. Feedback loop calibration ~May 2026. |
 | 21 | Mode 2 Trust & Editorial Risk Spike | 2 | In progress | PGS-189 — Oliver Felix assigned, Pierce tagged. Mode 2 silently adds content; trust/accuracy risk. PGS-150 HOLD pending Pierce criteria clarification. |
 
 ## What's Next — Pierce's Action Items
@@ -75,7 +75,7 @@ For session history: see [sessions/](sessions/)
 
 **G2 — Editorial Standards:**
 - [ ] **Build Style Checker (P18 quick win)** — paste CSA output + select brand → auto-enforce style guide; AP base + Women's World/US Weekly exceptions; Pierce confirmed feasible
-- [ ] **Pierce + Sara huddle (P18)** — prioritize pain points from Apr 16 session, pick pilot author
+- [ ] **Pierce + Sara huddle (P18)** — pick pilot author from Apr 16 session pain points (Samantha Agate for style enforcement is leading candidate)
 - [ ] **Verify input-length/output-length fix status** — confirm with engineering whether CSA output-length-pinned-to-input has been addressed
 
 **G3 — Quality/Testing:**
@@ -102,7 +102,7 @@ For session history: see [sessions/](sessions/)
 - Chris Palo: LTV kickoff scheduling; Reuters link
 - Susannah/Saner: weekly release estimates with specific dates to management (Chris ask — on them, not Pierce)
 - Engineering: PGS-82 must-fix (banner states, re-analysis indicator), PGS-104 keyword enforcement fix, EGS-127, PTECH-7730, PGS-189 spike (Oliver Felix)
-- Kat Sheplavy: trend analysis agent access — reached out 2026-04-16; access unlikely; P19 proceeds as MAIA vs. TH native if denied
+- Kat Sheplavy: access denied 2026-04-16 — P19 proceeds as MAIA vs. TH native two-way comparison
 
 **Later — not this week:**
 - Design pairwise test schedule with Sarah Price (P5; needs P4 stable + EGS-127 first)
@@ -124,6 +124,7 @@ For session history: see [sessions/](sessions/)
 **Cluster batting average:** 1-in-3.3 as of 2026-04-07 (target 1-in-4, before CSA: 1-in-5). Q2 metrics: 3× output; $85/asset cost; 500K PV goal; 5–8% long-term traffic lift.
 **Headline vs. article:** Headline = click acquisition (syndication surface). Article = retention/subscriber conversion. Analytically distinct — do not conflate.
 **Political data:** Justin's/Dedra's macro dashboards are separate from Pierce's CSA statistical testing layer.
+**Context engineering over iteration (Sully AI, 2026-04-16):** Chris Palo shared whitepaper — decomposed, focused agents outperform iterative correction loops. Applying: each CSA quality gate (keyword validation, fact-check, brand-fit, format compliance, headline gen, SEO metadata, diff check) should be a separate focused agent. Deterministic elements (facts, attribution) = human sign-off gate; probabilistic (optimization, scoring) = AI judgment. "Prompt quality becomes load-bearing" — format templates, persona files, and keyword specs are engineering infrastructure. Parallel focused agents = enrichment layer completes in slowest single agent's time, not sum. Validates our architecture direction.
 **Purpose-driven pipelines (2026-04-10):** Every pipeline has an explicit purpose — engagement, revenue, acquisition, or other. Purpose may vary at the asset level within a pipeline (e.g. core TH asset = drive app clickthroughs; bottom-tier variants = acquire new readers). CPA is a cost-center signal, not the goal. OKRs differ per pipeline.
 **Distribution channels (2026-04-10):** O&O, Trend Hunter app, Syndication, TBTV (future). Each has a different value calculation. Syndication = avenue, not focus.
 **Inclination Engine (2026-04-10):** Named concept — sole future input for automated signals and trend unit brief generation. Feeds T1/T2 pipelines without human initiation. Not yet built. Needs PRD section.

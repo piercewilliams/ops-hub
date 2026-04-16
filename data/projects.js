@@ -13,6 +13,10 @@ export const PINNED_ACTIONS = [
 ];
 
 export const COMPLETED_TASKS = [
+  { date: '2026-04-16', task: '/sarah-weekly-update skill built and delivered to Sarah Price. Claude Code skill that automates her National Team Weekly Update .docx: upload Gemini notes + analytics report, invoke the skill, receive a populated Word doc in Downloads. Tested against 4 real files (2 Gemini, 2 performance reports). Windows install instructions sent via Slack (Claude Code + Python + pip install python-docx + unzip skill to %USERPROFILE%\\.claude\\skills\\). Phase 2 (Google Drive watch + auto-populate) deferred to a future session. Delivers on G4 sandbox toolkit commitment Chris Palo requested.', project: '#18 Agentic Writing Helpers' },
+  { date: '2026-04-16', task: 'P18 Agentic Writing Helpers wishlist session (11am CDT, Sara Vallone + team). Documented 11 pain points. Top priorities: style guide enforcement (quick win — Samantha Agate; no Claude access required); variant differentiation (Ryan Brennan — CSA copies paragraphs, writers re-do varianting); Cue upload + H2 automation (Allison Palmer — hours/week, repetitive); keyword gaps in subheads (Allison Palmer + Lauren Jarvis-Gibson); gallery research/drafting bottleneck (Hanna Wickes). Hard constraint confirmed: most writers lack Claude access — all tools must work without it. Notes: write-assist/sessions/2026-04-16-wishlist-session.md.', project: '#18 Agentic Writing Helpers' },
+  { date: '2026-04-16', task: 'PGS-82 (Variant Similarity Scoring) reached Code Review by EOD. Marcelo Freitas fixed bugs 1, 2, 4 + flags 1, 2 (confirmed blockers per Susannah). Bug 3 deferred (not a blocker). Moved to Code Review at 12:03pm. Binary scoring (okay/high-risk only) confirmed production design. PGS-104 confirmed In QA (Saner Keles → Victor Suarez). PGS-67 (CSA ID → Cue) moved to In Progress by Daury Caba (unblocked by PGS-17 hold removal). PGS-170 (WordPress 301 bug) moved to In QA (Victor Suarez).', project: '#2 Dashboard Instrumentation' },
+  { date: '2026-04-16', task: 'Sara Vallone confirmed SEMrush Experiences keyword data is usable. All three alignment questions yes: (1) use all four topics; (2) assumptions correct; (3) okay to start using the tool daily. Starts the daily-use phase of data-keywords for Sara\'s team. Feedback loop calibration (~May 2026) still the end gate.', project: '#20 Experiences Vertical Content Test' },
   { date: '2026-04-16', task: 'Daily standup 2026-04-16: PGS-82 full QA complete — 4 bugs + 2 flags identified; Marcelo fixing today (pending Efren/Cat approval); if unresolved, code pulled from production, kept staging for v0.89.1. Binary scoring (okay/high-risk only) confirmed — "needs review" state eliminated. PGS-104 fix deployed to staging by Oliver; Jonathan checking; Susannah: must ship today if PGS-82 can\'t. PGS-17 HOLD REMOVED — now CODE REVIEW; Daury\'s PR has core Send-to-Cue without Snowflake fields; PGS-67 is follow-on. AI hallucination bug flagged by Patrick Al Khouri (CSA added "Ada County" content not in source material); Saner creating ticket. Marcelo: Trend Agent new phases complete, presenting tomorrow, implementation Monday. Victor: full site mobile responsiveness PR ready for review.', project: '#2 Dashboard Instrumentation' },
   { date: '2026-04-16', task: 'Headline Grader quality standards defined and eval tool built. Pierce worked with Sara Vallone and Sarah Price to establish headline quality criteria; implemented an eval tool both have signed off on. Closes out the Headline Grader criteria refinement commitment from C&P Weekly.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-15', task: 'ops-hub dashboard quality infrastructure overhaul. (1) PINNED_ACTIONS export added to projects.js — global priority override for Up next panel; pinned items always render first with ▲ marker, blue border, and null-safe project reference. (2) getNextTasks() rewritten to prepend pinned items before tier/status sort. (3) check.sh extended with [Data quality] section: PINNED_ACTIONS count ≤3, done project card completeness (completedDate + resolvedBlockers), active project description ≤400 chars, no ticket numbers in descriptions — implemented as node eval of projects.js for accurate parsing. (4) Git pre-commit hook installed — check.sh runs automatically on every commit, no manual step required. (5) CLAUDE.md: three new behavioral enforcement sections added (Project Card Description Rules, PINNED_ACTIONS, Completed Project Card Rules). (6) P20 (Experiences Vertical Content Test) and P21 (Mode 2 Trust & Editorial Risk Spike) project cards added. (7) 10 active descriptions trimmed to ≤400 chars; ticket numbers removed from 3 descriptions. (8) All CSS dark-mode contrast issues fixed (pinned item background → rgba(var(--blue-rgb), 0.08)).', project: 'ops-hub Infrastructure' },
@@ -130,7 +134,7 @@ export const PROJECTS = {
     blockers: [],
     nextActions: [
       'Contact Chad Bruton to set up GitHub → Snowflake direct connection for dashboard adapter.',
-      'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — review STAR-Automation Sigma dash; primary ask is access to underlying Snowflake tables so revenue data can feed Market dimension of Recipe system.',
+      'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — review STAR-Automation Sigma dash; primary ask is access to underlying Snowflake tables so revenue data can feed Market dimension of Recipe system. Note: Derek Knostman architected the Naviga + GAM revenue dataset — follow up with Derek for deeper architecture questions.',
       'Monitor PTECH-7730 (p-tagging fix) — dev group assigned, Julia Kim PM; wait for ETA from Joe Vitali',
       'Explore story_traffic_main and dynamic_story_metadata tables — run test queries to validate joins and data quality before building on top of them.',
     ],
@@ -213,7 +217,7 @@ export const PROJECTS = {
       'Ask Chad: is Marfeel (Discover rate, batting average) data in Snowflake? If yes, Snowflake adapter covers it — no API key needed',
       'Monitor PTECH-7730 (p-tagging fix) — activates Amplitude adapter when done',
       'PGS-62 Feedback Loop epic (40% done): architecture + Snowflake/Amplitude access + report definitions + queries all DONE. PGS-68/69/72 (Content Graph, Synthesis Engine, Reports UI prototypes) in Code Review. PGS-67 (CSA ID forwarding to Cue — critical content-linking dependency) IN PROGRESS (Daury; unblocked by PGS-17 hold removal today). PGS-66 (WordPress ID forwarding) still Backlog.',
-      'PGS-82: Marcelo fixing 4 bugs + 2 flags today (pending Efren/Cat UI approval). Pierce + Susannah reviewing diff testing items. If bugs not resolved: code removed from production, kept in staging for v0.89.1. Monitor.',
+      'PGS-82: CODE REVIEW as of 12:03pm 2026-04-16. Marcelo fixed bugs 1, 2, 4 + flags 1, 2 (confirmed blockers per Susannah). Bug 3 deferred (not a blocker). Binary scoring (okay/high-risk only) confirmed production design. Pending Efren/Cat UI approval before production.',
       'PGS-104: Fix deployed to staging this morning (Oliver); Jonathan checking fix today. Susannah: must ship today if PGS-82 can\'t. IN QA.',
       'PGS-150: Send Sara email (drafted 2026-04-16) + schedule criteria session with Chris — Susannah on HOLD',
       'New: AI hallucination bug — Patrick Al Khouri debugging (CSA added "Ada County" content not in source). Saner creating ticket. Monitor.',
@@ -265,7 +269,7 @@ export const PROJECTS = {
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
     description: 'Use CSA to wrap and enrich United Robots\' automated wire content (sports, weather, elections) for McClatchy sites. Send-to-WP integration is live but unreliable until a headline URL slug bug is fixed. On hold pending cluster tagging, send-to-Cue integration, and analytics instrumentation.',
     blockers: [
-      'Send-to-WP headline bug: variant name + date in slug → harms SEO. Daury Caba investigating.',
+      'PGS-170 (Send-to-WP headline URL slug bug: variant name + date in slug → harms SEO). In QA as of 2026-04-16 (Victor Suarez).',
       'EGS-127 and PGS-80 must land before build starts',
     ],
     nextActions: [
@@ -497,14 +501,14 @@ export const PROJECTS = {
     ],
     nextActions: [
       'Get access to MAIA tab + Sara\'s tracking sheet — begin monitoring once live (waiting on Sara/Derek)',
-      'Await Kat Sheplavy response on agent access — if denied, proceed as MAIA vs. TH native two-way comparison',
+      'Kat access denied 2026-04-16 — proceed as MAIA vs. TH native two-way comparison (confirmed)',
       'At end of 14 days (~2026-04-29): analyze MAIA feedback by vertical; categorize failure modes (specificity / directionality / temporal / vertical mismatch)',
       'Produce comparison: MAIA vs. TH native (+ Kat agent if access granted) — signal type, content angle quality, vertical fit',
       'Deliver prompt-branching recommendation: one National prompt or separate prompts for Mind-Body / Experiences / Everyday Living?',
     ],
     contacts: [
       { name: 'Derek', role: 'Owner of MAIA Trend Tool (Insights Dashboard); initiated 14-day test' },
-      { name: 'Kat Sheplavy', role: 'Building trend analysis agent — Pierce needs access for three-way comparison' },
+      { name: 'Kat Sheplavy', role: 'Building "Agent Smith" ecosystem — Trend Agent (Phase 1–6 complete, live: staging-trend-agent.trendhunteragents.ai; Phase 7–8 next) + Insights Agent (on deck). Marcelo Freitas is eng lead. Pierce access denied 2026-04-16. P19 runs as MAIA vs. TH native two-way comparison.' },
       { name: 'Sara Vallone', role: 'Editorial execution; teams doing the testing; owns tracking sheet' },
       { name: 'Sarah Price', role: 'Reviews success metrics at end of test window; also pending MAIA tab access' },
       { name: 'Chris Palo', role: 'Sponsor; issued test directive; owns success metric review' },
@@ -526,11 +530,9 @@ export const PROJECTS = {
     owner: 'Pierce · Sara Vallone',
     compassGoal: 'G5 — Professional Development: Technical & Editorial Fluency',
     description: 'Sara Vallone\'s Experiences vertical content test — SEMrush keyword pull across four topics (Landmarks, 5-Day Travel, Scenic Road Trips, Solo Dining) to determine Go Hard / Skip verdicts. The first live calibration input for the data-keywords verdict system: what Sara publishes and how those articles perform will be used to refine thresholds.',
-    blockers: [
-      'Waiting on Sara Vallone to confirm keyword data is usable / request refinements',
-    ],
+    blockers: [],
     nextActions: [
-      'Follow up if Sara needs deeper pull or reformulation of any topic (offered in Slack)',
+      'Sara confirmed data usable 2026-04-16 (all 3 alignment questions yes). Follow up only if she requests adjustments during daily use.',
       'FEEDBACK LOOP (~May 2026): When Sara\'s experiment concludes, check: (1) which GO HARD topics she published on, (2) which she skipped, (3) whether Solo Dining SKIP was respected or ignored, (4) actual performance of published articles vs. verdict prediction. Use to recalibrate verdict thresholds in data-keywords.',
     ],
     systems: [
