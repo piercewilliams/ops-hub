@@ -106,6 +106,8 @@ For session history: see [sessions/](sessions/)
 - Chris Palo: LTV kickoff scheduling; Reuters link
 - Susannah/Oliver/Saner: release schedule with staging + production dates
 - Engineering: PGS-82 must-fix (banner states, re-analysis indicator), PGS-104 keyword enforcement fix, EGS-127, PTECH-7730, PGS-189 spike (Oliver Felix)
+- Kat Sheplavy: access to her trend analysis agent (P19 three-way comparison)
+- Derek/Sara: MAIA tab access + tracking sheet (P19; Sara requested 2026-04-15)
 
 **Later — not this week:**
 - Design pairwise test schedule with Sarah Price (P5; needs P4 stable + EGS-127 first)
