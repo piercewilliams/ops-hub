@@ -116,6 +116,9 @@ Clarified full cluster data model (Canonical ID = Cluster ID; articles are sibli
 
 ## Tier 4 — Build
 
+**2026-04-15 — ops-hub dashboard quality infrastructure overhaul**
+PINNED_ACTIONS export added to projects.js — global priority override for Up next panel; pinned items always render first with ▲ marker and blue border, bypassing tier/status sort. check.sh extended with [Data quality] section: PINNED_ACTIONS count ≤3, done project completedDate + resolvedBlockers, active description ≤400 chars, no ticket numbers in descriptions (node-eval for accurate parsing). Git pre-commit hook installed — check.sh runs automatically on every commit with no manual step. CLAUDE.md: three new behavioral enforcement sections (Project Card Description Rules, PINNED_ACTIONS discipline, Completed Project Card Rules). P20 and P21 project cards added. 10 active project descriptions trimmed to ≤400 chars; ticket numbers cleared from 3 descriptions.
+
 **2026-04-15 — SEMrush Experiences keyword pull + xlsx/docx deliverables for Sara Vallone**
 First live SEMrush API pipeline (phrase_fullsearch + phrase_kdi + phrase_organic) run for a specific editorial test. Four Experiences topics analyzed: Landmarks (GO HARD, 1.5M/mo, KD 34), 5-Day Travel (GO HARD, avg KD 15, destination itineraries KD 4–9), Scenic Road Trips (GO HARD, 8,100/mo, KD 26), Solo Dining (SKIP, 260/mo max). 4 color-coded xlsx files + docx analytical report with full verdict framework. All 4 topic briefs added to data-keywords. Establishes performance feedback loop: at end of Sara's content experiment, cross-check what she published + what she skipped against actual performance to calibrate GO HARD / SKIP thresholds.
 
@@ -245,5 +248,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-15 (Experiences keyword pull + xlsx/docx deliverables; CSA Admin + Team Target Audiences; Snowflake/Sigma walkthrough)*
+*Last updated: 2026-04-15 (ops-hub quality infrastructure overhaul; Jira processing; Compass progress notes initialized)*
 *Maintained by Claude. Updated proactively as work completes.*
