@@ -67,6 +67,9 @@ For session history: see [sessions/](sessions/)
 
 ## What's Next — Pierce's Action Items
 
+**Tomorrow first:**
+- [ ] **Follow up with Kat Sheplavy** — get access to her trend analysis agent + TH native tool (P19 three-way comparison)
+
 **G1 — Product/Pipeline:**
 - [ ] **PGS-150:** Schedule criteria session with Sara Vallone + Chris Palo — Susannah has ticket on HOLD waiting (full agenda in P21 card)
 - [ ] **CSA pipeline visuals for Britney** — "completed / working / in-transit" diagram; Chris ask 2026-04-14
