@@ -164,7 +164,85 @@ if [ -f "data/snapshots/index.json" ]; then
   fi
 fi
 
-# 8. Git status
+# 8. Data quality
+echo ""
+echo "[ Data quality ]"
+node - <<'EOF'
+const fs = require('fs');
+const src = fs.readFileSync('data/projects.js', 'utf8');
+
+let failCount = 0;
+const ok   = msg => console.log('  ✓ ' + msg);
+const bad  = msg => { console.log('  ✗ ' + msg); failCount++; };
+const caution = msg => console.log('  ⚠ ' + msg);
+
+// Load PROJECTS by stripping ES module syntax and evaling
+let PROJECTS = {}, PINNED_ACTIONS = [];
+try {
+  const transformed = src
+    .replace(/^export const /gm, 'const ')
+    .replace(/^export function /gm, 'function ');
+  const fn = new Function(transformed + '\nreturn { PROJECTS: typeof PROJECTS !== "undefined" ? PROJECTS : {}, PINNED_ACTIONS: typeof PINNED_ACTIONS !== "undefined" ? PINNED_ACTIONS : [] };');
+  const result = fn();
+  PROJECTS = result.PROJECTS;
+  PINNED_ACTIONS = result.PINNED_ACTIONS;
+} catch (e) {
+  bad('Could not parse projects.js for data quality checks: ' + e.message);
+  process.exit(1);
+}
+
+// --- PINNED_ACTIONS count ---
+const pinCount = (PINNED_ACTIONS || []).length;
+if (pinCount <= 3) ok(`PINNED_ACTIONS has ${pinCount} item(s) (≤3)`);
+else bad(`PINNED_ACTIONS has ${pinCount} items — max 3 (trim low-urgency pins)`);
+
+// --- Done project card requirements ---
+const done = Object.entries(PROJECTS).filter(([, p]) => p.status === 'done');
+if (done.length === 0) {
+  ok('No done projects to audit');
+} else {
+  let doneOk = 0;
+  for (const [id, p] of done) {
+    const missingDate = !p.completedDate;
+    const missingResolved = !Array.isArray(p.resolvedBlockers);
+    if (missingDate) bad(`${id}: done project missing completedDate`);
+    if (missingResolved) caution(`${id}: done project missing resolvedBlockers[] (add [] if none)`);
+    if (!missingDate && !missingResolved) doneOk++;
+  }
+  if (doneOk > 0) ok(`${doneOk} of ${done.length} done project(s) have completedDate + resolvedBlockers`);
+}
+
+// --- Description length (>400 chars = too verbose, skip done projects) ---
+const allProjects = Object.entries(PROJECTS);
+const activeProjects = allProjects.filter(([, p]) => p.status !== 'done');
+let descOk = 0, descBad = 0;
+for (const [id, p] of activeProjects) {
+  if (!p.description) continue;
+  const len = p.description.trim().length;
+  if (len > 400) {
+    bad(`${id}: description ${len} chars (>400 — trim to 2–3 sentences)`);
+    descBad++;
+  } else {
+    descOk++;
+  }
+}
+if (descBad === 0 && descOk > 0) ok(`All ${descOk} active project descriptions within length limit`);
+
+// --- Ticket numbers in descriptions (all projects) ---
+const ticketPattern = /PGS-\d+|EGS-\d+|PTECH-\d+/;
+const ticketViolations = allProjects.filter(([, p]) => p.description && ticketPattern.test(p.description));
+if (ticketViolations.length === 0) {
+  ok('No ticket numbers found in descriptions');
+} else {
+  for (const [id] of ticketViolations) bad(`${id}: ticket number in description (move to notes/nextActions)`);
+}
+
+process.exitCode = failCount > 0 ? 1 : 0;
+EOF
+DQ_EXIT=$?
+if [ $DQ_EXIT -ne 0 ]; then FAIL=$((FAIL+1)); fi
+
+# 9. Git status
 echo ""
 echo "[ Git status ]"
 if git diff --quiet && git diff --cached --quiet; then

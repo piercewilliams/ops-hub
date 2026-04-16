@@ -154,7 +154,7 @@ export const PROJECTS = {
     name: 'Gary Tools Integration',
     owner: 'Pierce (lead) · Susannah Locke · Chris Palo',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Evaluation and selective integration of Gary Kirwan\'s AI writing toolkit — specifically author voice profiling, source ranking, and fact-checking capabilities. Gary is off the automated QA gate (non-deterministic), but author profile replication (building a writer\'s voice model from ~100 articles) is greenlit for internal testing. Roadmap: V1 = internal source ranking library; V2 = user-generated content vetting.',
+    description: 'Evaluation and selective integration of Gary Kirwan\'s AI writing toolkit — specifically author voice profiling, source ranking, and fact-checking capabilities. Gary is off the automated QA gate (non-deterministic), but author profile replication (building a writer\'s voice model from ~100 articles) is greenlit for internal testing.',
     blockers: [
       'Gary IP/contract: Kathryn Sheplavy discussing with Jason — McClatchy ownership of Gary\'s code unclear',
       'Sara Vallone parameter session not yet scheduled',
@@ -268,7 +268,7 @@ export const PROJECTS = {
     name: 'United Robots Inbound Pipeline',
     owner: 'Pierce · Sara Vallone · Sarah Price',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'Use CSA to wrap and enrich United Robots\' automated wire content (sports, weather, elections) for McClatchy sites. Send-to-WP integration live but unreliable until headline URL slug bug fixed. Q/Cue integration in code review. On hold — EGS-127 (cluster tagging) and PGS-80 analytics must land before pipeline build can begin.',
+    description: 'Use CSA to wrap and enrich United Robots\' automated wire content (sports, weather, elections) for McClatchy sites. Send-to-WP integration is live but unreliable until a headline URL slug bug is fixed. On hold pending cluster tagging, send-to-Cue integration, and analytics instrumentation.',
     blockers: [
       'Send-to-WP headline bug: variant name + date in slug → harms SEO. Daury Caba investigating.',
       'EGS-127 and PGS-80 must land before build starts',
@@ -296,7 +296,7 @@ export const PROJECTS = {
     name: 'SEMrush / Keyword Signal Layer',
     owner: 'Pierce · Sarah Price · Sara Vallone',
     compassGoal: 'G5 — Professional Development: Technical & Editorial Fluency',
-    description: 'Keyword intelligence layer that surfaces content opportunities for the National team using SEMrush data — scoring topics by volume, difficulty, and portfolio gap to produce Go Hard / Test Small / Skip verdicts. Prototype live at 14 briefs across 4 verticals; next iteration adds per-publication analysis and authority-progression logic. Verdict thresholds are being calibrated through live content experiments.',
+    description: 'Keyword intelligence layer that surfaces content opportunities for the National team using SEMrush data — scoring topics by volume, difficulty, and portfolio gap to produce Go Hard / Test Small / Skip verdicts. Prototype live at 14 briefs across 4 verticals; next iteration adds per-publication analysis and authority-progression logic.',
     blockers: [
       'Go Hard/Test Small thresholds undefined — needs Rocky + Sarah session (invite sent, date TBD)',
       'Rocky/Julio credit rate per endpoint not confirmed — Rocky pinging Julio 2026-04-15; required before any automation',
@@ -330,7 +330,7 @@ export const PROJECTS = {
     name: 'Vallone Tracker / CMS Automation',
     owner: 'Pierce (dev) · Sara Vallone (stakeholder)',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'Automate Sara Vallone\'s content governance sheet. Deprioritized by Chris — holds until prerequisites land. Send-to-WP ✅ done. Remaining: EGS-127 (cluster ID), rq-send-to-cue, PGS-80 analytics.',
+    description: 'Automate Sara Vallone\'s content governance sheet. Send-to-WP integration done. Deprioritized by Chris — holds until cluster tagging, send-to-Cue, and analytics instrumentation land.',
     blockers: [
       'HOLD: EGS-127, rq-send-to-cue, and PGS-80 must land first',
     ],
@@ -347,7 +347,7 @@ export const PROJECTS = {
     name: 'Content Analysis / Narrative Dashboard (Price)',
     owner: 'Pierce · Sarah Price',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Ongoing monitoring layer and reporting narrative with Sarah Price. Distinct from headline analysis — this is the reporting layer on top. Standing governance item: Sarah sends weekly exec note on content performance; Pierce adds CSA operations piece (wins + priorities — not a ticket dump, per Chris). Combined = one weekly update for stakeholders. Framing: constructive progress, not a complaint about velocity.',
+    description: 'Ongoing monitoring layer and reporting narrative with Sarah Price. Distinct from headline analysis — this is the reporting layer on top. Deliverable: coordinated weekly ops piece (CSA wins + priorities) that feeds into Sarah\'s combined exec note to Britney and stakeholders.',
     blockers: ['Format not yet formalized — coordinate with Sarah Price when she returns 2026-04-17'],
     nextActions: [
       'When Sarah Price returns (2026-04-17): arrange meeting to coordinate format for combined weekly update',
@@ -362,7 +362,7 @@ export const PROJECTS = {
     name: 'Personas & Formats Testing / Optimization',
     owner: 'Pierce',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Controlled pairwise experiments testing persona × format combinations to identify what actually drives performance. Starting with Discover + Trend Hunter personas. Discover Persona test sheet exists in Sarah Price\'s tracker (early stage). Depends on P4 format library stabilizing and EGS-127 cluster tagging for outcome measurement.',
+    description: 'Controlled pairwise experiments testing persona × format combinations to identify what actually drives performance. Starting with Discover + Trend Hunter personas. Depends on P4 format library stabilizing and cluster tagging for reliable outcome measurement.',
     blockers: ['Needs P4 format library stable + EGS-127 cluster tagging before controlled experiments can run'],
     nextActions: ['Design pairwise test schedule with Sarah Price — Discover × Curious Explorer as first candidate pair'],
     dependsOn: ['p4-governance', 'p7-tracker'],
@@ -373,7 +373,7 @@ export const PROJECTS = {
     name: 'Partner Content / Inventory Optimization',
     owner: 'Pierce · Kathryn Sheldon · Chris Palo · Kathy',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'Optimize how McClatchy selects and places 20-30 partner content feeds (Reuters, Athlon, Field Level Media, UPI, and others). Current system uses recency or hard-coded priority with no performance layer. Field Level Media drives ~1/3 higher PV/story than Minute Media for sports. Two lanes: quick — top 5 feeds MRSS optimization with Kathy; larger — full feed indexing + placement optimization. Waiting on Chris/Kathy kickoff. Sub-scope (internal only): Reuters Connect wire could augment Trend Hunter Mindbody via IPA pipeline — contract prevents CSA use.',
+    description: 'Optimize how McClatchy selects and places 20-30 partner content feeds (Reuters, Athlon, Field Level Media, UPI, and others). Current system uses recency or hard-coded priority with no performance layer. Field Level Media drives ~1/3 higher PV/story than Minute Media for sports. Two lanes: quick — top 5 feeds MRSS optimization; larger — full feed indexing + placement optimization.',
     blockers: [
       'Reuters still provisioning (~1 week) — waiting on access before testing',
       'AI vetting policy not drafted yet',
@@ -446,7 +446,7 @@ export const PROJECTS = {
     name: 'Recipes',
     owner: 'Pierce',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
-    description: 'Signal-driven configuration framework that maps creator profile, content category, and distribution target to a predictable content return — specifying which persona × format × topic × market combination maximizes expected performance for a given assignment. Not a static spec; a learned prediction built on top of P4 (governance), P6 (taxonomy), P14 (keyword signal), and P2 (performance data). Build one vertical at a time as data infrastructure matures.',
+    description: 'Signal-driven configuration framework that maps creator profile, content category, and distribution target to a predictable content return — specifying which persona × format × topic × market combination maximizes expected performance. Not a static spec; a learned prediction built as data infrastructure (persona governance, taxonomy, keyword signal, performance data) matures.',
     blockers: [
       'P4 persona governance must finalize the controlled format/persona set (P9 PRD complete — recipes concept defined as T3 pipeline layer)',
     ],
@@ -489,7 +489,7 @@ export const PROJECTS = {
     name: 'MAIA Trend Tool Validation',
     owner: 'Pierce · Sara Vallone · Derek',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Three-way comparison of trend signal tools for the National content pipeline: (1) Derek\'s MAIA tool (Insights Dashboard → Daily Scan), (2) Kat Sheplavy\'s trend analysis agent (in development), and (3) TrendHunter native tool. The 14-day MAIA test (2026-04-15–~2026-04-29) is underway with Sara\'s teams logging writeability and rejection reasons. Deliverable: comparative assessment of all three tools — pluses/minuses, signal type, content angles, and which tool (or combination) best serves National vs. vertical team needs.',
+    description: 'Three-way comparison of trend signal tools for the National content pipeline: Derek\'s MAIA tool, Kat Sheplavy\'s trend analysis agent, and TrendHunter native. The 14-day MAIA test is underway with Sara\'s teams logging writeability and rejection reasons. Deliverable: comparative assessment covering signal type, content angle quality, and fit for National vs. vertical needs.',
     blockers: [
       'Pending access to Insights Dashboard MAIA tab — Sara requested 2026-04-15',
       'Pending add to Sara Vallone tracking sheet — Sara requested 2026-04-15',
@@ -526,7 +526,7 @@ export const PROJECTS = {
     name: 'Experiences Vertical Content Test',
     owner: 'Pierce · Sara Vallone',
     compassGoal: 'G5 — Professional Development: Technical & Editorial Fluency',
-    description: 'Sara Vallone\'s Experiences vertical content test — keyword data provided by Pierce via SEMrush API. Four topics, three verdicts: Landmarks GO HARD (1.5M/mo head term, KD 34; geographic variants KD 12–27), 5-Day Travel GO HARD (avg KD 15; destination itineraries KD 4–9), Scenic Road Trips GO HARD (8,100/mo, KD 26; no major travel publications ranking), Solo Dining SKIP (260/mo ceiling, $0 CPC — not a search play). No McClatchy publication ranks for any keyword across any of the four topics. This experiment is the first live calibration input for the data-keywords verdict system — what Sara publishes vs. skips, and how those articles perform, will be used to refine Go Hard / Skip thresholds.',
+    description: 'Sara Vallone\'s Experiences vertical content test — SEMrush keyword pull across four topics (Landmarks, 5-Day Travel, Scenic Road Trips, Solo Dining) to determine Go Hard / Skip verdicts. The first live calibration input for the data-keywords verdict system: what Sara publishes and how those articles perform will be used to refine thresholds.',
     blockers: [
       'Waiting on Sara Vallone to confirm keyword data is usable / request refinements',
     ],
@@ -550,7 +550,7 @@ export const PROJECTS = {
     name: 'Mode 2 Trust & Editorial Risk Spike (PGS-189)',
     owner: 'Oliver Felix · Susannah Locke · Pierce',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'Formal spike investigating whether Mode 2 (Intermediate) silently adds factual content from "common knowledge" without user awareness — and the editorial trust and accuracy risks this creates. Deliverable: written findings document covering which workflows invoke Mode 2 by default, what it is permitted to add, the gap between product messaging and actual behavior, and implications for future QA infrastructure (fact-checking, plagiarism detection). Investigation only; no implementation changes in scope.',
+    description: 'Formal spike investigating whether Mode 2 (Intermediate) silently adds factual content without user awareness — and the editorial trust and accuracy risks this creates. Deliverable: written findings covering which workflows invoke Mode 2 by default, what it can add, and implications for future QA infrastructure. Investigation only; no implementation changes in scope.',
     blockers: [
       'PGS-189 in Selected for Development (Backlog) — Oliver Felix assigned; no active sprint yet',
     ],
