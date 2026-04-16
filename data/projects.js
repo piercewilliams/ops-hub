@@ -494,7 +494,17 @@ export const PROJECTS = {
     contacts: [
       { name: 'Derek', role: 'Owner of MAIA Trend Tool; initiated 14-day test' },
       { name: 'Sara Vallone', role: 'Editorial execution; teams doing the testing; owns tracking sheet' },
-      { name: 'Sarah Price', role: 'Reviews success metrics at end of test window' },
+      { name: 'Sarah Price', role: 'Reviews success metrics at end of test window; also pending MAIA tab access' },
+      { name: 'Chris Palo', role: 'Sponsor; issued test directive; owns success metric review' },
+    ],
+    notes: [
+      'BASELINE PROMPT (National Team, as of 2026-04-15 — this is what the test is evaluating):',
+      'This is an AUTOMATED DAILY SCAN. Task: produce a daily trend report identifying SPECIFIC emerging trends at the product, behavior, or cultural phenomenon level.',
+      'TEMPORAL FOCUS: Focus EXCLUSIVELY on signals from the past 24-72 hours. Breaking news tie-ins, viral social moments (past 48hrs), sudden search volume spikes, new product launches, regulatory announcements, emerging memes, celebrity-driven trends gaining sudden traction. Do NOT include trends discussed widely for weeks/months unless there is a SPECIFIC new development in the last 72 hours.',
+      'SPECIFICITY: Product/behavior level, NOT broad industry themes. BAD: "AI in Healthcare", "Sustainable Living". GOOD: "Mushroom Coffee", "Mouth Taping for Sleep", "Gut Health Sodas", "Beef Tallow Skincare", "Dopamine Menus".',
+      'DIRECTIONALITY: Every trend must be something the content team can act on — must support multiple content pieces (roundup, how-to, explainer, expert Q&A). Not a single product launch, momentary social format, or brand collab with no broader behavior behind it.',
+      'OUTPUT: 10-15 trends, each with: Trend name, Category, Subcategory, Description (1-2 sentences), What\'s new (recent trigger), Evidence (sources + URLs + dates), Industries, Audience segments, Content angle (headline tied to live moment), Recommended format, Urgency (High/Medium/Low). Then: 5-8 Content Opportunities + Competitive Gaps.',
+      'SUCCESS METRICS (Pierce + Sara + Sarah review at ~2026-04-29): Are trends useful and in which areas? Writeability % (viable for B2C articles). Specificity (product/behavior level vs. industry level). Traffic performance of published articles. Does prompt need to branch for verticals (Mind-Body / Experiences / Everyday Living)?',
     ],
   },
 
