@@ -103,7 +103,7 @@ export const PROJECTS = {
     name: 'Platform Access & Training',
     owner: 'Pierce',
     compassGoal: 'G5 — Professional Development: Technical & Editorial Fluency',
-    description: 'API access confirmed for all platforms. Snowflake/Sigma fully oriented 2026-04-15 (Rocky+Chad walkthrough). Key tables identified: story traffic main (O&O PV by story/market/date) and dynamic story metadata (author, URL, SEO, keywords, taxonomies) — both in MCC presentation schema under Tableau reporting. Amplitude data is in Snowflake (Amplitude events prod table). No Sigma OAuth2 needed — connect GitHub directly to Snowflake (Chad to help set up). Google Search Console data in MCC RAW. Chad Bruton is primary Snowflake contact ("buck stops with me"). Ryan Spalding is ad/eCPM expert.',
+    description: 'Provisioning and orientation for all platforms and data systems Pierce uses: Snowflake/Sigma, Amplitude, Marfeel, SEMrush, Gary API, Cue, MAIA, and Bitbucket. Ensures Pierce can query, pull, and act on data without access blockers. Prerequisite for all analytical and pipeline work.',
     systems: [
       { name: 'Snowflake / Sigma', status: 'done', note: 'Role: growth_and_strategy_role. Key tables: MCC presentation → Tableau reporting → story_traffic_main (O&O PV by story/market/date) and dynamic_story_metadata (author_name, URL, SEO metadata, keywords, taxonomies — join on story ID). Amplitude events prod table also in Snowflake (presentation/amplitude schema). Dynamic table schema access granted 2026-04-15 by Chad. Google Search Console in MCC RAW. No Sigma OAuth2 needed — direct GitHub→Snowflake connection (Chad setting up). Chad Bruton is primary contact.' },
       { name: 'CUE', status: 'done', note: '' },
@@ -146,7 +146,7 @@ export const PROJECTS = {
     name: 'Gary Tools Integration',
     owner: 'Pierce (lead) · Susannah Locke · Chris Palo',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: 'Gary Kirwan\'s toolkit evaluation complete (CSA Weekly 2026-04-14). Verdict: Gary is off the QA gate roadmap — confidence scores undocumented, methodology black-box, not deterministic despite claims. Gary has no plagiarism detection (uses Originality.ai — Copyscape stands). Gary value = commerce/SEO for Andy only; general tools: use as template only. New IP/contract concern raised by Kathryn Sheplavy: Gary\'s contract may not give McClatchy ownership of code built under it; tools live on Gary\'s personal API. Kathryn to discuss with Jason. Chris to tell Jason that team has failed to obtain Gary\'s code. Author profile replication greenlit: Gary built Sara Vallone\'s voice profile from ~100 articles — replicable in-house; dev ticket to be created; test internally (Sara/Pierce/Susannah) before wider rollout due to news sensitivity. Chris roadmap: V1 = internal source ranking library, V2 = user-generated content vetting (Substack).',
+    description: 'Evaluation and selective integration of Gary Kirwan\'s AI writing toolkit — specifically author voice profiling, source ranking, and fact-checking capabilities. Gary is off the automated QA gate (non-deterministic), but author profile replication (building a writer\'s voice model from ~100 articles) is greenlit for internal testing. Roadmap: V1 = internal source ranking library; V2 = user-generated content vetting.',
     blockers: [
       'Gary IP/contract: Kathryn Sheplavy discussing with Jason — McClatchy ownership of Gary\'s code unclear',
       'Sara Vallone parameter session not yet scheduled',
@@ -171,7 +171,7 @@ export const PROJECTS = {
     name: 'Content Cluster / Tagging Taxonomy',
     owner: 'Pierce · Susannah Locke · Chris Palo · Sara Vallone',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'Strategy settled: Canonical ID = Cluster ID; articles are siblings. EGS-127 (Marcelo, 4 subtasks) replaces PGS-40. Ticket 12828 (first of 4) moved to Selected for Development 2026-04-13 — Marcelo offering guidance (did the planning, has engineering mods). Susannah\'s #1 analytics priority (one editor manually tracking 700+ stories/month).',
+    description: 'Structured tagging system that tracks content clusters — a canonical article plus its analytically-determined variants — so performance can be measured at the cluster level rather than per-article. Currently one editor manually tracks 700+ stories/month; the engineering implementation automates this. Foundational to all downstream analytics and recipe work.',
     blockers: [],
     nextActions: [
       'Monitor EGS-127 — ticket 12828 in dev; 3 tickets remain in backlog',
@@ -190,7 +190,7 @@ export const PROJECTS = {
     name: 'Dashboard Instrumentation',
     owner: 'Pierce',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'Live data ingestion layer for csa-dashboard. Manual bridge active (edit data/manual-metrics.js). v0.88 shipped — PGS-115, PGS-96, PGS-134 all done. PGS-82 in Product Review (2 must-fix issues before release: banner states need product definition [only green/red, no "Needs Review"], re-analysis needs loading indicator). PGS-104 kicked back to In Progress after QA (keyword enforcement still failing). PGS-140 in QA (Marcelo moved same day from Code Review). Adapters: Snowflake direct connection (replacing Sigma OAuth2 approach — Chad Bruton setting up GitHub→Snowflake), Marfeel (API key needed), Amplitude data is in Snowflake (Amplitude events prod) but CSA-specific adapter still blocked on PTECH-7730.',
+    description: 'Live metrics dashboard for the CSA program, tracking output volume, batting average, Discover rate, and Amplitude events. Built on data adapters (Snowflake, Marfeel, Amplitude) with a manual bridge active while adapters are completed. Depends on active CSA feature tickets (duplicate content, keyword enforcement, analytics) to reach full instrumentation.',
     adapters: [
       { name: 'Google Sheets (manual)', status: 'done', note: 'Edit data/manual-metrics.js to update numbers.' },
       { name: 'Snowflake (direct)', status: 'pending-setup', note: 'Replaces Sigma OAuth2 approach. Chad Bruton confirmed: connect GitHub directly to Snowflake — Sigma is just a reporting UI on top. Chad to help set up. Unblocks stories/week, batting average, and O&O PV.' },
@@ -219,7 +219,7 @@ export const PROJECTS = {
     name: 'T1 Headlines Analysis (Price)',
     owner: 'Pierce · Sarah Price',
     compassGoal: 'G3 — Quality Framework & Testing Protocols',
-    description: '13 findings, 5-tile playbook, author playbooks, Headline Grader (daily, 15 criteria), weekly auto-ingest (Mon 8pm CDT). 21/21 tests pass. Fully hardened 2026-04-14: 9 CI bugs fixed. Tarrow weekly run now functional — verify automation held next Tuesday.',
+    description: 'Data analysis and tooling to identify what makes high-performing T1 headlines in the National content pipeline. Deliverables: findings playbook, per-author performance profiles, and a daily automated Headline Grader (15 criteria, weekly ingest). Run in partnership with Sarah Price.',
     blockers: [
       'Headline Grader: can\'t move to McClatchy org — Chris pinging Rasheed about Bitbucket + Cloudflare team environment',
       'Author playbooks: Tarrow data thin — Snowflake is the authoritative source. Tables identified 2026-04-15: author_name in dynamic_story_metadata (MCC presentation), joined to story_traffic_main on story ID. Upgrade blocked until GitHub→Snowflake connection set up (Chad Bruton).',
@@ -240,7 +240,7 @@ export const PROJECTS = {
     name: 'Article Format + Persona + Keyword Governance',
     owner: 'Pierce · Sara Vallone · Susannah Locke · Sarah Price',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
-    description: 'Governs what the CSA produces for the National team: 5 personas, a growing content format library, keyword enforcement, and SEO standards. ETK + FAQ formats + Discover Browser audience shipped in v0.88. All 5 persona CSA Target Audience Definitions now complete in csa-content-standards (v1.8.0) — full Name/Description/Focus areas for direct CSA UI entry, with csa-target-audience AGENT-AUDIENCE tag for machine access. Personas and formats confirmed decoupled in CSA UI (Sara Vallone 2026-04-15). Keyword input field in progress (PGS-104). Keyword color overlay and author profile replication greenlit at CSA Weekly. Apple/SmartNews best practices ready to migrate to format section. Pierce granted CSA Admin role 2026-04-15 (Susannah Locke). All 5 National Team personas now live as Team Target Audiences in CSA production: The Discover Browser + The Wonder-Driven Science Enthusiast (Susannah, 2026-04-15); The Curious Optimizer + The Curious Explorer + The Watercooler Insider (Pierce, 2026-04-15).',
+    description: 'Establishes and maintains the editorial governance layer for National team CSA usage: 5 defined personas, a content format library, mandatory keyword enforcement, and SEO standards. All deliverables live in csa-content-standards and the CSA production UI. Governs what the CSA is configured to produce and how National team editors use it.',
     blockers: [
       'Andy sign-off on Apple News + SmartNews distribution templates — 2 emails sent, no response',
     ],
@@ -288,7 +288,7 @@ export const PROJECTS = {
     name: 'SEMrush / Keyword Signal Layer',
     owner: 'Pierce · Sarah Price · Sara Vallone',
     compassGoal: 'G5 — Professional Development: Technical & Editorial Fluency',
-    description: 'Two-layer keyword intelligence. Layer 1: Rocky SEMrush gap analysis. Layer 2: data-keywords prototype — 14 briefs, 4 verticals, Go Hard / Test Small / Skip verdicts. Core concept validated by Chris 2026-04-14. SEMrush API key in hand (direct from Rocky). Next version: per-publication analysis (each pub has own brand/competitors/traction — portfolio-wide view distorts ground truth); authority-progression logic (low-difficulty/high-volume first, harder keywords as cluster authority builds); keep/decline + note field; performance feedback loop (log outcomes after content runs → refine future analyses). Sara: expansive not prescriptive. Thresholds not defined — need Rocky + Sarah session. See data-keywords/REFERENCE.md § Stakeholder Feedback for full detail.',
+    description: 'Keyword intelligence layer that surfaces content opportunities for the National team using SEMrush data — scoring topics by volume, difficulty, and portfolio gap to produce Go Hard / Test Small / Skip verdicts. Prototype live at 14 briefs across 4 verticals; next iteration adds per-publication analysis and authority-progression logic. Verdict thresholds are being calibrated through live content experiments.',
     blockers: [
       'Go Hard/Test Small thresholds undefined — needs Rocky + Sarah session (invite sent, date TBD)',
       'Rocky/Julio credit rate per endpoint not confirmed — Rocky pinging Julio 2026-04-15; required before any automation',
@@ -438,7 +438,7 @@ export const PROJECTS = {
     name: 'Recipes',
     owner: 'Pierce',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
-    description: 'A Recipe is a signal-driven lever configuration: given known inputs — creator profile (who produces what content well), content category performance by market, and site ECPM data — the system pulls the right combination of levers (persona × format × topic × distribution target) to configure content with a predictable expected return. Example: Ryan Brennan × creature features × Sacramento (ECPM 240) → predict cluster story → configure accordingly. Not a static spec; a learned prediction about which configuration maximizes return for a given creator+category+market combination. The "levers" are the controlled set of personas, formats, topics, and distribution destinations defined in P4 and P9. Data inputs come from EGS-127 (variant origin tracking), PGS-82/140 (differentiation + analytics), Sigma CSA dash (market performance), and eventually the LTV model (P16). ~10 verticals total (financial services, fashion, tech, etc.). Two additional pipeline types under investigation: (1) infographics pipeline — trend/research → branded infographic (e.g. HSA rates rising → Trend Hunter graphic); (2) licensed partner content pipeline — licensed influencer video/transcript → CSA → multiple articles + tangential content distributed to Trend Hunter app + Pier1 sites. Chris Palo confirmed interest in both (2026-04-10).',
+    description: 'Signal-driven configuration framework that maps creator profile, content category, and distribution target to a predictable content return — specifying which persona × format × topic × market combination maximizes expected performance for a given assignment. Not a static spec; a learned prediction built on top of P4 (governance), P6 (taxonomy), P14 (keyword signal), and P2 (performance data). Build one vertical at a time as data infrastructure matures.',
     blockers: [
       'P4 persona governance must finalize the controlled format/persona set (P9 PRD complete — recipes concept defined as T3 pipeline layer)',
     ],
@@ -454,7 +454,7 @@ export const PROJECTS = {
     name: 'Agentic Writing Helpers',
     owner: 'Pierce · Chris Palo · Sara Vallone',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
-    description: 'Skills library + orchestrator model for editorial writing workflows — NOT a generalized UI. Philosophy/infrastructure question first; no tooling decisions until that\'s settled. Voice tracker framing: agent that knows a writer\'s voice well enough to co-pilot drafts (~40% time savings goal). CSA fundamental problem: doesn\'t log what it does, can\'t self-improve — Chris built his own personalized agent on Rajiv\'s monitor setup that does log. CSA backend unknown (no one — Rajiv, Jason — could answer what the core agent is). Author fine-tuning technically ~1 day of work; blocked by news labor concerns, not engineering. Pilot approach: pick one author, meet routinely, increment a tailored content agent experimentally — expand after initial toolkit proven. Do NOT introduce to Susannah/Kat yet. Full context: write-assist/CONTEXT.md. **Meeting scheduled: Thu 2026-04-16, 11–11:45am CDT. Sara invited Hanna Wickes, Ryan Brennan, + 4 more content creators. Format: group spitball on pain points → Pierce + Sara huddle to prioritize.**',
+    description: 'Skills library and orchestrator model for author-specific editorial writing workflows — starting with voice tracking (an agent that knows a writer\'s style well enough to co-pilot drafts). Philosophy-first approach: establish why and how before any tooling decisions. Pilot plan is one author, iterative, and internal before any broader team introduction.',
     blockers: [
       'News labor concerns: author fine-tuning on individual writer data requires union agreement — not an engineering problem',
       'CSA backend unknown: core agent identity (Claude? LangChain?) unresolved — no one could answer; blocks CSA-integrated approach',
@@ -527,7 +527,7 @@ export const PROJECTS = {
     name: 'Mode 2 Trust & Editorial Risk Spike (PGS-189)',
     owner: 'Oliver Felix · Susannah Locke · Pierce',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'Formal investigation (PGS-189) into whether Mode 2 (Intermediate) silently adds factual content from "common knowledge" beyond what the user provided — and the trust and editorial accuracy risks this creates. Mode 2 is the default for all non-journalist roles using Search or paste/draft workflows, including National team users. The gap between product messaging ("you control the information input") and actual Mode 2 behavior is the core problem. Deliverable: written findings document covering which workflows invoke Mode 2 by default, what content it is permitted to add, the gap between messaging and behavior, exposed user groups, pros/cons assessment, and implications for future QA infrastructure (automated fact-checking, plagiarism detection). No implementation changes in scope — spike only. Pierce tagged by Susannah; Oliver Felix is assignee.',
+    description: 'Formal spike investigating whether Mode 2 (Intermediate) silently adds factual content from "common knowledge" without user awareness — and the editorial trust and accuracy risks this creates. Deliverable: written findings document covering which workflows invoke Mode 2 by default, what it is permitted to add, the gap between product messaging and actual behavior, and implications for future QA infrastructure (fact-checking, plagiarism detection). Investigation only; no implementation changes in scope.',
     blockers: [
       'PGS-189 in Selected for Development (Backlog) — Oliver Felix assigned; no active sprint yet',
     ],

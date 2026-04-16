@@ -83,6 +83,28 @@ Read `CONTEXT.md` at the start of every session. Update it at the end. Archive c
 
 ---
 
+## Project Card Description Rules
+
+The `description` field is a **2–3 sentence paragraph** that answers:
+1. What is this project and why does it exist?
+2. What does it produce or deliver?
+
+**Nothing else belongs in `description`.** The following must live in other fields — move them there, do not summarize them in the description:
+
+| Belongs elsewhere | Goes in |
+|-------------------|---------|
+| Ticket numbers (PGS-###, EGS-###) | `nextActions` or `blockers` |
+| Specific dates, version history | Session logs or `COMPLETED_TASKS` |
+| Who said what in which meeting | Session logs or `CONTEXT.md` |
+| Current status or recent progress | `status`, `blockers[]`, `nextActions[]` |
+| Stakeholder feedback or conversation outcomes | Session logs |
+
+**Self-test before writing:** If you removed the description and read only the other fields, would the description add something those fields cannot? If not, cut it.
+
+**Enforcement — mandatory on every `projects.js` edit:** Before committing, scan every `description` field. Any that contain ticket numbers, specific dates, meeting outcomes, or who-said-what detail must be trimmed. No exceptions, no deferral to a later session.
+
+---
+
 ## projects.js Staleness Rules
 
 Any time `data/projects.js` is updated — including during sync — audit every project's `nextActions` and `blockers` arrays against the following rules. Do not wait for the user to flag stale entries:
