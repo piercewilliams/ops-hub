@@ -61,7 +61,7 @@ For session history: see [sessions/](sessions/)
 | 15 | Partner Content / Inventory Optimization | 5 | In progress | Reuters RSS confirmed. AI vetting policy not drafted. Legal question unresolved. |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff (Sara, Sarah Price, Pierce, Kathy). |
 | 17 | Spanish CSA Pipeline | 5 | Not started | Waiting on Chris/Rajiv direction. |
-| 18 | Agentic Writing Helpers | 5 | In progress | Meeting Thu 2026-04-16 11am CDT (Sara + Hanna Wickes + Ryan Brennan + 4 more). |
+| 18 | Agentic Writing Helpers | 5 | In progress | Wishlist session complete 2026-04-16. Top pain points: style guide enforcement (quick win), variant differentiation, Cue upload/H2 automation, keyword gaps. Hard constraint: most writers lack Claude access — no Claude-dependent external tools. |
 | 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test 2026-04-15→~2026-04-29. Waiting on MAIA tab access + tracking sheet. |
 | 20 | Experiences Vertical Content Test | 4 | In progress | Keyword data delivered to Sara 2026-04-15 (xlsx + docx). 3 GO HARD, 1 SKIP. Feedback loop due ~May 2026. |
 | 21 | Mode 2 Trust & Editorial Risk Spike | 2 | In progress | PGS-189 — Oliver Felix assigned, Pierce tagged. Mode 2 silently adds content; trust/accuracy risk. PGS-150 HOLD pending Pierce criteria clarification. |
@@ -74,7 +74,9 @@ For session history: see [sessions/](sessions/)
 - [ ] **Confirm first per-pub SEMrush pull with Rocky** — financial services confirmed as topic; pub not locked yet
 
 **G2 — Editorial Standards:**
-- [ ] **Thu 2026-04-16 11am CDT: agentic writing group session** → Pierce + Sara huddle after to pick pilot author
+- [ ] **Build Style Checker (P18 quick win)** — paste CSA output + select brand → auto-enforce style guide; AP base + Women's World/US Weekly exceptions; Pierce confirmed feasible
+- [ ] **Pierce + Sara huddle (P18)** — prioritize pain points from Apr 16 session, pick pilot author
+- [ ] **Verify input-length/output-length fix status** — confirm with engineering whether CSA output-length-pinned-to-input has been addressed
 
 **G3 — Quality/Testing:**
 - [ ] **Gary: audit public resources** — identify what's replicable; then obtain code and propose internal build to Chris + CSA eng
