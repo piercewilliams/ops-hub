@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-16 13:10 UTC — Automated sync. No changes: all statuses current, all csa-links already updated by prior sessions. Last human session: 2026-04-15 (session 5) — Full integrity pass across all 6 repos: API key exposure remediated, .gitignore files added, READMEs rewritten, pinned-item numbering bug fixed in app.js, check.sh data quality gate fully operational.
+**Last session:** 2026-04-16 17:14 UTC — Automated sync. Changes: csa-links.js updated — added p20-experiences-test (rq-semrush-api) and p21-mode2-trust-spike (rq-plagiarism-check, rq-import-to-research-draft, p-hallucination, p-plagiarism). No project status changes. Last human session: 2026-04-15 (session 5) — Full integrity pass across all 6 repos: API key exposure remediated, .gitignore files added, READMEs rewritten, pinned-item numbering bug fixed in app.js, check.sh data quality gate fully operational.
 **Status:** 21 active/tracked projects (P20 + P21 added). Compass goals submitted (Jeremy approval pending Apr 30).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)

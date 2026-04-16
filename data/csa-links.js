@@ -311,4 +311,30 @@ export const CSA_LINKS = {
 
     ],
   },
+
+  'p20-experiences-test': {
+    requests: [
+      { id:'rq-semrush-api', label:'SEMrush API access for keyword intelligence', fulfilled:false, text:'SEMrush API access for keyword intelligence — 3-way alignment meeting DONE (Pierce, Sarah Price, Sara Vallone, 2026-04-08). Key scope decisions: 250K credits allocated to L&E, NOT the CSA team; CSA governed by team-provided keywords (not SEMrush-selected); Sara Vallone concerned about running out quickly — must confirm burn rate + recycling schedule. Immediate plan: track ~25 articles to compare identified keywords; test incorporated into existing testing tracker. Longer-term: backlinking tracking in CSA; utility tab for service journalism. API email chain being forwarded by Sarah Price to Pierce (CC Sara Vallone). Two use cases: (1) analyze current keywords + suggest better alternatives for future/long-tail articles; (2) evergreen backlinking — track ~25 URLs, measure improvement post-backlink addition.' }
+    ],
+    pain: [
+
+    ],
+    metrics: [
+
+    ],
+  },
+
+  'p21-mode2-trust-spike': {
+    requests: [
+      { id:'rq-plagiarism-check', label:'Plagiarism detection for CSA-generated content (PGS-150)', fulfilled:false, text:'Plagiarism detection for CSA-generated content (PGS-150) — PRODUCT REVIEW. Spike complete (Victor Suarez): Copyscape Premium API recommended as primary (~$72/month National team, pay-as-you-go sync REST API, industry standard for publishers). Originality.ai as fallback for paraphrase detection. Internal tooling not feasible. Proposed placement: Audience Variants stage alongside PGS-82 diff score. Gary Kirwan confirmed 2026-04-14: no plagiarism tool built internally — uses Originality.ai API for related checks; strengthens Originality.ai as secondary option. Pierce\'s feedback to Susannah (2026-04-11): Copyscape is the clear call; calibrate 10%/25% thresholds against real National team drafts (Sara\'s PGS-82 staging content ideal); activate private index from day one; Originality.ai as complement not replacement on high-risk pile. Chris Palo feedback (2026-04-13): (1) Gary tool ruled out — confirmed no plagiarism tool; (2) Placement question: for RAG-closed pipelines, source input stage is more appropriate than end-check; open-web pipelines still need end-check — eng to clarify which is which before locking UI placement; (3) Chris + Sara Vallone Jira access now confirmed (2026-04-14) — still need to be added to/tagged on this specific ticket; (4) as tooling costs accumulate (Copyscape, Gary, etc.) need per-service cost estimates for CPA tracking. Mode 2 context (Susannah 2026-04-14): \'Upload from Research Draft\' workflow uses Mode 2 prompt which explicitly instructs CSA to add contextual background — plagiarism risk is not only in content lifted from user\'s source URL but also in content added by CSA\'s own Mode 2 expansion.' },
+      { id:'rq-import-to-research-draft', label:'Add \'Create Research Draft\' option to Import from URL(s) flow (PGS-93)', fulfilled:false, text:'Add \'Create Research Draft\' option to Import from URL(s) flow (PGS-93) — BACKLOG (2026-04-11; was ON HOLD). Susannah ticketed without consulting Sara\'s team. Pierce commented: \'Sara says this needs to be reworked; please do not prioritize.\' Sara\'s team needs to define what rework means before returning to dev. Do not build until rework scope is agreed.' }
+    ],
+    pain: [
+      { id:'p-hallucination', label:'CSA generates factual claims not present in source material', priority:false, text:'CSA generates factual claims not present in source material — hallucination risk, especially for news content. Idaho Statesman editor Chadd Cripe reported a CSA variant that included a paragraph about Ada County neighborhood utilities with no basis in the source article. Forwarded to Chris Palo by Kat Sheldon; Chris added Pierce to the thread 2026-04-14. News-side CSA. No Jira ticket yet.' },
+      { id:'p-plagiarism', label:'No plagiarism checker in CSA', priority:false, text:'No plagiarism checker in CSA — may pull direct sentences from sources. Mandatory AI tagging has caused accusations from Vogue' }
+    ],
+    metrics: [
+
+    ],
+  },
 };

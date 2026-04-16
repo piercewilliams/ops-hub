@@ -1,1 +1,1 @@
-{"last_sync_utc": "2026-04-16T13:10:52Z", "status": "success", "changes": "none detected — all csa-links updates already applied by prior sessions. No project status changes.", "repos_checked": ["csa-dashboard","csa-content-standards","data-t1headlines","data-cmstracker","gary-tools"]}
+{"last_sync_utc": "2026-04-16T17:14:51Z", "status": "success", "changes": "csa-links.js updated — added p20-experiences-test and p21-mode2-trust-spike entries", "repos_checked": ["csa-dashboard","csa-content-standards","data-t1headlines","data-cmstracker","gary-tools"]}
