@@ -502,6 +502,8 @@ html, body {
 }
 
 .sb-blockers-title { color: rgba(var(--red-rgb), 0.85); }
+.sb-resolved-title { color: var(--green); }
+.sb-list-resolved li::before { content: '✓'; color: var(--green); }
 
 .sb-list {
   list-style: none;
@@ -781,6 +783,8 @@ html, body {
   align-items: flex-start;
 }
 .pp-item:last-child { border-bottom: none; }
+.pp-item--clickable { cursor: pointer; transition: background 0.15s; }
+.pp-item--clickable:hover { background: #f0f4f8; }
 
 .pp-num {
   font-size: 11px;

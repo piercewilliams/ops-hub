@@ -407,7 +407,10 @@ export const PROJECTS = {
     completedDate: '2026-04-10',
     owner: 'Pierce',
     compassGoal: 'G4 — Pipeline Documentation & Operational Knowledge',
-    description: 'V0.5 complete, delivered 2026-04-10, distributed at CSA Weekly 2026-04-14. Chris framed as "goalpost" document and "archive" — snapshot context for all feature requests; not a live operational roadmap. Architecture: vertical pipes (T1–T5) + horizontal cross-cutting elements (publish-to-queue, Gary tools/nodes). Visualizations needed for eng team clarity (Chris explicitly requested; Pierce to build standalone HTML diagrams).',
+    description: 'PRD revised through V0.5 and delivered to Chris Palo 2026-04-10; distributed at CSA Weekly 2026-04-14. Versions: V0.1 initial draft → V0.2 Sara Vallone feedback incorporated (MAIA as brief source, headline keyword anchoring, plagiarism + diff check modules named, editorial experience section) → V0.3 Sarah Price inputs (testing module as standalone, evergreen backlinking as named use case) → V0.4 delivered to Chris → V0.5 final revisions incorporating Chris 1:1 feedback. Chris framed PRD as "goalpost" document and "archive" — snapshot context for all feature requests, not a live operational roadmap. Architecture settled: vertical pipes (T1–T5) + horizontal cross-cutting elements (publish-to-queue, Gary tools/nodes, Inclination Engine). Syndication ecosystem taxonomy, LTV=0 framework, and swarm testing added as Phase 2/3 requirements. Live in Google Docs.',
+    resolvedBlockers: [
+      'PRD scope kept expanding with each stakeholder input round — resolved by treating V0.5 as "done enough to ship" per Chris direction; ongoing additions → separate feature requests',
+    ],
     blockers: [],
     nextActions: [],
     dependsOn: [],
@@ -419,7 +422,10 @@ export const PROJECTS = {
     completedDate: '2026-04-03',
     owner: 'Pierce',
     compassGoal: 'G4 — Pipeline Documentation & Operational Knowledge',
-    description: 'Closed 2026-04-03.',
+    description: 'Investigation into CSA Mode 1 vs. Mode 2 behavior — why the same source URLs produced different output depending on workflow entry point. Resolved 2026-04-03 when Oliver Felix confirmed via Slack: Mode 1 (Publication Ready) = Import from URL flow; Mode 2 (Research Draft) = Search/DemoTopics flow. Mode is determined by workflow entry point, not team configuration — National team is not treated differently from other teams. This explained a persistent source of confusion about inconsistent CSA output quality. Finding propagated to csa-dashboard (REFERENCE.md, requests.js, nodes.js) and ops-hub. No further action required; behavior is by design.',
+    resolvedBlockers: [
+      'Why does the same URL produce different CSA output quality depending on how you enter the workflow? → Mode 1/2 are entry-point-determined, not team-configured (Oliver Felix, 2026-04-03)',
+    ],
     blockers: [],
     nextActions: [],
     dependsOn: [],

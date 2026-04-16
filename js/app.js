@@ -157,6 +157,10 @@ function closeSidebar() {
  *   - CSA Dashboard (pain, requests, metrics chips)
  */
 function buildSidebarHTML(p) {
+  const resolvedBlockersHTML = p.resolvedBlockers?.length
+    ? `<div class="sb-section"><div class="sb-section-title sb-resolved-title">✓ Resolved Blockers</div><ul class="sb-list sb-list-resolved">${p.resolvedBlockers.map(b => `<li>${sanitize(b)}</li>`).join('')}</ul></div>`
+    : '';
+
   const blockerHTML = p.blockers?.length
     ? `<div class="sb-section"><div class="sb-section-title sb-blockers-title">⚠ Blockers</div><ul class="sb-list sb-list-blockers">${p.blockers.map(b => `<li>${sanitize(b)}</li>`).join('')}</ul></div>`
     : '';
@@ -243,6 +247,7 @@ function buildSidebarHTML(p) {
     </div>
     <div class="sb-description">${sanitize(p.description)}</div>
     ${p.status_detail ? `<div class="sb-status-detail">ℹ ${sanitize(p.status_detail)}</div>` : ''}
+    ${resolvedBlockersHTML}
     ${blockerHTML}
     ${actionsHTML}
     ${depsHTML}
@@ -397,14 +402,22 @@ function openProgressPanel(type) {
     const items = _progressData.projects;
     body.innerHTML = items.length
       ? items.map(p => `
-          <div class="pp-item">
+          <div class="pp-item pp-item--clickable" data-project-id="${sanitize(p.id)}" title="Click to view full project history">
             <div class="pp-date">${sanitize(p.completedDate || '—')}</div>
             <div class="pp-body">
               <div class="pp-task">#${sanitize(p.num)} ${sanitize(p.name)}</div>
-              <div class="pp-meta">${sanitize(TIER_NAMES[p.tier] ?? '')}</div>
+              <div class="pp-meta">${sanitize(TIER_NAMES[p.tier] ?? '')} · Click for full history</div>
             </div>
           </div>`).join('')
       : '<div class="pp-empty">No completed projects yet.</div>';
+
+    // Wire click → sidebar for each completed project
+    body.querySelectorAll('.pp-item--clickable').forEach(el => {
+      el.addEventListener('click', () => {
+        const proj = PROJECTS[el.dataset.projectId];
+        if (proj) openSidebar(proj);
+      });
+    });
   }
 
   panel.classList.add('open');
