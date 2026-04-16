@@ -97,6 +97,7 @@ For session history: see [sessions/](sessions/)
 - [ ] **Follow up Rocky on Julio credit rates** — end of week if no response; blocks all SEMrush automation
 
 **Compass:**
+- [ ] **Fri 2026-04-18: log week's progress in Compass ad hoc** — draft is in compass-goals.md § Week of 2026-04-14
 - [ ] Jeremy Gockel approval — must reach "Track Goals" status by **April 30, 2026**
 - [ ] Every Friday: request Compass progress notes from Claude (per-goal, based on WINS.md)
 
