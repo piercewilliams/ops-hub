@@ -103,6 +103,20 @@ The `description` field is a **2–3 sentence paragraph** that answers:
 
 **Enforcement — mandatory on every `projects.js` edit:** Before committing, scan every `description` field. Any that contain ticket numbers, specific dates, meeting outcomes, or who-said-what detail must be trimmed. No exceptions, no deferral to a later session.
 
+## PINNED_ACTIONS — Global Up Next Priority
+
+`PINNED_ACTIONS` in `data/projects.js` is the mechanism for surfacing urgent cross-project items at the top of the Up next panel, above the per-project tier/status sort.
+
+**When to add:** Any time Pierce says something needs to be at the top of Up next, is tomorrow's first item, or is urgent regardless of which project it belongs to — add it to `PINNED_ACTIONS`.
+
+**When to remove:** When Pierce marks it done, or when it's no longer urgent. Do not let items accumulate — `PINNED_ACTIONS` is not a second todo list. Keep to ≤3 items.
+
+**Format:** `{ task: 'plain-language description', projectId: 'p##-slug' }`. The `projectId` is optional but preferred — it lets the panel link the item back to its project card.
+
+**How it works:** Pinned items always render first in the Up next panel with a blue `▲` marker and blue left border, before any per-project nextActions. The limit of 5 total items is maintained — pinned items reduce the per-project slots accordingly.
+
+---
+
 ## Completed Project Card Rules
 
 When a project moves to `status: 'done'`, the sidebar is the only way to see its full history (the diagram card is hidden; only the pill ledger entry remains, and it is clickable). Before marking any project done, ensure the card has:

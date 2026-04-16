@@ -5,6 +5,14 @@
 // Add entries here (or let the sync agent add them) when individual tasks wrap up.
 // Most recent first. Only last 5 are shown on the dashboard.
 // Format: { date: 'YYYY-MM-DD', task: 'plain-language description', project: '#N Name' }
+// ── Pinned actions (global Up next priority) ──────────────────────────────
+// Items here always appear at the TOP of the Up next panel, above per-project sort.
+// Remove when done. Keep ≤3 items — this is not a second todo list.
+// Format: { task: 'description', projectId: 'p##-slug' }
+export const PINNED_ACTIONS = [
+  { task: 'Follow up with Kat Sheplavy — get access to her trend analysis agent + TH native tool (P19 three-way comparison)', projectId: 'p19-maia-trend-tool' },
+];
+
 export const COMPLETED_TASKS = [
   { date: '2026-04-15', task: 'SEMrush API keyword pull for Sara Vallone Experiences vertical content test. Four topics analyzed: Landmarks (GO HARD — 1.5M/mo head term, KD 34, geographic variants KD 12–27), 5-Day Travel / Short Trips (GO HARD — avg KD 15, destination itineraries KD 4–9), Solo Dining (SKIP — volume ceiling 260/mo, $0 CPC), Scenic Road Trips (GO HARD — 8,100/mo, KD 26, no major travel publishers ranking). Full SEMrush pipeline: phrase_fullsearch (multi-seed per topic) + phrase_kdi (batch KD) + phrase_organic (competitor gap check). Deliverables: 4 xlsx files (per-topic, color-coded KD, portfolio gap flags) + 1 docx analytical report (verdict framework, methodology, per-topic analysis). All briefs added to data-keywords briefs.js. Slack message sent to Sara with report attached before 11am Thu meeting.', project: '#20 Experiences Vertical Content Test' },
   { date: '2026-04-15', task: 'All 5 National Team personas now live as Team Target Audiences in CSA production. Susannah Locke entered The Discover Browser + The Wonder-Driven Science Enthusiast; Pierce entered The Curious Optimizer, The Curious Explorer, and The Watercooler Insider. Admin-only feature — audiences are shared across all National Team accounts, environment-isolated. PGS-133 ON HOLD (admin feature replaces the code-change ticket entirely).', project: '#4 Article Format + Persona + Keyword Governance' },

@@ -20,7 +20,7 @@
  *   5. Progress btn → openProgressPanel() → reads _progressData
  */
 
-import { PROJECTS, COMPLETED_TASKS } from '../data/projects.js';
+import { PROJECTS, COMPLETED_TASKS, PINNED_ACTIONS } from '../data/projects.js';
 import { CSA_LINKS } from '../data/csa-links.js';
 import { renderDiagram, drawArrows } from './diagram.js';
 
@@ -283,16 +283,25 @@ let _activeProgressPanel = null;
  * @returns {Array<{task: string, project: Object}>}
  */
 function getNextTasks(limit = 5) {
+  // Pinned actions always appear first, regardless of project tier or status
+  const pinned = (PINNED_ACTIONS || []).map(a => ({
+    task: a.task,
+    project: a.projectId ? (PROJECTS[a.projectId] || null) : null,
+    pinned: true,
+  }));
+
   // Lower rank = higher priority: in-progress first, then not-started, then blocked
   const statusRank = { 'in-progress': 0, 'not-started': 1, 'blocked': 2 };
-  return Object.values(PROJECTS)
+  const fromProjects = Object.values(PROJECTS)
     .filter(p => p.nextActions?.length && p.status !== 'done' && p.status !== 'hold')
     .sort((a, b) => {
       const sr = (statusRank[a.status] ?? 3) - (statusRank[b.status] ?? 3);
       return sr !== 0 ? sr : a.tier - b.tier; // secondary sort: lower tier first
     })
-    .slice(0, limit)
-    .map(p => ({ task: p.nextActions[0], project: p }));
+    .slice(0, Math.max(0, limit - pinned.length))
+    .map(p => ({ task: p.nextActions[0], project: p, pinned: false }));
+
+  return [...pinned, ...fromProjects].slice(0, limit);
 }
 
 /**
@@ -374,13 +383,14 @@ function openProgressPanel(type) {
     const items = _progressData.next;
     body.innerHTML = items.length
       ? items.map((t, i) => `
-          <div class="pp-item">
-            <div class="pp-num">${i + 1}</div>
+          <div class="pp-item${t.pinned ? ' pp-item--pinned' : ''}">
+            <div class="pp-num">${t.pinned ? '▲' : i + 1}</div>
             <div class="pp-body">
               <div class="pp-task">${sanitize(t.task)}</div>
-              <div class="pp-meta">#${sanitize(t.project.num)} ${sanitize(t.project.name)}
-                <span class="status-badge status-${sanitize(t.project.status)} pp-badge">${sanitize(STATUS_LABELS[t.project.status] ?? t.project.status)}</span>
-              </div>
+              <div class="pp-meta">${t.project
+                ? `#${sanitize(t.project.num)} ${sanitize(t.project.name)}<span class="status-badge status-${sanitize(t.project.status)} pp-badge">${sanitize(STATUS_LABELS[t.project.status] ?? t.project.status)}</span>`
+                : '<span class="pp-pinned-label">Pinned</span>'
+              }</div>
             </div>
           </div>`).join('')
       : '<div class="pp-empty">No next actions defined yet.</div>';
