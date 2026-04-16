@@ -194,16 +194,16 @@ export const PROJECTS = {
     adapters: [
       { name: 'Google Sheets (manual)', status: 'done', note: 'Edit data/manual-metrics.js to update numbers.' },
       { name: 'Snowflake (direct)', status: 'pending-setup', note: 'Replaces Sigma OAuth2 approach. Chad Bruton confirmed: connect GitHub directly to Snowflake — Sigma is just a reporting UI on top. Chad to help set up. Unblocks stories/week, batting average, and O&O PV.' },
-      { name: 'Marfeel', status: 'pending-creds', note: 'Discover rate, batting average. Needs API key.' },
+      { name: 'Marfeel', status: 'pending-creds', note: 'Discover rate, batting average. OPEN QUESTION: ask Chad whether Marfeel data flows into Snowflake before pursuing API key — if it does, Snowflake adapter covers this and no API key needed.' },
       { name: 'Amplitude', status: 'pending-creds', note: 'Amplitude data is in Snowflake (Amplitude events prod table) — use Snowflake connection for raw event data. CSA-specific unified dashboard still blocked on PTECH-7730 (PE ticket, dev group assigned, Julia Kim PM — Joe Vitali checking ETA, responds 2026-04-16).' },
     ],
     blockers: [
       'Snowflake direct connection not yet set up — Chad Bruton to assist (GitHub → Snowflake)',
-      'Marfeel API key',
+      'Marfeel: confirm with Chad whether Discover rate / batting average data is in Snowflake before pursuing API key',
       'PTECH-7730 (WordPress p-tagging fix) — dev group assigned, Julia Kim PM. Waiting on ETA from Joe Vitali (2026-04-16).',
     ],
     nextActions: [
-      'Get Marfeel API key → activate adapter',
+      'Ask Chad: is Marfeel (Discover rate, batting average) data in Snowflake? If yes, Snowflake adapter covers it — no API key needed',
       'Monitor PTECH-7730 (p-tagging fix) — activates Amplitude adapter when done',
       'Provide weekly release estimates/timeframes to management (Chris ask — use weekly dates, not "soon")',
       'PGS-82 Product Review: Susannah flagged 2 must-fix items — confirm engineering receives fix scope (banner states: green/red only, no "Needs Review"; re-analysis loading indicator) before production release',
