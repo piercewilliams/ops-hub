@@ -10,6 +10,7 @@
 // Remove when done. Keep ≤3 items — this is not a second todo list.
 // Format: { task: 'description', projectId: 'p##-slug' }
 export const PINNED_ACTIONS = [
+  { task: 'Get into Snowflake today — check story_traffic_main and related tables for traffic source/channel column (search vs. social). Needed to scope Sarah Price tracker PV automation.', projectId: 'p1-access' },
 ];
 
 export const COMPLETED_TASKS = [
