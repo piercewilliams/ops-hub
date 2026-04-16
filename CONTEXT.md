@@ -62,6 +62,7 @@ For session history: see [sessions/](sessions/)
 | 17 | Spanish CSA Pipeline | 5 | Not started | Waiting on Chris/Rajiv direction. |
 | 18 | Agentic Writing Helpers | 5 | In progress | Meeting Thu 2026-04-16 11am CDT (Sara + Hanna Wickes + Ryan Brennan + 4 more). |
 | 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test 2026-04-15→~2026-04-29. Waiting on MAIA tab access + tracking sheet. |
+| 20 | Experiences Vertical Content Test | 4 | In progress | Keyword data delivered to Sara 2026-04-15 (xlsx + docx). 3 GO HARD, 1 SKIP. Feedback loop due ~May 2026. |
 
 ## What's Next
 
