@@ -500,7 +500,6 @@ export const PROJECTS = {
       'Waiting on Sara Vallone to confirm keyword data is usable / request refinements',
     ],
     nextActions: [
-      'Attend Thu 2026-04-16 11am CDT agentic writing session — note which Experiences content angles Sara or team mention as priorities',
       'Follow up if Sara needs deeper pull or reformulation of any topic (offered in Slack)',
       'FEEDBACK LOOP (~May 2026): When Sara\'s experiment concludes, check: (1) which GO HARD topics she published on, (2) which she skipped, (3) whether Solo Dining SKIP was respected or ignored, (4) actual performance of published articles vs. verdict prediction. Use to recalibrate verdict thresholds in data-keywords.',
     ],
