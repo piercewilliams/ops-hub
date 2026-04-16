@@ -1,6 +1,6 @@
 # Ops Hub — Project Registry & Dependency Map
 
-Visual project dashboard for Pierce's active work at McClatchy. Tracks ~13 projects across 5 repos with automatic dependency arrows, a live sync-status indicator, version history, and a private accomplishments register.
+Visual project dashboard for Pierce's active work at McClatchy. Tracks 21 active projects across 6 repos with automatic dependency arrows, a live sync-status indicator, version history, and an accomplishments register.
 
 **Live URL:** `https://piercewilliams.github.io/ops-hub`
 
@@ -85,11 +85,26 @@ Copy an existing entry and fill in all fields:
 
 ### Mark a project complete
 
-Set `status: 'done'` and add `completedDate: 'YYYY-MM-DD'`. Optionally move it to the COMPLETED section at the bottom of the file.
+Set `status: 'done'` and fill in all four required fields — the sidebar for completed projects is the only way to see their history, so incomplete cards are useless at review time:
+
+```js
+status: 'done',
+completedDate: '2026-04-10',          // ISO date the project closed
+description: 'Past-tense retrospective: what it was, what it resolved, what the outcome was.',
+resolvedBlockers: [                   // at least one entry
+  'What was blocked → how it was resolved (who, when)',
+],
+nextActions: [],                      // must be empty
+blockers: [],                         // must be empty
+```
+
+The pre-commit hook enforces this — a commit will fail if a done project is missing `completedDate` or `resolvedBlockers`.
 
 ### Push changes
 
-Commit in GitHub Desktop, then push. The GitHub Pages site updates automatically within ~60 seconds.
+Commit and push via terminal or GitHub Desktop. The GitHub Pages site updates automatically within ~60 seconds.
+
+> **Pre-commit hook:** `scripts/check.sh` runs automatically on every `git commit`. If any check fails, the commit is blocked. Fix the issue, re-stage, and commit again.
 
 ---
 
@@ -156,6 +171,8 @@ Clicking a button opens a slide-in panel. Clicking again closes it. Only one pan
 
 To log a completed task so it appears in "Recently done": add an entry to `COMPLETED_TASKS` in `data/projects.js`, or tell Claude "mark X as done" and it will update the file.
 
+**Pinned items** always appear at the top of Up next, before the per-project sort. Add urgent cross-project items to `PINNED_ACTIONS` in `data/projects.js`. Keep to ≤3 items — the pre-commit hook enforces this. Pinned items render with a `▲` marker and blue border.
+
 ### CSA Dashboard integration
 
 `data/csa-links.js` maps project IDs to their associated CSA Dashboard entries — pain points (`p-*`), feature requests (`rq-*`), and metrics (`m-*`). It is updated manually during sync sessions to mirror `csa-dashboard/data/` changes.
@@ -216,7 +233,7 @@ All 6 repos (this one + 5 subsidiaries) use a three-tier context system designed
 
 ## GitHub Setup Notes
 
-**No terminal push:** Git credentials are not stored in the Claude Code environment. Always push via **GitHub Desktop**. All repos use the `main` branch.
+All repos use the `main` branch.
 
 | Resource | Where it lives |
 |----------|---------------|
@@ -228,7 +245,7 @@ All 6 repos (this one + 5 subsidiaries) use a three-tier context system designed
 ## WINS Register
 
 `WINS.md` tracks shipped work, analysis delivered, and stakeholder contributions. It is:
-- **Git-tracked** — committed and pushed to GitHub as part of every sync
+- **Git-tracked** — committed and pushed to GitHub as part of every sync (not gitignored)
 - **Auto-updated** — Claude updates it on every significant completion and every sync session, without being asked
 - **Tiered** — organized by impact tier; entries are cumulative, not session-by-session
 
@@ -244,6 +261,32 @@ Potential future additions (not scheduled):
 - **Snowflake/Sigma integration** — once Sigma OAuth2 credentials land, activate the Sigma adapter
 - **Per-project history view** — show status changes over time for a single project using snapshot diffing
 - **Mobile layout** — current layout requires a wide screen; responsive breakpoints would help on tablets
+
+---
+
+## Quality Gate
+
+Run before every push (also runs automatically via git pre-commit hook):
+
+```bash
+bash scripts/check.sh
+```
+
+**What it checks:**
+
+| Section | Checks |
+|---------|--------|
+| JavaScript syntax | `node --check` on all JS and data files |
+| CSS variable integrity | All `var(--x)` references have a corresponding `:root` definition |
+| Required files | All critical files present |
+| Snapshot integrity | `index.json` valid JSON, ≤5 entries, file count matches |
+| Debug artifacts | No `console.log`, `debugger`, or `TODO.*REMOVE` in JS |
+| HTML integrity | `charset`, `viewport`, `description` meta tags, `type="module"` |
+| Behavioral integrity | Required exports, `sanitize()`, `setInterval` placement, snapshot count |
+| **Data quality** | PINNED_ACTIONS ≤3 items; done projects have `completedDate` + `resolvedBlockers[]`; active descriptions ≤400 chars; no ticket numbers in descriptions |
+| Git status | Working tree clean |
+
+Exit code 0 = all checks pass. Exit code 1 = at least one failure (warnings don't fail the gate).
 
 ---
 

@@ -381,10 +381,13 @@ function openProgressPanel(type) {
 
   if (type === 'next') {
     const items = _progressData.next;
+    // Non-pinned items are numbered independently of pinned items
+    // so the first non-pinned always shows "1", regardless of how many pins precede it.
+    let nonPinnedIdx = 0;
     body.innerHTML = items.length
-      ? items.map((t, i) => `
+      ? items.map(t => `
           <div class="pp-item${t.pinned ? ' pp-item--pinned' : ''}">
-            <div class="pp-num">${t.pinned ? '▲' : i + 1}</div>
+            <div class="pp-num">${t.pinned ? '▲' : ++nonPinnedIdx}</div>
             <div class="pp-body">
               <div class="pp-task">${sanitize(t.task)}</div>
               <div class="pp-meta">${t.project
