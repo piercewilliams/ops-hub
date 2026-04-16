@@ -120,7 +120,7 @@ export const PROJECTS = {
     nextActions: [
       'Contact Chad Bruton to set up GitHub → Snowflake direct connection for dashboard adapter.',
       'Contact Ryan Spalding about ad yield/eCPM data — needed for Market dimension of Recipe system. Chad deferred to him; ad yield tracked at page level (not article), rolls up by traffic.',
-      'Follow up with Joe Vitali on PTECH-7730 ETA — confirmed with dev group; Julia Kim is PM. Joe checking ETA, responds tomorrow 2026-04-16.',
+      'Monitor PTECH-7730 (p-tagging fix) — dev group assigned, Julia Kim PM; wait for ETA from Joe Vitali',
       'Explore story_traffic_main and dynamic_story_metadata tables — run test queries to validate joins and data quality before building on top of them.',
     ],
     dependsOn: [],
@@ -225,7 +225,7 @@ export const PROJECTS = {
       'Author playbooks: Tarrow data thin — Snowflake is the authoritative source. Tables identified 2026-04-15: author_name in dynamic_story_metadata (MCC presentation), joined to story_traffic_main on story ID. Upgrade blocked until GitHub→Snowflake connection set up (Chad Bruton).',
     ],
     nextActions: [
-      'Check Tuesday morning that Tarrow automation ran clean (first verification after fix)',
+      'Verify Tarrow weekly automation is running clean (check next Monday morning)',
       'Document sandbox base build for Chris + Sarah Price (Chris explicitly asked)',
       'Notify Tarrow: active time outliers in source Excel (values up to 23,496s — likely ms stored as seconds)',
       'Upgrade author playbooks using Snowflake: join dynamic_story_metadata (author_name) to story_traffic_main (PV by story/market/date) on story ID. Requires GitHub→Snowflake connection first (blocked on Chad setup).',
