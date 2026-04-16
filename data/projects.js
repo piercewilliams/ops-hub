@@ -190,7 +190,7 @@ export const PROJECTS = {
     name: 'Dashboard Instrumentation',
     owner: 'Pierce',
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
-    description: 'Live data ingestion layer for csa-dashboard. Manual bridge active (edit data/manual-metrics.js). v0.88 shipped — PGS-115, PGS-96, PGS-134 all done. PGS-82 in QA (#1 priority, PyTorch fix in progress). PGS-104 and PGS-111 in progress. PGS-140/139 in progress/code review. Adapters: Snowflake direct connection (replacing Sigma OAuth2 approach — Chad Bruton setting up GitHub→Snowflake), Marfeel (API key needed), Amplitude data is in Snowflake (Amplitude events prod) but CSA-specific adapter still blocked on PTECH-7730.',
+    description: 'Live data ingestion layer for csa-dashboard. Manual bridge active (edit data/manual-metrics.js). v0.88 shipped — PGS-115, PGS-96, PGS-134 all done. PGS-82 in Product Review (2 must-fix issues before release: banner states need product definition [only green/red, no "Needs Review"], re-analysis needs loading indicator). PGS-104 kicked back to In Progress after QA (keyword enforcement still failing). PGS-140 in QA (Marcelo moved same day from Code Review). Adapters: Snowflake direct connection (replacing Sigma OAuth2 approach — Chad Bruton setting up GitHub→Snowflake), Marfeel (API key needed), Amplitude data is in Snowflake (Amplitude events prod) but CSA-specific adapter still blocked on PTECH-7730.',
     adapters: [
       { name: 'Google Sheets (manual)', status: 'done', note: 'Edit data/manual-metrics.js to update numbers.' },
       { name: 'Snowflake (direct)', status: 'pending-setup', note: 'Replaces Sigma OAuth2 approach. Chad Bruton confirmed: connect GitHub directly to Snowflake — Sigma is just a reporting UI on top. Chad to help set up. Unblocks stories/week, batting average, and O&O PV.' },
@@ -206,7 +206,9 @@ export const PROJECTS = {
       'Get Marfeel API key → activate adapter',
       'Monitor PTECH-7730 (p-tagging fix) — activates Amplitude adapter when done',
       'Provide weekly release estimates/timeframes to management (Chris ask — use weekly dates, not "soon")',
-      'Monitor PGS-82 QA progress — top priority this week per Susannah',
+      'PGS-82 Product Review: Susannah flagged 2 must-fix items — confirm engineering receives fix scope (banner states: green/red only, no "Needs Review"; re-analysis loading indicator) before production release',
+      'PGS-104: back in progress (Victor) after Jonathan QA — keyword enforcement still failing; monitor for next QA pass',
+      'PGS-150: Susannah put on HOLD waiting for Pierce to clarify implementation criteria — respond with Copyscape + RAG scope decision',
       'Sarah Price: follow up with Deedra on team vs. org comparison dashboard',
     ],
     dependsOn: ['p1-access'],
@@ -518,6 +520,27 @@ export const PROJECTS = {
       { name: 'Sara Vallone', role: 'Content test owner; requested keyword data; editorial execution; owns tracking for experiment outcomes' },
     ],
     dependsOn: ['p14-semrush'],
+  },
+
+  'p21-mode2-trust-spike': {
+    id: 'p21-mode2-trust-spike', num: '21', tier: 2, type: 'project', status: 'in-progress',
+    name: 'Mode 2 Trust & Editorial Risk Spike (PGS-189)',
+    owner: 'Oliver Felix · Susannah Locke · Pierce',
+    compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
+    description: 'Formal investigation (PGS-189) into whether Mode 2 (Intermediate) silently adds factual content from "common knowledge" beyond what the user provided — and the trust and editorial accuracy risks this creates. Mode 2 is the default for all non-journalist roles using Search or paste/draft workflows, including National team users. The gap between product messaging ("you control the information input") and actual Mode 2 behavior is the core problem. Deliverable: written findings document covering which workflows invoke Mode 2 by default, what content it is permitted to add, the gap between messaging and behavior, exposed user groups, pros/cons assessment, and implications for future QA infrastructure (automated fact-checking, plagiarism detection). No implementation changes in scope — spike only. Pierce tagged by Susannah; Oliver Felix is assignee.',
+    blockers: [
+      'PGS-189 in Selected for Development (Backlog) — Oliver Felix assigned; no active sprint yet',
+    ],
+    nextActions: [
+      'Respond to PGS-189 mention — confirm Pierce\'s role (stakeholder input vs. active contributor)',
+      'PGS-150 HOLD is linked: clarify implementation criteria for Susannah (Copyscape vs. RAG scope) — Susannah is waiting',
+      'Track findings deliverable — outputs will directly inform scope of fact-checking + plagiarism detection tools (P10 Gary, PGS-150)',
+    ],
+    contacts: [
+      { name: 'Oliver Felix', role: 'Assigned spike owner — lead investigator' },
+      { name: 'Susannah Locke', role: 'Reporter; put PGS-150 on HOLD pending Pierce\'s criteria clarification' },
+    ],
+    dependsOn: ['p13-sysprompts'],
   },
 
   'p17-spanish': {

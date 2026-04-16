@@ -16,7 +16,7 @@ For session history: see [sessions/](sessions/)
 - **All 5 personas live as Team Target Audiences (2026-04-15):** Discover Browser + Science Enthusiast (Susannah); Curious Optimizer + Curious Explorer + Watercooler Insider (Pierce). PGS-133 ON HOLD.
 - **Snowflake orientation complete (2026-04-15):** story_traffic_main (O&O PV by story/market/date) + dynamic_story_metadata (author/URL/SEO/keywords) in MCC presentation schema. Amplitude in Snowflake (events prod). GitHub→Snowflake direct (Chad setting up). eCPM → Ryan Spalding.
 - **MAIA 14-day test started 2026-04-15** (~2026-04-29). Sara's teams log outputs; Pierce monitoring. Access + tracking sheet requested from Derek.
-- **Critical tickets:** PGS-82 IN QA (PyTorch fix — Marcelo); PGS-104 IN PROGRESS (merge PR strategy; Victor resumes after PGS-111); PGS-111 CODE REVIEW (SEO metadata for Content Formats; blocks PGS-104 AC); PTECH-7730 TO DO (p-tagging — Joe Vitali ETA 2026-04-16, activates Amplitude adapter + Deedra unified Sigma dash).
+- **Critical tickets:** PGS-82 PRODUCT REVIEW (2 must-fix: banner states green/red only, re-analysis loading indicator); PGS-104 IN PROGRESS (kicked back from QA — keyword enforcement still failing; Victor + Jonathan); PGS-111 CODE REVIEW (SEO metadata; Susannah confirmed NOT a blocker for PGS-104 release); PGS-140 IN QA (Marcelo); PGS-150 ON HOLD (Pierce must clarify implementation criteria — Susannah waiting); PGS-189 NEW SPIKE (Mode 2 trust/editorial risk — Oliver Felix assigned, Pierce tagged; Selected for Development); PTECH-7730 TO DO (p-tagging — Joe Vitali ETA 2026-04-16).
 - **EGS-127 ticket 12828 in dev** (1 of 4-ticket epic). Marcelo leading.
 - **Rajiv on vacation.** Emil Penalo + Oliver Felix have prod merge authority. 2-PR process in effect.
 - **Gary evaluation closed (2026-04-14):** Off QA gate (black-box, not deterministic). Author profile replication greenlit (dev ticket pending). IP/contract concern (Kathryn + Jason). Sara parameter session TBD.
@@ -43,7 +43,7 @@ For session history: see [sessions/](sessions/)
 | # | Project | Tier | Status | Key Blocker / State |
 |---|---------|------|--------|---------------------|
 | 1 | Platform Access & Training | 1 | In progress | All systems confirmed. **Pending:** GitHub→Snowflake (Chad), PTECH-7730 ETA (2026-04-16), Ryan Spalding eCPM. |
-| 2 | Dashboard Instrumentation | 4 | In progress | v0.88 live. PGS-82 QA. PGS-104/111 in progress. PTECH-7730 blocks Amplitude adapter. |
+| 2 | Dashboard Instrumentation | 4 | In progress | v0.88 live. PGS-82 Product Review (2 must-fix). PGS-104 back In Progress. PGS-140 In QA. PTECH-7730 blocks Amplitude adapter. |
 | 3 | T1 Headlines Analysis | 4 | In progress | 13 findings, daily grader, weekly ingest operational. Author playbook upgrade blocked on Snowflake setup (Chad). |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | In progress | Format not formalized — coordinate Sarah Price (returns 2026-04-17). |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | All 5 personas live. PGS-104/111/135 in progress. Andy sign-off on Apple/SN templates still pending. |
@@ -63,6 +63,7 @@ For session history: see [sessions/](sessions/)
 | 18 | Agentic Writing Helpers | 5 | In progress | Meeting Thu 2026-04-16 11am CDT (Sara + Hanna Wickes + Ryan Brennan + 4 more). |
 | 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test 2026-04-15→~2026-04-29. Waiting on MAIA tab access + tracking sheet. |
 | 20 | Experiences Vertical Content Test | 4 | In progress | Keyword data delivered to Sara 2026-04-15 (xlsx + docx). 3 GO HARD, 1 SKIP. Feedback loop due ~May 2026. |
+| 21 | Mode 2 Trust & Editorial Risk Spike | 2 | In progress | PGS-189 — Oliver Felix assigned, Pierce tagged. Mode 2 silently adds content; trust/accuracy risk. PGS-150 HOLD pending Pierce criteria clarification. |
 
 ## What's Next
 
@@ -140,8 +141,11 @@ For session history: see [sessions/](sessions/)
 - [ ] **Every Friday:** request Compass progress notes from Claude (per-goal, based on WINS.md + session work)
 
 **PGS-82/139/140 rollout — Susannah is driving, Pierce is tagged:**
-- [ ] Await PGS-82 staging notification (Pierce/Sara/Kat invited; real Sara Vallone drafts). PGS-140 now IN PROGRESS — monitor Amplitude event names when ticket nears build.
-- Rollout: staging (inform-only) → QA → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
+- [ ] PGS-82 must-fix items confirmed by Susannah before release: (1) banner states = green/red only, no "Needs Review"; (2) re-analysis loading indicator. Monitor for next engineering pass.
+- [ ] PGS-104 back in Victor's hands — keyword enforcement still failing after Jonathan QA. Monitor for next pass.
+- [ ] **PGS-150 HOLD — Pierce action:** Clarify implementation criteria for Susannah (Copyscape vs. RAG scope). She's waiting.
+- [ ] PGS-189 NEW: Respond to Susannah's mention — confirm Pierce's role in Mode 2 spike (stakeholder input vs. active contributor).
+- Rollout: staging → QA → production (national team flag) → PGS-139 (auto-resolve) → PGS-140 (analytics)
 
 **Waiting on others (no action needed):**
 - Derek MAIA test: access to Insights Dashboard MAIA tab + Sara's tracking sheet — requested 2026-04-15. Need both to begin monitoring.
