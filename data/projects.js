@@ -467,11 +467,10 @@ export const PROJECTS = {
       'CSA backend unknown: core agent identity (Claude? LangChain?) unresolved — no one could answer; blocks CSA-integrated approaches',
     ],
     nextActions: [
-      'Build Style Checker (quick win): paste CSA output + select brand → auto-enforce style guide (AP base + brand exceptions for Women\'s World, US Weekly). Pierce confirmed "that\'s actually an easy thing to do."',
+      'Eval with Claude: rank all 11 pain points by impact × feasibility — produce prioritized order before Sara proposal',
+      'Propose prioritized list to Sara Vallone — confirm ranking, calibrate to any special instructions or constraints Pierce doesn\'t have visibility into',
+      'Pick pilot author from confirmed priorities; Samantha Agate (style enforcement) is current leading candidate',
       'Verify input-length-to-output-length issue status with engineering — CSA output length currently pinned to input length; Pierce said it was raised and being addressed',
-      'Pierce + Sara huddle: prioritize remaining pain points, pick pilot author for first iterative test',
-      'Draft approach doc for variant differentiation checker — flag when variants share too many paragraphs or fall below semantic similarity threshold',
-      'Scope Cue upload + H2 automation — Allison Palmer\'s biggest time drain; fully repetitive, identified as highest-priority unblocked item',
     ],
     dependsOn: ['p4-governance'],
     contacts: [
