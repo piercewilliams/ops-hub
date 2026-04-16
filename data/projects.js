@@ -489,8 +489,8 @@ export const PROJECTS = {
       'Pending access to TrendHunter native tool — not yet received',
     ],
     nextActions: [
-      'Get access to MAIA tab + Sara\'s tracking sheet — begin monitoring once live',
-      'Get access to Kat Sheplavy trend agent + TrendHunter native tool — follow up with Kat',
+      'Follow up with Kat Sheplavy — get access to her trend analysis agent + TH native tool for three-way comparison',
+      'Get access to MAIA tab + Sara\'s tracking sheet — begin monitoring once live (waiting on Sara/Derek)',
       'At end of 14 days (~2026-04-29): analyze MAIA feedback by vertical; categorize failure modes (specificity / directionality / temporal / vertical mismatch)',
       'Produce three-way comparison: MAIA vs. Kat\'s agent vs. TrendHunter native — pluses/minuses, signal type, content angle quality, vertical fit',
       'Deliver prompt-branching recommendation: one National prompt or separate prompts for Mind-Body / Experiences / Everyday Living?',
