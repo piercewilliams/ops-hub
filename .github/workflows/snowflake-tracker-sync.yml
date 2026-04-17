@@ -50,3 +50,25 @@ jobs:
           SNOWFLAKE_PRIVATE_KEY_PATH: /tmp/sf_rsa.p8
           GOOGLE_SERVICE_ACCOUNT_FILE: /tmp/sa.json
         run: python3 scripts/enrich_tracker.py
+
+      - name: Summary — success
+        if: success()
+        run: |
+          echo "## ✅ Monday Tracker Sync — $(date '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All three steps completed:" >> $GITHUB_STEP_SUMMARY
+          echo "- **ingest_tracker.py** — Sara's tracker pushed to Snowflake" >> $GITHUB_STEP_SUMMARY
+          echo "- **model_tracker.py** — TRACKER_ENRICHED rebuilt" >> $GITHUB_STEP_SUMMARY
+          echo "- **enrich_tracker.py** — Enrichment columns written back to Sara's tracker" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "No manual action needed. Tuesday workflow runs at noon CDT." >> $GITHUB_STEP_SUMMARY
+
+      - name: Summary — failure
+        if: failure()
+        run: |
+          echo "## ❌ Monday Tracker Sync FAILED — $(date '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Action required:** Check the failed step above and re-run manually." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Until fixed: Sara's tracker enrichment columns and TRACKER_ENRICHED are stale." >> $GITHUB_STEP_SUMMARY
+          echo "Re-run via: Actions → Snowflake Tracker Sync → Run workflow." >> $GITHUB_STEP_SUMMARY
