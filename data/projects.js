@@ -10,7 +10,7 @@
 // Remove when done. Keep ≤3 items — this is not a second todo list.
 // Format: { task: 'description', projectId: 'p##-slug' }
 export const PINNED_ACTIONS = [
-  { task: 'Every Monday: (1) python3 scripts/ingest_tracker.py → (2) python3 scripts/model_tracker.py → (3) python3 scripts/enrich_tracker.py (step 3 still needs browser MFA)', projectId: 'p07-vallone-tracker' },
+  { task: 'Add GitHub Actions secrets to ops-hub repo to activate Monday Snowflake sync — SNOWFLAKE_RSA_KEY_B64 + GOOGLE_SERVICE_ACCOUNT_JSON (see REFERENCE.md). Then enrich_tracker.py becomes optional/manual only.', projectId: 'p07-vallone-tracker' },
 ];
 
 export const COMPLETED_TASKS = [

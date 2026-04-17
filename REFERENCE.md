@@ -59,6 +59,26 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 
 ---
 
+## Snowflake Tracker Sync (GitHub Actions)
+
+| Item | Value |
+|------|-------|
+| Workflow file | `.github/workflows/snowflake-tracker-sync.yml` |
+| Schedule | Every Monday 9:00 AM Dallas CDT (`0 14 * * 1` UTC; change to `0 15` in winter CST) |
+| Manual trigger | GitHub Actions UI → "Snowflake Tracker Sync" → Run workflow |
+| What it does | Ingest Google Sheet → NATIONAL_CONTENT_TRACKER, then rebuild TRACKER_ENRICHED |
+
+**Secrets required** (set at github.com/piercewilliams/ops-hub → Settings → Secrets → Actions):
+
+| Secret name | Value |
+|-------------|-------|
+| `SNOWFLAKE_RSA_KEY_B64` | `base64 < ~/.credentials/growth_strategy_service_rsa_key.p8` |
+| `GOOGLE_SERVICE_ACCOUNT_JSON` | `base64 < ~/.credentials/pierce-tools.json` |
+
+Run `base64 < [file]` in your terminal and paste the output as the secret value.
+
+---
+
 ## Snowflake Data Architecture
 
 **Account:** `wvb49304-mcclatchy_eval`

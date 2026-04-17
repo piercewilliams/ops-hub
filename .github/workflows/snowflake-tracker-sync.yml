@@ -1,0 +1,46 @@
+name: Snowflake Tracker Sync
+
+on:
+  schedule:
+    - cron: '0 14 * * 1'  # 9am CDT Monday (14:00 UTC); adjust to '0 15 * * 1' in winter (CST)
+  workflow_dispatch:        # manual trigger via GitHub Actions UI
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install \
+            snowflake-connector-python \
+            cryptography \
+            gspread \
+            google-auth
+
+      - name: Write Snowflake RSA key
+        env:
+          SNOWFLAKE_RSA_KEY_B64: ${{ secrets.SNOWFLAKE_RSA_KEY_B64 }}
+        run: echo "$SNOWFLAKE_RSA_KEY_B64" | base64 -d > /tmp/sf_rsa.p8
+
+      - name: Write Google service account credentials
+        env:
+          SA_JSON_B64: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: echo "$SA_JSON_B64" | base64 -d > /tmp/sa.json
+
+      - name: Ingest tracker sheet → Snowflake
+        env:
+          SNOWFLAKE_PRIVATE_KEY_PATH: /tmp/sf_rsa.p8
+          GOOGLE_SERVICE_ACCOUNT_FILE: /tmp/sa.json
+        run: python3 scripts/ingest_tracker.py
+
+      - name: Rebuild TRACKER_ENRICHED data model
+        env:
+          SNOWFLAKE_PRIVATE_KEY_PATH: /tmp/sf_rsa.p8
+        run: python3 scripts/model_tracker.py
