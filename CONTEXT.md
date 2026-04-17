@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-17 (human) — enrich_tracker.py fully productionized (14 col, 90% match, fully Pythonic/commented); Snowflake schema documented in REFERENCE.md + data-cmstracker/REFERENCE.md; Chad Bruton Slack sent (key-pair auth for headless run); Sara + Sarah Slack sent; Monday PINNED_ACTION live. PGS-170 DONE (WP 301 slug shipped to prod); PGS-67 CODE REVIEW (same day as PGS-17 unblock). New contacts: Ryan Spalding, Derek Knostman, Julia Kim. Sarah Price PV request resolved (same as enrich_tracker.py — no new build). Tarrow→Snowflake replacement registered as HIGH PRIORITY in P3. Full cross-repo sync complete (all 6 repos).
+**Last session:** 2026-04-17 (human) — enrich_tracker.py fully productionized (14 col, 90% match, fully Pythonic/commented); Snowflake schema documented in REFERENCE.md + data-cmstracker/REFERENCE.md; Chad Bruton Slack sent (key-pair auth for headless run); Sara + Sarah Slack sent; Monday PINNED_ACTION live. PGS-170 DONE (WP 301 slug shipped to prod); PGS-67 CODE REVIEW (same day as PGS-17 unblock). New contacts: Ryan Spalding, Derek Knostman, Julia Kim. Sarah Price PV request resolved (same as enrich_tracker.py — no new build). Tarrow→Snowflake replacement registered as HIGH PRIORITY in P3. Full cross-repo sync complete (all 6 repos). **Automated sync: 2026-04-17 — 1 change: rq-wp-export-301 marked fulfilled in csa-links.js.**
 **Status:** 21 active/tracked projects (P20 + P21 added). Compass goals submitted (Jeremy approval pending Apr 30).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
