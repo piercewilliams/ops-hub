@@ -80,12 +80,6 @@ OUTPUT_COLS = [
     # risk (~150-300 char SEO summaries); first400w uses full article body text but
     # the embedding model truncates at ~400 words.
     "cluster_avg_sim_desc",
-    "cluster_min_sim_desc",
-    "cluster_max_sim_desc",
-    "cluster_avg_sim_first400w",
-    "cluster_min_sim_first400w",
-    "cluster_max_sim_first400w",
-    "cluster_pair_count",
     # Primary IAB content topic (e.g. "Crime", "Pop Culture", "Sports")
     "primary_iab_topic",
 ]
