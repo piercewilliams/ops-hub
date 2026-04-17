@@ -37,6 +37,8 @@ Snowflake account: wvb49304-mcclatchy_eval
 import argparse
 import os
 import re
+from collections import defaultdict
+from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse, urlunparse
 
@@ -62,7 +64,6 @@ OUTPUT_COLS = [
     "search_pvs",
     "social_pvs",
     "direct_pvs",
-    "newsletter_pvs",
     "applenews_pvs",
     "smartnews_pvs",
     "newsbreak_pvs",
@@ -618,6 +619,70 @@ def compute_cluster_stats(rows, metrics, url_col, company_medians):
     return row_stats, batting_avg_str
 
 
+# ── Cell coloring ────────────────────────────────────────────────────────────
+
+_GREEN = {"red": 0.576, "green": 0.769, "blue": 0.490}
+_RED   = {"red": 0.918, "green": 0.263, "blue": 0.208}
+_WHITE = {"red": 1.0,   "green": 1.0,   "blue": 1.0  }
+
+def _pct_color(val):
+    if isinstance(val, str) and val.startswith("+"):
+        return _GREEN
+    if isinstance(val, str) and val.startswith("-"):
+        return _RED
+    return _WHITE
+
+
+def apply_median_colors(sheet, output_data, col_positions, first_output_col):
+    """
+    Color article_vs_co.median and cluster_vs_co.median cells in the sheet.
+    Groups contiguous same-color rows into ranges and fires one batchUpdate call.
+    """
+    target_cols = ["article_vs_co.median", "cluster_vs_co.median"]
+    sheet_id    = sheet.id
+    requests    = []
+
+    for col_name in target_cols:
+        if col_name not in col_positions:
+            continue
+        col_idx   = col_positions[col_name]       # 0-based absolute sheet column
+        block_pos = col_idx - first_output_col    # position within the written block
+
+        colors = [
+            _pct_color(row[block_pos] if block_pos < len(row) else "")
+            for row in output_data
+        ]
+
+        # Collapse consecutive same-color rows into contiguous ranges
+        ranges, start = [], 0
+        for j in range(1, len(colors)):
+            if colors[j] != colors[start]:
+                ranges.append((start, j - 1, colors[start]))
+                start = j
+        ranges.append((start, len(colors) - 1, colors[start]))
+
+        for r_start, r_end, color in ranges:
+            requests.append({
+                "repeatCell": {
+                    "range": {
+                        "sheetId":          sheet_id,
+                        "startRowIndex":    r_start + 1,   # +1 skips header row
+                        "endRowIndex":      r_end   + 2,   # +1 header + 1 exclusive
+                        "startColumnIndex": col_idx,
+                        "endColumnIndex":   col_idx + 1,
+                    },
+                    "cell": {
+                        "userEnteredFormat": {"backgroundColor": color}
+                    },
+                    "fields": "userEnteredFormat.backgroundColor",
+                }
+            })
+
+    if requests:
+        sheet.spreadsheet.batch_update({"requests": requests})
+        print(f"  Cell colors applied ({len(requests)} range(s)).")
+
+
 # ── Column layout helpers ─────────────────────────────────────────────────────
 
 def _col_letter(n):
@@ -758,6 +823,8 @@ def write_output(sheet, rows, urls, metrics, cluster_stats, col_positions,
                     f":{_col_letter(last_output_col + 1)}{summary_row}")
         sheet.update([summary], ba_range)
         print(f"  Batting average written to row {summary_row}: {batting_avg_str}")
+
+    apply_median_colors(sheet, output_data, col_positions, first_output_col)
 
 
 # ── Diagnostic helpers (--discover, --debug-urls) ─────────────────────────────
@@ -941,6 +1008,172 @@ def audit_rows(rows, urls, metrics, cluster_stats):
         print(f"         {url[:100]}")
 
 
+# ── Trends tab ───────────────────────────────────────────────────────────────
+
+MIN_WEEK_SAMPLE = 5   # weeks with fewer benchmarked articles are excluded from Trends
+
+CLUSTER_TARGET = 0.25  # Chris's 1-in-4 target
+
+
+def _parse_week(val):
+    """Parse a Week Of string into a datetime for sorting. Falls back to str."""
+    for fmt in ("%m/%d/%Y", "%m/%d/%y", "%Y-%m-%d", "%B %d, %Y", "%b %d, %Y"):
+        try:
+            return datetime.strptime(val.strip(), fmt)
+        except ValueError:
+            continue
+    return val
+
+
+def _regenerate_trends_chart(spreadsheet, trends_ws, n_rows):
+    """Delete all charts on the Trends tab and create a fresh line chart."""
+    sheet_id = trends_ws.id
+
+    # Fetch existing chart IDs for this tab
+    resp = spreadsheet.client.request(
+        'GET',
+        f'https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet.id}',
+        params={'fields': 'sheets(properties/sheetId,charts/chartId)'},
+    )
+    chart_ids = []
+    for s in resp.json().get('sheets', []):
+        if s.get('properties', {}).get('sheetId') == sheet_id:
+            chart_ids = [c['chartId'] for c in s.get('charts', [])]
+            break
+
+    requests = [{'deleteEmbeddedObject': {'objectId': cid}} for cid in chart_ids]
+
+    def src(start_col, end_col):
+        return {"sourceRange": {"sources": [{
+            "sheetId":        sheet_id,
+            "startRowIndex":  0,
+            "endRowIndex":    n_rows,
+            "startColumnIndex": start_col,
+            "endColumnIndex":   end_col,
+        }]}}
+
+    requests.append({
+        "addChart": {
+            "chart": {
+                "spec": {
+                    "title": "Weekly Hit Rate vs Target (1-in-4)",
+                    "basicChart": {
+                        "chartType":      "LINE",
+                        "legendPosition": "BOTTOM_LEGEND",
+                        "axis": [
+                            {"position": "BOTTOM_AXIS", "title": "Week Of"},
+                            {"position": "LEFT_AXIS",   "title": "Hit Rate"},
+                        ],
+                        "domains": [{"domain": src(0, 1)}],
+                        "series": [
+                            # col D (index 3): Article Hit Rate
+                            {"series": src(3, 4), "targetAxis": "LEFT_AXIS"},
+                            # col G (index 6): Cluster Hit Rate
+                            {"series": src(6, 7), "targetAxis": "LEFT_AXIS"},
+                            # col H (index 7): Target — dashed reference line
+                            {"series": src(7, 8), "targetAxis": "LEFT_AXIS",
+                             "lineStyle": {"type": "MEDIUM_DASHED", "width": 1}},
+                        ],
+                        "headerCount": 1,
+                    },
+                },
+                "position": {
+                    "overlayPosition": {
+                        "anchorCell": {"sheetId": sheet_id, "rowIndex": 0, "columnIndex": 9},
+                        "widthPixels":  700,
+                        "heightPixels": 400,
+                    }
+                },
+            }
+        }
+    })
+
+    spreadsheet.batch_update({"requests": requests})
+    print(f"  Chart {'replaced' if chart_ids else 'created'} on Trends tab.")
+
+
+def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers):
+    """
+    Write/refresh a 'Trends' tab grouping article and cluster hit/miss counts by Week Of,
+    then regenerate the embedded line chart. Weeks with fewer than MIN_WEEK_SAMPLE
+    benchmarked articles are excluded to avoid noisy early-week ratios.
+    """
+    week_col = next(
+        (i for i, h in enumerate(headers) if "week" in h.lower()), None
+    )
+    if week_col is None:
+        print("  No 'Week Of' column found — skipping Trends tab.")
+        return
+
+    weekly = defaultdict(lambda: {
+        "article_hits": 0, "article_misses": 0,
+        "cluster_hits": 0, "cluster_misses": 0,
+    })
+
+    for i, (row, url) in enumerate(zip(rows, urls)):
+        week = row[week_col].strip() if len(row) > week_col else ""
+        if not week:
+            continue
+        art = metrics.get(normalize_url(url), {}).get("article_vs_co.median", "")
+        clu = cluster_stats.get(i, {}).get("cluster_vs_co.median", "")
+        if art.startswith("+"):
+            weekly[week]["article_hits"]   += 1
+        elif art.startswith("-"):
+            weekly[week]["article_misses"] += 1
+        if clu.startswith("+"):
+            weekly[week]["cluster_hits"]   += 1
+        elif clu.startswith("-"):
+            weekly[week]["cluster_misses"] += 1
+
+    if not weekly:
+        print("  No weekly data — skipping Trends tab.")
+        return
+
+    sorted_weeks = sorted(weekly.keys(), key=_parse_week)
+    filtered     = [w for w in sorted_weeks
+                    if (weekly[w]["article_hits"] + weekly[w]["article_misses"]) >= MIN_WEEK_SAMPLE]
+    skipped      = len(sorted_weeks) - len(filtered)
+
+    table = [["Week Of",
+              "Article Hits", "Article Misses", "Article Hit Rate",
+              "Cluster Hits", "Cluster Misses", "Cluster Hit Rate",
+              "Target (1-in-4)"]]
+    for week in filtered:
+        w  = weekly[week]
+        at = w["article_hits"] + w["article_misses"]
+        ct = w["cluster_hits"] + w["cluster_misses"]
+        table.append([
+            week,
+            w["article_hits"],  w["article_misses"],
+            w["article_hits"] / at if at else "",
+            w["cluster_hits"],  w["cluster_misses"],
+            w["cluster_hits"]  / ct if ct else "",
+            CLUSTER_TARGET,
+        ])
+
+    try:
+        trends = sheet.spreadsheet.worksheet("Trends")
+        trends.clear()
+    except gspread.exceptions.WorksheetNotFound:
+        trends = sheet.spreadsheet.add_worksheet(title="Trends", rows=500, cols=12)
+
+    trends.update(table, "A1")
+
+    # Format hit rate + target columns as percentages so the chart axis reads correctly
+    if len(table) > 1:
+        last = len(table)
+        pct_fmt = {"numberFormat": {"type": "PERCENT", "pattern": "0%"}}
+        for col in ("D", "G", "H"):
+            trends.format(f"{col}2:{col}{last}", pct_fmt)
+
+    _regenerate_trends_chart(sheet.spreadsheet, trends, len(table))
+
+    msg = f"  Trends tab updated: {len(filtered)} weeks"
+    if skipped:
+        msg += f" ({skipped} excluded, <{MIN_WEEK_SAMPLE} articles)"
+    print(msg + ".")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
@@ -1014,6 +1247,9 @@ def main():
     print(f"\nDone. {matched} rows enriched with traffic data.")
 
     audit_rows(rows, urls, metrics, cluster_stats)
+
+    print("Updating Trends tab…")
+    write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers)
 
 
 if __name__ == "__main__":

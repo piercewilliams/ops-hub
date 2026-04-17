@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-17 (human) — enrich_tracker.py fully productionized (14 col, 90% match, fully Pythonic/commented); Snowflake schema documented in REFERENCE.md + data-cmstracker/REFERENCE.md; Chad Bruton Slack sent (key-pair auth for headless run); Sara + Sarah Slack sent; Monday PINNED_ACTION live. PGS-170 DONE (WP 301 slug shipped to prod); PGS-67 CODE REVIEW (same day as PGS-17 unblock). New contacts: Ryan Spalding, Derek Knostman, Julia Kim. Sarah Price PV request resolved (same as enrich_tracker.py — no new build). Tarrow→Snowflake replacement registered as HIGH PRIORITY in P3. Full cross-repo sync complete (all 6 repos). **Automated sync: 2026-04-17 — 1 change: rq-wp-export-301 marked fulfilled in csa-links.js.**
+**Last session:** 2026-04-18 (human) — enrich_tracker.py: cell coloring (green/red) on median columns; Trends tab + auto-regenerated line chart (hit rate vs 25% target, ≥5 article filter); newsletter_pvs removed permanently. Snowflake Cortex (EMBED_TEXT_768) not available on eval account — semantic similarity shelved. Chad Bruton responded on key-pair auth — use case justified (cluster structure lives only in sheet). Sara Vallone + Sarah Price confirmed happy. **Automated sync: 2026-04-17 — 1 change: rq-wp-export-301 marked fulfilled in csa-links.js.**
 **Status:** 21 active/tracked projects (P20 + P21 added). Compass goals submitted (Jeremy approval pending Apr 30).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -90,8 +90,8 @@ For session history: see [sessions/](sessions/)
 - [ ] **Follow up Rocky on Julio credit rates** — end of week if no response; blocks all SEMrush automation
 
 **Compass:**
-- [ ] **Fri 2026-04-18: log week's progress in Compass ad hoc** — draft is in compass-goals.md § Week of 2026-04-14
 - [ ] Jeremy Gockel approval — must reach "Track Goals" status by **April 30, 2026**
+- [ ] First Compass progress notes: **Fri 2026-04-25** (earliest — goals not yet approved)
 - [ ] Every Friday: request Compass progress notes from Claude (per-goal, based on WINS.md)
 
 **Waiting — no Pierce action needed:**
