@@ -286,6 +286,30 @@ Reads Sara's Google Sheet → loads 26 metadata columns + row number into `MCC_R
 
 **Run:** `python3 scripts/ingest_tracker.py` — requires `~/.credentials/growth_strategy_service_rsa_key.p8` and `~/.credentials/pierce-tools.json`.
 
+### `ops-hub/scripts/model_tracker.py`
+Builds `MCC_PRESENTATION.CONTENT_SCALING_AGENT.TRACKER_ENRICHED`. Full refresh (`CREATE OR REPLACE TABLE ... AS SELECT`) on every run. Headless auth (RSA key-pair). Run after `ingest_tracker.py`.
+
+**What it produces:**
+
+| Column | Type | Notes |
+|--------|------|-------|
+| All 26 editorial columns | Typed (DATE, NUMBER, VARCHAR) | From NATIONAL_CONTENT_TRACKER; dates parsed with TRY_TO_DATE |
+| `cluster_id` | VARCHAR | Parent = own ASSET_ID; child = PARENT_ID. Unified join anchor. |
+| `story_id` | VARCHAR | URL extraction or DYN_STORY_META_DATA URL join |
+| `total_pvs` … `subscriber_pvs` | INTEGER | All traffic channels; national via STORY_TRAFFIC_MAIN, L&E via STORY_TRAFFIC_MAIN_LE |
+| `pub_median_pvs` | FLOAT | Per-domain benchmark (Oct 2025+, ≥10 articles) |
+| `article_vs_co_median` | FLOAT | e.g. 0.15 = +15% above median. NULL if no benchmark. |
+| `is_hit` | INTEGER | 1 = at/above median, 0 = below, NULL = no benchmark |
+| `cluster_total_pvs` | INTEGER | Sum of all articles in cluster |
+| `cluster_hits` | INTEGER | Count of articles at/above median in cluster |
+| `cluster_hit_rate` | FLOAT | cluster_hits / cluster_article_count (e.g. 0.33 = 1-in-3) |
+| `cluster_vs_co_median` | FLOAT | Cluster total vs. sum of per-article benchmarks |
+| `_modeled_at` | TIMESTAMP_NTZ | When this row was last refreshed |
+
+**Run:** `python3 scripts/model_tracker.py`
+
+**Transitional note (Chad Bruton, 2026-04-18):** The Google Sheet goes away in a few weeks/months once CMS/CSA centralizes tracking. When that happens, swap `NATIONAL_CONTENT_TRACKER` in `model_tracker.py` for the CMS-derived source — the rest of the model is unchanged.
+
 ---
 
 ## TABLEAU_REPORTING — Tables Mapped but Not Yet Queried

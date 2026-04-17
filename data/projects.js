@@ -10,10 +10,12 @@
 // Remove when done. Keep ≤3 items — this is not a second todo list.
 // Format: { task: 'description', projectId: 'p##-slug' }
 export const PINNED_ACTIONS = [
-  { task: 'Every Monday: run enrich_tracker.py to refresh Sara\'s tracker — python3 scripts/enrich_tracker.py (until Snowflake key-pair auth is live with Chad Bruton)', projectId: 'p07-vallone-tracker' },
+  { task: 'Every Monday: (1) python3 scripts/ingest_tracker.py → (2) python3 scripts/model_tracker.py → (3) python3 scripts/enrich_tracker.py (step 3 still needs browser MFA)', projectId: 'p07-vallone-tracker' },
 ];
 
 export const COMPLETED_TASKS = [
+  { date: '2026-04-18', task: 'Snowflake data model built: ingest_tracker.py (Google Sheet → MCC_RAW.GROWTH_AND_STRATEGY.NATIONAL_CONTENT_TRACKER, 2035 rows, headless RSA key-pair auth) + model_tracker.py (CTAS → MCC_PRESENTATION.CONTENT_SCALING_AGENT.TRACKER_ENRICHED, joins traffic + benchmark + cluster aggregates). SNOWFLAKE.md created as comprehensive reference. Chad Bruton confirmed long-term vision: Google Sheet goes away once CMS/CSA centralizes tracking — data model is designed to survive that swap.', project: '#7 Vallone Tracker / CMS Automation' },
+  { date: '2026-04-18', task: 'SNOWFLAKE.md created in ops-hub — comprehensive Snowflake reference covering account/auth (both interactive + headless), credentials map, session startup checklists, all databases/schemas (dev vs prod split), active table column listings, SQL patterns/quirks (URL normalization, scheme inconsistency, median benchmark), both scripts, and known limitations (Cortex unavailable, L&E exclusion, Tarrow ≠ Snowflake distinction). Tailored sections added to data-cmstracker, data-headlines, and data-keywords REFERENCE.md files.', project: '#1 Platform Access & Training' },
   { date: '2026-04-16', task: 'PGS-170 DONE — WordPress 301 bug (variant name + date appended to URL slug → SEO-harmful redirect) shipped to production. Lauren Schuster reported; Daury Caba fixed. Removes the last blocker on send-to-WP reliability for United Robots pipeline.', project: '#12 United Robots Inbound Pipeline' },
   { date: '2026-04-16', task: 'PGS-67 (CSA ID forwarding to Cue) reached Code Review same day as PGS-17 hold removal. Daury Caba built the follow-on ticket (Snowflake + feedback loop fields) and moved to Code Review within hours of being unblocked. 27+ days on hold → unblocked → Code Review in one day.', project: '#2 Dashboard Instrumentation' },
   { date: '2026-04-16', task: 'enrich_tracker.py built and run. Python script reads Sara Vallone\'s content tracker (Google Sheet), queries Snowflake STORY_TRAFFIC_MAIN + STORY_TRAFFIC_MAIN_LE via three strategies (article ID extraction, DYN_STORY_META_DATA URL join, CANONICAL_URL lookup), and writes 11 columns (story_id, total/search/social/direct/newsletter/applenews/smartnews/newsbreak/subscriber_pvs, conversions) to cols AA–AK. Final match: 1808 / 2002 URLs (90%). Strategy 1 (article ID regex) added 455 rows over prior URL-only approach. Never overwrites existing columns to the left. Run: python3 scripts/enrich_tracker.py.', project: '#7 Vallone Tracker / CMS Automation' },
@@ -137,10 +139,9 @@ export const PROJECTS = {
     ],
     blockers: [],
     nextActions: [
+      'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — review STAR-Automation Sigma dash; primary ask is access to underlying Snowflake tables so revenue data can feed Market dimension of Recipe system. Note: Derek Knostman architected the Naviga + GAM revenue dataset.',
       'Contact Chad Bruton to set up GitHub → Snowflake direct connection for dashboard adapter.',
-      'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — review STAR-Automation Sigma dash; primary ask is access to underlying Snowflake tables so revenue data can feed Market dimension of Recipe system. Note: Derek Knostman architected the Naviga + GAM revenue dataset — follow up with Derek for deeper architecture questions.',
       'Monitor PTECH-7730 (p-tagging fix) — dev group assigned, Julia Kim PM; wait for ETA from Joe Vitali',
-      'Explore story_traffic_main and dynamic_story_metadata tables — run test queries to validate joins and data quality before building on top of them.',
     ],
     dependsOn: [],
   },
