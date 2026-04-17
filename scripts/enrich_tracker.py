@@ -75,6 +75,28 @@ OUTPUT_COLS = [
     "cluster_id",            # cluster code — parent rows only; "" for children
     "cluster_total_pvs",
     "cluster_vs_co.median",  # per-cluster — parent rows only
+    # ── Pre-computed from TRACKER_ENRICHED (model_tracker.py) ─────────────────
+    # Cluster semantic similarity (cosine, 0–1): description vectors have no truncation
+    # risk (~150-300 char SEO summaries); first400w uses full article body text but
+    # the embedding model truncates at ~400 words.
+    "cluster_avg_sim_desc",
+    "cluster_min_sim_desc",
+    "cluster_max_sim_desc",
+    "cluster_avg_sim_first400w",
+    "cluster_min_sim_first400w",
+    "cluster_max_sim_first400w",
+    "cluster_pair_count",
+    # Primary IAB content topic (e.g. "Crime", "Pop Culture", "Sports")
+    "primary_iab_topic",
+    # Author aggregates (across all tracker articles for this author)
+    "author_article_count",
+    "author_cluster_diversity",
+    "author_hit_rate",
+    "author_avg_pvs",
+    "author_pv_stddev",
+    "author_avg_weekly_output",
+    "author_avg_sim_desc",
+    "author_avg_sim_first400w",
 ]
 
 # L&E publication domains — traffic lives in STORY_TRAFFIC_MAIN_LE keyed by
@@ -307,6 +329,63 @@ WHERE domain IS NOT NULL AND domain != ''
 GROUP BY domain
 HAVING COUNT(*) >= 10
 """
+
+
+# Pre-computed enrichment from TRACKER_ENRICHED (model_tracker.py).
+# Fetches the full table (small: ~2K rows) and keys by normalized URL.
+# Wrapped in try/except in fetch_enriched_extras — gracefully degrades if the
+# role lacks SELECT access on the CONTENT_SCALING_AGENT schema.
+ENRICHED_EXTRAS_SQL = """
+SELECT
+    RTRIM(
+        CASE WHEN PUBLISHED_URL LIKE '%://amp.%'
+             THEN REPLACE(PUBLISHED_URL, '://amp.', '://www.')
+             ELSE PUBLISHED_URL END,
+        '/'
+    )                          AS url_norm,
+    cluster_avg_sim_desc,
+    cluster_min_sim_desc,
+    cluster_max_sim_desc,
+    cluster_avg_sim_first400w,
+    cluster_min_sim_first400w,
+    cluster_max_sim_first400w,
+    cluster_pair_count,
+    primary_iab_topic,
+    author_article_count,
+    author_cluster_diversity,
+    author_hit_rate,
+    author_avg_pvs,
+    author_pv_stddev,
+    author_avg_weekly_output,
+    author_avg_sim_desc,
+    author_avg_sim_first400w
+FROM MCC_PRESENTATION.CONTENT_SCALING_AGENT.TRACKER_ENRICHED
+QUALIFY ROW_NUMBER() OVER (PARTITION BY url_norm ORDER BY url_norm) = 1
+"""
+
+
+def fetch_enriched_extras(cur):
+    """
+    Fetch pre-computed similarity, IAB topic, and author stats from TRACKER_ENRICHED.
+    Returns dict: normalized_url → {col: value, ...}.
+    Returns {} and prints a warning if the role lacks access to CONTENT_SCALING_AGENT.
+    """
+    try:
+        cur.execute(ENRICHED_EXTRAS_SQL)
+        rows = cur.fetchall()
+        cols = [d[0].lower() for d in cur.description]
+        result = {}
+        for row in rows:
+            d = dict(zip(cols, row))
+            url_key = d.pop("url_norm", None)
+            if url_key:
+                result[url_key] = d
+        print(f"  TRACKER_ENRICHED: {len(result)} rows loaded for extras enrichment.")
+        return result
+    except Exception as e:
+        print(f"  WARNING: could not fetch TRACKER_ENRICHED extras ({e}). "
+              f"Similarity/IAB/author columns will be empty.")
+        return {}
 
 
 def extract_mcc_story_id(url):
@@ -736,8 +815,8 @@ def resolve_column_positions(headers):
     return col_positions, new_headers, legacy_renames
 
 
-def write_output(sheet, rows, urls, metrics, cluster_stats, col_positions,
-                 new_headers, legacy_renames, batting_avg_str):
+def write_output(sheet, rows, urls, metrics, cluster_stats, extras,
+                 col_positions, new_headers, legacy_renames, batting_avg_str):
     """
     Apply all changes to the Google Sheet in the fewest possible API calls:
       1. Expand sheet width if new columns were added
@@ -790,7 +869,7 @@ def write_output(sheet, rows, urls, metrics, cluster_stats, col_positions,
     for i, (row, url) in enumerate(zip(rows, urls)):
         key = normalize_url(url)
         cs  = {k: v for k, v in cluster_stats.get(i, {}).items() if not k.startswith("_")}
-        m   = {**metrics.get(key, {}), **cs}
+        m   = {**metrics.get(key, {}), **cs, **extras.get(key, {})}
 
         block = []
         for col_idx in range(first_output_col, last_output_col + 1):
@@ -1243,6 +1322,9 @@ def main():
 
     print("Fetching company-wide medians (Oct 2025+ benchmark)…")
     company_medians = fetch_company_medians(cur)
+
+    print("Fetching pre-computed extras from TRACKER_ENRICHED…")
+    extras = fetch_enriched_extras(cur)
     cur.close()
     con.close()
 
@@ -1255,7 +1337,7 @@ def main():
 
     col_positions, new_headers, legacy_renames = resolve_column_positions(headers)
 
-    write_output(sheet, rows, urls, metrics, cluster_stats,
+    write_output(sheet, rows, urls, metrics, cluster_stats, extras,
                  col_positions, new_headers, legacy_renames, batting_avg_str)
 
     print(f"\nDone. {matched} rows enriched with traffic data.")
