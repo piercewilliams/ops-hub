@@ -1304,10 +1304,11 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=
                 if not author or author in seen_authors or ex.get("author_hit_rate") is None:
                     continue
                 seen_authors[author] = {
-                    "hit_rate":      ex["author_hit_rate"],
-                    "article_count": ex.get("author_article_count", ""),
-                    "avg_pvs":       ex.get("author_avg_pvs", ""),
-                    "weekly_output": ex.get("author_avg_weekly_output", ""),
+                    "hit_rate":          ex["author_hit_rate"],
+                    "article_count":     ex.get("author_article_count", ""),
+                    "cluster_diversity": ex.get("author_cluster_diversity", ""),
+                    "avg_pvs":           ex.get("author_avg_pvs", ""),
+                    "weekly_output":     ex.get("author_avg_weekly_output", ""),
                 }
 
             if seen_authors:
@@ -1317,13 +1318,14 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=
                     reverse=True,
                 )
                 author_table = [[
-                    "Author", "Avg Weekly Output", "Avg PVs", "Hit Rate"
+                    "Author", "Avg Weekly Output", "Avg PVs", "Cluster Diversity", "Hit Rate"
                 ]]
                 for author, s in sorted_authors:
                     author_table.append([
                         author,
                         s["weekly_output"] if isinstance(s["weekly_output"], (int, float)) else "",
                         round(s["avg_pvs"]) if isinstance(s["avg_pvs"], (int, float)) else "",
+                        s["cluster_diversity"] or "",
                         s["hit_rate"] if isinstance(s["hit_rate"], (int, float)) else "",
                     ])
 
@@ -1333,7 +1335,7 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=
 
                 if len(author_table) > 1:
                     pct_fmt = {"numberFormat": {"type": "PERCENT", "pattern": "0.0%"}}
-                    trends.format(f"D{author_start + 1}:D{author_end}", pct_fmt)
+                    trends.format(f"E{author_start + 1}:E{author_end}", pct_fmt)
 
                 print(f"  Author table written: {len(seen_authors)} authors.")
 
