@@ -75,6 +75,12 @@ CUE CMS, WordPress (full access 2026-03-28), McClatchy GitHub, Sigma basic, Ampl
 
 ## Tier 2 — Understanding
 
+**2026-04-17 — CSA pipeline architecture visualization site built**
+GitHub Pages site in `csa-prd` repo: 3-view toggle showing Current State / PRD Ideal / Delta. Current State SVG maps all 8 pipeline steps with a cascade coupling warning band that explicitly names the structural failure mode — every upstream change breaks all 26 downstream platform formatters, generating triage cascades per feature. PRD Ideal shows the 5-tier swimlane (T1 Fully Automated commodity content, T2 App-Platform Direct bypassing CMS, T3 API-Canonical 1→45+ derivatives, T4 National Flagship editorial, T5 Freshness+Updates) with shared Signal Layer / Quality Gates / Performance Tracking cross-cutting all tiers. NOT BUILT badges mark unbuilt components. Visual language and interaction pattern match csa-dashboard.
+
+**2026-04-17 — CSA pipeline diagnostic document completed**
+`data-keywords/reports/csa_pipeline_diagnostic_2026-04-17.docx`: 8-part architectural analysis using Sully AI context engineering as the primary audit lens. Documents why the current CSA is structurally a poor fit (sequential coupling, no interface contracts, hope-based enforcement), maps three specific open tickets (PGS-98/104/82) to root architectural causes, and produces a 5-principle × current-failure × PRD-required-change mapping table. Establishes the framing that will drive the engineering roadmap conversation with Chris: decomposed, focused agents with hard gates replace sequential monolithic Opus calls.
+
 **2026-04-14 — SN channel × formula analysis: new finding confirming channel-specific formula penalties**
 Analyzed 2025 SmartNews full-year data (38,251 rows) by channel × formula. Question format significantly underperforms in Top, Entertainment, and Lifestyle channels (p<0.0001, p=0.012, p=0.027). WTK underperforms in Top channel (p=0.008). Number lead carries a U.S.-channel-specific penalty (Δ=−0.245, p<0.0001, n=83). Callout added to data-headlines formula trap panel. Longitudinal weekly snapshot data also surfaced on the main page — trend table auto-renders after 2 more weekly ingest runs, establishing baseline for ongoing headline performance tracking.
 
@@ -282,5 +288,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-18 (enrich_tracker.py: cell coloring, Trends tab + auto-chart, newsletter_pvs removed; Snowflake Cortex confirmed not available on eval account; Chad Bruton key-pair auth use case justified; Sara Vallone + Sarah Price confirmed happy with deliverables)*
+*Last updated: 2026-04-17 (CSA pipeline diagnostic document + GitHub Pages visualization site built; cascade coupling architectural argument established)*
 *Maintained by Claude. Updated proactively as work completes.*

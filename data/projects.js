@@ -14,6 +14,8 @@ export const PINNED_ACTIONS = [
 ];
 
 export const COMPLETED_TASKS = [
+  { date: '2026-04-17', task: 'CSA pipeline architecture visualization site built (csa-prd repo): 3-view toggle — Current State (8-step SVG flow with cascade coupling warning band and NOT BUILT grid), PRD Ideal (5-lane swimlane T1–T5 with shared Signal Layer / Quality Gates / Performance Tracking), Delta gap analysis. Visual language matches csa-dashboard. Push + Pages enable pending.', project: '#8 CSA Pipeline Architecture Mapping & Gap Analysis' },
+  { date: '2026-04-17', task: 'CSA pipeline diagnostic document written (data-keywords/reports/csa_pipeline_diagnostic_2026-04-17.docx): 8-part analysis using Sully AI context engineering as primary audit lens. Maps 5 Sully AI principles against current CSA failure modes (PGS-98/104/82) and PRD required changes. Establishes architectural argument: cascade coupling = triage mountain per feature; PRD ideal = decoupled focused agents.', project: '#8 CSA Pipeline Architecture Mapping & Gap Analysis' },
   { date: '2026-04-18', task: 'Snowflake pipeline live end-to-end: ingest_tracker.py (Google Sheet → NATIONAL_CONTENT_TRACKER, 2035 rows) + model_tracker.py (TRACKER_ENRICHED with traffic KPIs, median benchmark, cluster aggregates) + GitHub Actions workflow (Monday 9am CDT, 22s total, first run clean). Gist shared with team explaining pipeline, Sigma unlocks for Sarah Price, and role-by-role workflow. Chad Bruton confirmed Google Sheet is transitional — model survives the CMS migration.', project: '#7 Vallone Tracker / CMS Automation' },
   { date: '2026-04-18', task: 'SNOWFLAKE.md created in ops-hub — comprehensive Snowflake reference covering account/auth (both interactive + headless), credentials map, session startup checklists, all databases/schemas (dev vs prod split), active table column listings, SQL patterns/quirks (URL normalization, scheme inconsistency, median benchmark), both scripts, and known limitations (Cortex unavailable, L&E exclusion, Tarrow ≠ Snowflake distinction). Tailored sections added to data-cmstracker, data-headlines, and data-keywords REFERENCE.md files.', project: '#1 Platform Access & Training' },
   { date: '2026-04-16', task: 'PGS-170 DONE — WordPress 301 bug (variant name + date appended to URL slug → SEO-harmful redirect) shipped to production. Lauren Schuster reported; Daury Caba fixed. Removes the last blocker on send-to-WP reliability for United Robots pipeline.', project: '#12 United Robots Inbound Pipeline' },
@@ -153,17 +155,13 @@ export const PROJECTS = {
     name: 'CSA Pipeline Architecture Mapping & Gap Analysis',
     owner: 'Pierce',
     compassGoal: 'G4 — Pipeline Documentation & Operational Knowledge',
-    description: 'Map the CSA pipeline as it actually exists via Bitbucket, then compare it against the PRD ideal state to produce a prioritized gap analysis. Feeds stakeholder visualizations, the engineering roadmap conversation with Chris, and CSA Weekly planning.',
-    blockers: [
-      'Need Bitbucket access to CSA repo — confirm access or request via Chris/Rajiv',
-    ],
+    description: 'Audit the CSA pipeline as-built against the PRD ideal state using the Sully AI context engineering framework as the primary diagnostic lens. Produces a stakeholder-facing GitHub Pages visualization site (Current State / PRD Ideal / Delta toggle) and a reference diagnostic document. Feeds engineering roadmap conversations with Chris and CSA Weekly planning.',
+    blockers: [],
     nextActions: [
-      'Confirm Bitbucket access to CSA repo — if not already provisioned, request via Chris or Rajiv',
-      'Map as-built CSA pipeline via Bitbucket: trace request flow through agents/stages; document inputs, outputs, and transformations at each node',
-      'Apply Sully AI decomposition audit: for each stage, is it doing one focused job or multiple? Flag monolithic stages as architectural debt',
-      'Build as-envisioned map from PRD V0.5: decomposed agent stages for keyword validation, fact-check, brand-fit, format compliance, headline gen, SEO metadata, diff check — each as a discrete node',
-      'Produce delta document: enumerate gaps between as-built and as-envisioned; prioritize by (1) engineering feasibility, (2) impact on output quality, (3) dependency order',
-      'Create visualizations: "completed / working / in-transit" diagram for Britney (Chris ask); full architecture delta for CSA Weekly / eng roadmap conversation',
+      'Push csa-prd repo to GitHub and enable Pages (main branch, root) → piercewilliams.github.io/csa-prd',
+      'Share visualization site with Chris Palo — confirm it serves as the "stakeholder diagram" he requested at CSA Weekly',
+      'Update Gary section in PRD once Chris V1 source-ranking library scope is defined',
+      'Add infographics + licensed partner content pipelines to PRD when Chris specs them',
     ],
     dependsOn: ['p1-access'],
   },
