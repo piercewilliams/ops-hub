@@ -63,17 +63,25 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 
 **Account:** `wvb49304-mcclatchy_eval`
 **Auth (interactive):** `externalbrowser` — Okta SSO browser popup, one MFA per session
-**Auth (headless/scheduled):** RSA key-pair — Chad Bruton registers public key via `ALTER USER pierce.williams SET RSA_PUBLIC_KEY='...'`. Private key at `~/.credentials/snowflake_rsa_key.p8`. (Pending setup as of 2026-04-17.)
-**Role / warehouse:** `growth_and_strategy_role` / `growth_and_strategy_role_wh`
+**Auth (headless/scheduled):** RSA key-pair — **LIVE as of 2026-04-18.** Service user: `GROWTH_AND_STRATEGY_SERVICE_USER`. Private key file: `~/Downloads/growth_strategy_service_rsa_key.p8` — move to `~/.credentials/` before use. Never commit key contents.
+**Role (interactive):** `growth_and_strategy_role` / `growth_and_strategy_role_wh`
+**Role (engineering/dev):** `GROWTH_AND_STRATEGY_ENGINEER` — full permissions on `MCC_RAW.GROWTH_AND_STRATEGY`; assigned to Pierce's user 2026-04-18
+
+### Schemas — Development vs. Production
+
+| Schema | Purpose |
+|--------|---------|
+| `MCC_RAW.GROWTH_AND_STRATEGY` | **Dev schema — use for all build work.** Full permissions for Pierce. Sara's tracker will land here. |
+| `MCC_PRESENTATION.CONTENT_SCALING_AGENT` | **Final output schema.** Finalized data models land here once dev is complete. |
 
 ### Databases
 
 | Database | Status | Contents |
 |----------|--------|----------|
 | `MCC_PRESENTATION` | **Active — use this** | Analytics/reporting layer; primary database for all Pierce work |
+| `MCC_RAW` | **Now active for dev** | Raw ingest layer; `GROWTH_AND_STRATEGY` schema set up for Pierce 2026-04-18 |
 | `MCC_AMPLITUDE` | Confirmed available, not yet directly queried | Amplitude event data (clicks, sessions, engagement) in Snowflake; Chad confirmed |
 | `MCC_CLEAN` | Available, not yet explored | Cleaned/processed data layer — likely intermediate between RAW and PRESENTATION |
-| `MCC_RAW` | Available, not yet explored | Raw ingest layer — source data before transformations |
 | `USER$PIERCE_WILLIAMS` | Personal | Pierce's personal Snowflake database (scratch space) |
 
 ### MCC_PRESENTATION.TABLEAU_REPORTING — Tables

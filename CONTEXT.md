@@ -14,7 +14,7 @@ For session history: see [sessions/](sessions/)
 - **Live at** `https://piercewilliams.github.io/ops-hub`
 - **v0.88 in production (2026-04-15).** PGS-134 + PGS-96 + PGS-115 DONE. Docker bug patching (Oliver + Marcelo). v0.89 target: 6 items.
 - **All 5 personas live as Team Target Audiences (2026-04-15):** Discover Browser + Science Enthusiast (Susannah); Curious Optimizer + Curious Explorer + Watercooler Insider (Pierce). PGS-133 ON HOLD.
-- **Snowflake fully mapped (2026-04-17):** Full schema documented in REFERENCE.md (this repo) + data-cmstracker/REFERENCE.md. Active tables: STORY_TRAFFIC_MAIN (national O&O), STORY_TRAFFIC_MAIN_LE (L&E), DYN_STORY_META_DATA (URL/ID bridge). Unexplored but relevant: DYN_STORY_FACTS_DETAIL_WITH_KPIS, DYN_CONTENT_API_LATEST, NEWSROOMPAGES, MCC_AMPLITUDE db, MCC_CLEAN db. Revenue (Naviga+GAM) confirmed in Snowflake — Ryan Spalding meeting Mon 2026-04-20. **enrich_tracker.py** at scripts/enrich_tracker.py — 14 columns, 90% match rate, runs manually each Monday until Chad Bruton key-pair auth is live.
+- **Snowflake dev infrastructure LIVE (2026-04-18, Chad Bruton):** Dev schema: `MCC_RAW.GROWTH_AND_STRATEGY` (full permissions). Final output: `MCC_PRESENTATION.CONTENT_SCALING_AGENT`. Role `GROWTH_AND_STRATEGY_ENGINEER` assigned. Service user `GROWTH_AND_STRATEGY_SERVICE_USER` + RSA key-pair provisioned — key at `~/Downloads/growth_strategy_service_rsa_key.p8` (move to `~/.credentials/`). **Next: build Sheet→Snowflake ingest for Sara's tracker; cluster data model in SQL.** Active tables: STORY_TRAFFIC_MAIN, STORY_TRAFFIC_MAIN_LE, DYN_STORY_META_DATA. Revenue (Naviga+GAM) — Ryan Spalding meeting Mon 2026-04-20. **enrich_tracker.py** at scripts/enrich_tracker.py — 13 columns, 90% match rate, green/red coloring, Trends tab. Runs manually each Monday; will be superseded by Snowflake data model.
 - **MAIA 14-day test started 2026-04-15** (~2026-04-29). Sara's teams log outputs; Pierce monitoring. Access + tracking sheet requested from Derek.
 - **Ticket status 2026-04-17:** **PGS-82 CODE REVIEW** (Marcelo fixed bugs 1,2,4 + flags 1,2; pending Efren/Cat UI approval); **PGS-104 IN QA** (Victor Suarez); **PGS-17 CODE REVIEW** (Daury PR, high priority); **PGS-67 CODE REVIEW** (Daury; unblocked 2026-04-16 → Code Review same day); **PGS-170 DONE** (WordPress 301 slug bug shipped to prod 2026-04-16); PGS-62 epic 40% (PGS-68/69/72 + PGS-67 all Code Review); PGS-111 CODE REVIEW; PGS-140 IN QA; PGS-150 ON HOLD; PGS-189 SELECTED FOR DEV; PTECH-7730 TO DO (Julia Kim PM).
 - **EGS-127 ticket 12828 in dev** (1 of 4-ticket epic). Marcelo leading.
@@ -87,7 +87,6 @@ For session history: see [sessions/](sessions/)
 **G5 — Technical/Analytical:**
 - [ ] **Replace Tarrow data with Snowflake (HIGH PRIORITY)** — All data-headlines Tarrow dependencies (weekly ingest, grader, author playbooks, tracker_raw) must be replaced with direct Snowflake pulls. Tarrow is poor quality; Snowflake is the authoritative source. Gate: GitHub→Snowflake connection (Chad Bruton). Tables: STORY_TRAFFIC_MAIN + DYN_STORY_META_DATA.
 - [ ] **Mon 2026-04-20 3pm CDT — Ryan Spalding meeting** — review STAR-Automation Sigma dash; primary ask: access to underlying Snowflake data so revenue can feed into ops-hub/Recipe system Market dimension like other data sources; need agenda prep before meeting
-- [ ] **Follow up Rocky on Julio credit rates** — end of week if no response; blocks all SEMrush automation
 
 **Compass:**
 - [ ] Jeremy Gockel approval — must reach "Track Goals" status by **April 30, 2026**
@@ -97,7 +96,6 @@ For session history: see [sessions/](sessions/)
 **Waiting — no Pierce action needed:**
 - Joe Vitali: PTECH-7730 ETA (Julia Kim is PM)
 - Chad Bruton: GitHub→Snowflake setup + key-pair auth for enrich_tracker.py headless run
-- Rocky/Julio: SEMrush per-endpoint credit rates
 - Derek/Sara: MAIA tab access + tracking sheet (P19; Sara requested 2026-04-15)
 - Gary Kirwan: code access response (Jason + Rajiv discussing)
 - Chris Palo: LTV kickoff scheduling; Reuters link
