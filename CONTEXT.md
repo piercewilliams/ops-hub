@@ -94,8 +94,9 @@ For session history: see [sessions/](sessions/)
 - [ ] Every Friday: request Compass progress notes from Claude (per-goal, based on WINS.md)
 
 **Waiting — no Pierce action needed:**
+- Deedra Lawhead: Sigma creator access for Pierce + Sarah Price (asked 2026-04-18) — gate on building TRACKER_ENRICHED workbook
+- Chad Bruton: reviewing TRACKER_ENRICHED model + Sigma hookup (this afternoon 2026-04-18)
 - Joe Vitali: PTECH-7730 ETA (Julia Kim is PM)
-- Chad Bruton: GitHub→Snowflake setup + key-pair auth for enrich_tracker.py headless run
 - Derek/Sara: MAIA tab access + tracking sheet (P19; Sara requested 2026-04-15)
 - Gary Kirwan: code access response (Jason + Rajiv discussing)
 - Chris Palo: LTV kickoff scheduling; Reuters link
