@@ -10,7 +10,8 @@
 // Remove when done. Keep ≤3 items — this is not a second todo list.
 // Format: { task: 'description', projectId: 'p##-slug' }
 export const PINNED_ACTIONS = [
-  { task: 'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — review STAR-Automation Sigma dash; primary ask is Snowflake revenue data access for Market dimension of Recipe system.', projectId: 'p01-access' },
+  { task: 'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — review STAR-Automation Sigma dash; primary ask is Snowflake revenue data access for Market dimension of Recipe system.', projectId: 'p1-access' },
+  { task: 'Design and lock the full Tracker↔Snowflake↔Tarrow pipeline order of operations — see p3-headlines nextActions for full spec. Gate on all downstream automation + reconciliation work.', projectId: 'p3-headlines' },
 ];
 
 export const COMPLETED_TASKS = [
@@ -248,11 +249,11 @@ export const PROJECTS = {
       'Author playbooks: Tarrow data thin — Snowflake is the authoritative source. Tables identified 2026-04-15: author_name in dynamic_story_metadata (MCC presentation), joined to story_traffic_main on story ID. Upgrade blocked until GitHub→Snowflake connection set up (Chad Bruton).',
     ],
     nextActions: [
-      'HIGH PRIORITY: Replace all Tarrow data dependencies with direct Snowflake pulls — Tarrow is poor quality; Snowflake is authoritative. Scope: (1) replace download_tarrow.py with Snowflake ingest; (2) replace Headline Grader Tarrow reads with Snowflake queries; (3) rebuild tracker_raw from Snowflake. Tables: STORY_TRAFFIC_MAIN + DYN_STORY_META_DATA (MCC_PRESENTATION.TABLEAU_REPORTING). Blocked on GitHub→Snowflake connection (Chad Bruton).',
-      'Get GitHub→Snowflake connection set up with Chad — this is the single gate blocking all Snowflake-dependent work in this repo.',
-      'Once Snowflake piped: share formula × topic interaction findings with editorial leads + SmartNews formula trap with distribution team',
-      'Upgrade author playbooks using Snowflake: join dynamic_story_metadata (author_name) to story_traffic_main (PV by story/market/date) on story ID.',
-      'Long-term: watch for cross-author patterns in headline/keyword/traffic data that may indicate Google author-throttling.',
+      'DESIGN: Lock the pipeline order of operations — (1) Mon ~7am: download_tarrow.py → tarrow_backfill.py fills ONLY empty Sara-owned cells (Published URL, Syndication Platform, Pub Date) by URL match, never overwrites; (2) Mon 9am: ingest_tracker.py → model_tracker.py rebuilds TRACKER_ENRICHED; (3) Mon 9am+: enrich_tracker.py writes enrichment columns back to tracker (these always overwrite — that is correct); (4) Mon 8pm: snowflake_enrich.py builds snowflake_enrichment.json + tracker_gaps.json; (5) Mon 8pm: generate_site.py rebuilds data-headlines using Sara tracker as base + Snowflake enrichment + Tarrow syndication data joined where available. Each system owns specific columns and never writes over another system\'s owned data.',
+      'BUILD: tarrow_backfill.py — reads Tarrow XLSX, matches Apple News Publisher Article ID + SmartNews url against tracker Published URL/Link; fills empty Syndication Platform + Pub Date only; prints fill report; runs before ingest step.',
+      'BUILD: Restructure generate_site.py to use Sara\'s tracker as the primary analysis universe (not Tarrow) — Tarrow syndication data joins in as enrichment where it exists, null where it doesn\'t. Enables full per-author headline analysis across all their articles, not just syndicated ones.',
+      'Add SNOWFLAKE_RSA_KEY_B64 secret to data-headlines GitHub repo — required for snowflake_enrich.py to run in Actions (same key as ops-hub).',
+      'Once pipeline locked: share formula × topic interaction findings with editorial leads + SmartNews formula trap with distribution team.',
     ],
     dependsOn: ['p1-access'],
   },
