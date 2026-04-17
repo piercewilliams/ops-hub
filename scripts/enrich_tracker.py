@@ -53,9 +53,12 @@ SHEET_ID   = "14_0eK46g3IEj7L_yp9FIdWwvnuYI5f-vAuP7DDhSPg8"
 SA_FILE    = os.getenv("GOOGLE_SERVICE_ACCOUNT_FILE",
                         str(Path.home() / ".credentials" / "pierce-tools.json"))
 
-SF_ACCOUNT  = "wvb49304-mcclatchy_eval"
-SF_DATABASE = "MCC_PRESENTATION"
-SF_SCHEMA   = "TABLEAU_REPORTING"
+SF_ACCOUNT   = "wvb49304-mcclatchy_eval"
+SF_USER_SA   = "GROWTH_AND_STRATEGY_SERVICE_USER"   # headless RSA key path
+SF_KEY_PATH  = os.getenv("SNOWFLAKE_PRIVATE_KEY_PATH",
+                          str(Path.home() / ".credentials" / "growth_strategy_service_rsa_key.p8"))
+SF_DATABASE  = "MCC_PRESENTATION"
+SF_SCHEMA    = "TABLEAU_REPORTING"
 
 # Output column names written to the sheet, in order.
 OUTPUT_COLS = [
@@ -200,11 +203,31 @@ def _is_hit(pct_str):
 
 # ── Snowflake helpers ─────────────────────────────────────────────────────────
 
-def sf_connect(user):
-    print("A browser window will open for Okta MFA — complete it to continue.")
+def sf_connect(user=None):
+    # Prefer headless RSA key auth (works in CI and locally if key file present).
+    # Falls back to Okta browser MFA when key file is absent (interactive use).
+    key_file = Path(SF_KEY_PATH)
+    if key_file.exists():
+        from cryptography.hazmat.primitives.serialization import (
+            load_pem_private_key, Encoding, PrivateFormat, NoEncryption,
+        )
+        raw = key_file.read_bytes()
+        key = load_pem_private_key(raw, password=None)
+        der = key.private_bytes(Encoding.DER, PrivateFormat.PKCS8, NoEncryption())
+        print(f"Connecting to Snowflake as {SF_USER_SA} (RSA key)…")
+        return snowflake.connector.connect(
+            account=SF_ACCOUNT,
+            user=SF_USER_SA,
+            private_key=der,
+            warehouse="GROWTH_AND_STRATEGY_ROLE_WH",
+            role="GROWTH_AND_STRATEGY_ROLE",
+            database=SF_DATABASE,
+            schema=SF_SCHEMA,
+        )
+    print("RSA key not found — opening browser for Okta MFA…")
     return snowflake.connector.connect(
         account=SF_ACCOUNT,
-        user=user,
+        user=user or input("Snowflake SSO username: ").strip(),
         authenticator="externalbrowser",
         database=SF_DATABASE,
         schema=SF_SCHEMA,
@@ -1360,8 +1383,8 @@ def main():
                         help="Compare URL formats between sheet and Snowflake")
     args = parser.parse_args()
 
-    sf_user = (os.getenv("SNOWFLAKE_USER")
-               or input("Snowflake SSO username (e.g. pierce.williams@mcclatchy.com): ").strip())
+    # sf_user only used if RSA key is absent (Okta fallback)
+    sf_user = os.getenv("SNOWFLAKE_USER") or None
 
     print("Connecting to Google Sheets…")
     sheet      = load_sheet()

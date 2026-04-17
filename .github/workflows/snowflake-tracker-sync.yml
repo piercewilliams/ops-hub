@@ -44,3 +44,9 @@ jobs:
         env:
           SNOWFLAKE_PRIVATE_KEY_PATH: /tmp/sf_rsa.p8
         run: python3 scripts/model_tracker.py
+
+      - name: Write Snowflake enrichment back to Sara's tracker (headless)
+        env:
+          SNOWFLAKE_PRIVATE_KEY_PATH: /tmp/sf_rsa.p8
+          GOOGLE_SERVICE_ACCOUNT_FILE: /tmp/sa.json
+        run: python3 scripts/enrich_tracker.py
