@@ -76,20 +76,13 @@ OUTPUT_COLS = [
     "cluster_total_pvs",
     "cluster_vs_co.median",  # per-cluster — parent rows only
     # ── Pre-computed from TRACKER_ENRICHED (model_tracker.py) ─────────────────
-    # Cluster semantic similarity (cosine, 0–1): description vectors have no truncation
-    # risk (~150-300 char SEO summaries); first400w uses full article body text but
-    # the embedding model truncates at ~400 words.
     "cluster_avg_sim_desc",
-    # Primary IAB content topic (e.g. "Crime", "Pop Culture", "Sports")
-    "primary_iab_topic",
-    # Author similarity — parent rows only (see PARENT_ONLY_EXTRAS)
-    "author_avg_sim_desc",
-    "author_avg_sim_first400w",
+    # IAB content topic (e.g. "Crime", "Pop Culture", "Sports")
+    "topic",
 ]
 
-# These extras are only meaningful on cluster parent rows.
-# Child rows get "" regardless of what TRACKER_ENRICHED returns.
-PARENT_ONLY_EXTRAS = {"author_avg_sim_desc", "author_avg_sim_first400w"}
+# No parent-only extras currently in use.
+PARENT_ONLY_EXTRAS = set()
 
 # L&E publication domains — traffic lives in STORY_TRAFFIC_MAIN_LE keyed by
 # CANONICAL_URL, not in STORY_TRAFFIC_MAIN keyed by STORY_ID.
@@ -109,6 +102,7 @@ LEGACY_COL_ALIASES = {
     "article_vs_co.median": ["article_batting_avg", "hit", "batting_avg",
                               "article_avg", "pvs_vs_median"],
     "cluster_vs_co.median": ["cluster_batting_avg", "cluster_hit", "cluster_avg"],
+    "topic":                ["primary_iab_topic"],
 }
 
 
