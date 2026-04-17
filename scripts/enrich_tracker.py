@@ -1294,14 +1294,17 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=
                 author = row[author_col].strip() if len(row) > author_col else ""
                 if not author or author in seen_authors or ex.get("author_hit_rate") is None:
                     continue
+                def _f(v):
+                    try: return float(v)
+                    except (TypeError, ValueError): return ""
                 seen_authors[author] = {
-                    "hit_rate":          ex["author_hit_rate"],
-                    "article_count":     ex.get("author_article_count", ""),
-                    "cluster_diversity": ex.get("author_cluster_diversity", ""),
-                    "avg_pvs":           ex.get("author_avg_pvs", ""),
-                    "weekly_output":     ex.get("author_avg_weekly_output", ""),
-                    "avg_sim_desc":      ex.get("author_avg_sim_desc", ""),
-                    "avg_sim_first400w": ex.get("author_avg_sim_first400w", ""),
+                    "hit_rate":          _f(ex["author_hit_rate"]),
+                    "article_count":     int(ex["author_article_count"]) if ex.get("author_article_count") else "",
+                    "cluster_diversity": int(ex["author_cluster_diversity"]) if ex.get("author_cluster_diversity") else "",
+                    "avg_pvs":           round(_f(ex.get("author_avg_pvs"))) if ex.get("author_avg_pvs") else "",
+                    "weekly_output":     _f(ex.get("author_avg_weekly_output")),
+                    "avg_sim_desc":      _f(ex.get("author_avg_sim_desc")),
+                    "avg_sim_first400w": _f(ex.get("author_avg_sim_first400w")),
                 }
 
             if seen_authors:
@@ -1317,13 +1320,13 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=
                 for author, s in sorted_authors:
                     author_table.append([
                         author,
-                        s["article_count"] or "",
-                        s["weekly_output"] if isinstance(s["weekly_output"], (int, float)) else "",
-                        round(s["avg_pvs"]) if isinstance(s["avg_pvs"], (int, float)) else "",
-                        s["cluster_diversity"] or "",
-                        s["avg_sim_desc"] if isinstance(s["avg_sim_desc"], (int, float)) else "",
-                        s["avg_sim_first400w"] if isinstance(s["avg_sim_first400w"], (int, float)) else "",
-                        s["hit_rate"] if isinstance(s["hit_rate"], (int, float)) else "",
+                        s["article_count"],
+                        s["weekly_output"],
+                        s["avg_pvs"],
+                        s["cluster_diversity"],
+                        s["avg_sim_desc"],
+                        s["avg_sim_first400w"],
+                        s["hit_rate"],
                     ])
 
                 # Author table starts at J1 — column I is the blank separator
