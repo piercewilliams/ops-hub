@@ -1061,7 +1061,7 @@ def _regenerate_trends_chart(spreadsheet, trends_ws, n_rows):
                         "chartType":      "LINE",
                         "legendPosition": "BOTTOM_LEGEND",
                         "axis": [
-                            {"position": "BOTTOM_AXIS", "title": "Week Of"},
+                            {"position": "BOTTOM_AXIS", "title": "Week #"},
                             {"position": "LEFT_AXIS",   "title": "Hit Rate"},
                         ],
                         "domains": [{"domain": src(0, 1)}],
@@ -1094,15 +1094,24 @@ def _regenerate_trends_chart(spreadsheet, trends_ws, n_rows):
 
 def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers):
     """
-    Write/refresh a 'Trends' tab grouping article and cluster hit/miss counts by Week Of,
+    Write/refresh a 'Trends' tab grouping article and cluster hit/miss counts by Week #,
     then regenerate the embedded line chart. Weeks with fewer than MIN_WEEK_SAMPLE
     benchmarked articles are excluded to avoid noisy early-week ratios.
+
+    Week # (integer from the tracker) is the authority — not Week Of (date string),
+    which can produce spurious future-week entries when publication dates are ahead
+    of the current week.
     """
+    # Prefer exact "Week #" column; fall back to any column containing "week #"
     week_col = next(
-        (i for i, h in enumerate(headers) if "week" in h.lower()), None
+        (i for i, h in enumerate(headers) if h.strip().lower() == "week #"), None
     )
     if week_col is None:
-        print("  No 'Week Of' column found — skipping Trends tab.")
+        week_col = next(
+            (i for i, h in enumerate(headers) if "week #" in h.lower()), None
+        )
+    if week_col is None:
+        print("  No 'Week #' column found — skipping Trends tab.")
         return
 
     weekly = defaultdict(lambda: {
@@ -1111,8 +1120,13 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers):
     })
 
     for i, (row, url) in enumerate(zip(rows, urls)):
-        week = row[week_col].strip() if len(row) > week_col else ""
-        if not week:
+        raw = row[week_col].strip() if len(row) > week_col else ""
+        if not raw:
+            continue
+        # Normalise to integer week number; skip non-numeric values
+        try:
+            week = int(float(raw))
+        except (ValueError, TypeError):
             continue
         art = metrics.get(normalize_url(url), {}).get("article_vs_co.median", "")
         clu = cluster_stats.get(i, {}).get("cluster_vs_co.median", "")
@@ -1129,12 +1143,12 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers):
         print("  No weekly data — skipping Trends tab.")
         return
 
-    sorted_weeks = sorted(weekly.keys(), key=_parse_week)
+    sorted_weeks = sorted(weekly.keys())
     filtered     = [w for w in sorted_weeks
                     if (weekly[w]["article_hits"] + weekly[w]["article_misses"]) >= MIN_WEEK_SAMPLE]
     skipped      = len(sorted_weeks) - len(filtered)
 
-    table = [["Week Of",
+    table = [["Week #",
               "Article Hits", "Article Misses", "Article Hit Rate",
               "Cluster Hits", "Cluster Misses", "Cluster Hit Rate",
               "Target (1-in-4)"]]
