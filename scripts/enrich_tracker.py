@@ -903,6 +903,8 @@ def write_output(sheet, rows, urls, metrics, cluster_stats, extras,
     # 6. Write batting average summary row two rows below the last data row
     if batting_avg_str:
         summary_row = len(output_data) + 3   # +1 header, +1 last data row, +1 gap
+        if summary_row > sheet.row_count:
+            sheet.add_rows(summary_row - sheet.row_count)
         summary     = [""] * (last_output_col - first_output_col + 1)
 
         cid_offset = col_positions.get("cluster_id", -1) - first_output_col
