@@ -82,11 +82,14 @@ OUTPUT_COLS = [
     "cluster_avg_sim_desc",
     # Primary IAB content topic (e.g. "Crime", "Pop Culture", "Sports")
     "primary_iab_topic",
+    # Author similarity — parent rows only (see PARENT_ONLY_EXTRAS)
+    "author_avg_sim_desc",
+    "author_avg_sim_first400w",
 ]
 
-# All author aggregates live in the Trends tab author table, not in the main sheet.
-# Child rows get "" for these regardless of what TRACKER_ENRICHED returns.
-PARENT_ONLY_EXTRAS = set()
+# These extras are only meaningful on cluster parent rows.
+# Child rows get "" regardless of what TRACKER_ENRICHED returns.
+PARENT_ONLY_EXTRAS = {"author_avg_sim_desc", "author_avg_sim_first400w"}
 
 # L&E publication domains — traffic lives in STORY_TRAFFIC_MAIN_LE keyed by
 # CANONICAL_URL, not in STORY_TRAFFIC_MAIN keyed by STORY_ID.
