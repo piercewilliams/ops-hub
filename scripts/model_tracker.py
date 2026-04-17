@@ -5,10 +5,11 @@ Full refresh (CREATE OR REPLACE TABLE ... AS SELECT) on every run.
 Run after ingest_tracker.py has loaded the latest sheet data.
 
 Reads from:
-    MCC_RAW.GROWTH_AND_STRATEGY.NATIONAL_CONTENT_TRACKER      (raw sheet ingest)
-    MCC_PRESENTATION.TABLEAU_REPORTING.STORY_TRAFFIC_MAIN     (national O&O traffic)
-    MCC_PRESENTATION.TABLEAU_REPORTING.STORY_TRAFFIC_MAIN_LE  (L&E traffic)
-    MCC_PRESENTATION.TABLEAU_REPORTING.DYN_STORY_META_DATA    (URL↔STORY_ID bridge)
+    MCC_RAW.GROWTH_AND_STRATEGY.NATIONAL_CONTENT_TRACKER           (raw sheet ingest)
+    MCC_PRESENTATION.TABLEAU_REPORTING.STORY_TRAFFIC_MAIN          (national O&O traffic)
+    MCC_PRESENTATION.TABLEAU_REPORTING.STORY_TRAFFIC_MAIN_LE       (L&E traffic)
+    MCC_PRESENTATION.TABLEAU_REPORTING.DYN_STORY_META_DATA         (URL↔STORY_ID bridge)
+    MCC_PRESENTATION.TABLEAU_REPORTING.DYN_CONTENT_API_LATEST      (full-text vectors for similarity)
 
 Writes to:
     MCC_PRESENTATION.CONTENT_SCALING_AGENT.TRACKER_ENRICHED
@@ -241,7 +242,43 @@ base AS (
     LEFT JOIN company_medians cm ON t.article_domain = cm.domain
 ),
 
--- ── 7. Cluster-level aggregates ──────────────────────────────────────────────
+-- ── 7. Full-text vectors (DYN_CONTENT_API_LATEST, URL join) ────────────────
+article_vectors AS (
+    SELECT
+        t.ASSET_ID,
+        t.cluster_id,
+        c.FULL_TEXT_VECTOR
+    FROM tracker t
+    JOIN MCC_PRESENTATION.TABLEAU_REPORTING.DYN_CONTENT_API_LATEST c
+        ON RTRIM(LOWER(t.PUBLISHED_URL), '/') = RTRIM(LOWER(c.SOURCE_URL), '/')
+    WHERE c.FULL_TEXT_VECTOR IS NOT NULL
+),
+
+-- ── 8. Pairwise cosine similarity within clusters ────────────────────────────
+-- Self-join (a.ASSET_ID < b.ASSET_ID) produces each pair once.
+-- Clusters with < 2 vectorized articles produce no rows → NULL in final join.
+cluster_pairs AS (
+    SELECT
+        a.cluster_id,
+        VECTOR_COSINE_SIMILARITY(a.FULL_TEXT_VECTOR, b.FULL_TEXT_VECTOR) AS similarity
+    FROM article_vectors a
+    JOIN article_vectors b
+        ON a.cluster_id = b.cluster_id AND a.ASSET_ID < b.ASSET_ID
+),
+
+-- ── 9. Cluster similarity aggregates ─────────────────────────────────────────
+cluster_similarity AS (
+    SELECT
+        cluster_id,
+        ROUND(AVG(similarity), 4)  AS cluster_avg_similarity,
+        ROUND(MIN(similarity), 4)  AS cluster_min_similarity,
+        ROUND(MAX(similarity), 4)  AS cluster_max_similarity,
+        COUNT(1)                   AS cluster_pair_count
+    FROM cluster_pairs
+    GROUP BY cluster_id
+),
+
+-- ── 10. Cluster-level traffic aggregates ─────────────────────────────────────
 cluster_stats AS (
     SELECT
         cluster_id,
@@ -326,9 +363,19 @@ SELECT
         THEN cs.cluster_hits::FLOAT / cs.cluster_article_count
         ELSE NULL
     END::FLOAT AS cluster_hit_rate,
+    -- Semantic similarity (cosine, 0–1) between articles sharing this cluster_id.
+    -- Derived from FULL_TEXT_VECTOR (768-dim) in DYN_CONTENT_API_LATEST.
+    -- NULL when cluster has < 2 articles with vectors (L&E pubs, very recent articles).
+    -- High value (> 0.85) = near-duplicate variants; low value (< 0.50) = possible
+    -- mis-grouped articles or highly differentiated coverage.
+    csim.cluster_avg_similarity,
+    csim.cluster_min_similarity,
+    csim.cluster_max_similarity,
+    csim.cluster_pair_count,
     CURRENT_TIMESTAMP() AS _modeled_at
 FROM base b
-LEFT JOIN cluster_stats cs ON b.cluster_id = cs.cluster_id
+LEFT JOIN cluster_stats cs   ON b.cluster_id = cs.cluster_id
+LEFT JOIN cluster_similarity csim ON b.cluster_id = csim.cluster_id
 ORDER BY b._ROW_NUM
 """
 
