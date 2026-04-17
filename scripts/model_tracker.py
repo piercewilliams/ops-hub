@@ -9,7 +9,7 @@ Reads from:
     MCC_PRESENTATION.TABLEAU_REPORTING.STORY_TRAFFIC_MAIN          (national O&O traffic)
     MCC_PRESENTATION.TABLEAU_REPORTING.STORY_TRAFFIC_MAIN_LE       (L&E traffic)
     MCC_PRESENTATION.TABLEAU_REPORTING.DYN_STORY_META_DATA         (URL↔STORY_ID bridge)
-    MCC_PRESENTATION.TABLEAU_REPORTING.DYN_CONTENT_API_LATEST      (full-text vectors for similarity)
+    MCC_PRESENTATION.TABLEAU_REPORTING.DYN_CONTENT_API_LATEST      (full-text + description vectors, IAB tags)
 
 Writes to:
     MCC_PRESENTATION.CONTENT_SCALING_AGENT.TRACKER_ENRICHED
@@ -242,25 +242,33 @@ base AS (
     LEFT JOIN company_medians cm ON t.article_domain = cm.domain
 ),
 
--- ── 7. Full-text vectors (DYN_CONTENT_API_LATEST, URL join) ────────────────
+-- ── 7. Content vectors (DYN_CONTENT_API_LATEST, URL join) ───────────────────
+-- FULL_TEXT_VECTOR:       article body (first ~400 words; model truncates longer articles)
+-- DESCRIPTION_SEO_VECTOR: SEO meta description (~150-300 chars; no truncation risk)
 article_vectors AS (
     SELECT
         t.ASSET_ID,
         t.cluster_id,
-        c.FULL_TEXT_VECTOR
+        c.FULL_TEXT_VECTOR,
+        c.DESCRIPTION_SEO_VECTOR
     FROM tracker t
     JOIN MCC_PRESENTATION.TABLEAU_REPORTING.DYN_CONTENT_API_LATEST c
         ON RTRIM(LOWER(t.PUBLISHED_URL), '/') = RTRIM(LOWER(c.SOURCE_URL), '/')
-    WHERE c.FULL_TEXT_VECTOR IS NOT NULL
+    WHERE c.FULL_TEXT_VECTOR IS NOT NULL OR c.DESCRIPTION_SEO_VECTOR IS NOT NULL
 ),
 
 -- ── 8. Pairwise cosine similarity within clusters ────────────────────────────
 -- Self-join (a.ASSET_ID < b.ASSET_ID) produces each pair once.
--- Clusters with < 2 vectorized articles produce no rows → NULL in final join.
+-- Each similarity is NULL when either article in the pair is missing that vector.
 cluster_pairs AS (
     SELECT
         a.cluster_id,
-        VECTOR_COSINE_SIMILARITY(a.FULL_TEXT_VECTOR, b.FULL_TEXT_VECTOR) AS similarity
+        CASE WHEN a.FULL_TEXT_VECTOR       IS NOT NULL AND b.FULL_TEXT_VECTOR       IS NOT NULL
+             THEN VECTOR_COSINE_SIMILARITY(a.FULL_TEXT_VECTOR,       b.FULL_TEXT_VECTOR)
+             ELSE NULL END AS body_similarity,
+        CASE WHEN a.DESCRIPTION_SEO_VECTOR IS NOT NULL AND b.DESCRIPTION_SEO_VECTOR IS NOT NULL
+             THEN VECTOR_COSINE_SIMILARITY(a.DESCRIPTION_SEO_VECTOR, b.DESCRIPTION_SEO_VECTOR)
+             ELSE NULL END AS desc_similarity
     FROM article_vectors a
     JOIN article_vectors b
         ON a.cluster_id = b.cluster_id AND a.ASSET_ID < b.ASSET_ID
@@ -270,10 +278,13 @@ cluster_pairs AS (
 cluster_similarity AS (
     SELECT
         cluster_id,
-        ROUND(AVG(similarity), 4)  AS cluster_avg_similarity,
-        ROUND(MIN(similarity), 4)  AS cluster_min_similarity,
-        ROUND(MAX(similarity), 4)  AS cluster_max_similarity,
-        COUNT(1)                   AS cluster_pair_count
+        ROUND(AVG(desc_similarity),  4) AS cluster_avg_sim_desc,
+        ROUND(MIN(desc_similarity),  4) AS cluster_min_sim_desc,
+        ROUND(MAX(desc_similarity),  4) AS cluster_max_sim_desc,
+        ROUND(AVG(body_similarity),  4) AS cluster_avg_sim_first400w,
+        ROUND(MIN(body_similarity),  4) AS cluster_min_sim_first400w,
+        ROUND(MAX(body_similarity),  4) AS cluster_max_sim_first400w,
+        COUNT(1)                        AS cluster_pair_count
     FROM cluster_pairs
     GROUP BY cluster_id
 ),
@@ -289,6 +300,55 @@ cluster_stats AS (
                  THEN 1 ELSE 0 END) AS cluster_hits
     FROM base
     GROUP BY cluster_id
+),
+
+-- ── 11. Primary IAB topic (DYN_CONTENT_API_LATEST.TAGS_IAB[0], URL join) ─────
+-- TAGS_IAB is an array of IAB taxonomy labels (e.g. ["Crime","Law","News"]).
+-- First element is taken as the primary topic; NULL if no tags or no URL match.
+iab_topics AS (
+    SELECT
+        t.ASSET_ID,
+        c.TAGS_IAB[0]::VARCHAR AS primary_iab_topic
+    FROM tracker t
+    JOIN MCC_PRESENTATION.TABLEAU_REPORTING.DYN_CONTENT_API_LATEST c
+        ON RTRIM(LOWER(t.PUBLISHED_URL), '/') = RTRIM(LOWER(c.SOURCE_URL), '/')
+    WHERE c.TAGS_IAB IS NOT NULL AND ARRAY_SIZE(c.TAGS_IAB) > 0
+),
+
+-- ── 12. Author aggregates ──────────────────────────────────────────────────────
+-- hit_rate / hit_count computed only over articles with a valid benchmark;
+-- article_count and cluster_diversity include all articles.
+author_stats AS (
+    SELECT
+        AUTHOR,
+        COUNT(*)                                                              AS author_article_count,
+        COUNT(DISTINCT cluster_id)                                            AS author_cluster_diversity,
+        SUM(CASE WHEN pub_median_pvs IS NOT NULL AND total_pvs >= pub_median_pvs THEN 1
+                 WHEN pub_median_pvs IS NOT NULL THEN 0
+                 ELSE NULL END)                                               AS author_hit_count,
+        ROUND(AVG(CASE WHEN pub_median_pvs IS NOT NULL AND total_pvs >= pub_median_pvs THEN 1.0
+                       WHEN pub_median_pvs IS NOT NULL THEN 0.0
+                       ELSE NULL END), 4)                                     AS author_hit_rate,
+        ROUND(AVG(total_pvs), 0)                                              AS author_avg_pvs,
+        ROUND(STDDEV_POP(total_pvs), 0)                                       AS author_pv_stddev,
+        -- Articles per distinct week in tracker (volume proxy)
+        ROUND(COUNT(*)::FLOAT / NULLIF(COUNT(DISTINCT week_num), 0), 2)       AS author_avg_weekly_output
+    FROM base
+    WHERE AUTHOR IS NOT NULL AND TRIM(AUTHOR) != ''
+    GROUP BY AUTHOR
+),
+
+-- ── 13. Author avg similarity across their clusters ────────────────────────────
+-- Mean of each cluster's average similarity across all clusters the author contributed to.
+author_similarity AS (
+    SELECT
+        b.AUTHOR,
+        ROUND(AVG(csim.cluster_avg_sim_desc),       4) AS author_avg_sim_desc,
+        ROUND(AVG(csim.cluster_avg_sim_first400w),  4) AS author_avg_sim_first400w
+    FROM base b
+    JOIN cluster_similarity csim ON b.cluster_id = csim.cluster_id
+    WHERE b.AUTHOR IS NOT NULL AND TRIM(b.AUTHOR) != ''
+    GROUP BY b.AUTHOR
 )
 
 -- ── Final output ─────────────────────────────────────────────────────────────
@@ -334,6 +394,22 @@ SELECT
     b.newsbreak_pvs,
     b.subscriber_pvs,
     b.pub_median_pvs,
+    -- Cluster aggregates
+    cs.cluster_article_count,
+    cs.cluster_hits,
+    cs.cluster_total_pvs,
+    cs.cluster_sum_of_medians,
+    -- Cluster semantic similarity: SEO description vectors (no truncation; ~150-300 char summaries)
+    csim.cluster_avg_sim_desc,
+    csim.cluster_min_sim_desc,
+    csim.cluster_max_sim_desc,
+    -- Cluster semantic similarity: article body (first ~400 words; longer articles truncated)
+    csim.cluster_avg_sim_first400w,
+    csim.cluster_min_sim_first400w,
+    csim.cluster_max_sim_first400w,
+    csim.cluster_pair_count,
+    -- Primary IAB content topic (TAGS_IAB[0] from DYN_CONTENT_API_LATEST; NULL if no URL match)
+    it.primary_iab_topic,
     -- Article performance vs company median (float: 0.15 = +15%; NULL if no benchmark)
     CASE
         WHEN b.pub_median_pvs > 0 AND b.total_pvs > 0
@@ -346,11 +422,6 @@ SELECT
         WHEN b.pub_median_pvs IS NOT NULL THEN 0
         ELSE NULL
     END::INTEGER AS is_hit,
-    -- Cluster aggregates
-    cs.cluster_article_count,
-    cs.cluster_hits,
-    cs.cluster_total_pvs,
-    cs.cluster_sum_of_medians,
     -- Cluster performance vs company median
     CASE
         WHEN cs.cluster_sum_of_medians > 0 AND cs.cluster_total_pvs > 0
@@ -363,19 +434,23 @@ SELECT
         THEN cs.cluster_hits::FLOAT / cs.cluster_article_count
         ELSE NULL
     END::FLOAT AS cluster_hit_rate,
-    -- Semantic similarity (cosine, 0–1) between articles sharing this cluster_id.
-    -- Derived from FULL_TEXT_VECTOR (768-dim) in DYN_CONTENT_API_LATEST.
-    -- NULL when cluster has < 2 articles with vectors (L&E pubs, very recent articles).
-    -- High value (> 0.85) = near-duplicate variants; low value (< 0.50) = possible
-    -- mis-grouped articles or highly differentiated coverage.
-    csim.cluster_avg_similarity,
-    csim.cluster_min_similarity,
-    csim.cluster_max_similarity,
-    csim.cluster_pair_count,
+    -- Author aggregates (across all tracker articles for this author)
+    aus.author_article_count,
+    aus.author_cluster_diversity,
+    aus.author_hit_count,
+    aus.author_hit_rate,
+    aus.author_avg_pvs,
+    aus.author_pv_stddev,
+    aus.author_avg_weekly_output,
+    asim.author_avg_sim_desc,
+    asim.author_avg_sim_first400w,
     CURRENT_TIMESTAMP() AS _modeled_at
 FROM base b
-LEFT JOIN cluster_stats cs   ON b.cluster_id = cs.cluster_id
+LEFT JOIN cluster_stats     cs   ON b.cluster_id = cs.cluster_id
 LEFT JOIN cluster_similarity csim ON b.cluster_id = csim.cluster_id
+LEFT JOIN iab_topics        it   ON b.ASSET_ID   = it.ASSET_ID
+LEFT JOIN author_stats      aus  ON b.AUTHOR     = aus.AUTHOR
+LEFT JOIN author_similarity asim ON b.AUTHOR     = asim.AUTHOR
 ORDER BY b._ROW_NUM
 """
 
