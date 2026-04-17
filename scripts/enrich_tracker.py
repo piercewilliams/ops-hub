@@ -105,6 +105,25 @@ LEGACY_COL_ALIASES = {
     "topic":                ["primary_iab_topic"],
 }
 
+# Columns that were previously written but have since been removed from OUTPUT_COLS.
+# Deleted from the sheet before each run so they don't persist as orphan columns.
+STALE_COLS = [
+    "cluster_avg_sim_first400w",
+    "cluster_min_sim_desc",
+    "cluster_max_sim_desc",
+    "cluster_min_sim_first400w",
+    "cluster_max_sim_first400w",
+    "cluster_pair_count",
+    "author_avg_sim_desc",
+    "author_avg_sim_first400w",
+    "author_article_count",
+    "author_cluster_diversity",
+    "author_hit_rate",
+    "author_avg_pvs",
+    "author_pv_stddev",
+    "author_avg_weekly_output",
+]
+
 
 # ── Google Sheets helpers ─────────────────────────────────────────────────────
 
@@ -1403,6 +1422,19 @@ def main():
     print("Computing cluster stats…")
     cluster_stats, batting_avg_str = compute_cluster_stats(
         rows, metrics, url_col, company_medians)
+
+    # Delete any stale columns (removed from OUTPUT_COLS) before resolving positions.
+    # Must delete right-to-left so earlier indices don't shift.
+    stale_indices = sorted(
+        [headers.index(c) for c in STALE_COLS if c in headers],
+        reverse=True,
+    )
+    if stale_indices:
+        for idx in stale_indices:
+            sheet.delete_columns(idx + 1)   # 1-based
+            print(f"  Deleted stale column '{headers[idx]}' at col {idx + 1}.")
+        # Re-fetch headers after deletion so resolve_column_positions sees the clean state.
+        headers = sheet.row_values(1)
 
     col_positions, new_headers, legacy_renames = resolve_column_positions(headers)
 
