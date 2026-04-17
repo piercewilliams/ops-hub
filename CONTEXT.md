@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-17 (human) — enrich_tracker.py productionized (14-col, 90% match); Snowflake schema documented in REFERENCE.md + data-cmstracker/REFERENCE.md; Chad Bruton Slack sent (key-pair auth); Sara + Sarah Slack sent; PINNED_ACTION added; cross-repo sync: PGS-170 DONE, PGS-67 CODE REVIEW added to COMPLETED_TASKS; P12/P2/P14/P18/P19 project cards updated; new contacts: Derek Knostman (revenue Snowflake), Julia Kim (PTECH-7730 PM).
+**Last session:** 2026-04-17 (human) — enrich_tracker.py fully productionized (14 col, 90% match, fully Pythonic/commented); Snowflake schema documented in REFERENCE.md + data-cmstracker/REFERENCE.md; Chad Bruton Slack sent (key-pair auth for headless run); Sara + Sarah Slack sent; Monday PINNED_ACTION live. PGS-170 DONE (WP 301 slug shipped to prod); PGS-67 CODE REVIEW (same day as PGS-17 unblock). New contacts: Ryan Spalding, Derek Knostman, Julia Kim. Sarah Price PV request resolved (same as enrich_tracker.py — no new build). Tarrow→Snowflake replacement registered as HIGH PRIORITY in P3. Full cross-repo sync complete (all 6 repos).
 **Status:** 21 active/tracked projects (P20 + P21 added). Compass goals submitted (Jeremy approval pending Apr 30).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -25,7 +25,7 @@ For session history: see [sessions/](sessions/)
 - **PGS-150 HOLD** (plagiarism — Copyscape recommended; RAG vs. open-web clarification pending).
 - **Sigma CSA dash (Deedra):** Simple version almost done. Await delivery.
 - **National portfolio canonical file:** `data/national-portfolio.js` — 13 brands, single source of truth for all API scoping.
-- Sync: **Automated** 3×/day (Mon–Fri) via scheduled sync agent.
+- Sync: **Manual** — open ops-hub session, update projects.js, commit + push.
 
 ## Features Live
 
@@ -61,7 +61,7 @@ For session history: see [sessions/](sessions/)
 | 15 | Partner Content / Inventory Optimization | 5 | In progress | Reuters RSS confirmed. AI vetting policy not drafted. Legal question unresolved. |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff (Sara, Sarah Price, Pierce, Kathy). |
 | 17 | Spanish CSA Pipeline | 5 | Not started | Waiting on Chris/Rajiv direction. |
-| 18 | Agentic Writing Helpers | 5 | In progress | /sarah-weekly-update delivered. Phase 2: append to same doc (queued). Sarah also wants PV auto-populate (clarify vs enrich_tracker scope). Next: Style Checker + pilot author. |
+| 18 | Agentic Writing Helpers | 5 | In progress | /sarah-weekly-update delivered. Phase 2: append to same doc (queued). Sarah PV request = same as enrich_tracker.py — resolved, no new build. Next: Style Checker + pilot author. |
 | 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test underway. Fri 2026-04-18 meeting with Sarah + Chris. Kat access denied — two-way comparison confirmed. Waiting on MAIA tab + tracking sheet. |
 | 20 | Experiences Vertical Content Test | 4 | In progress | Sara confirmed data usable 2026-04-16 — daily use starting. Feedback loop calibration ~May 2026. |
 | 21 | Mode 2 Trust & Editorial Risk Spike | 2 | In progress | PGS-189 — Oliver Felix assigned, Pierce tagged. Mode 2 silently adds content; trust/accuracy risk. PGS-150 HOLD pending Pierce criteria clarification. |
