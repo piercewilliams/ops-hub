@@ -89,15 +89,17 @@ OUTPUT_COLS = [
     # Primary IAB content topic (e.g. "Crime", "Pop Culture", "Sports")
     "primary_iab_topic",
     # Author aggregates (across all tracker articles for this author)
+    # avg_sim columns are parent-row only (see PARENT_ONLY_EXTRAS below)
     "author_article_count",
     "author_cluster_diversity",
     "author_hit_rate",
-    "author_avg_pvs",
-    "author_pv_stddev",
-    "author_avg_weekly_output",
     "author_avg_sim_desc",
     "author_avg_sim_first400w",
 ]
+
+# These extras columns are only meaningful on cluster parent rows.
+# Child rows get "" for these columns regardless of what TRACKER_ENRICHED returns.
+PARENT_ONLY_EXTRAS = {"author_hit_rate", "author_avg_sim_desc", "author_avg_sim_first400w"}
 
 # L&E publication domains — traffic lives in STORY_TRAFFIC_MAIN_LE keyed by
 # CANONICAL_URL, not in STORY_TRAFFIC_MAIN keyed by STORY_ID.
@@ -715,11 +717,28 @@ def _pct_color(val):
 def apply_median_colors(sheet, output_data, col_positions, first_output_col):
     """
     Color article_vs_co.median and cluster_vs_co.median cells in the sheet.
-    Groups contiguous same-color rows into ranges and fires one batchUpdate call.
+    First resets all output columns to white (prevents color bleed into newly
+    appended columns), then applies green/red only to the two target columns.
     """
-    target_cols = ["article_vs_co.median", "cluster_vs_co.median"]
-    sheet_id    = sheet.id
-    requests    = []
+    target_cols    = ["article_vs_co.median", "cluster_vs_co.median"]
+    sheet_id       = sheet.id
+    last_output_col = max(col_positions.values())
+    requests        = []
+
+    # Reset all output columns to white before applying targeted colors.
+    requests.append({
+        "repeatCell": {
+            "range": {
+                "sheetId":          sheet_id,
+                "startRowIndex":    1,
+                "endRowIndex":      len(output_data) + 1,
+                "startColumnIndex": first_output_col,
+                "endColumnIndex":   last_output_col + 1,
+            },
+            "cell":   {"userEnteredFormat": {"backgroundColor": _WHITE}},
+            "fields": "userEnteredFormat.backgroundColor",
+        }
+    })
 
     for col_name in target_cols:
         if col_name not in col_positions:
@@ -867,9 +886,14 @@ def write_output(sheet, rows, urls, metrics, cluster_stats, extras,
     # 5. Build output block and write in one range update
     output_data = []
     for i, (row, url) in enumerate(zip(rows, urls)):
-        key = normalize_url(url)
-        cs  = {k: v for k, v in cluster_stats.get(i, {}).items() if not k.startswith("_")}
-        m   = {**metrics.get(key, {}), **cs, **extras.get(key, {})}
+        key        = normalize_url(url)
+        cs         = {k: v for k, v in cluster_stats.get(i, {}).items() if not k.startswith("_")}
+        row_extras = dict(extras.get(key, {}))
+        # Blank parent-only extras on child rows (cluster_id == "" marks children)
+        if cs.get("cluster_id") == "":
+            for col in PARENT_ONLY_EXTRAS:
+                row_extras[col] = ""
+        m = {**metrics.get(key, {}), **cs, **row_extras}
 
         block = []
         for col_idx in range(first_output_col, last_output_col + 1):
