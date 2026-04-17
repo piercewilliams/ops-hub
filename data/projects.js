@@ -10,6 +10,7 @@
 // Remove when done. Keep ≤3 items — this is not a second todo list.
 // Format: { task: 'description', projectId: 'p##-slug' }
 export const PINNED_ACTIONS = [
+  { task: 'Every Monday: run enrich_tracker.py to refresh Sara\'s tracker — python3 scripts/enrich_tracker.py (until Snowflake key-pair auth is live with Chad Bruton)', projectId: 'p07-vallone-tracker' },
 ];
 
 export const COMPLETED_TASKS = [
@@ -342,6 +343,7 @@ export const PROJECTS = {
       'HOLD: EGS-127, rq-send-to-cue, and PGS-80 must land first',
     ],
     nextActions: [
+      'Follow up Chad Bruton on Snowflake key-pair auth — needed to automate enrich_tracker.py weekly run',
       'Monitor prerequisites — when all land, bring revised proposal to Chris',
     ],
     dependsOn: ['p6-taxonomy', 'p1-access'],
