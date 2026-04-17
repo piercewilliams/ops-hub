@@ -59,6 +59,67 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 
 ---
 
+## Snowflake Data Architecture
+
+**Account:** `wvb49304-mcclatchy_eval`
+**Auth (interactive):** `externalbrowser` — Okta SSO browser popup, one MFA per session
+**Auth (headless/scheduled):** RSA key-pair — Chad Bruton registers public key via `ALTER USER pierce.williams SET RSA_PUBLIC_KEY='...'`. Private key at `~/.credentials/snowflake_rsa_key.p8`. (Pending setup as of 2026-04-17.)
+**Role / warehouse:** `growth_and_strategy_role` / `growth_and_strategy_role_wh`
+
+### Databases
+
+| Database | Status | Contents |
+|----------|--------|----------|
+| `MCC_PRESENTATION` | **Active — use this** | Analytics/reporting layer; primary database for all Pierce work |
+| `MCC_AMPLITUDE` | Confirmed available, not yet directly queried | Amplitude event data (clicks, sessions, engagement) in Snowflake; Chad confirmed |
+| `MCC_CLEAN` | Available, not yet explored | Cleaned/processed data layer — likely intermediate between RAW and PRESENTATION |
+| `MCC_RAW` | Available, not yet explored | Raw ingest layer — source data before transformations |
+| `USER$PIERCE_WILLIAMS` | Personal | Pierce's personal Snowflake database (scratch space) |
+
+### MCC_PRESENTATION.TABLEAU_REPORTING — Tables
+
+**Used and mapped (enrich_tracker.py, 2026-04-16):**
+
+| Table | Key columns | Notes |
+|-------|-------------|-------|
+| `STORY_TRAFFIC_MAIN` | `STORY_ID`, `EVENT_DATE`, `ALL_PAGEVIEWS`, `SEARCH_PAGEVIEWS`, `SOCIAL_PAGEVIEWS`, `DIRECT_PAGEVIEWS`, `NEWSLETTER_PAGEVIEWS`, `APPLENEWS_PAGEVIEWS`, `SMARTNEWSAPP_PAGEVIEWS`, `NEWSBREAKAPP_PAGEVIEWS`, `SUBS_PAGEVIEWS` | National O&O traffic; one row per story per date; join to `DYN_STORY_META_DATA` via `STORY_ID = ID` |
+| `STORY_TRAFFIC_MAIN_LE` | `CANONICAL_URL`, `EVENT_DATE`, same PV channel columns | L&E pub traffic (Us Weekly, Woman's World, Life & Style); keyed by URL not STORY_ID |
+| `DYN_STORY_META_DATA` | `ID` (= STORY_ID), `URL`, `ASSET_TYPE`, author/SEO/keyword fields | Article metadata + URL↔ID bridge; filter `ASSET_TYPE IN ('storyline','story','wirestory')` |
+
+**In TABLEAU_REPORTING — confirmed relevant, not yet queried:**
+
+| Table | Likely contents | Why relevant |
+|-------|-----------------|--------------|
+| `DYN_STORY_FACTS_DETAIL_WITH_KPIS` | Per-article KPI detail — possibly richer than STORY_TRAFFIC_MAIN | Could surface engagement KPIs beyond PV (time on page, scroll depth, etc.) |
+| `DYN_CONTENT_API_LATEST` | Content API snapshot data | Possibly live article metadata (headline, author, keywords, publish date) — may overlap DYN_STORY_META_DATA |
+| `NEWSROOMPAGES` | Newsroom-level page metrics | Likely section/channel-level aggregates — useful for benchmark comparisons |
+| `CSA_CONTENT_TRACKER` | NOT Sara Vallone's tracker | Name is misleading — don't use as substitute; actual purpose unknown |
+
+**Revenue in Snowflake (confirmed 2026-04-16, Ryan Spalding's team):**
+- Direct sold: Naviga
+- Programmatic: GAM
+- Sigma dash: `STAR-Automation-3wA6q4da4CrVGCyhIMqk2E`
+- Not yet integrated into any Pierce scripts — next step after Ryan Spalding meeting (Mon 2026-04-20)
+
+### Key Join Patterns
+
+```sql
+-- National O&O: traffic + metadata
+STORY_TRAFFIC_MAIN t JOIN DYN_STORY_META_DATA m ON t.STORY_ID = m.ID
+
+-- Extract article ID from URL (7+ digit threshold avoids false matches)
+-- Python: re.search(r'article(\d{7,})', url)
+
+-- L&E: traffic by URL (no STORY_ID)
+STORY_TRAFFIC_MAIN_LE t WHERE RTRIM(t.CANONICAL_URL, '/') = <normalized_url>
+
+-- Always pass both https and http variants — scheme storage is inconsistent
+-- Company median benchmark window: EVENT_DATE >= '2025-10-01'
+-- Domain normalization: strip 'www.' and 'amp.' prefixes before comparing
+```
+
+---
+
 ## Quick Reference
 
 | Resource | Location |
@@ -126,6 +187,10 @@ Sync is **manual** — open ops-hub in a Claude Code session, update `data/proje
 | Patrick / Dar | Engineering (dev standup contacts for Amplitude event names) | — |
 | Regina | WordPress contact — needed for WordPress integration | — |
 | Rocky Rhodes | Snowflake/SEO data warehouse permissions contact; SEMrush API admin (allocated 250K credits to L&E; key sent to Sarah Price via Slack); reached out to SEMrush rep Julio re: credit consumption rates; also offered DataForSEO API as alternative | rrhodes@mcclatchy.com |
+| Ryan Spalding | Ad/revenue expert — direct sold (Naviga) + programmatic (GAM) revenue now confirmed in Snowflake. Owns STAR-Automation Sigma dash. Meeting Mon 2026-04-20 re: Market dimension of Recipe system. For deeper architecture questions on the revenue dataset, contact Derek Knostman. | — |
+| Derek Knostman | Data architect who built the revenue Snowflake dataset (Naviga + GAM). Technical architecture contact for the revenue data layer. Ryan Spalding is the domain contact; Derek is the build contact. | — |
+| Julia Kim | PM on PTECH-7730 (WordPress p-tagging fix) — Joe Vitali's dev group. Contact via Joe Vitali for ETA. | — |
+| Joe Vitali | Reuters provisioning contact (internal only — do not surface externally). Also point of contact for PTECH-7730 dev group (Julia Kim is PM). | — |
 | Eric | (with Chris) assessing United Robots business feasibility | — |
 
 ## Repositories

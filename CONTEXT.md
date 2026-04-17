@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-16 (human) — P18 agentic writing wishlist session complete; /sarah-weekly-update skill built + delivered to Sarah Price (Windows PC); PGS-82 → Code Review (bugs 1,2,4 + flags 1,2 fixed); PGS-67 → In Progress; PGS-170 → In QA; Sara Vallone confirmed Experiences data usable; Kat Sheplavy access denied → P19 proceeds as MAIA vs. TH native two-way comparison. **enrich_tracker.py complete (2026-04-16):** 1808/2002 URLs matched (90%), 11 traffic columns written to cols AA–AK of Sara's Google Sheet tracker.
+**Last session:** 2026-04-17 (human) — enrich_tracker.py productionized (14-col, 90% match); Snowflake schema documented in REFERENCE.md + data-cmstracker/REFERENCE.md; Chad Bruton Slack sent (key-pair auth); Sara + Sarah Slack sent; PINNED_ACTION added; cross-repo sync: PGS-170 DONE, PGS-67 CODE REVIEW added to COMPLETED_TASKS; P12/P2/P14/P18/P19 project cards updated; new contacts: Derek Knostman (revenue Snowflake), Julia Kim (PTECH-7730 PM).
 **Status:** 21 active/tracked projects (P20 + P21 added). Compass goals submitted (Jeremy approval pending Apr 30).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -14,14 +14,14 @@ For session history: see [sessions/](sessions/)
 - **Live at** `https://piercewilliams.github.io/ops-hub`
 - **v0.88 in production (2026-04-15).** PGS-134 + PGS-96 + PGS-115 DONE. Docker bug patching (Oliver + Marcelo). v0.89 target: 6 items.
 - **All 5 personas live as Team Target Audiences (2026-04-15):** Discover Browser + Science Enthusiast (Susannah); Curious Optimizer + Curious Explorer + Watercooler Insider (Pierce). PGS-133 ON HOLD.
-- **Snowflake orientation complete (2026-04-15):** story_traffic_main (O&O PV by story/market/date) + dynamic_story_metadata (author/URL/SEO/keywords) in MCC presentation schema. Amplitude in Snowflake (events prod). GitHub→Snowflake direct (Chad setting up). **Revenue now in Snowflake (2026-04-16):** direct sold (Naviga) + programmatic (GAM) — discrepancies resolved by Ryan Spalding's team. Sigma dash: STAR-Automation-3wA6q4da4CrVGCyhIMqk2E. Schedule time with Ryan next week. **enrich_tracker.py (2026-04-16):** 3-strategy Snowflake→Sheets enrichment script at scripts/enrich_tracker.py. Strategy 1 = article ID extraction from URL (covers national pubs); Strategy 2+3 = URL join via DYN_STORY_META_DATA + STORY_TRAFFIC_MAIN_LE. Run: python3 scripts/enrich_tracker.py. Note: CSA_CONTENT_TRACKER table in TABLEAU_REPORTING is NOT Sara's tracker.
+- **Snowflake fully mapped (2026-04-17):** Full schema documented in REFERENCE.md (this repo) + data-cmstracker/REFERENCE.md. Active tables: STORY_TRAFFIC_MAIN (national O&O), STORY_TRAFFIC_MAIN_LE (L&E), DYN_STORY_META_DATA (URL/ID bridge). Unexplored but relevant: DYN_STORY_FACTS_DETAIL_WITH_KPIS, DYN_CONTENT_API_LATEST, NEWSROOMPAGES, MCC_AMPLITUDE db, MCC_CLEAN db. Revenue (Naviga+GAM) confirmed in Snowflake — Ryan Spalding meeting Mon 2026-04-20. **enrich_tracker.py** at scripts/enrich_tracker.py — 14 columns, 90% match rate, runs manually each Monday until Chad Bruton key-pair auth is live.
 - **MAIA 14-day test started 2026-04-15** (~2026-04-29). Sara's teams log outputs; Pierce monitoring. Access + tracking sheet requested from Derek.
-- **Ticket status EOD 2026-04-16:** **PGS-82 CODE REVIEW** (Marcelo fixed bugs 1,2,4 + flags 1,2; Bug 3 deferred not a blocker; pending Efren/Cat UI approval); **PGS-104 IN QA** (Victor Suarez; Saner Keles transition confirmed 10:01am); **PGS-17 CODE REVIEW** (Daury PR, high priority); **PGS-67 IN PROGRESS** (Daury; unblocked by PGS-17); **PGS-170 IN QA** (Victor; WordPress 301 bug); PGS-62 epic 40% (PGS-68/69/72 Code Review; PGS-67 now active); PGS-111 CODE REVIEW; PGS-140 IN QA; PGS-150 ON HOLD; PGS-189 SELECTED FOR DEV; PTECH-7730 TO DO.
+- **Ticket status 2026-04-17:** **PGS-82 CODE REVIEW** (Marcelo fixed bugs 1,2,4 + flags 1,2; pending Efren/Cat UI approval); **PGS-104 IN QA** (Victor Suarez); **PGS-17 CODE REVIEW** (Daury PR, high priority); **PGS-67 CODE REVIEW** (Daury; unblocked 2026-04-16 → Code Review same day); **PGS-170 DONE** (WordPress 301 slug bug shipped to prod 2026-04-16); PGS-62 epic 40% (PGS-68/69/72 + PGS-67 all Code Review); PGS-111 CODE REVIEW; PGS-140 IN QA; PGS-150 ON HOLD; PGS-189 SELECTED FOR DEV; PTECH-7730 TO DO (Julia Kim PM).
 - **EGS-127 ticket 12828 in dev** (1 of 4-ticket epic). Marcelo leading.
 - **Rajiv on vacation.** Emil Penalo + Oliver Felix have prod merge authority. 2-PR process in effect.
 - **Gary (2026-04-16):** Off QA gate. Direct API integration dropped (vendor lock-in). Path forward: audit Gary's public resources, obtain code, propose internal replication to Chris + CSA eng.
 - **SEMrush pull paused** (Chris flagged logic flaw 2026-04-15). Rocky/Julio credit rate per endpoint pending before any automation.
-- **Q/Cue integration IN CODE REVIEW** (Daury, 31 files, 2026-04-13). WP 301 bug (PGS-170, Lauren Schuster) under investigation.
+- **Q/Cue integration IN CODE REVIEW** (Daury, 31 files, 2026-04-13). WP 301 bug (PGS-170) DONE — shipped to prod 2026-04-16.
 - **PGS-150 HOLD** (plagiarism — Copyscape recommended; RAG vs. open-web clarification pending).
 - **Sigma CSA dash (Deedra):** Simple version almost done. Await delivery.
 - **National portfolio canonical file:** `data/national-portfolio.js` — 13 brands, single source of truth for all API scoping.
@@ -55,14 +55,14 @@ For session history: see [sessions/](sessions/)
 | 9 | ~~PRD Revisions~~ | — | Done | V0.5 delivered 2026-04-10, distributed at CSA Weekly 2026-04-14. |
 | 10 | Gary Tools Integration | 2 | In progress | Direct API integration dropped (vendor lock-in). Pierce to audit Gary's public resources, obtain code, and propose internal replication to Chris + CSA eng. |
 | 11 | Recipes | 5 | Not started | Needs P4 + P2 + P6 + P14. |
-| 12 | United Robots Inbound Pipeline | 4 | Hold | **PGS-17 hold removed 2026-04-16 — now CODE REVIEW.** WP 301 bug (PGS-170). EGS-127 + PGS-80 still needed. |
+| 12 | United Robots Inbound Pipeline | 4 | Hold | PGS-17 + PGS-67 both CODE REVIEW. PGS-170 DONE (shipped 2026-04-16). EGS-127 + PGS-80 still needed. |
 | 13 | ~~System Prompts / Mode 1 & Mode 2~~ | — | Done | Closed 2026-04-03. |
 | 14 | SEMrush / Keyword Signal Layer | 4 | In progress | Prototype live. Pull paused (Chris logic flaw 2026-04-15). Rocky/Julio credit rate pending. |
 | 15 | Partner Content / Inventory Optimization | 5 | In progress | Reuters RSS confirmed. AI vetting policy not drafted. Legal question unresolved. |
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff (Sara, Sarah Price, Pierce, Kathy). |
 | 17 | Spanish CSA Pipeline | 5 | Not started | Waiting on Chris/Rajiv direction. |
-| 18 | Agentic Writing Helpers | 5 | In progress | Wishlist session done 2026-04-16 (11 pain points). /sarah-weekly-update skill built + delivered to Sarah Price (Windows). Next: Style Checker build (quick win) + pick pilot author with Sara. |
-| 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test underway. Kat access denied 2026-04-16 — two-way comparison (MAIA vs. TH native) confirmed. Waiting on MAIA tab + tracking sheet. |
+| 18 | Agentic Writing Helpers | 5 | In progress | /sarah-weekly-update delivered. Phase 2: append to same doc (queued). Sarah also wants PV auto-populate (clarify vs enrich_tracker scope). Next: Style Checker + pilot author. |
+| 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test underway. Fri 2026-04-18 meeting with Sarah + Chris. Kat access denied — two-way comparison confirmed. Waiting on MAIA tab + tracking sheet. |
 | 20 | Experiences Vertical Content Test | 4 | In progress | Sara confirmed data usable 2026-04-16 — daily use starting. Feedback loop calibration ~May 2026. |
 | 21 | Mode 2 Trust & Editorial Risk Spike | 2 | In progress | PGS-189 — Oliver Felix assigned, Pierce tagged. Mode 2 silently adds content; trust/accuracy risk. PGS-150 HOLD pending Pierce criteria clarification. |
 
@@ -94,8 +94,8 @@ For session history: see [sessions/](sessions/)
 - [ ] Every Friday: request Compass progress notes from Claude (per-goal, based on WINS.md)
 
 **Waiting — no Pierce action needed:**
-- Joe Vitali: PTECH-7730 ETA
-- Chad Bruton: GitHub→Snowflake setup
+- Joe Vitali: PTECH-7730 ETA (Julia Kim is PM)
+- Chad Bruton: GitHub→Snowflake setup + key-pair auth for enrich_tracker.py headless run
 - Rocky/Julio: SEMrush per-endpoint credit rates
 - Derek/Sara: MAIA tab access + tracking sheet (P19; Sara requested 2026-04-15)
 - Gary Kirwan: code access response (Jason + Rajiv discussing)

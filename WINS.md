@@ -8,11 +8,20 @@ Organized by ops-hub tier, reverse-chronological within each.
 
 ## Tier 1 — Foundation
 
+**2026-04-16 — PGS-170 DONE — WordPress URL slug bug shipped to production**
+The send-to-WordPress headline URL slug bug (variant name + date appended to slug → SEO-harmful 301 redirects) was diagnosed, fixed by Daury Caba, and shipped to production. Reported by Lauren Schuster. Removes the last reliability blocker on Send-to-WP for the United Robots inbound pipeline, which has been on hold in part because of this.
+
+**2026-04-16 — PGS-67 reached Code Review same day as PGS-17 unblock**
+PGS-17 (Send-to-Cue) hold was removed during the morning standup; by end of day, Daury Caba had PGS-67 (CSA ID forwarding to Cue — Snowflake + feedback loop fields) also in Code Review. 27+ days on hold → unblocked → Code Review in one day. Two of the most critical Feedback Loop epic dependencies advancing in parallel.
+
 **2026-04-16 — PGS-82 reached Code Review — variant similarity scoring unblocked**
 Marcelo Freitas fixed all five confirmed blockers (bugs 1, 2, 4 + flags 1, 2) on the variant similarity scoring ticket by EOD. Bug 3 deferred (not a blocker per Susannah). PGS-82 moved to Code Review at 12:03pm. Binary scoring design confirmed (okay/high-risk only). Once this clears UI approval, the differentiation scoring layer goes to production. Simultaneously: PGS-67 (CSA ID → Cue forwarding) moved to In Progress by Daury Caba — the feedback loop dependency unblocked by PGS-17's hold removal earlier today.
 
+**2026-04-17 — Snowflake tracker enrichment productionized + teammate services delivered**
+`enrich_tracker.py` finalized as production-quality, fully commented Python script (dead code removed, imports hoisted, logic decomposed into single-responsibility functions). Sent Slack to Sara Vallone + Sarah Price explaining the tool, its current status, and next steps — first time either teammate has a clear picture of what's available to them. For Sara: every article and cluster in her tracker now shows actual PVs by traffic channel plus % vs company median in Chris's exact format, refreshed each Monday. For Sarah Price: the batting average data in the tracker directly feeds the content performance analysis she presents in her weekly executive update to Britney — objective benchmarks now available without any manual Snowflake work. Auth automation request sent to Chad Bruton (Snowflake key-pair) — fully headless weekly Monday run is the target state.
+
 **2026-04-16 — /sarah-weekly-update skill built and delivered**
-Built a Claude Code skill that automates Sarah Price's National Team Weekly Update .docx — she uploads her Gemini notes and analytics report, invokes `/sarah-weekly-update`, and a fully formatted Word doc appears in her Downloads folder. Tested against 4 real files. Windows PC install instructions sent via Slack (Claude Code + Python + pip install python-docx + skill folder setup). Phase 2 (Google Drive watch + auto-populate) planned. This is the first concrete deliverable on the G4 sandbox toolkit commitment Chris Palo asked for.
+Built a Claude Code skill that automates Sarah Price's National Team Weekly Update .docx — she uploads her Gemini notes and analytics report, invokes `/sarah-weekly-update`, and a fully formatted Word doc appears in her Downloads folder. Tested against 4 real files. Windows PC install instructions sent via Slack (Claude Code + Python + pip install python-docx + skill folder setup). Phase 2 (Google Drive watch + auto-populate) planned. This is the first concrete deliverable on the G4 sandbox toolkit commitment Chris Palo asked for. Combined with enrich_tracker.py (2026-04-16/17), Sarah now has both ends of her reporting workflow assisted: raw data enriched automatically in the tracker → weekly update doc assembled automatically from that data.
 
 **2026-04-16 — P18 agentic writing wishlist session complete**
 Hosted the agentic writing helpers kickoff with Sara Vallone's team (11am CDT). Documented 11 pain points. Top priorities confirmed: style guide enforcement as a quick win (Samantha Agate; no Claude access required), variant differentiation (Ryan Brennan), and Cue upload/H2 automation as Allison Palmer's biggest time drain. Hard constraint documented: most writers lack Claude access — all tools must work without it. Style Checker identified as first build target. Notes live in write-assist/sessions/2026-04-16-wishlist-session.md.
@@ -224,6 +233,7 @@ Quantitative signals attributed to Pierce's projects, analysis, or contributions
 
 | Date | Metric | Value | Project / Source |
 |------|--------|-------|-----------------|
+| 2026-04-17 | Sara's tracker Snowflake match rate (first run) | 1,808 / 2,002 URLs = 90% | P7 Vallone Tracker · enrich_tracker.py |
 | 2026-04-07 | Cluster batting average (stories-per-cluster) | 1-in-3.3 (target was 1-in-4; pre-CSA was 1-in-5) | P6 Cluster/Taxonomy · Chris Palo |
 | 2026-04-07 | CSA processing time improvement (Rajiv perf fix) | 8.5 min → 1 min 18 sec on test runs | CSA dev team (Rajiv) |
 | 2026-04-09 | Weekly auto-ingest: smoke tests passing | 19/19 | P3 T1 Headlines |
@@ -263,5 +273,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-16 (P18 wishlist session; /sarah-weekly-update skill delivered; PGS-82 Code Review; PGS-82/67/170 Jira movements; Sara Experiences confirmed; Kat P19 two-way confirmed)*
+*Last updated: 2026-04-17 (PGS-170 DONE + PGS-67 CODE REVIEW added; enrich_tracker.py productionized; Snowflake schema documented; Sara + Sarah Slack sent; cross-repo sync complete; new contacts: Derek Knostman, Ryan Spalding, Julia Kim)*
 *Maintained by Claude. Updated proactively as work completes.*

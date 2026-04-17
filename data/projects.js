@@ -14,6 +14,8 @@ export const PINNED_ACTIONS = [
 ];
 
 export const COMPLETED_TASKS = [
+  { date: '2026-04-16', task: 'PGS-170 DONE — WordPress 301 bug (variant name + date appended to URL slug → SEO-harmful redirect) shipped to production. Lauren Schuster reported; Daury Caba fixed. Removes the last blocker on send-to-WP reliability for United Robots pipeline.', project: '#12 United Robots Inbound Pipeline' },
+  { date: '2026-04-16', task: 'PGS-67 (CSA ID forwarding to Cue) reached Code Review same day as PGS-17 hold removal. Daury Caba built the follow-on ticket (Snowflake + feedback loop fields) and moved to Code Review within hours of being unblocked. 27+ days on hold → unblocked → Code Review in one day.', project: '#2 Dashboard Instrumentation' },
   { date: '2026-04-16', task: 'enrich_tracker.py built and run. Python script reads Sara Vallone\'s content tracker (Google Sheet), queries Snowflake STORY_TRAFFIC_MAIN + STORY_TRAFFIC_MAIN_LE via three strategies (article ID extraction, DYN_STORY_META_DATA URL join, CANONICAL_URL lookup), and writes 11 columns (story_id, total/search/social/direct/newsletter/applenews/smartnews/newsbreak/subscriber_pvs, conversions) to cols AA–AK. Final match: 1808 / 2002 URLs (90%). Strategy 1 (article ID regex) added 455 rows over prior URL-only approach. Never overwrites existing columns to the left. Run: python3 scripts/enrich_tracker.py.', project: '#7 Vallone Tracker / CMS Automation' },
   { date: '2026-04-16', task: '/sarah-weekly-update skill built and delivered to Sarah Price. Claude Code skill that automates her National Team Weekly Update .docx: upload Gemini notes + analytics report, invoke the skill, receive a populated Word doc in Downloads. Tested against 4 real files (2 Gemini, 2 performance reports). Windows install instructions sent via Slack (Claude Code + Python + pip install python-docx + unzip skill to %USERPROFILE%\\.claude\\skills\\). Phase 2 (Google Drive watch + auto-populate) deferred to a future session. Delivers on G4 sandbox toolkit commitment Chris Palo requested.', project: '#18 Agentic Writing Helpers' },
   { date: '2026-04-16', task: 'P18 Agentic Writing Helpers wishlist session (11am CDT, Sara Vallone + team). Documented 11 pain points. Top priorities: style guide enforcement (quick win — Samantha Agate; no Claude access required); variant differentiation (Ryan Brennan — CSA copies paragraphs, writers re-do varianting); Cue upload + H2 automation (Allison Palmer — hours/week, repetitive); keyword gaps in subheads (Allison Palmer + Lauren Jarvis-Gibson); gallery research/drafting bottleneck (Hanna Wickes). Hard constraint confirmed: most writers lack Claude access — all tools must work without it. Notes: write-assist/sessions/2026-04-16-wishlist-session.md.', project: '#18 Agentic Writing Helpers' },
@@ -225,7 +227,8 @@ export const PROJECTS = {
     nextActions: [
       'Ask Chad: is Marfeel (Discover rate, batting average) data in Snowflake? If yes, Snowflake adapter covers it — no API key needed',
       'Monitor PTECH-7730 (p-tagging fix) — activates Amplitude adapter when done',
-      'PGS-62 Feedback Loop epic (40% done): architecture + Snowflake/Amplitude access + report definitions + queries all DONE. PGS-68/69/72 (Content Graph, Synthesis Engine, Reports UI prototypes) in Code Review. PGS-67 (CSA ID forwarding to Cue — critical content-linking dependency) IN PROGRESS (Daury; unblocked by PGS-17 hold removal today). PGS-66 (WordPress ID forwarding) still Backlog.',
+      'PGS-62 Feedback Loop epic (40% done): PGS-68/69/72 (Content Graph, Synthesis Engine, Reports UI prototypes) in Code Review. PGS-67 (CSA ID forwarding to Cue — critical content-linking dependency) also in Code Review as of 2026-04-16 (Daury; unblocked by PGS-17 same day). PGS-66 (WordPress ID forwarding) still Backlog.',
+      'Sarah Price request (2026-04-17): auto-populate "our manual tracker" with all-time PVs split by search/social — she referenced the TH-CSA-Dashboard Sigma tab. May overlap with enrich_tracker.py work (which already pulls all-time PVs with search/social split). Clarify whether this is the same tracker or a different one before building.',
       'PGS-82: CODE REVIEW as of 12:03pm 2026-04-16. Marcelo fixed bugs 1, 2, 4 + flags 1, 2 (confirmed blockers per Susannah). Bug 3 deferred (not a blocker). Binary scoring (okay/high-risk only) confirmed production design. Pending Efren/Cat UI approval before production.',
       'PGS-104: Fix deployed to staging this morning (Oliver); Jonathan checking fix today. Susannah: must ship today if PGS-82 can\'t. IN QA.',
       'PGS-150: Send Sara email (drafted 2026-04-16) + schedule criteria session with Chris — Susannah on HOLD',
@@ -278,12 +281,10 @@ export const PROJECTS = {
     compassGoal: 'G1 — Product Liaison & Pipeline Request Management',
     description: 'Use CSA to wrap and enrich United Robots\' automated wire content (sports, weather, elections) for McClatchy sites. Send-to-WP integration is live but unreliable until a headline URL slug bug is fixed. On hold pending cluster tagging, send-to-Cue integration, and analytics instrumentation.',
     blockers: [
-      'PGS-170 (Send-to-WP headline URL slug bug: variant name + date in slug → harms SEO). In QA as of 2026-04-16 (Victor Suarez).',
       'EGS-127 and PGS-80 must land before build starts',
     ],
     nextActions: [
-      'PGS-17 (Send-to-Cue): HOLD REMOVED 2026-04-16 — now CODE REVIEW. Daury\'s PR has core functionality without Snowflake fields. PGS-67 is follow-on for Snowflake + feedback loop. Monitor merge.',
-      'Monitor WordPress headline bug fix (Daury)',
+      'PGS-17 (Send-to-Cue): CODE REVIEW. Daury\'s PR has core functionality without Snowflake fields. PGS-67 (Snowflake + feedback loop) also in Code Review. Monitor both for merge.',
       'When prerequisites land (EGS-127, PGS-80, PGS-17): define working group + alert feed scope with Sara Vallone',
     ],
     dependsOn: ['p1-access'],
@@ -326,7 +327,8 @@ export const PROJECTS = {
     contacts: [
       { name: 'Rocky Rhodes', role: 'SEMrush admin; API key source; pinging Julio on per-endpoint credit rates; confirmed per-pub model 2026-04-15' },
       { name: 'Chad Bruton', role: 'Snowflake primary contact ("buck stops with me"). Setting up GitHub→Snowflake connection for dashboard.' },
-      { name: 'Ryan Spalding', role: 'Ad/revenue expert — direct sold (Naviga) + programmatic (GAM) revenue now in Snowflake as of 2026-04-15. Sigma dash: STAR-Automation-3wA6q4da4CrVGCyhIMqk2E. Meeting scheduled next week for Market dimension of Recipe system.' },
+      { name: 'Ryan Spalding', role: 'Ad/revenue expert — direct sold (Naviga) + programmatic (GAM) revenue now in Snowflake as of 2026-04-15. Sigma dash: STAR-Automation-3wA6q4da4CrVGCyhIMqk2E. Meeting Mon 2026-04-20 for Market dimension of Recipe system.' },
+      { name: 'Derek Knostman', role: 'Data architect who built the revenue Snowflake dataset (Naviga + GAM). Ryan Spalding is the domain contact; Derek is the technical architecture contact for deeper questions.' },
       { name: 'Allison Ciaccio', role: 'TH team — financial services expansion target (long-term)' },
     ],
   },
@@ -480,6 +482,8 @@ export const PROJECTS = {
       'Eval with Claude: rank all 11 pain points by impact × feasibility — produce prioritized order before Sara proposal',
       'Propose prioritized list to Sara Vallone — confirm ranking, calibrate to any special instructions or constraints Pierce doesn\'t have visibility into',
       'Pick pilot author from confirmed priorities; Samantha Agate (style enforcement) is current leading candidate',
+      'Phase 2 scoped (Sarah Price, 2026-04-17): she wants the weekly update to append to the same Google Doc rather than creating a new file each time — queue for next session',
+      'Sarah Price separate request (2026-04-17): auto-populate tracker with all-time PVs (search + social split). Clarify: is this the same ask as enrich_tracker.py or a different tracker? Resolve before building to avoid duplicate work.',
       'Verify input-length-to-output-length issue status with engineering — CSA output length currently pinned to input length; Pierce said it was raised and being addressed',
     ],
     dependsOn: ['p4-governance'],
@@ -509,6 +513,7 @@ export const PROJECTS = {
       'Pending add to Sara Vallone tracking sheet — Sara requested 2026-04-15',
     ],
     nextActions: [
+      'Fri 2026-04-18: meeting with Sarah Price + Chris Palo scheduled — MAIA validation is on the agenda. Prepare status update.',
       'Get access to MAIA tab + Sara\'s tracking sheet — begin monitoring once live (waiting on Sara/Derek)',
       'Kat access denied 2026-04-16 — proceed as MAIA vs. TH native two-way comparison (confirmed)',
       'At end of 14 days (~2026-04-29): analyze MAIA feedback by vertical; categorize failure modes (specificity / directionality / temporal / vertical mismatch)',
