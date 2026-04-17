@@ -90,16 +90,16 @@ OUTPUT_COLS = [
     "primary_iab_topic",
     # Author aggregates (across all tracker articles for this author)
     # avg_sim columns are parent-row only (see PARENT_ONLY_EXTRAS below)
+    # hit_rate/avg_pvs/avg_weekly_output live in the Trends author table, not here
     "author_article_count",
     "author_cluster_diversity",
-    "author_hit_rate",
     "author_avg_sim_desc",
     "author_avg_sim_first400w",
 ]
 
 # These extras columns are only meaningful on cluster parent rows.
 # Child rows get "" for these columns regardless of what TRACKER_ENRICHED returns.
-PARENT_ONLY_EXTRAS = {"author_hit_rate", "author_avg_sim_desc", "author_avg_sim_first400w"}
+PARENT_ONLY_EXTRAS = {"author_avg_sim_desc", "author_avg_sim_first400w"}
 
 # L&E publication domains — traffic lives in STORY_TRAFFIC_MAIN_LE keyed by
 # CANONICAL_URL, not in STORY_TRAFFIC_MAIN keyed by STORY_ID.
@@ -1195,7 +1195,7 @@ def _regenerate_trends_chart(spreadsheet, trends_ws, n_rows):
     print(f"  Chart {'replaced' if chart_ids else 'created'} on Trends tab.")
 
 
-def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers):
+def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=None):
     """
     Write/refresh a 'Trends' tab grouping article and cluster hit/miss counts by Week #,
     then regenerate the embedded line chart. Weeks with fewer than MIN_WEEK_SAMPLE
@@ -1290,6 +1290,53 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers):
         msg += f" ({skipped} excluded, <{MIN_WEEK_SAMPLE} articles)"
     print(msg + ".")
 
+    # ── Author performance table ──────────────────────────────────────────────
+    if extras:
+        author_col = next(
+            (i for i, h in enumerate(headers) if h.strip().lower() == "author"), None
+        )
+        if author_col is not None:
+            seen_authors = {}
+            for row, url in zip(rows, urls):
+                key    = normalize_url(url)
+                ex     = extras.get(key, {})
+                author = row[author_col].strip() if len(row) > author_col else ""
+                if not author or author in seen_authors or ex.get("author_hit_rate") is None:
+                    continue
+                seen_authors[author] = {
+                    "hit_rate":      ex["author_hit_rate"],
+                    "article_count": ex.get("author_article_count", ""),
+                    "avg_pvs":       ex.get("author_avg_pvs", ""),
+                    "weekly_output": ex.get("author_avg_weekly_output", ""),
+                }
+
+            if seen_authors:
+                sorted_authors = sorted(
+                    seen_authors.items(),
+                    key=lambda x: (x[1]["hit_rate"] or 0),
+                    reverse=True,
+                )
+                author_table = [[
+                    "Author", "Avg Weekly Output", "Avg PVs", "Hit Rate"
+                ]]
+                for author, s in sorted_authors:
+                    author_table.append([
+                        author,
+                        s["weekly_output"] if isinstance(s["weekly_output"], (int, float)) else "",
+                        round(s["avg_pvs"]) if isinstance(s["avg_pvs"], (int, float)) else "",
+                        s["hit_rate"] if isinstance(s["hit_rate"], (int, float)) else "",
+                    ])
+
+                author_start = len(table) + 3   # 2-row gap below weekly table
+                author_end   = author_start + len(author_table) - 1
+                trends.update(author_table, f"A{author_start}")
+
+                if len(author_table) > 1:
+                    pct_fmt = {"numberFormat": {"type": "PERCENT", "pattern": "0.0%"}}
+                    trends.format(f"D{author_start + 1}:D{author_end}", pct_fmt)
+
+                print(f"  Author table written: {len(seen_authors)} authors.")
+
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
@@ -1369,7 +1416,7 @@ def main():
     audit_rows(rows, urls, metrics, cluster_stats)
 
     print("Updating Trends tab…")
-    write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers)
+    write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras)
 
 
 if __name__ == "__main__":
