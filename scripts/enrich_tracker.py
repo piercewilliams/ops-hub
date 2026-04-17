@@ -1169,7 +1169,8 @@ def _regenerate_trends_chart(spreadsheet, trends_ws, n_rows):
                 },
                 "position": {
                     "overlayPosition": {
-                        "anchorCell": {"sheetId": sheet_id, "rowIndex": 0, "columnIndex": 9},
+                        # Anchor below the weekly data table (n_rows includes header row)
+                        "anchorCell": {"sheetId": sheet_id, "rowIndex": n_rows + 1, "columnIndex": 0},
                         "widthPixels":  700,
                         "heightPixels": 400,
                     }
@@ -1259,7 +1260,7 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=
         trends = sheet.spreadsheet.worksheet("Trends")
         trends.clear()
     except gspread.exceptions.WorksheetNotFound:
-        trends = sheet.spreadsheet.add_worksheet(title="Trends", rows=500, cols=12)
+        trends = sheet.spreadsheet.add_worksheet(title="Trends", rows=500, cols=20)
 
     trends.update(table, "A1")
 
@@ -1322,13 +1323,13 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=
                         s["hit_rate"] if isinstance(s["hit_rate"], (int, float)) else "",
                     ])
 
-                author_start = len(table) + 3   # 2-row gap below weekly table
-                author_end   = author_start + len(author_table) - 1
-                trends.update(author_table, f"A{author_start}")
+                # Author table starts at J1 — column I is the blank separator
+                trends.update(author_table, "J1")
 
                 if len(author_table) > 1:
+                    # Hit Rate is the 8th column (J=1st → Q=8th)
                     pct_fmt = {"numberFormat": {"type": "PERCENT", "pattern": "0.0%"}}
-                    trends.format(f"H{author_start + 1}:H{author_end}", pct_fmt)
+                    trends.format(f"Q2:Q{len(author_table)}", pct_fmt)
 
                 print(f"  Author table written: {len(seen_authors)} authors.")
 
