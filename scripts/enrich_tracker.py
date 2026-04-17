@@ -88,18 +88,11 @@ OUTPUT_COLS = [
     "cluster_pair_count",
     # Primary IAB content topic (e.g. "Crime", "Pop Culture", "Sports")
     "primary_iab_topic",
-    # Author aggregates (across all tracker articles for this author)
-    # avg_sim columns are parent-row only (see PARENT_ONLY_EXTRAS below)
-    # hit_rate/avg_pvs/avg_weekly_output live in the Trends author table, not here
-    "author_article_count",
-    "author_cluster_diversity",
-    "author_avg_sim_desc",
-    "author_avg_sim_first400w",
 ]
 
-# These extras columns are only meaningful on cluster parent rows.
-# Child rows get "" for these columns regardless of what TRACKER_ENRICHED returns.
-PARENT_ONLY_EXTRAS = {"author_avg_sim_desc", "author_avg_sim_first400w"}
+# All author aggregates live in the Trends tab author table, not in the main sheet.
+# Child rows get "" for these regardless of what TRACKER_ENRICHED returns.
+PARENT_ONLY_EXTRAS = set()
 
 # L&E publication domains — traffic lives in STORY_TRAFFIC_MAIN_LE keyed by
 # CANONICAL_URL, not in STORY_TRAFFIC_MAIN keyed by STORY_ID.
@@ -1309,6 +1302,8 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=
                     "cluster_diversity": ex.get("author_cluster_diversity", ""),
                     "avg_pvs":           ex.get("author_avg_pvs", ""),
                     "weekly_output":     ex.get("author_avg_weekly_output", ""),
+                    "avg_sim_desc":      ex.get("author_avg_sim_desc", ""),
+                    "avg_sim_first400w": ex.get("author_avg_sim_first400w", ""),
                 }
 
             if seen_authors:
@@ -1318,14 +1313,18 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=
                     reverse=True,
                 )
                 author_table = [[
-                    "Author", "Avg Weekly Output", "Avg PVs", "Cluster Diversity", "Hit Rate"
+                    "Author", "Articles", "Avg Weekly Output", "Avg PVs",
+                    "Cluster Diversity", "Avg Sim (Desc)", "Avg Sim (Body 400w)", "Hit Rate"
                 ]]
                 for author, s in sorted_authors:
                     author_table.append([
                         author,
+                        s["article_count"] or "",
                         s["weekly_output"] if isinstance(s["weekly_output"], (int, float)) else "",
                         round(s["avg_pvs"]) if isinstance(s["avg_pvs"], (int, float)) else "",
                         s["cluster_diversity"] or "",
+                        s["avg_sim_desc"] if isinstance(s["avg_sim_desc"], (int, float)) else "",
+                        s["avg_sim_first400w"] if isinstance(s["avg_sim_first400w"], (int, float)) else "",
                         s["hit_rate"] if isinstance(s["hit_rate"], (int, float)) else "",
                     ])
 
@@ -1335,7 +1334,7 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=
 
                 if len(author_table) > 1:
                     pct_fmt = {"numberFormat": {"type": "PERCENT", "pattern": "0.0%"}}
-                    trends.format(f"E{author_start + 1}:E{author_end}", pct_fmt)
+                    trends.format(f"H{author_start + 1}:H{author_end}", pct_fmt)
 
                 print(f"  Author table written: {len(seen_authors)} authors.")
 
