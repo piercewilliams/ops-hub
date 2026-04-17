@@ -15,6 +15,7 @@ export const PINNED_ACTIONS = [
 ];
 
 export const COMPLETED_TASKS = [
+  { date: '2026-04-18', task: 'tarrow_backfill.py built and live. Reads Tarrow Apple News (Publisher Article ID) + SmartNews (url) XLSX tabs, matches against Sara\'s tracker Published URL/Link, and fills empty Syndication platform cells (never overwrites). First run: 13 rows filled. Exports Tracker Template.xlsx for generate_site.py. Wired into weekly_ingest.yml: runs Tuesday after download_tarrow.py, before snowflake_enrich.py. Writes data/tarrow_backfill_report.json per run. Pipeline sequence is now: download → backfill → snowflake_enrich → generate_site → update_snapshots.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-17', task: 'CSA pipeline architecture visualization site built (csa-prd repo): 3-view toggle — Current State (8-step SVG flow with cascade coupling warning band and NOT BUILT grid), PRD Ideal (5-lane swimlane T1–T5 with shared Signal Layer / Quality Gates / Performance Tracking), Delta gap analysis. Visual language matches csa-dashboard. Push + Pages enable pending.', project: '#8 CSA Pipeline Architecture Mapping & Gap Analysis' },
   { date: '2026-04-17', task: 'CSA pipeline diagnostic document written (data-keywords/reports/csa_pipeline_diagnostic_2026-04-17.docx): 8-part analysis using Sully AI context engineering as primary audit lens. Maps 5 Sully AI principles against current CSA failure modes (PGS-98/104/82) and PRD required changes. Establishes architectural argument: cascade coupling = triage mountain per feature; PRD ideal = decoupled focused agents.', project: '#8 CSA Pipeline Architecture Mapping & Gap Analysis' },
   { date: '2026-04-18', task: 'Snowflake pipeline live end-to-end: ingest_tracker.py (Google Sheet → NATIONAL_CONTENT_TRACKER, 2035 rows) + model_tracker.py (TRACKER_ENRICHED with traffic KPIs, median benchmark, cluster aggregates) + GitHub Actions workflow (Monday 9am CDT, 22s total, first run clean). Gist shared with team explaining pipeline, Sigma unlocks for Sarah Price, and role-by-role workflow. Chad Bruton confirmed Google Sheet is transitional — model survives the CMS migration.', project: '#7 Vallone Tracker / CMS Automation' },
@@ -250,7 +251,6 @@ export const PROJECTS = {
     ],
     nextActions: [
       'Add SNOWFLAKE_RSA_KEY_B64 secret to data-headlines GitHub repo (Settings → Secrets → New) — same value as ops-hub secret. One-time setup; unlocks Tuesday snowflake_enrich.py CI run.',
-      'BUILD: tarrow_backfill.py — reads Tarrow XLSX (after Tue download), matches AN Publisher Article ID + SN url against tracker Published URL/Link; fills empty left-side cells only (Syndication Platform, Pub Date); never overwrites; runs before Tuesday ingest step.',
       'BUILD: Restructure generate_site.py to use Sara\'s tracker as the primary analysis universe — Tarrow syndication data joins in as enrichment where available, null where not. Enables full per-author headline analysis across all articles, not just syndicated ones.',
       'Once tracker-as-base is live: share formula × topic interaction findings with editorial leads + SmartNews formula trap with distribution team.',
     ],
