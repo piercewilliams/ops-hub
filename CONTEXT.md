@@ -45,7 +45,7 @@ For session history: see [sessions/](sessions/)
 |---|---------|------|--------|---------------------|
 | 1 | Platform Access & Training | 1 | In progress | All systems confirmed. **Pending:** GitHub→Snowflake (Chad), PTECH-7730 ETA (2026-04-16), Ryan Spalding eCPM. |
 | 2 | Dashboard Instrumentation | 4 | In progress | v0.88 live. PGS-82 Product Review (2 must-fix). PGS-104 back In Progress. PGS-140 In QA. PTECH-7730 blocks Amplitude adapter. |
-| 3 | T1 Headlines Analysis | 4 | In progress | 13 findings, daily grader, weekly ingest operational. Headline quality standards defined + eval tool live (Sara + Sarah Price satisfied). Author playbook upgrade blocked on Snowflake setup (Chad). |
+| 3 | T1 Headlines Analysis | 4 | In progress | 13 findings, daily grader, weekly ingest operational. **HIGH: Replace Tarrow data with Snowflake.** All ingest + grader + author playbooks currently on Tarrow (poor quality). Blocked on GitHub→Snowflake (Chad). |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | In progress | Synthesis layer: aggregates data-headlines + data-keywords + P2 instrumentation into circulated pipeline/product narratives. Tooling in active iteration. |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | All 5 personas live. PGS-104/111/135 in progress. Andy sign-off on Apple/SN templates still pending. |
 | 5 | Personas & Formats Testing | 5 | In progress | Needs P4 stable + EGS-127. |
@@ -85,6 +85,7 @@ For session history: see [sessions/](sessions/)
 - [ ] **Document sandbox base build** — Chris explicitly asked; package toolkit + guardrails so Chris + Sarah Price can replicate
 
 **G5 — Technical/Analytical:**
+- [ ] **Replace Tarrow data with Snowflake (HIGH PRIORITY)** — All data-headlines Tarrow dependencies (weekly ingest, grader, author playbooks, tracker_raw) must be replaced with direct Snowflake pulls. Tarrow is poor quality; Snowflake is the authoritative source. Gate: GitHub→Snowflake connection (Chad Bruton). Tables: STORY_TRAFFIC_MAIN + DYN_STORY_META_DATA.
 - [ ] **Mon 2026-04-20 3pm CDT — Ryan Spalding meeting** — review STAR-Automation Sigma dash; primary ask: access to underlying Snowflake data so revenue can feed into ops-hub/Recipe system Market dimension like other data sources; need agenda prep before meeting
 - [ ] **Follow up Rocky on Julio credit rates** — end of week if no response; blocks all SEMrush automation
 
