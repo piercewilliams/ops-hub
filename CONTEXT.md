@@ -99,7 +99,6 @@ For session history: see [sessions/](sessions/)
 **G6 — Tooling / Access:**
 - [ ] **Escalate Sigma creator permissions** — 3rd request to Dedra Lawhead still pending as of 2026-04-17. If not resolved by end of week of Apr 21, escalate to Chris directly.
 - [ ] **Joint tooling review** — Chris raised whether the group (Pierce, Sarah Price, Sara Vallone, Kathy) needs ClickUp or another tracking tool now that there are 2,000+ articles. Pierce's position: tooling is sufficient, permissions are the blocker. Schedule a brief discussion to align before any new tool purchase.
-- [ ] **Investigate Snowflake native semantic analysis** — Snowflake stores full article text in a `plain text` table and has a native embedding model for cosine similarity. Pierce proposed using it to validate/compare CSA's variant similarity scores. Chris: "I'm very curious." Investigate: (1) confirm `plain text` table is accessible; (2) run a sample similarity comparison against known variant pairs; (3) assess whether Snowflake embeddings are better than the current CSA diff checker for headline variance detection.
 
 **Waiting — no Pierce action needed:**
 - Deedra Lawhead: Sigma creator access for Pierce + Sarah Price (asked 2026-04-18) — gate on building TRACKER_ENRICHED workbook

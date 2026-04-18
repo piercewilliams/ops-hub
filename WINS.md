@@ -158,6 +158,9 @@ Clarified full cluster data model (Canonical ID = Cluster ID; articles are sibli
 
 ## Tier 4 — Build
 
+**2026-04-18 — Snowflake native semantic similarity integrated into tracker and TRACKER_ENRICHED**
+Snowflake's native embedding model (cosine similarity, `plain text` table storing full article text) incorporated into Sara's tracker and the TRACKER_ENRICHED data model. Produces variant similarity scores from the authoritative source — validates and improves on the CSA diff checker approach for detecting when variant headlines are insufficiently differentiated. Chris Palo had flagged headline variance as a recurring quality issue; this gives the team an objective, data-driven signal.
+
 **2026-04-15 — ops-hub dashboard quality infrastructure overhaul**
 PINNED_ACTIONS export added to projects.js — global priority override for Up next panel; pinned items always render first with ▲ marker and blue border, bypassing tier/status sort. check.sh extended with [Data quality] section: PINNED_ACTIONS count ≤3, done project completedDate + resolvedBlockers, active description ≤400 chars, no ticket numbers in descriptions (node-eval for accurate parsing). Git pre-commit hook installed — check.sh runs automatically on every commit with no manual step. CLAUDE.md: three new behavioral enforcement sections (Project Card Description Rules, PINNED_ACTIONS discipline, Completed Project Card Rules). P20 and P21 project cards added. 10 active project descriptions trimmed to ≤400 chars; ticket numbers cleared from 3 descriptions.
 
