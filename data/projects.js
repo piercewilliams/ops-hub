@@ -16,6 +16,8 @@ export const PINNED_ACTIONS = [
 ];
 
 export const COMPLETED_TASKS = [
+  { date: '2026-04-18', task: 'Sarah Price added to Ryan Spalding Monday meeting (2026-04-20 3pm CDT). Now a three-way discussion: Pierce + Chris Palo + Sarah Price + Ryan Spalding on eCPM data for content decisioning.', project: '#1 Platform Access & Training' },
+  { date: '2026-04-18', task: 'Trends tab week number display fixed in enrich_tracker.py. Chart now shows McClatchy fiscal week numbers correctly (aligned to 4-4-5 calendar periods starting on 4th day of year) rather than displaying out-of-order numerals. Chris Palo noticed the issue live on the call (2026-04-17).', project: '#7 Vallone Tracker / CMS Automation' },
   { date: '2026-04-18', task: 'Snowflake native semantic similarity scores built and integrated. Snowflake stores full CSA article text in a plain text table; native embedding model computes cosine similarity (truncates to 400 words — sufficient as an issue indicator). Outputs: per-article and per-cluster similarity scores written to Sara\'s tracker; secondary per-author scorecard table in Snowflake. Serves as a leading indicator of variant differentiation problems ahead of the CSA\'s upcoming diff detection capability.', project: '#2 Dashboard Instrumentation' },
   { date: '2026-04-18', task: 'tarrow_backfill.py built and live. Reads Tarrow Apple News (Publisher Article ID) + SmartNews (url) XLSX tabs, matches against Sara\'s tracker Published URL/Link, and fills empty Syndication platform cells (never overwrites). First run: 13 rows filled. Exports Tracker Template.xlsx for generate_site.py. Wired into weekly_ingest.yml: runs Tuesday after download_tarrow.py, before snowflake_enrich.py. Writes data/tarrow_backfill_report.json per run. Pipeline sequence is now: download → backfill → snowflake_enrich → generate_site → update_snapshots.', project: '#3 T1 Headlines Analysis' },
   { date: '2026-04-17', task: 'CSA pipeline architecture visualization site built (csa-prd repo): 3-view toggle — Current State (8-step SVG flow with cascade coupling warning band and NOT BUILT grid), PRD Ideal (5-lane swimlane T1–T5 with shared Signal Layer / Quality Gates / Performance Tracking), Delta gap analysis. Visual language matches csa-dashboard. Push + Pages enable pending.', project: '#8 CSA Pipeline Architecture Mapping & Gap Analysis' },
@@ -463,7 +465,7 @@ export const PROJECTS = {
     name: 'Recipes',
     owner: 'Pierce',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
-    description: 'Signal-driven configuration framework: Creator × Format × Topic × Market → Predictable Return. Market dimension = eCPM by publication (confirmed direction 2026-04-17 with Chris Palo). The goal is content placement decisioning — "creature features perform well in Sacramento AND Sacramento eCPM is high → publish there." Not a static spec; a learned prediction built as data infrastructure matures.',
+    description: 'Content creation decisioning layer: converges keyword signal, eCPM by publication, headline performance, and creator profile into a unified answer for "what to make and where to publish it." Complements Justin\'s Decision Engine (ad placement) — that handles distribution, this handles creation. Learned prediction built as constituent data infrastructure matures.',
     blockers: [
       'P4 persona governance must finalize the controlled format/persona set (P9 PRD complete — recipes concept defined as T3 pipeline layer)',
     ],

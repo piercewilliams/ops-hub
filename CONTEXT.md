@@ -98,9 +98,9 @@ For session history: see [sessions/](sessions/)
 
 **G6 — Tooling / Access:**
 - [ ] **Escalate Sigma creator permissions** — 3rd request to Dedra Lawhead still pending as of 2026-04-17. If not resolved by end of week of Apr 21, escalate to Chris directly.
-- [ ] **Joint tooling review** — Chris raised whether the group (Pierce, Sarah Price, Sara Vallone, Kathy) needs ClickUp or another tracking tool now that there are 2,000+ articles. Pierce's position: tooling is sufficient, permissions are the blocker. Schedule a brief discussion to align before any new tool purchase.
 
 **Waiting — no Pierce action needed:**
+- Chris Palo: schedule joint tooling review (Pierce, Sarah Price, Sara Vallone, Kathy) — whether ClickUp or new tracking tool is needed at 2,000+ articles. Pierce's position: tooling is fine, permissions are the bottleneck.
 - Deedra Lawhead: Sigma creator access for Pierce + Sarah Price (asked 2026-04-18) — gate on building TRACKER_ENRICHED workbook
 - Chad Bruton: reviewing TRACKER_ENRICHED model + Sigma hookup (this afternoon 2026-04-18)
 - Joe Vitali: PTECH-7730 ETA (Julia Kim is PM)
