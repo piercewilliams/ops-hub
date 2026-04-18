@@ -37,6 +37,7 @@ const STATUS_LABELS = {
  */
 export function renderDiagram(projects, onCardClick) {
   const container = document.getElementById('tiers-container');
+  if (!container) return;
   container.innerHTML = '';
 
   // Render each tier row in tier order

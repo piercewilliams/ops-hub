@@ -703,6 +703,9 @@ setInterval(fetchSyncStatus, SYNC_INTERVAL_MS);
 
 // ── CSA Tag Popover ───────────────────────────────────────────────────────────
 
+/** Tracks which .csa-tag button the popover is currently anchored to. */
+let _popoverAnchorTag = null;
+
 /**
  * Returns the #csa-popover element, creating and appending it to <body> if needed.
  * @returns {HTMLElement}
@@ -751,6 +754,7 @@ function showPopover(tag, data) {
 function hidePopover() {
   const pop = document.getElementById('csa-popover');
   if (pop) pop.classList.remove('visible');
+  _popoverAnchorTag = null;
 }
 
 // ── Event delegation ──────────────────────────────────────────────────────────
@@ -782,9 +786,9 @@ document.addEventListener('click', (e) => {
     e.stopPropagation();
     const pop = document.getElementById('csa-popover');
     // Toggle: clicking the same tag while popover is visible closes it
-    if (pop?.classList.contains('visible') && pop._lastTag === tag) {
+    if (pop?.classList.contains('visible') && _popoverAnchorTag === tag) {
       hidePopover();
-      pop._lastTag = null;
+      _popoverAnchorTag = null;
     } else {
       try {
         // data-csa is stored as percent-encoded JSON to safely handle any characters
@@ -792,7 +796,7 @@ document.addEventListener('click', (e) => {
       } catch {
         // Silently ignore malformed tag data
       }
-      if (pop) pop._lastTag = tag;
+      _popoverAnchorTag = tag;
     }
     return;
   }

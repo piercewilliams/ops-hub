@@ -1,6 +1,6 @@
 # Ops Hub — Project Registry & Dependency Map
 
-Visual project dashboard for Pierce's active work at McClatchy. Tracks 21 active projects across 6 repos with automatic dependency arrows, a live sync-status indicator, version history, and an accomplishments register.
+Visual project dashboard for Pierce's active work at McClatchy. Tracks active projects across 6 repos with automatic dependency arrows, a live sync-status indicator, version history, and an accomplishments register.
 
 **Live URL:** `https://piercewilliams.github.io/ops-hub`
 
@@ -206,8 +206,8 @@ ops-hub/
 ├── REFERENCE.md            # Stable facts: team, contacts, systems, architecture
 ├── sessions/               # Session logs (append-only archive)
 │   └── YYYY-MM.md
-├── WINS.md                 # Private accomplishments register (gitignored)
-├── sync-status.json        # Written by sync agent after each run (gitignored locally, pushed by agent)
+├── WINS.md                 # Accomplishments register — git-tracked; committed with every sync
+├── sync-status.json        # Legacy file; kept for compatibility, no longer written by sync
 └── CLAUDE.md               # Claude Code instructions for this repo
 ```
 
@@ -245,7 +245,7 @@ All repos use the `main` branch.
 ## WINS Register
 
 `WINS.md` tracks shipped work, analysis delivered, and stakeholder contributions. It is:
-- **Git-tracked** — committed and pushed to GitHub as part of every sync (not gitignored)
+- **Git-tracked** — committed and pushed to GitHub as part of every sync
 - **Auto-updated** — Claude updates it on every significant completion and every sync session, without being asked
 - **Tiered** — organized by impact tier; entries are cumulative, not session-by-session
 
@@ -257,8 +257,8 @@ To view: ask Claude "show me WINS.md" or open the file directly.
 
 Potential future additions (not scheduled):
 
-- **Amplitude integration** — blocked by p-tagging dev fix; once resolved, activate the adapter in `csa-dashboard`'s `ingest.js`
-- **Snowflake/Sigma integration** — once Sigma OAuth2 credentials land, activate the Sigma adapter
+- **Sigma CSA workbook** — Snowflake integration is live (`TRACKER_ENRICHED` in MCC_PRESENTATION); blocked on Sigma creator permissions (Dedra Lawhead) and Chad Bruton Sigma role grants
+- **Amplitude integration** — blocked by p-tagging dev fix (PTECH-7730); once resolved, activate the adapter in `csa-dashboard`'s `ingest.js`
 - **Per-project history view** — show status changes over time for a single project using snapshot diffing
 - **Mobile layout** — current layout requires a wide screen; responsive breakpoints would help on tablets
 

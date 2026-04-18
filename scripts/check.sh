@@ -167,6 +167,9 @@ fi
 # 8. Data quality
 echo ""
 echo "[ Data quality ]"
+# Disable set -e for the node block so a non-zero exit is captured in DQ_EXIT
+# rather than aborting the script before the summary can print.
+set +e
 node - <<'EOF'
 const fs = require('fs');
 const src = fs.readFileSync('data/projects.js', 'utf8');
@@ -240,6 +243,7 @@ if (ticketViolations.length === 0) {
 process.exitCode = failCount > 0 ? 1 : 0;
 EOF
 DQ_EXIT=$?
+set -e
 if [ $DQ_EXIT -ne 0 ]; then FAIL=$((FAIL+1)); fi
 
 # 9. Git status
