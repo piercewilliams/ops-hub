@@ -11,6 +11,7 @@
 // Format: { task: 'description', projectId: 'p##-slug' }
 export const PINNED_ACTIONS = [
   { task: 'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — review STAR-Automation Sigma dash; primary ask is Snowflake revenue data access for Market dimension of Recipe system.', projectId: 'p1-access' },
+  { task: 'Ping Chad Bruton: grant Data_Engineer_L + Data_Engineer_M Sigma connection roles SELECT on MCC_PRESENTATION.CONTENT_SCALING_AGENT.TRACKER_ENRICHED — needed to build Sarah Price workbook.', projectId: 'p1-access' },
   { task: 'Add SNOWFLAKE_RSA_KEY_B64 secret to data-headlines GitHub repo (Settings → Secrets) — same key as ops-hub. Required for Tuesday snowflake_enrich.py to run in CI.', projectId: 'p3-headlines' },
 ];
 
