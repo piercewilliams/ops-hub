@@ -16,6 +16,7 @@ export const PINNED_ACTIONS = [
 ];
 
 export const COMPLETED_TASKS = [
+  { date: '2026-04-17', task: 'Daily standup 2026-04-17: Dev team pausing new features to clear code review backlog (~37 PRs stuck in review). Strategy: small bug tickets first for quick wins; Friday exception for bug-only releases. PGS-82 → IN QA (Marcelo transitioned; Jonathan Gonzalvo testing). PGS-147 → IN QA (Saner transitioned; Daury Caba). PGS-170 root cause: httpx not following redirects by default in WordPress module — fixed with follow_redirects=True in 3 locations (Victor Suarez). National team tickets deferred to next week — showstopper bugs found, unsafe to release Friday. Send-to-Q: 40 min/story waste confirmed on record (Pierce + Kathryn). Daury confirmed send-to-Q staging/prod are separate environments; PR ready after BGS-82 closes. Efren Castillo demoed live CSA redesign prototype (Figma→HTML/CSS, GitHub Pages, ~90% Figma fidelity, design tokens + variables). Kathryn: schedule Efren consultation with Upstatement designer for sandbox environment creation.', project: '#2 Dashboard Instrumentation' },
   { date: '2026-04-18', task: 'Sarah Price added to Ryan Spalding Monday meeting (2026-04-20 3pm CDT). Now a three-way discussion: Pierce + Chris Palo + Sarah Price + Ryan Spalding on eCPM data for content decisioning.', project: '#1 Platform Access & Training' },
   { date: '2026-04-18', task: 'Trends tab week number display fixed in enrich_tracker.py. Chart now shows McClatchy fiscal week numbers correctly (aligned to 4-4-5 calendar periods starting on 4th day of year) rather than displaying out-of-order numerals. Chris Palo noticed the issue live on the call (2026-04-17).', project: '#7 Vallone Tracker / CMS Automation' },
   { date: '2026-04-18', task: 'Snowflake native semantic similarity scores built and integrated. Snowflake stores full CSA article text in a plain text table; native embedding model computes cosine similarity (truncates to 400 words — sufficient as an issue indicator). Outputs: per-article and per-cluster similarity scores written to Sara\'s tracker; secondary per-author scorecard table in Snowflake. Serves as a leading indicator of variant differentiation problems ahead of the CSA\'s upcoming diff detection capability.', project: '#2 Dashboard Instrumentation' },
@@ -234,11 +235,13 @@ export const PROJECTS = {
       'Monitor PTECH-7730 (p-tagging fix) — activates Amplitude adapter when done',
       'PGS-62 Feedback Loop epic (40% done): PGS-68/69/72 (Content Graph, Synthesis Engine, Reports UI prototypes) in Code Review. PGS-67 (CSA ID forwarding to Cue — critical content-linking dependency) also in Code Review as of 2026-04-16 (Daury; unblocked by PGS-17 same day). PGS-66 (WordPress ID forwarding) still Backlog.',
       'Sarah Price PV request (2026-04-17) — RESOLVED: same tracker as enrich_tracker.py. Already handled — no new build needed.',
-      'PGS-82: CODE REVIEW as of 12:03pm 2026-04-16. Marcelo fixed bugs 1, 2, 4 + flags 1, 2 (confirmed blockers per Susannah). Bug 3 deferred (not a blocker). Binary scoring (okay/high-risk only) confirmed production design. Pending Efren/Cat UI approval before production.',
-      'PGS-104: Fix deployed to staging this morning (Oliver); Jonathan checking fix today. Susannah: must ship today if PGS-82 can\'t. IN QA.',
+      'PGS-82: IN QA as of 2026-04-17 (Jonathan Gonzalvo). Marcelo transitioned. Binary scoring (okay/high-risk only) confirmed production design. National team launch targeting next week.',
+      'PGS-147 (Intro Length Requirement): IN QA as of 2026-04-17 (Daury Caba). Saner transitioned.',
+      'PGS-104: IN QA (Victor Suarez). PGS-17 (Send-to-Cue): CODE REVIEW (Daury). PGS-67 (CSA ID → Cue): CODE REVIEW (Daury).',
+      'PGS-148 IN PROGRESS (SEO Field Rules); PGS-141 IN PROGRESS (H1 Rules); PGS-135 CODE REVIEW (H1 Length Guidance); PGS-139 CODE REVIEW (internal dup content test + regen).',
+      'Dev team pausing new features to clear code review backlog (~37 PRs). Small bug exception for Friday releases only. Saner + Oliver + Emil leading review sprint.',
       'PGS-150: Send Sara email (drafted 2026-04-16) + schedule criteria session with Chris — Susannah on HOLD',
       'New: AI hallucination bug — Patrick Al Khouri debugging (CSA added "Ada County" content not in source). Saner creating ticket. Monitor.',
-      'Sarah Price: Monitor PGS-82 calibration threshold together — report suspected missed issues to group',
     ],
     dependsOn: ['p1-access'],
   },
