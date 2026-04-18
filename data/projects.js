@@ -236,6 +236,7 @@ export const PROJECTS = {
       'PGS-150: Send Sara email (drafted 2026-04-16) + schedule criteria session with Chris — Susannah on HOLD',
       'New: AI hallucination bug — Patrick Al Khouri debugging (CSA added "Ada County" content not in source). Saner creating ticket. Monitor.',
       'Sarah Price: Monitor PGS-82 calibration threshold together — report suspected missed issues to group',
+      'INVESTIGATE: Snowflake stores full article text in a "plain text" table and has a native embedding model for cosine similarity. Pierce surfaced this to Chris (2026-04-17) as a way to validate/compare CSA\'s variant similarity scores. Chris: "I\'m very curious." Steps: (1) confirm plain text table is accessible; (2) run sample similarity comparison on known variant headline pairs; (3) assess whether Snowflake embeddings are better than the current CSA diff checker.',
     ],
     dependsOn: ['p1-access'],
   },
@@ -313,6 +314,8 @@ export const PROJECTS = {
       'Rocky/Julio credit rate per endpoint not confirmed — Rocky pinging Julio 2026-04-15; required before any automation',
     ],
     nextActions: [
+      'Mon 2026-04-20 Ryan Spalding meeting: PRIMARY ASK — get eCPM by publication as the confirmed Market dimension input for this tool. Ask Ryan which eCPM number to use (OM tab = Open Market only; loaded = includes Canadex/Tiboula/Kinetics/PMP — use whatever number the revenue team uses internally). Chris was explicit: don\'t decide, just ask Ryan.',
+      'Once eCPM number is confirmed: wire eCPM by pub as a ranking signal in data-keywords — surfacing not just "does the topic have traffic?" but "which pub should we prioritize given eCPM?" This is the Market dimension of the Recipe system.',
       'FEEDBACK LOOP (end of Sara Vallone Experiences experiment, ~2026-05): Check which of the 4 topics she published on and which she skipped — including topics we rated SKIP (Solo Dining) and GO HARD (Landmarks, 5-Day Travel, Road Trips). Cross-check against actual article performance in those domains. Use results to calibrate GO HARD / SKIP thresholds and verdict logic in data-keywords tool.',
       'Confirm which pub + vertical for Rocky\'s first per-publication rerun — financial services discussed, pub not locked. Rocky confirmed per-pub model 2026-04-15.',
       'Follow up with Rocky end of week if no Julio credit rate response.',
@@ -415,10 +418,11 @@ export const PROJECTS = {
     description: 'LTV model for content assets — cost + value per asset, evergreen vs. transient weighting. Chris Palo Q2 milestone. Build internally first, then integrate data team. Exclude unavailable sources (e.g. MSN) rather than imputing.',
     blockers: [
       'Kickoff meeting not yet scheduled (Chris scheduling)',
-      'Revenue data from Justin needed for validation',
+      'Revenue data from Ryan Spalding/Snowflake needed for validation — Monday meeting is the gate',
     ],
     nextActions: [
       'Attend kickoff — Chris scheduling with Sara Vallone, Sarah Price, Kathy, Pierce',
+      'Note: Decision Engine (Justin\'s team) handles ad placement/revenue optimization at the distribution layer. This project is the content creation decisioning layer — what to make, not where ads go. Complementary systems.',
       'Provide statistical input on evergreen/transient weighting',
     ],
     dependsOn: ['p3-headlines'],
@@ -459,7 +463,7 @@ export const PROJECTS = {
     name: 'Recipes',
     owner: 'Pierce',
     compassGoal: 'G2 — Editorial Standards & Voice Guidelines',
-    description: 'Signal-driven configuration framework that maps creator profile, content category, and distribution target to a predictable content return — specifying which persona × format × topic × market combination maximizes expected performance. Not a static spec; a learned prediction built as data infrastructure (persona governance, taxonomy, keyword signal, performance data) matures.',
+    description: 'Signal-driven configuration framework: Creator × Format × Topic × Market → Predictable Return. Market dimension = eCPM by publication (confirmed direction 2026-04-17 with Chris Palo). The goal is content placement decisioning — "creature features perform well in Sacramento AND Sacramento eCPM is high → publish there." Not a static spec; a learned prediction built as data infrastructure matures.',
     blockers: [
       'P4 persona governance must finalize the controlled format/persona set (P9 PRD complete — recipes concept defined as T3 pipeline layer)',
     ],
