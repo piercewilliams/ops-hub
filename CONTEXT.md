@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-18 (human) — Snowflake data model complete: `ingest_tracker.py` (Google Sheet → NATIONAL_CONTENT_TRACKER, 2035 rows, headless), `model_tracker.py` (CTAS → TRACKER_ENRICHED in CONTENT_SCALING_AGENT, traffic + benchmark + cluster aggregates, Chad reviewing). `SNOWFLAKE.md` canonical reference created. Chad confirmed Google Sheet is transitional — CMS/CSA will own tracking within weeks/months. Earlier same session: enrich_tracker.py cell coloring + Trends tab + chart auto-regeneration. **Automated sync: 2026-04-17 22:18 UTC — no changes detected.**
+**Last session:** 2026-04-18 (human) — `tarrow_backfill.py` built + wired into CI (13 rows filled on first run). Hanna WIckes double-entry fixed in source + both generator scripts. `snowflake_discovery2.py` M.HEADLINE → M.TITLE fix. Sigma grant for TRACKER_ENRICHED blocked — pinned for Monday. **PVs/Tracker meeting (Apr 17) fully processed:** cluster PV threshold updated ~6K→~9K; eCPM decisioning framework clarified; Ryan Spalding meeting confirmed with Chris + Sarah Price; defunct pubs (First for Women, Soaps in Depth, InTouch) flagged for scrub; McClatchy 4-4-5 fiscal calendar week-number discrepancy noted. Earlier same session: Snowflake data model complete (ingest_tracker.py + model_tracker.py + SNOWFLAKE.md). **Automated sync: 2026-04-17 22:18 UTC — no changes detected.**
 **Status:** 21 active/tracked projects (P20 + P21 added). Compass goals submitted (Jeremy approval pending Apr 30).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
@@ -45,7 +45,7 @@ For session history: see [sessions/](sessions/)
 |---|---------|------|--------|---------------------|
 | 1 | Platform Access & Training | 1 | In progress | All systems confirmed. **Pending:** GitHub→Snowflake (Chad), PTECH-7730 ETA (2026-04-16), Ryan Spalding eCPM. |
 | 2 | Dashboard Instrumentation | 4 | In progress | v0.88 live. PGS-82 Product Review (2 must-fix). PGS-104 back In Progress. PGS-140 In QA. PTECH-7730 blocks Amplitude adapter. |
-| 3 | T1 Headlines Analysis | 4 | In progress | 13 findings, daily grader, weekly ingest operational. **HIGH: Replace Tarrow data with Snowflake.** All ingest + grader + author playbooks currently on Tarrow (poor quality). Blocked on GitHub→Snowflake (Chad). |
+| 3 | T1 Headlines Analysis | 4 | In progress | 13 findings, daily grader, weekly ingest + tarrow_backfill.py operational. **HIGH: Replace Tarrow data with Snowflake.** Blocked on GitHub→Snowflake (Chad). Pending: scrub defunct pubs (First for Women, Soaps in Depth, InTouch); verify Week # / McClatchy 4-4-5 calendar alignment. |
 | 3.5 | Content Analysis / Narrative Dashboard | 5 | In progress | Synthesis layer: aggregates data-headlines + data-keywords + P2 instrumentation into circulated pipeline/product narratives. Tooling in active iteration. |
 | 4 | Article Format + Persona + Keyword Governance | 4 | In progress | All 5 personas live. PGS-104/111/135 in progress. Andy sign-off on Apple/SN templates still pending. |
 | 5 | Personas & Formats Testing | 5 | In progress | Needs P4 stable + EGS-127. |
@@ -62,7 +62,7 @@ For session history: see [sessions/](sessions/)
 | 16 | LTV Model | 5 | Not started | Chris scheduling kickoff (Sara, Sarah Price, Pierce, Kathy). |
 | 17 | Spanish CSA Pipeline | 5 | Not started | Waiting on Chris/Rajiv direction. |
 | 18 | Agentic Writing Helpers | 5 | In progress | /sarah-weekly-update delivered. Phase 2: append to same doc (queued). Sarah PV request = same as enrich_tracker.py — resolved, no new build. Next: Style Checker + pilot author. |
-| 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test underway. Fri 2026-04-18 meeting with Sarah + Chris. Kat access denied — two-way comparison confirmed. Waiting on MAIA tab + tracking sheet. |
+| 19 | MAIA Trend Tool Validation | 4 | In progress | 14-day test underway. Fri 2026-04-18 meeting with Sarah + Chris done — MAIA validated as useful signal but not a replacement for editorial judgment. Kat access denied — two-way comparison confirmed. Waiting on MAIA tab + tracking sheet. |
 | 20 | Experiences Vertical Content Test | 4 | In progress | Sara confirmed data usable 2026-04-16 — daily use starting. Feedback loop calibration ~May 2026. |
 | 21 | Mode 2 Trust & Editorial Risk Spike | 2 | In progress | PGS-189 — Oliver Felix assigned, Pierce tagged. Mode 2 silently adds content; trust/accuracy risk. PGS-150 HOLD pending Pierce criteria clarification. |
 
@@ -87,7 +87,9 @@ For session history: see [sessions/](sessions/)
 **G5 — Technical/Analytical:**
 - [ ] **Mon 2026-04-20: Ping Chad Bruton** — grant `Data_Engineer_L` + `Data_Engineer_M` Sigma roles SELECT on `MCC_PRESENTATION.CONTENT_SCALING_AGENT.TRACKER_ENRICHED`. Both connections visible in Sigma but schema not exposed. Needed before Sarah Price workbook can be built.
 - [ ] **Replace Tarrow data with Snowflake (HIGH PRIORITY)** — All data-headlines Tarrow dependencies (weekly ingest, grader, author playbooks, tracker_raw) must be replaced with direct Snowflake pulls. Tarrow is poor quality; Snowflake is the authoritative source. Gate: GitHub→Snowflake connection (Chad Bruton). Tables: STORY_TRAFFIC_MAIN + DYN_STORY_META_DATA.
-- [ ] **Mon 2026-04-20 3pm CDT — Ryan Spalding meeting** — review STAR-Automation Sigma dash; primary ask: access to underlying Snowflake data so revenue can feed into ops-hub/Recipe system Market dimension like other data sources; need agenda prep before meeting
+- [ ] **Mon 2026-04-20 3pm CDT — Ryan Spalding meeting** — Chris Palo + Sarah Price joining. Three asks: (1) eCPM by publication as Snowflake data for Recipe system Market dimension; (2) clarify which eCPM number to use — OM tab vs loaded (two different numbers surfaced 2026-04-17); (3) partner contact inbound — Chris flagged this as hardest AI application; wants Ryan's view from a revenue/cost angle.
+- [ ] **Scrub defunct publications** — Remove First for Women, Soaps in Depth, InTouch from `data/national-portfolio.js` and all data-headlines pipeline references (AUTHOR_VERTICAL, any hardcoded pub lists).
+- [ ] **Verify Week # alignment** — Tracker Week # column may not align with McClatchy 4-4-5 fiscal calendar (weeks start on 4th of year, not Jan 1 like Google). Confirm before any week-based analysis or reporting.
 
 **Compass:**
 - [ ] Jeremy Gockel approval — must reach "Track Goals" status by **April 30, 2026**
@@ -122,14 +124,17 @@ For session history: see [sessions/](sessions/)
 
 **Syndication ecosystems:** App-based captured (Apple News, SmartNews, Newsbreak) — LTV=0, pure PV increment. Web-based competitive (Yahoo, O&O) — standard CTR/PV dynamics. Do NOT commingle in analytics.
 **LTV=0 for syndication:** PV delta only — no subscriber conversion. Every syndication slot = incremental PVs on top of O&O.
-**Cluster batting average:** 1-in-3.3 as of 2026-04-07 (target 1-in-4, before CSA: 1-in-5). Q2 metrics: 3× output; $85/asset cost; 500K PV goal; 5–8% long-term traffic lift.
+**Cluster batting average:** 1-in-3.3 as of 2026-04-07 (target 1-in-4, before CSA: 1-in-5). Q2 metrics: 3× output; $85/asset cost; 500K PV goal; 5–8% long-term traffic lift. **PV cost-recovery threshold: ~9,000 PVs** (Sarah Price recalculated 2026-04-17 with current eCPM data; prior figure was ~6,000).
 **Headline vs. article:** Headline = click acquisition (syndication surface). Article = retention/subscriber conversion. Analytically distinct — do not conflate.
 **Political data:** Justin's/Dedra's macro dashboards are separate from Pierce's CSA statistical testing layer.
 **Context engineering over iteration (Sully AI, 2026-04-16):** Chris Palo shared whitepaper — decomposed, focused agents outperform iterative correction loops. Applying: each CSA quality gate (keyword validation, fact-check, brand-fit, format compliance, headline gen, SEO metadata, diff check) should be a separate focused agent. Deterministic elements (facts, attribution) = human sign-off gate; probabilistic (optimization, scoring) = AI judgment. "Prompt quality becomes load-bearing" — format templates, persona files, and keyword specs are engineering infrastructure. Parallel focused agents = enrichment layer completes in slowest single agent's time, not sum. Validates our architecture direction.
 **Purpose-driven pipelines (2026-04-10):** Every pipeline has an explicit purpose — engagement, revenue, acquisition, or other. Purpose may vary at the asset level within a pipeline (e.g. core TH asset = drive app clickthroughs; bottom-tier variants = acquire new readers). CPA is a cost-center signal, not the goal. OKRs differ per pipeline.
 **Distribution channels (2026-04-10):** O&O, Trend Hunter app, Syndication, TBTV (future). Each has a different value calculation. Syndication = avenue, not focus.
 **Inclination Engine (2026-04-10):** Named concept — sole future input for automated signals and trend unit brief generation. Feeds T1/T2 pipelines without human initiation. Not yet built. Needs PRD section.
-**CPA breakeven reference (2026-04-10):** ~$85 asset cost → 6,156 PVs to cover cost (ECPM data from Chris). Reference only — do not specify in PRD.
+**CPA breakeven reference (2026-04-10):** ~$85 asset cost → ~9,000 PVs to cover cost (Sarah Price recalculated 2026-04-17 with current eCPM data; earlier figure was 6,156). Reference only — do not specify in PRD.
+**eCPM as content decisioning signal (2026-04-17):** Audience growth (PVs) is the primary goal. eCPM is a tiebreaker: when two publications offer equal volume opportunity, take the higher eCPM pub. Do not let eCPM displace PV-growth primacy.
+**Optimized Value vs LTV (2026-04-17):** Syndication adds optimization value (incremental cash on top of existing O&O audience) — not lifetime value. These are analytically distinct. Syndication slots = cash flow optimization, not subscriber conversion.
+**McClatchy 4-4-5 fiscal calendar:** Fiscal weeks start on the 4th calendar day of the year, not January 1. Week numbers in McClatchy data will not match Google Calendar or ISO week numbering. Always reconcile before week-based analysis.
 **Recipe system (2026-04-12):** Creator × Format × Topic × Market → Predictable Return. Before committing pipeline capacity, configure the four dimensions. data-keywords = Topic layer (keyword signal; is the opportunity there?). CSA = Format layer. Inclination Engine = Creator layer (future). Snowflake/Sigma = Market layer (eCPM by site). Full canonical reference: `RECIPE.md` in ops-hub.
 **Cluster (precise definition, 2026-04-12):** Canonical article + analytically-determined variants. Predictive output of the analytics signal. NOT synonymous with topic, vertical, or keyword group. Cluster ID = Canonical ID.
 

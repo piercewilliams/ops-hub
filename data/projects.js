@@ -10,7 +10,7 @@
 // Remove when done. Keep ≤3 items — this is not a second todo list.
 // Format: { task: 'description', projectId: 'p##-slug' }
 export const PINNED_ACTIONS = [
-  { task: 'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — review STAR-Automation Sigma dash; primary ask is Snowflake revenue data access for Market dimension of Recipe system.', projectId: 'p1-access' },
+  { task: 'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — Chris Palo + Sarah Price joining. Three asks: (1) eCPM by pub as Snowflake data for Recipe system Market dimension; (2) clarify OM vs loaded eCPM number; (3) partner contact inbound — Chris flagged for revenue angle.', projectId: 'p1-access' },
   { task: 'Ping Chad Bruton: grant Data_Engineer_L + Data_Engineer_M Sigma connection roles SELECT on MCC_PRESENTATION.CONTENT_SCALING_AGENT.TRACKER_ENRICHED — needed to build Sarah Price workbook.', projectId: 'p1-access' },
   { task: 'Add SNOWFLAKE_RSA_KEY_B64 secret to data-headlines GitHub repo (Settings → Secrets) — same key as ops-hub. Required for Tuesday snowflake_enrich.py to run in CI.', projectId: 'p3-headlines' },
 ];
@@ -144,7 +144,7 @@ export const PROJECTS = {
     ],
     blockers: [],
     nextActions: [
-      'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — review STAR-Automation Sigma dash; primary ask is access to underlying Snowflake tables so revenue data can feed Market dimension of Recipe system. Note: Derek Knostman architected the Naviga + GAM revenue dataset.',
+      'Mon 2026-04-20 3pm CDT: Ryan Spalding meeting — Chris Palo + Sarah Price joining. Three asks: (1) eCPM by pub as Snowflake data for Recipe Market dimension; (2) clarify OM tab vs loaded eCPM number (two different values surfaced 2026-04-17); (3) partner contact inbound — Chris wants Ryan\'s revenue/cost angle. Derek Knostman architected the Naviga + GAM revenue dataset.',
       'Contact Chad Bruton to set up GitHub → Snowflake direct connection for dashboard adapter.',
       'Monitor PTECH-7730 (p-tagging fix) — dev group assigned, Julia Kim PM; wait for ETA from Joe Vitali',
     ],
@@ -253,6 +253,9 @@ export const PROJECTS = {
     nextActions: [
       'Add SNOWFLAKE_RSA_KEY_B64 secret to data-headlines GitHub repo (Settings → Secrets → New) — same value as ops-hub secret. One-time setup; unlocks Tuesday snowflake_enrich.py CI run.',
       'BUILD: Restructure generate_site.py to use Sara\'s tracker as the primary analysis universe — Tarrow syndication data joins in as enrichment where available, null where not. Enables full per-author headline analysis across all articles, not just syndicated ones.',
+      'Scrub defunct publications — remove First for Women, Soaps in Depth, InTouch from national-portfolio.js and all data-headlines pipeline references (AUTHOR_VERTICAL dict, any hardcoded pub lists).',
+      'Verify tracker Week # alignment with McClatchy 4-4-5 fiscal calendar — weeks start on 4th day of calendar year, not Jan 1. Resolve before any week-based analysis.',
+      'Headline diff checker: needs sophistication beyond character-level diff — action verb changes, required name inclusions. Build criteria list over time rather than a single algorithm.',
       'Once tracker-as-base is live: share formula × topic interaction findings with editorial leads + SmartNews formula trap with distribution team.',
     ],
     dependsOn: ['p1-access'],
@@ -393,6 +396,7 @@ export const PROJECTS = {
       'Once Kathy engages: quick audit of top 5 feeds — identify PV/story by vendor',
       'Monitor Field Level vs Minute Media placement performance as baseline',
       'Co-develop AI vetting policy with Chris + Kathryn Sheldon',
+      'Partner contact inbound (AI application): Chris flagged this as hardest area to tackle with AI (2026-04-17). Raise with Ryan Spalding Mon meeting — Chris wants to explore from a money/revenue standpoint.',
       'Low priority: once legal question resolves, cost out partner content fact-checker',
     ],
     dependsOn: [],
@@ -484,6 +488,7 @@ export const PROJECTS = {
       'Phase 2 scoped (Sarah Price, 2026-04-17): she wants the weekly update to append to the same Google Doc rather than creating a new file each time — queue for next session',
       'Sarah Price PV request (2026-04-17) — RESOLVED: same tracker as enrich_tracker.py. Already handled — enrich_tracker.py writes all-time PVs with search/social split to Sara\'s tracker on each Monday run. No new build needed.',
       'Verify input-length-to-output-length issue status with engineering — CSA output length currently pinned to input length; Pierce said it was raised and being addressed',
+      'Ryan Brennan (Sara\'s team) uses Claude for headline diversification — share this tip with broader Trend Hunter team as a quick win without needing new tooling.',
     ],
     dependsOn: ['p4-governance'],
     contacts: [
