@@ -135,7 +135,7 @@ def main():
     # platform views (large) or click-throughs (small)
     cur.execute("""
         SELECT
-            m.HEADLINE,
+            m.TITLE AS HEADLINE,
             m.URL,
             t.APPLENEWS_PAGEVIEWS,
             t.SMARTNEWSAPP_PAGEVIEWS,
