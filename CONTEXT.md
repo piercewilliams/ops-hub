@@ -85,6 +85,7 @@ For session history: see [sessions/](sessions/)
 - [ ] **Document sandbox base build** — Chris explicitly asked; package toolkit + guardrails so Chris + Sarah Price can replicate
 
 **G5 — Technical/Analytical:**
+- [ ] **Mon 2026-04-20: Ping Chad Bruton** — grant `Data_Engineer_L` + `Data_Engineer_M` Sigma roles SELECT on `MCC_PRESENTATION.CONTENT_SCALING_AGENT.TRACKER_ENRICHED`. Both connections visible in Sigma but schema not exposed. Needed before Sarah Price workbook can be built.
 - [ ] **Replace Tarrow data with Snowflake (HIGH PRIORITY)** — All data-headlines Tarrow dependencies (weekly ingest, grader, author playbooks, tracker_raw) must be replaced with direct Snowflake pulls. Tarrow is poor quality; Snowflake is the authoritative source. Gate: GitHub→Snowflake connection (Chad Bruton). Tables: STORY_TRAFFIC_MAIN + DYN_STORY_META_DATA.
 - [ ] **Mon 2026-04-20 3pm CDT — Ryan Spalding meeting** — review STAR-Automation Sigma dash; primary ask: access to underlying Snowflake data so revenue can feed into ops-hub/Recipe system Market dimension like other data sources; need agenda prep before meeting
 
