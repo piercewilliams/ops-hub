@@ -10,6 +10,8 @@ Reads from:
     MCC_PRESENTATION.TABLEAU_REPORTING.STORY_TRAFFIC_MAIN_LE       (L&E traffic)
     MCC_PRESENTATION.TABLEAU_REPORTING.DYN_STORY_META_DATA         (URL↔STORY_ID bridge)
     MCC_PRESENTATION.TABLEAU_REPORTING.DYN_CONTENT_API_LATEST      (full-text + description vectors, IAB tags)
+    MCC_RAW.STORY_DATA.PUBLISHED_STORIES                           (article access type: Free/Metered/Sub-Only)
+    MCC_AMPLITUDE.AMPLITUDE.EVENTS_412949                          (Yahoo News platform reads)
 
 Writes to:
     MCC_PRESENTATION.CONTENT_SCALING_AGENT.TRACKER_ENRICHED
@@ -105,7 +107,7 @@ tracker AS (
             ELSE SPLIT_PART(SPLIT_PART(LOWER(PUBLISHED_URL), '//', 2), '/', 1)
         END AS article_domain,
         -- Article ID extracted from URL (national O&O: .../article314923832.html)
-        REGEXP_SUBSTR(PUBLISHED_URL, 'article(\\\\d{7,})', 1, 1, 'e', 1) AS url_story_id
+        REGEXP_SUBSTR(PUBLISHED_URL, 'article([0-9]{7,})', 1, 1, 'e', 1) AS url_story_id
     FROM MCC_RAW.GROWTH_AND_STRATEGY.NATIONAL_CONTENT_TRACKER
     WHERE PUBLISHED_URL IS NOT NULL AND TRIM(PUBLISHED_URL) != ''
       AND PUBLISHED_URL NOT LIKE '%/wp-admin/%'
@@ -133,7 +135,9 @@ national_traffic AS (
         SUM(APPLENEWS_PAGEVIEWS)    AS applenews_pvs,
         SUM(SMARTNEWSAPP_PAGEVIEWS) AS smartnews_pvs,
         SUM(NEWSBREAKAPP_PAGEVIEWS) AS newsbreak_pvs,
-        SUM(SUBS_PAGEVIEWS)         AS subscriber_pvs
+        SUM(SUBS_PAGEVIEWS)         AS subscriber_pvs,
+        SUM(AMP_ARTICLE_PAGEVIEWS)  AS amp_pvs,
+        SUM(NEWSLETTER_PAGEVIEWS)   AS newsletter_pvs
     FROM MCC_PRESENTATION.TABLEAU_REPORTING.STORY_TRAFFIC_MAIN
     GROUP BY STORY_ID
 ),
@@ -149,12 +153,27 @@ le_traffic AS (
         SUM(APPLENEWS_PAGEVIEWS)    AS applenews_pvs,
         SUM(SMARTNEWSAPP_PAGEVIEWS) AS smartnews_pvs,
         SUM(NEWSBREAKAPP_PAGEVIEWS) AS newsbreak_pvs,
-        SUM(SUBS_PAGEVIEWS)         AS subscriber_pvs
+        SUM(SUBS_PAGEVIEWS)         AS subscriber_pvs,
+        NULL::INTEGER               AS amp_pvs,
+        NULL::INTEGER               AS newsletter_pvs
     FROM MCC_PRESENTATION.TABLEAU_REPORTING.STORY_TRAFFIC_MAIN_LE
     GROUP BY RTRIM(CANONICAL_URL, '/')
 ),
 
--- ── 5. Company median per domain (Oct 2025+ benchmark, Chris Palo method) ───
+-- ── 5. Yahoo News platform reads (Amplitude, event_type='yahoo_news_ingest') ─
+-- Each event records page_view_count views for a single article on Yahoo News.
+-- cms_id format: "Story:314936583" — extract numeric ID to join on STORY_ID.
+yahoo_traffic AS (
+    SELECT
+        REGEXP_SUBSTR(EVENT_PROPERTIES:cms_id::VARCHAR, '[0-9]+')::BIGINT AS story_id,
+        SUM(EVENT_PROPERTIES:page_view_count::INTEGER)                   AS yahoo_pvs
+    FROM MCC_AMPLITUDE.AMPLITUDE.EVENTS_412949
+    WHERE EVENT_TYPE = 'yahoo_news_ingest'
+      AND EVENT_PROPERTIES:cms_id IS NOT NULL
+    GROUP BY 1
+),
+
+-- ── 7. Company median per domain (Oct 2025+ benchmark, Chris Palo method) ───
 domain_article_totals AS (
     SELECT
         CASE
@@ -183,7 +202,7 @@ company_medians AS (
     HAVING COUNT(*) >= 10
 ),
 
--- ── 6. Assemble per-article row ──────────────────────────────────────────────
+-- ── 8. Assemble per-article row ──────────────────────────────────────────────
 base AS (
     SELECT
         t.ASSET_ID,
@@ -226,6 +245,9 @@ base AS (
         COALESCE(nt.smartnews_pvs, le.smartnews_pvs, 0)::INTEGER AS smartnews_pvs,
         COALESCE(nt.newsbreak_pvs, le.newsbreak_pvs, 0)::INTEGER AS newsbreak_pvs,
         COALESCE(nt.subscriber_pvs,le.subscriber_pvs,0)::INTEGER AS subscriber_pvs,
+        COALESCE(nt.amp_pvs,       0)::INTEGER                   AS amp_pvs,
+        COALESCE(nt.newsletter_pvs,0)::INTEGER                   AS newsletter_pvs,
+        COALESCE(yh.yahoo_pvs,     0)::INTEGER                   AS yahoo_pvs,
         cm.median_pvs AS pub_median_pvs
     FROM tracker t
     -- strategy 2: URL join to DYN_STORY_META_DATA
@@ -238,13 +260,19 @@ base AS (
     -- strategy 3: L&E traffic
     LEFT JOIN le_traffic le
         ON t.pub_url_norm = le.canonical_url AND t.is_le
+    -- Yahoo News platform reads (Amplitude-sourced, STORY_ID join)
+    LEFT JOIN yahoo_traffic yh
+        ON COALESCE(t.url_story_id, mi.meta_story_id)::BIGINT = yh.story_id
+        AND NOT t.is_le
     -- benchmark
     LEFT JOIN company_medians cm ON t.article_domain = cm.domain
 ),
 
--- ── 7. Content vectors (DYN_CONTENT_API_LATEST, URL join) ───────────────────
+-- ── 9. Content vectors (DYN_CONTENT_API_LATEST, URL join) ───────────────────
 -- FULL_TEXT_VECTOR:       article body (first ~400 words; model truncates longer articles)
 -- DESCRIPTION_SEO_VECTOR: SEO meta description (~150-300 chars; no truncation risk)
+-- QUALIFY deduplicates: tracker may have 2 rows per ASSET_ID (parent+child in same cluster);
+-- joining both to the same DYN_CONTENT_API_LATEST row would create phantom cluster pairs.
 article_vectors AS (
     SELECT
         t.ASSET_ID,
@@ -255,9 +283,10 @@ article_vectors AS (
     JOIN MCC_PRESENTATION.TABLEAU_REPORTING.DYN_CONTENT_API_LATEST c
         ON RTRIM(LOWER(t.PUBLISHED_URL), '/') = RTRIM(LOWER(c.SOURCE_URL), '/')
     WHERE c.FULL_TEXT_VECTOR IS NOT NULL OR c.DESCRIPTION_SEO_VECTOR IS NOT NULL
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY t.ASSET_ID ORDER BY t._ROW_NUM) = 1
 ),
 
--- ── 8. Pairwise cosine similarity within clusters ────────────────────────────
+-- ── 10. Pairwise cosine similarity within clusters ───────────────────────────
 -- Self-join (a.ASSET_ID < b.ASSET_ID) produces each pair once.
 -- Each similarity is NULL when either article in the pair is missing that vector.
 cluster_pairs AS (
@@ -274,7 +303,7 @@ cluster_pairs AS (
         ON a.cluster_id = b.cluster_id AND a.ASSET_ID < b.ASSET_ID
 ),
 
--- ── 9. Cluster similarity aggregates ─────────────────────────────────────────
+-- ── 11. Cluster similarity aggregates ────────────────────────────────────────
 cluster_similarity AS (
     SELECT
         cluster_id,
@@ -289,7 +318,7 @@ cluster_similarity AS (
     GROUP BY cluster_id
 ),
 
--- ── 10. Cluster-level traffic aggregates ─────────────────────────────────────
+-- ── 12. Cluster-level traffic aggregates ─────────────────────────────────────
 cluster_stats AS (
     SELECT
         cluster_id,
@@ -302,9 +331,11 @@ cluster_stats AS (
     GROUP BY cluster_id
 ),
 
--- ── 11. Primary IAB topic (DYN_CONTENT_API_LATEST.TAGS_IAB[0], URL join) ─────
+-- ── 13. Primary IAB topic (DYN_CONTENT_API_LATEST.TAGS_IAB[0], URL join) ─────
 -- TAGS_IAB is an array of IAB taxonomy labels (e.g. ["Crime","Law","News"]).
--- First element is taken as the primary topic; NULL if no tags or no URL match.
+-- QUALIFY deduplicates: same root cause as article_vectors — tracker rows with duplicate
+-- ASSET_IDs joining to one DYN_CONTENT_API_LATEST row would make iab_topics multi-row
+-- per ASSET_ID, causing 2x multiplication in the final LEFT JOIN on b.ASSET_ID.
 iab_topics AS (
     SELECT
         t.ASSET_ID,
@@ -313,9 +344,10 @@ iab_topics AS (
     JOIN MCC_PRESENTATION.TABLEAU_REPORTING.DYN_CONTENT_API_LATEST c
         ON RTRIM(LOWER(t.PUBLISHED_URL), '/') = RTRIM(LOWER(c.SOURCE_URL), '/')
     WHERE c.TAGS_IAB IS NOT NULL AND ARRAY_SIZE(c.TAGS_IAB) > 0
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY t.ASSET_ID ORDER BY t._ROW_NUM) = 1
 ),
 
--- ── 12. Author aggregates ──────────────────────────────────────────────────────
+-- ── 15. Author aggregates ─────────────────────────────────────────────────────
 -- hit_rate / hit_count computed only over articles with a valid benchmark;
 -- article_count and cluster_diversity include all articles.
 author_stats AS (
@@ -338,7 +370,7 @@ author_stats AS (
     GROUP BY AUTHOR
 ),
 
--- ── 13. Author avg similarity across their clusters ────────────────────────────
+-- ── 16. Author avg similarity across their clusters ──────────────────────────
 -- Mean of each cluster's average similarity across all clusters the author contributed to.
 author_similarity AS (
     SELECT
@@ -349,6 +381,28 @@ author_similarity AS (
     JOIN cluster_similarity csim ON b.cluster_id = csim.cluster_id
     WHERE b.AUTHOR IS NOT NULL AND TRIM(b.AUTHOR) != ''
     GROUP BY b.AUTHOR
+),
+
+-- ── 14. Article access type (Free / Metered / Sub-Only) ──────────────────────
+-- Source: MCC_RAW.STORY_DATA.PUBLISHED_STORIES — the CMS-authoritative snapshot.
+-- PUBLISHED_STORIES has 8.4M rows for 2.4M distinct STORY_IDs (multiple versions per
+-- story as it gets updated). We take the most recent version per STORY_ID.
+-- Values: Free, Metered, Sub-Only, Free (Automatic), Sub-Only (Automatic), NULL.
+-- NOTE: MCC_CLEAN.AMPLITUDE.ARTICLE_ACCESS_TYPE uses a different STORY_ID namespace
+-- (not the McClatchy CMS numeric ID) and cannot be used for this join.
+article_access AS (
+    SELECT STORY_ID, ACCESS_TYPE AS access_type
+    FROM (
+        SELECT
+            STORY_ID,
+            ACCESS_TYPE,
+            ROW_NUMBER() OVER (PARTITION BY STORY_ID ORDER BY LAST_MODIFIED DESC NULLS LAST) AS rn
+        FROM MCC_RAW.STORY_DATA.PUBLISHED_STORIES
+        WHERE ACCESS_TYPE IS NOT NULL AND ACCESS_TYPE != ''
+          AND ACCESS_TYPE IN ('Free', 'Metered', 'Sub-Only',
+                              'Free (Automatic)', 'Sub-Only (Automatic)')
+    )
+    WHERE rn = 1
 )
 
 -- ── Final output ─────────────────────────────────────────────────────────────
@@ -393,6 +447,9 @@ SELECT
     b.smartnews_pvs,
     b.newsbreak_pvs,
     b.subscriber_pvs,
+    b.amp_pvs,
+    b.newsletter_pvs,
+    b.yahoo_pvs,
     b.pub_median_pvs,
     -- Cluster aggregates
     cs.cluster_article_count,
@@ -410,6 +467,8 @@ SELECT
     csim.cluster_pair_count,
     -- Primary IAB content topic (TAGS_IAB[0] from DYN_CONTENT_API_LATEST; NULL if no URL match)
     it.primary_iab_topic,
+    -- Article access type (Free / Paywalled) from Amplitude; NULL if no event coverage
+    aa.access_type AS article_access_type,
     -- Article performance vs company median (float: 0.15 = +15%; NULL if no benchmark)
     CASE
         WHEN b.pub_median_pvs > 0 AND b.total_pvs > 0
@@ -451,6 +510,7 @@ LEFT JOIN cluster_similarity csim ON b.cluster_id = csim.cluster_id
 LEFT JOIN iab_topics        it   ON b.ASSET_ID   = it.ASSET_ID
 LEFT JOIN author_stats      aus  ON b.AUTHOR     = aus.AUTHOR
 LEFT JOIN author_similarity asim ON b.AUTHOR     = asim.AUTHOR
+LEFT JOIN article_access    aa   ON TRY_TO_NUMBER(b.story_id) = aa.STORY_ID
 ORDER BY b._ROW_NUM
 """
 
