@@ -1319,11 +1319,17 @@ def write_trends_tab(sheet, rows, urls, metrics, cluster_stats, headers, extras=
             (i for i, h in enumerate(headers) if h.strip().lower() == "author"), None
         )
         if author_col is not None:
+            _AUTHOR_ALIASES = {
+                "Hanna WIckes":         "Hanna Wickes",
+                "Lauren J-G":           "Lauren JG",
+                "Lauren Jarvis-Gibson": "Lauren JG",
+            }
             seen_authors = {}
             for row, url in zip(rows, urls):
                 key    = normalize_url(url)
                 ex     = extras.get(key, {})
-                author = row[author_col].strip() if len(row) > author_col else ""
+                raw    = row[author_col].strip() if len(row) > author_col else ""
+                author = _AUTHOR_ALIASES.get(raw, raw)
                 if not author or author in seen_authors or ex.get("author_hit_rate") is None:
                     continue
                 def _f(v):
