@@ -84,8 +84,7 @@ OUTPUT_COLS = [
     "topic",
 ]
 
-# No parent-only extras currently in use.
-PARENT_ONLY_EXTRAS = set()
+PARENT_ONLY_EXTRAS = {"cluster_avg_sim_desc"}
 
 # L&E publication domains — traffic lives in STORY_TRAFFIC_MAIN_LE keyed by
 # CANONICAL_URL, not in STORY_TRAFFIC_MAIN keyed by STORY_ID.
