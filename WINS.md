@@ -17,6 +17,12 @@ PGS-17 (Send-to-Cue) hold was removed during the morning standup; by end of day,
 **2026-04-16 — PGS-82 reached Code Review — variant similarity scoring unblocked**
 Marcelo Freitas fixed all five confirmed blockers (bugs 1, 2, 4 + flags 1, 2) on the variant similarity scoring ticket by EOD. Bug 3 deferred (not a blocker per Susannah). PGS-82 moved to Code Review at 12:03pm. Binary scoring design confirmed (okay/high-risk only). Once this clears UI approval, the differentiation scoring layer goes to production. Simultaneously: PGS-67 (CSA ID → Cue forwarding) moved to In Progress by Daury Caba — the feedback loop dependency unblocked by PGS-17's hold removal earlier today.
 
+**2026-04-19 — data-headlines Tarrow pipeline fully replaced with Snowflake automation**
+`snowflake_enrich.py` expanded to 31-column pull from TRACKER_ENRICHED (added `yahoo_pvs`, `amp_pvs`, `newsletter_pvs`, `article_access_type`, `publication_date`, `vertical`, cluster stats, `article_domain`). `generate_site.py` now generates fully from Snowflake when Tarrow XLSX absent — `_build_sf_an_2026()` builds synthetic 2026 Apple News DataFrame using O&O `total_pvs`. Six guarded KeyErrors and one empty-array crash hardened. `weekly_ingest.yml` rescheduled Monday 2pm CDT (was Tuesday), fully Snowflake-driven (no Tarrow dependency). Full pipeline tested both WITH and WITHOUT 2026 XLSX — clean both paths.
+
+**2026-04-19 — Snowflake TRACKER_ENRICHED pipeline completed end-to-end (70 cols, TRACKER_WEEKLY)**
+Full pipeline verified end-to-end: ingest (2,108 rows) → model (1,943 rows, 70 cols) → enrich (1,907 matched) → snapshot (TRACKER_WEEKLY). `article_domain` propagated through entire stack: `model_tracker.py` base CTE + final SELECT, `snapshot_tracker.py` INSERT/SELECT lists, `create_tracker_weekly.py` DDL, and `TRACKER_WEEKLY` `ALTER TABLE`. `SNOWFLAKE.md` written as comprehensive 17-section canonical reference (account/auth, all databases, 69-column TRACKER_ENRICHED reference, SQL patterns/quirks, known limitations, how to add new sources).
+
 **2026-04-18 — tarrow_backfill.py: Syndication platform auto-fill from Tarrow data**
 `tarrow_backfill.py` built and wired into the Tuesday CI pipeline. Reads Apple News (`Publisher Article ID`) and SmartNews (`url`) columns from Tarrow's XLSX, matches against Sara's tracker `Published URL/Link`, and fills empty `Syndication platform` cells — never overwrites existing values. First run filled 13 rows. Handles AN-only, SN-only, and dual-platform ("Apple News, Smart News") correctly. Exports updated tracker as `Tracker Template.xlsx` for `generate_site.py`. Writes `data/tarrow_backfill_report.json` each run. Fully idempotent. Position in Tuesday pipeline: `download_tarrow.py` → **`tarrow_backfill.py`** → `snowflake_enrich.py` → `generate_site.py` → `update_snapshots.py`.
 
@@ -294,5 +300,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-17 (CSA pipeline diagnostic document + GitHub Pages visualization site built; cascade coupling architectural argument established)*
+*Last updated: 2026-04-19 (Snowflake pipeline end-to-end verified, 70-col TRACKER_ENRICHED + TRACKER_WEEKLY; data-headlines Tarrow pipeline replaced with Snowflake automation)*
 *Maintained by Claude. Updated proactively as work completes.*

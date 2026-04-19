@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-17 standup + EOD Jira sync — PGS-82 → IN QA (Marcelo); PGS-147 → IN QA (Daury); national team launch pushed to next week; dev team pausing features to clear code review backlog. Prior session (2026-04-18 label): tarrow_backfill.py live, Snowflake data model complete, PVs/Tracker meeting processed, eCPM decisioning frameworks added.
+**Last session:** 2026-04-19 — Full Snowflake pipeline completed and tested end-to-end: ingest (2,108 rows) → model (1,943 rows, 70 cols including article_domain) → enrich (1,907 matched) → snapshot (1,943 rows, TRACKER_WEEKLY). data-headlines Tarrow pipeline fully replaced: snowflake_enrich.py expanded to 31 cols, generate_site.py Snowflake fallback built, weekly_ingest.yml rescheduled Mon 2pm CDT. SNOWFLAKE.md comprehensive 17-section reference committed.
 **Status:** 21 active/tracked projects (P20 + P21 added). Compass goals submitted (Jeremy approval pending Apr 30).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
