@@ -123,12 +123,11 @@ export const PUBLICATIONS = [
 export const DOMAINS = PUBLICATIONS.map(p => p.domain);
 
 // Authors active in the tracker as of 2026-04-13.
-// Note: "Lauren J-G" / "Lauren JG" appear to be the same person (surname variant).
 export const AUTHORS = [
   'Allison Palmer',
   'Hanna Wickes',
+  'Lauren JG',
   'Lauren Schuster',
-  'Lauren J-G',
   'Ryan Brennan',
   'Samantha Agate',
 ];
