@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS MCC_PRESENTATION.CONTENT_SCALING_AGENT.TRACKER_WEEKLY
     REUTERS_LINK            VARCHAR,
     _ROW_NUM                NUMBER,
     _LOADED_AT              TIMESTAMP_NTZ,
+    ARTICLE_DOMAIN          VARCHAR,
 
     -- Traffic KPIs (all cumulative lifetime totals as of snapshot date)
     STORY_ID                VARCHAR,

@@ -234,6 +234,7 @@ base AS (
         t.REUTERS_LINK,
         t._ROW_NUM,
         t._LOADED_AT,
+        t.article_domain,
         -- Story ID: url extraction wins, then URL→meta join, then NULL
         COALESCE(t.url_story_id, mi.meta_story_id) AS story_id,
         -- Traffic: national O&O path or L&E path
@@ -437,6 +438,7 @@ SELECT
     b.REUTERS_LINK,
     b._ROW_NUM,
     b._LOADED_AT,
+    b.article_domain,
     -- Traffic KPIs
     b.story_id,
     b.total_pvs,
