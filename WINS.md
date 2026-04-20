@@ -8,6 +8,18 @@ Organized by ops-hub tier, reverse-chronological within each.
 
 ## Tier 1 — Foundation
 
+**2026-04-19 — Sigma creator seat resolved; Track B GRANT handed to Chad**
+Pierce has a Sigma creator seat. The only remaining gate for standing up CSA workbooks against `TRACKER_ENRICHED` is the Snowflake-side GRANT on `MCC_PRESENTATION.CONTENT_SCALING_AGENT` to Sigma's `DATA_ENGINEER_L` + `DATA_ENGINEER_M` service roles (USAGE + SELECT + FUTURE TABLES). Full ready-to-run GRANT block sent to Chad with a diagnostic `SHOW GRANTS ON SCHEMA` prefix so he can confirm ownership in one step. Sarah Price's workbook build unblocks the moment Chad executes.
+
+**2026-04-19 — National Content pipeline hardened end-to-end**
+Safety gates and guardrails added at every stage so a silent failure can't corrupt Sara's tracker, TRACKER_ENRICHED, or the Headlines site: ingest_tracker.py enforces REQUIRED_SHEET_COLUMNS + MIN_SAFE_ROWS=500 before any TRUNCATE; model_tracker.py aborts on <500-row builds and uses CREATE OR REPLACE for atomic replacement; enrich_tracker.py centralizes BENCHMARK_START_DATE as a constant (annual rollover flagged in comments); snowflake_enrich.py aborts the data-headlines build if TRACKER_ENRICHED returns <500 rows (freshness gate catches a broken Monday morning sync); generate_site.py engagement analysis downgrades cleanly when sample <30 so pearsonr/qcut can't crash. Both workflows now validate secrets are non-empty and decode to non-empty files before running Python, and every step has `timeout-minutes`. Author canonicalization propagated to the Snowflake base CTE — TRACKER_ENRICHED per-author aggregates no longer fragment across spellings. `cluster_avg_sim_desc` now blanked on all non-parent rows.
+
+**2026-04-19 — PIPELINE.md — canonical end-to-end reference written**
+Single authoritative document covering both chained GitHub Actions workflows (Mon 9am CDT + 2pm CDT), all seven pipeline stages (source/target/safety/runtime each), credentials + rotation, failure modes + recovery paths, the exact GRANT block for Sigma unlock, adding new data sources, 13-publication portfolio scope, and known tech debt. Cross-referenced from SNOWFLAKE.md + both repos' CONTEXT.md. SNOWFLAKE.md gets new subsections for author canonicalization (4-location sync requirement) and portfolio scope, plus the ARTICLE_DOMAIN column that was missing from the column reference.
+
+**2026-04-19 — Headlines site debranded and dated**
+Site-wide "T1" removal across generate_site.py + five supporting generators — the site no longer claims to be scope-exclusive to that tier. Run-date display updated to include day ("April 19, 2026") on every page header, footer, and caveat — the next weekly refresh will show this everywhere. Archive labels correctly stay monthly. Backwards-compat regex preserved so legacy archived pages still render.
+
 **2026-04-16 — PGS-170 DONE — WordPress URL slug bug shipped to production**
 The send-to-WordPress headline URL slug bug (variant name + date appended to slug → SEO-harmful 301 redirects) was diagnosed, fixed by Daury Caba, and shipped to production. Reported by Lauren Schuster. Removes the last reliability blocker on Send-to-WP for the United Robots inbound pipeline, which has been on hold in part because of this.
 
@@ -300,5 +312,5 @@ Kathryn Sheplavy flagged in standup that the send-to-WP feature (live as of yest
 **2026-04-10 — PGS-93 hold: stakeholder alignment on "Create Research Draft" scope**
 Ryan had requested a "Create Research Draft" option from the URL import flow; Susannah ticketed it without checking with Sara's team. Pierce intervened immediately on the Jira ticket: "Sara says this needs to be reworked; please do not prioritize." Ticket moved to ON HOLD. Prevents a dev cycle building something Sara's team doesn't own or endorse.
 
-*Last updated: 2026-04-19 (Snowflake pipeline end-to-end verified, 70-col TRACKER_ENRICHED + TRACKER_WEEKLY; data-headlines Tarrow pipeline replaced with Snowflake automation)*
+*Last updated: 2026-04-19 (late — pipeline hardened with safety gates + freshness checks; PIPELINE.md canonical reference written; Headlines site debranded; Sigma Track A resolved, Track B handed to Chad)*
 *Maintained by Claude. Updated proactively as work completes.*

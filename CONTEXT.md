@@ -1,7 +1,7 @@
 # Ops Hub — Working Context
 
 **Phase:** Build / Active
-**Last session:** 2026-04-19 — Full Snowflake pipeline completed and tested end-to-end: ingest (2,108 rows) → model (1,943 rows, 70 cols including article_domain) → enrich (1,907 matched) → snapshot (1,943 rows, TRACKER_WEEKLY). data-headlines Tarrow pipeline fully replaced: snowflake_enrich.py expanded to 31 cols, generate_site.py Snowflake fallback built, weekly_ingest.yml rescheduled Mon 2pm CDT. SNOWFLAKE.md comprehensive 17-section reference committed.
+**Last session:** 2026-04-19 (late) — Pipeline hardened end-to-end with safety gates (required-column check, 500-row floors, freshness gate, engagement downgrade) + workflow guardrails (secret emptiness validation, timeout-minutes). Author canonicalization propagated to the Snowflake base CTE so TRACKER_ENRICHED per-author aggregates no longer fragment. cluster_avg_sim_desc now parent-row-only. Headlines site debranded (no T1) and run-date now shows month/day/year. PIPELINE.md committed as canonical end-to-end reference. Sigma creator seat resolved (Track A); Track B GRANT block sent to Chad — once executed, Sarah Price workbook build against TRACKER_ENRICHED can begin.
 **Status:** 21 active/tracked projects (P20 + P21 added). Compass goals submitted (Jeremy approval pending Apr 30).
 
 For stable reference facts: see [REFERENCE.md](REFERENCE.md)
