@@ -44,6 +44,18 @@ SF_TABLE    = "NATIONAL_CONTENT_TRACKER"
 
 BATCH_SIZE  = 500
 
+# Safety: abort rather than truncate if the sheet appears malformed. Sara's
+# tracker has ~1,900 rows; a partial read that returned <500 is almost
+# certainly an API issue, not a legitimate content drop.
+MIN_SAFE_ROWS = 500
+
+# Columns required for every downstream consumer (model_tracker, enrich_tracker,
+# data-headlines generate_site). If any is missing from the sheet, abort without
+# truncating — a silent NULL would corrupt every downstream aggregate.
+REQUIRED_SHEET_COLUMNS = {
+    "Asset_ID", "Author", "Published URL/Link", "Headline", "Content_Type",
+}
+
 # Sheet header → Snowflake column name.
 # Exact matches tried first; falls back to case-insensitive strip.
 COLUMN_MAP = {
@@ -134,19 +146,31 @@ def resolve_columns(headers):
     """
     Map each COLUMN_MAP key to its 0-based index in the sheet header row.
     Tries exact match first, then case-insensitive strip.
-    Warns (does not abort) if a column is missing.
+    Warns (does not abort) if an optional column is missing; raises if a
+    REQUIRED_SHEET_COLUMNS entry is missing — that would silently NULL a
+    column every downstream script depends on.
     Returns dict: sheet_header_key → col_index.
     """
     lower_map = {h.strip().lower(): i for i, h in enumerate(headers)}
     col_indices = {}
+    missing_required = []
     for sheet_key in COLUMN_MAP:
         if sheet_key in headers:
             col_indices[sheet_key] = headers.index(sheet_key)
         elif sheet_key.strip().lower() in lower_map:
             col_indices[sheet_key] = lower_map[sheet_key.strip().lower()]
         else:
-            print(f"  ⚠ Column not found in sheet: '{sheet_key}' — will insert NULL")
+            if sheet_key in REQUIRED_SHEET_COLUMNS:
+                missing_required.append(sheet_key)
+            else:
+                print(f"  ⚠ Column not found in sheet: '{sheet_key}' — will insert NULL")
             col_indices[sheet_key] = None
+    if missing_required:
+        raise RuntimeError(
+            "Required columns missing from tracker sheet: "
+            f"{missing_required}. Refusing to truncate Snowflake — fix the "
+            "sheet header row first."
+        )
     return col_indices
 
 
@@ -201,28 +225,42 @@ def main():
     nonempty = sum(1 for r in insert_rows if any(v for v in r[:-1]))
     print(f"  {nonempty} non-empty rows to insert")
 
+    if nonempty < MIN_SAFE_ROWS:
+        raise RuntimeError(
+            f"Only {nonempty} non-empty rows — below MIN_SAFE_ROWS={MIN_SAFE_ROWS}. "
+            "Refusing to truncate Snowflake table. Likely a partial sheet read or "
+            "API throttle. Re-run the workflow; escalate if this recurs."
+        )
+
     print("Connecting to Snowflake (key-pair)…")
     con = sf_connect()
     cur = con.cursor()
 
-    print(f"Creating table {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE} if not exists…")
-    cur.execute(CREATE_TABLE_SQL)
+    try:
+        print(f"Creating table {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE} if not exists…")
+        cur.execute(CREATE_TABLE_SQL)
 
-    print("Truncating existing data…")
-    cur.execute(f"TRUNCATE TABLE {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}")
+        print("Truncating existing data…")
+        cur.execute(f"TRUNCATE TABLE {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}")
 
-    print(f"Inserting {len(insert_rows)} rows in batches of {BATCH_SIZE}…")
-    for i in range(0, len(insert_rows), BATCH_SIZE):
-        batch = insert_rows[i:i + BATCH_SIZE]
-        cur.executemany(INSERT_SQL, batch)
-        print(f"  …{min(i + BATCH_SIZE, len(insert_rows))} / {len(insert_rows)}")
+        print(f"Inserting {len(insert_rows)} rows in batches of {BATCH_SIZE}…")
+        for i in range(0, len(insert_rows), BATCH_SIZE):
+            batch = insert_rows[i:i + BATCH_SIZE]
+            cur.executemany(INSERT_SQL, batch)
+            print(f"  …{min(i + BATCH_SIZE, len(insert_rows))} / {len(insert_rows)}")
 
-    cur.execute(f"SELECT COUNT(*) FROM {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}")
-    count = cur.fetchone()[0]
-    print(f"\nDone. {count} rows in {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}.")
+        cur.execute(f"SELECT COUNT(*) FROM {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}")
+        count = cur.fetchone()[0]
+        print(f"\nDone. {count} rows in {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}.")
 
-    cur.close()
-    con.close()
+        if count != len(insert_rows):
+            raise RuntimeError(
+                f"Row count mismatch: inserted {len(insert_rows)}, table reports {count}. "
+                "Snowflake may have rejected a batch silently."
+            )
+    finally:
+        cur.close()
+        con.close()
 
 
 if __name__ == "__main__":

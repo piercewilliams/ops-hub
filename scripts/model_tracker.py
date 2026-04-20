@@ -44,6 +44,12 @@ SF_DATABASE  = "MCC_PRESENTATION"
 SF_SCHEMA    = "CONTENT_SCALING_AGENT"
 SF_TABLE     = "TRACKER_ENRICHED"
 
+# Company-median benchmark window (Chris Palo method): rolling 12-month cutoff.
+# Must match enrich_tracker.py. Bump the start date each October so the window
+# stays ~6–12 months of fresh data — older traffic skews the median low and
+# makes hit rates look artificially high.
+BENCHMARK_START_DATE = "2025-10-01"
+
 
 # ── Data model SQL ────────────────────────────────────────────────────────────
 #
@@ -68,7 +74,20 @@ WITH
 tracker AS (
     SELECT
         ASSET_ID, BRAND_TYPE, CONTENT_TYPE, PARENT_ID,
-        DRAFT_URL, PUBLISHED_URL, AUTHOR, SYNDICATION_PLATFORM, HEADLINE,
+        DRAFT_URL, PUBLISHED_URL,
+        -- Normalize known author name variants to canonical form. MUST stay in
+        -- sync with _AUTHOR_ALIASES in enrich_tracker.py and generate_site.py
+        -- (Lauren JG canonical, never Lauren J-G / Lauren Jarvis-Gibson;
+        -- Hanna Wickes canonical, never Hanna WIckes). Without this, per-author
+        -- aggregates (author_article_count, hit_rate, avg_pvs) fragment across
+        -- spellings and each article gets incomplete stats.
+        CASE TRIM(AUTHOR)
+            WHEN 'Lauren J-G'           THEN 'Lauren JG'
+            WHEN 'Lauren Jarvis-Gibson' THEN 'Lauren JG'
+            WHEN 'Hanna WIckes'         THEN 'Hanna Wickes'
+            ELSE AUTHOR
+        END AS AUTHOR,
+        SYNDICATION_PLATFORM, HEADLINE,
         TRY_TO_NUMBER(WEEK_NUM)       AS week_num,
         TRY_TO_DATE(WEEK_OF)          AS week_of,
         CREATION_DATE_MONTH, PUB_DATE_MONTH,
@@ -188,7 +207,7 @@ domain_article_totals AS (
     FROM MCC_PRESENTATION.TABLEAU_REPORTING.STORY_TRAFFIC_MAIN t
     JOIN MCC_PRESENTATION.TABLEAU_REPORTING.DYN_STORY_META_DATA m
         ON t.STORY_ID = m.ID
-    WHERE t.EVENT_DATE >= '2025-10-01'
+    WHERE t.EVENT_DATE >= '{benchmark_start}'
       AND m.ASSET_TYPE IN ('storyline', 'story', 'wirestory')
     GROUP BY domain, t.STORY_ID
 ),
@@ -543,15 +562,29 @@ def main():
     con = sf_connect()
     cur = con.cursor()
 
-    print(f"Building {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}…")
-    cur.execute(BUILD_SQL)
+    # CREATE OR REPLACE is atomic per Snowflake docs — on query failure the
+    # prior table remains intact. The post-build count sanity-check guards
+    # against a silent partial build (e.g. CTE returned zero rows).
+    try:
+        print(f"Building {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}…")
+        cur.execute(BUILD_SQL.replace("{benchmark_start}", BENCHMARK_START_DATE))
 
-    cur.execute(f"SELECT COUNT(*) FROM {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}")
-    count = cur.fetchone()[0]
-    print(f"\nDone. {count} rows in {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}.")
+        cur.execute(f"SELECT COUNT(*) FROM {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}")
+        count = cur.fetchone()[0]
+        print(f"\nDone. {count} rows in {SF_DATABASE}.{SF_SCHEMA}.{SF_TABLE}.")
 
-    cur.close()
-    con.close()
+        # Sara's tracker has ~1,900 rows; TRACKER_ENRICHED should be roughly
+        # the same size (filtered for non-null PUBLISHED_URL). A result below
+        # 500 almost certainly means the build broke silently.
+        if count < 500:
+            raise RuntimeError(
+                f"TRACKER_ENRICHED built with only {count} rows — suspiciously low. "
+                "Check that MCC_RAW.GROWTH_AND_STRATEGY.NATIONAL_CONTENT_TRACKER "
+                "has expected content and re-run."
+            )
+    finally:
+        cur.close()
+        con.close()
 
 
 if __name__ == "__main__":

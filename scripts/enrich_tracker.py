@@ -60,6 +60,12 @@ SF_KEY_PATH  = os.getenv("SNOWFLAKE_PRIVATE_KEY_PATH",
 SF_DATABASE  = "MCC_PRESENTATION"
 SF_SCHEMA    = "TABLEAU_REPORTING"
 
+# Company-median benchmark window (Chris Palo method): rolling 12-month cutoff.
+# MUST match model_tracker.py BENCHMARK_START_DATE. Bump each October so the
+# window stays ~6–12 months of fresh data. Older traffic skews medians low
+# and inflates "hit rate" (articles that look like they beat a weak median).
+BENCHMARK_START_DATE = "2025-10-01"
+
 # Output column names written to the sheet, in order.
 OUTPUT_COLS = [
     "story_id",
@@ -343,7 +349,7 @@ WITH article_totals AS (
     FROM MCC_PRESENTATION.TABLEAU_REPORTING.STORY_TRAFFIC_MAIN t
     JOIN MCC_PRESENTATION.TABLEAU_REPORTING.DYN_STORY_META_DATA m
         ON t.STORY_ID = m.ID
-    WHERE t.EVENT_DATE >= '2025-10-01'
+    WHERE t.EVENT_DATE >= '{benchmark_start}'
       AND m.ASSET_TYPE IN ('storyline', 'story', 'wirestory')
     GROUP BY domain, t.STORY_ID
 )
@@ -568,7 +574,7 @@ def fetch_company_medians(cur):
     """
     medians = {}
     print("  Querying company medians — national O&O (Oct 2025+, ~30–60 s)…")
-    cur.execute(COMPANY_MEDIANS_SQL)
+    cur.execute(COMPANY_MEDIANS_SQL.replace("{benchmark_start}", BENCHMARK_START_DATE))
     for row in cur.fetchall():
         domain = (row[0] or "").strip()
         if domain:
@@ -908,8 +914,10 @@ def write_output(sheet, rows, urls, metrics, cluster_stats, extras,
         key        = normalize_url(url)
         cs         = {k: v for k, v in cluster_stats.get(i, {}).items() if not k.startswith("_")}
         row_extras = dict(extras.get(key, {}))
-        # Blank parent-only extras on child rows (cluster_id == "" marks children)
-        if cs.get("cluster_id") == "":
+        # Blank parent-only extras on non-parent rows. Parent rows always have a
+        # truthy cluster_id set in compute_cluster_stats; child rows have "";
+        # rows with no code (rare, e.g. header artifacts) have no entry at all.
+        if not cs.get("cluster_id"):
             for col in PARENT_ONLY_EXTRAS:
                 row_extras[col] = ""
         m = {**metrics.get(key, {}), **cs, **row_extras}

@@ -2,6 +2,8 @@
 
 Everything needed to connect, query, build on, and maintain McClatchy's Snowflake instance for the National Content team. Updated in place as new tables, quirks, and scripts are discovered.
 
+**For the full weekly pipeline (Sara's sheet → Snowflake → Sara's sheet → Headlines site):** see [PIPELINE.md](PIPELINE.md). This document is the Snowflake reference — tables, columns, connection patterns. PIPELINE.md is the operational reference — the chained GitHub Actions workflows, failure modes, recovery paths.
+
 ---
 
 ## 1. Account & Connection
@@ -173,6 +175,7 @@ Applied in order; first match wins per article:
 | `REUTERS_LINK` | VARCHAR | Reuters link used? |
 | `_ROW_NUM` | NUMBER | Row position in Sara's sheet (starts at 2) |
 | `_LOADED_AT` | TIMESTAMP_NTZ | When ingested from sheet |
+| `ARTICLE_DOMAIN` | VARCHAR | Domain extracted from PUBLISHED_URL (www./amp. stripped) — used for per-pub median lookup |
 
 ### Traffic KPIs (all cumulative lifetime totals as of model run)
 
@@ -311,41 +314,45 @@ TRACKER_WEEKLY = TRACKER_ENRICHED + 2 snapshot columns:
 
 ## 11. Pipeline — Weekly Workflow
 
-### Automated (run_pipeline.sh)
+**Authoritative operational reference: [PIPELINE.md](PIPELINE.md).** This section summarizes the Snowflake-relevant pieces; PIPELINE.md documents the full cross-repo flow including data-headlines.
+
+### Automated — two chained GitHub Actions workflows
+
+| When | Workflow | Scripts | Purpose |
+|------|----------|---------|---------|
+| Mon 9:00 AM CDT | ops-hub `.github/workflows/snowflake-tracker-sync.yml` | `ingest_tracker.py` → `model_tracker.py` → `enrich_tracker.py` | Push Sara's sheet to Snowflake, rebuild TRACKER_ENRICHED, write enrichment columns back to Sara's sheet |
+| Mon 2:00 PM CDT | data-headlines `.github/workflows/weekly_ingest.yml` | `download_tarrow.py` → `snowflake_enrich.py` → `generate_site.py` → `update_snapshots.py` | Pull TRACKER_ENRICHED into JSON, regenerate Headlines site |
+
+Zero manual steps. The 5-hour buffer between workflows lets `TRACKER_ENRICHED` finish rebuilding before data-headlines queries it.
+
+### Manual — on-demand pipeline (`run_pipeline.sh`)
 
 ```bash
-# Full pipeline (all 4 steps)
-bash scripts/run_pipeline.sh
-
-# Skip writing back to Sara's sheet (faster; use when sheet enrichment not needed)
-bash scripts/run_pipeline.sh --skip-sheet
+bash scripts/run_pipeline.sh              # Full pipeline including step 4 snapshot
+bash scripts/run_pipeline.sh --skip-sheet  # Skip writing back to Sara's sheet
 ```
+
+Used for ad-hoc runs and local testing. Not required — the automated workflow above runs the same scripts.
 
 ### Steps
 
 | Step | Script | What it does | Run time |
 |------|--------|-------------|----------|
-| 1 | `ingest_tracker.py` | Reads Sara's Google Sheet → TRUNCATE + INSERT into `NATIONAL_CONTENT_TRACKER` | ~10s |
-| 2 | `model_tracker.py` | Builds `TRACKER_ENRICHED` from all 8 sources via 15-CTE SQL query | ~30–45s |
-| 3 | `enrich_tracker.py` | Reads TRACKER_ENRICHED → writes traffic + cluster data back to Sara's sheet | ~60s |
-| 4 | `snapshot_tracker.py` | Appends current-Monday snapshot to `TRACKER_WEEKLY` (DELETE+INSERT) | ~15s |
-
-### Step 3 is optional
-
-`--skip-sheet` skips step 3 entirely. Use when:
-- You've already enriched the sheet this week
-- Sara's sheet is in a sensitive edit state
-- You want a faster model refresh + snapshot only
+| 1 | `ingest_tracker.py` | Reads Sara's Google Sheet → TRUNCATE + INSERT into `NATIONAL_CONTENT_TRACKER`. Safety: REQUIRED_SHEET_COLUMNS + MIN_SAFE_ROWS=500 before truncate | ~30–60s |
+| 2 | `model_tracker.py` | Builds `TRACKER_ENRICHED` from all 8 sources via CTE SQL. Safety: aborts if result <500 rows. Author names normalized via CASE in base `tracker` CTE | ~30–45s |
+| 3 | `enrich_tracker.py` | Reads TRACKER_ENRICHED → writes 14 enrichment cols back to Sara's sheet + rebuilds Trends tab | ~60–90s |
+| 4 | `snapshot_tracker.py` (manual/optional) | Appends current-Monday snapshot to `TRACKER_WEEKLY` (DELETE+INSERT). Currently not in the automated workflow | ~15s |
 
 ### Failure behavior
 
-`run_pipeline.sh` uses `set -euo pipefail` — any step failure stops the pipeline. No partial state is committed. Re-run the full pipeline after fixing the failure.
+- **Automated workflows:** GitHub Actions step failure surfaces in the run summary. Both workflows have `timeout-minutes` on every step. Re-run manually via "Run workflow" button. TRACKER_ENRICHED uses `CREATE OR REPLACE TABLE` which is atomic — a failed build leaves the prior good table intact.
+- **Manual run_pipeline.sh:** Uses `set -euo pipefail` — any step failure stops the pipeline. No partial state is committed.
 
 ### Prerequisites
 
-- `~/.credentials/growth_strategy_service_rsa_key.p8` — RSA private key for Snowflake
-- `~/.credentials/pierce-tools.json` — Google service account for Sheets API
-- Python 3 with packages: `snowflake-connector-python`, `cryptography`, `gspread`
+- GitHub Actions secrets (both repos): `SNOWFLAKE_RSA_KEY_B64` (base64 RSA key), `GOOGLE_SERVICE_ACCOUNT_JSON` (base64 service account)
+- Local dev: `~/.credentials/growth_strategy_service_rsa_key.p8` + `~/.credentials/pierce-tools.json` (env var overrides supported)
+- Python 3.11 with packages: `snowflake-connector-python`, `cryptography`, `gspread`, `google-auth`
 
 ---
 
@@ -438,6 +445,39 @@ GROUP BY 1
 ---
 
 ## 13. Important Distinctions
+
+### Author name canonicalization
+
+Sara's tracker has historically contained spelling variants for the same author (`Lauren J-G` vs `Lauren JG` vs `Lauren Jarvis-Gibson`; `Hanna WIckes` vs `Hanna Wickes`). Without normalization these fragment author-level aggregates — a single person's hit rate gets split across two or three rows.
+
+**Normalization happens in four places and must be kept in sync:**
+
+| Location | Applied to | Implementation |
+|---|---|---|
+| `ops-hub/scripts/model_tracker.py` | Snowflake base CTE — normalizes before all `GROUP BY AUTHOR` aggregates | `CASE TRIM(AUTHOR) WHEN 'Lauren J-G' THEN 'Lauren JG' …` |
+| `ops-hub/scripts/enrich_tracker.py` | Trends-tab per-author performance table | `_AUTHOR_ALIASES` dict |
+| `data-headlines/generate_site.py` | `tracker_raw["Author"]` after Excel load, before any groupby | `_AUTHOR_ALIASES` dict |
+| `data-headlines/generate_grader.py` | Per-headline card author display | `_AUTHOR_ALIASES` dict |
+
+**Canonical authors (2026-04-19):** Allison Palmer, Hanna Wickes, Lauren JG, Lauren Schuster, Ryan Brennan, Samantha Agate.
+
+**Current aliases:**
+- `Lauren J-G` → `Lauren JG`
+- `Lauren Jarvis-Gibson` → `Lauren JG`
+- `Hanna WIckes` → `Hanna Wickes`
+
+If a new variant surfaces, add it to **all four** locations in the same PR. The upstream Snowflake CTE is the primary normalization — the downstream dicts defend against sheet-level typos that were introduced after the last ingest.
+
+### National Content team portfolio scope
+
+The pipeline is scoped to the National Content team's **13 publications**. Canonical list: `data/national-portfolio.js` in ops-hub.
+
+Domains:
+`usmagazine.com`, `womansworld.com`, `miamiherald.com`, `kansascity.com`, `charlotteobserver.com`, `star-telegram.com`, `sacbee.com`, `newsobserver.com`, `centredaily.com`, `coralspringsflnews.com`, `miramarflnews.com`, `pembrokepinesflnews.com`, `thestate.com`.
+
+**Out of scope (filtered out):** `lifeandstylemag.com`, `modmomsclub.com` (per Sara Vallone 2026-04-13), plus `modmomsclub.local` / `wpenginepowered` staging URLs.
+
+Any new SEMrush pull, Amplitude query, Marfeel filter, or new Snowflake aggregation that claims to be "team scope" must use this domain list.
 
 ### APPLENEWS_PVS ≠ Apple News platform views
 
