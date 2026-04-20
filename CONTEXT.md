@@ -85,7 +85,7 @@ For session history: see [sessions/](sessions/)
 - [ ] **Document sandbox base build** — Chris explicitly asked; package toolkit + guardrails so Chris + Sarah Price can replicate
 
 **G5 — Technical/Analytical:**
-- [ ] **Mon 2026-04-20: Ping Chad Bruton — Sigma GRANTs (Track B)**. Pierce has Sigma creator seat as of 2026-04-19; only Snowflake-side grants block the workbook build now. Run the 4 diagnostic queries (`SHOW GRANTS ON SCHEMA MCC_PRESENTATION.CONTENT_SCALING_AGENT`, etc.) first to determine whether Pierce can execute the grants himself; if owner is a role he can USE, skip Chad entirely. Otherwise forward the exact GRANT block to Chad (USAGE + SELECT + FUTURE TABLES for both DATA_ENGINEER_L and DATA_ENGINEER_M on CONTENT_SCALING_AGENT).
+- [x] ~~**Ping Chad Bruton — Sigma GRANTs (Track B)**~~ — SENT 2026-04-19. Full GRANT block for USAGE + SELECT + FUTURE TABLES on MCC_PRESENTATION.CONTENT_SCALING_AGENT for both DATA_ENGINEER_L and DATA_ENGINEER_M handed off. Waiting on Chad to execute.
 - [ ] **Replace Tarrow data with Snowflake (HIGH PRIORITY)** — All data-headlines Tarrow dependencies (weekly ingest, grader, author playbooks, tracker_raw) must be replaced with direct Snowflake pulls. Tarrow is poor quality; Snowflake is the authoritative source. Gate: GitHub→Snowflake connection (Chad Bruton). Tables: STORY_TRAFFIC_MAIN + DYN_STORY_META_DATA.
 - [ ] **Mon 2026-04-20 3pm CDT — Ryan Spalding meeting** — Chris Palo + Sarah Price joining. Three asks: (1) eCPM by publication as Snowflake data for Recipe system Market dimension; (2) clarify which eCPM number to use — OM tab vs loaded (two different numbers surfaced 2026-04-17); (3) partner contact inbound — Chris flagged this as hardest AI application; wants Ryan's view from a revenue/cost angle.
 - [ ] **Scrub defunct publications** — Remove First for Women, Soaps in Depth, InTouch from `data/national-portfolio.js` and all data-headlines pipeline references (AUTHOR_VERTICAL, any hardcoded pub lists).
@@ -102,7 +102,7 @@ For session history: see [sessions/](sessions/)
 **Waiting — no Pierce action needed:**
 - Chris Palo: schedule joint tooling review (Pierce, Sarah Price, Sara Vallone, Kathy) — whether ClickUp or new tracking tool is needed at 2,000+ articles. Pierce's position: tooling is fine, permissions are the bottleneck.
 - Deedra Lawhead: Sigma creator access for Sarah Price (Pierce's seat resolved 2026-04-19)
-- Chad Bruton: reviewing TRACKER_ENRICHED model + Sigma hookup (this afternoon 2026-04-18)
+- Chad Bruton: execute the Sigma GRANT block on CONTENT_SCALING_AGENT (sent 2026-04-19) — unblocks TRACKER_ENRICHED workbook build
 - Joe Vitali: PTECH-7730 ETA (Julia Kim is PM)
 - Derek/Sara: MAIA tab access + tracking sheet (P19; Sara requested 2026-04-15)
 - Gary Kirwan: code access response (Jason + Rajiv discussing)
