@@ -257,7 +257,7 @@ To view: ask Claude "show me WINS.md" or open the file directly.
 
 Potential future additions (not scheduled):
 
-- **Sigma CSA workbook** — Snowflake integration is live (`TRACKER_ENRICHED` in MCC_PRESENTATION); blocked on Sigma creator permissions (Dedra Lawhead) and Chad Bruton Sigma role grants
+- **Sigma CSA workbook** — Snowflake integration is live (`TRACKER_ENRICHED` in MCC_PRESENTATION); Pierce has creator seat as of 2026-04-19. Remaining gate: Snowflake GRANT on CONTENT_SCALING_AGENT to Sigma's DATA_ENGINEER_L/M roles (may be self-servable — see PIPELINE.md).
 - **Amplitude integration** — blocked by p-tagging dev fix (PTECH-7730); once resolved, activate the adapter in `csa-dashboard`'s `ingest.js`
 - **Per-project history view** — show status changes over time for a single project using snapshot diffing
 - **Mobile layout** — current layout requires a wide screen; responsive breakpoints would help on tablets

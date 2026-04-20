@@ -513,7 +513,12 @@ Direct-sold revenue (Naviga) and programmatic (GAM) are in Snowflake. Architectu
 
 ### Sigma access
 
-Sigma setup is blocked on permissions provisioning. Chad Bruton is the contact. When resolved, `TRACKER_ENRICHED` and `TRACKER_WEEKLY` are the primary data sources for Sigma workbooks.
+Two permission tracks, one resolved:
+
+- **Track A — Sigma creator seat (login-level authoring permission):** RESOLVED 2026-04-19. Pierce has a creator seat. Dedra Lawhead is the contact for additional seats (e.g., Sarah Price still pending).
+- **Track B — Snowflake GRANTs to Sigma's service roles:** Sigma connects through `DATA_ENGINEER_L` + `DATA_ENGINEER_M`. Both roles must have USAGE on `MCC_PRESENTATION` + `CONTENT_SCALING_AGENT` and SELECT on ALL + FUTURE tables in that schema. Run `SHOW GRANTS ON SCHEMA MCC_PRESENTATION.CONTENT_SCALING_AGENT` first — if ownership is held by a role Pierce can USE, the GRANTs are self-servable; otherwise Chad Bruton executes. See PIPELINE.md for the exact GRANT block to hand off.
+
+When Track B clears, `TRACKER_ENRICHED` and `TRACKER_WEEKLY` are the primary data sources for Sigma workbooks.
 
 ---
 
